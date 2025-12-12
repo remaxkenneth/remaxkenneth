@@ -4,25 +4,25 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
-
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Contact | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+<title>Events | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
 <!-- OPEN GRAPH / META (ONLY ADDITION) -->
-<meta property="og:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
-<meta property="og:description" content="Direct contact with Kenneth Gehlhoff and team. Trusted local guidance for luxury real estate in Baja California Sur.">
+<meta property="og:title" content="Baja Events & Community – RE/MAX Cabo Sanctuary">
+<meta property="og:description" content="Live music, markets, and community events in Cerritos and Todos Santos. Experience Baja beyond the listings.">
 <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
-<meta property="og:url" content="https://remaxkenneth.vercel.app/businesscard.html">
+<meta property="og:url" content="https://remaxkenneth.vercel.app/events.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <!-- END META -->
 
 <style>
 :root {
-  --remax-blue: #003da5;
+  --remax-blue: #0043FF;
   --remax-dark-blue: #000E35;
+  --remax-red: #FF1200;
   --bg-light: #f5f6f7;
   --card-bg: #ffffff;
   --text-main: #111;
@@ -40,7 +40,6 @@ body {
 }
 
 a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
 
 /* ================= HEADER ================= */
 
@@ -58,7 +57,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 14px 5%;
-  position: relative;
 }
 
 .nav-left {
@@ -83,7 +81,7 @@ header {
   cursor: pointer;
 }
 
-/* ================= MENU ================= */
+/* ===== MENU ===== */
 
 .menu-panel {
   position: absolute;
@@ -114,6 +112,7 @@ body.menu-open .menu-panel {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--text-main);
 }
 
 .menu-panel a span {
@@ -127,7 +126,7 @@ body.menu-open .menu-panel {
 
 #hero {
   position: relative;
-  min-height: 320px;
+  min-height: 360px;
   display: flex;
   align-items: center;
   background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
@@ -138,11 +137,7 @@ body.menu-open .menu-panel {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    130deg,
-    rgba(0,14,53,0.65),
-    rgba(0,0,0,0.25)
-  );
+  background: linear-gradient(130deg, rgba(0,14,53,0.78), rgba(0,0,0,0.35));
 }
 
 .hero-inner {
@@ -166,7 +161,7 @@ body.menu-open .menu-panel {
 }
 
 .hero-sub {
-  max-width: 420px;
+  max-width: 460px;
   color: #e5e7eb;
 }
 
@@ -203,42 +198,37 @@ body.menu-open .menu-panel {
 .card {
   background: var(--card-bg);
   border-radius: 26px;
-  padding: 36px;
+  overflow: hidden;
   box-shadow: 0 20px 45px rgba(0,0,0,0.08);
-  text-align: center;
 }
 
-.card img.logo {
-  width: 110px;
-  margin: 0 auto 22px;
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 26px;
 }
 
 .card h3 {
-  margin: 0;
+  margin-top: 0;
   color: var(--remax-dark-blue);
 }
 
-.card .role {
-  margin-top: 8px;
-  font-size: 0.75rem;
-  letter-spacing: 0.22em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-}
-
-.contact-item {
-  margin-top: 18px;
+.card p {
   font-size: 0.95rem;
   color: #444;
 }
 
-.contact-item a {
+.card a {
   display: inline-block;
-  margin-top: 6px;
+  margin-top: 16px;
   padding: 12px 22px;
   border-radius: 999px;
   background: #eaecef;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -269,7 +259,7 @@ footer {
       <a href="index.html">Home</a>
       <a href="events.html">Events</a>
       <a href="businesscard.html">Contact</a>
-      <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US" target="_blank">
+      <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140" target="_blank">
         RE/MAX <span>Profile</span>
       </a>
     </div>
@@ -278,47 +268,54 @@ footer {
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">CONTACT · TEAM</div>
-    <h1 class="hero-title">Let’s Connect</h1>
+    <div class="hero-eyebrow">COMMUNITY · BAJA SUR</div>
+    <h1 class="hero-title">Life in Baja Happens Between the Listings</h1>
     <p class="hero-sub">
-      Direct access to the people behind your Baja real estate decisions.
+      Surf at first light. Markets before noon. Music after sunset.
+      This is where the real Baja shows up.
+      This is the rhythm of Todos Santos and Cerritos.
     </p>
   </div>
 </section>
 
 <section class="section">
-  <h2 class="section-title">Our Team</h2>
-  <div class="section-sub">DIRECT • LOCAL • TRUSTED</div>
+  <h2 class="section-title">What’s Happening This Week</h2>
+  <div class="section-sub">A look at the moments worth leaving the house for.</div>
 
   <div class="grid">
     <div class="card">
-      <img src="images/logo.png" class="logo">
-      <h3>Kenneth Gehlhoff</h3>
-      <div class="role">Realtor</div>
-
-      <div class="contact-item">+52 612 231 1639</div>
-      <div class="contact-item">
-        <a href="tel:+526122311639">Call</a>
-        <a href="https://wa.me/526122311639" target="_blank">WhatsApp</a>
-      </div>
-
-      <div class="contact-item">
-        <a href="mailto:kenny@remaxcaborealestate.com">Email</a>
+      <img src="images/IMG_0756.jpeg">
+      <div class="card-content">
+        <h3>Evenings in Baja</h3>
+        <p>
+          Courtyard concerts, local restaurants, late dinners, and the moments
+          that make the town feel alive after the sun goes down.
+        </p>
+        <a href="https://www.bandsintown.com/c/todos-santos-mexico" target="_blank">
+          View Music Calendar
+        </a>
       </div>
     </div>
 
     <div class="card">
-      <h3>Richard Gomez</h3>
-      <div class="role">Construction · Advisor</div>
-
-      <div class="contact-item">+52 378 149 7632</div>
-      <div class="contact-item">
-        <a href="tel:+523781497632">Call</a>
-        <a href="https://wa.me/523781497632" target="_blank">WhatsApp</a>
+      <img src="images/IMG_0757.jpeg">
+      <div class="card-content">
+        <h3>Markets & Mornings</h3>
+        <p>Artisan ferias, fresh produce, and community markets.</p>
+        <a href="https://gringogazette.com/event/" target="_blank">
+          View Events
+        </a>
       </div>
+    </div>
 
-      <div class="contact-item">
-        <a href="mailto:ricardogomez160622@gmail.com">Email</a>
+    <div class="card">
+      <img src="images/IMG_0758.jpeg">
+      <div class="card-content">
+        <h3>Official Events</h3>
+        <p>State and regional tourism events across Baja California Sur.</p>
+        <a href="https://setuesbcs.gob.mx/eventos-admin/calendario.php" target="_blank">
+          Official Calendar
+        </a>
       </div>
     </div>
   </div>
