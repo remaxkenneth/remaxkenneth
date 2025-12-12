@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Communities | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+<title>Events | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
 <style>
 :root {
@@ -255,63 +255,78 @@ footer {
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">AFTER DARK · BAJA SUR</div>
-    <h1 class="hero-title">Communities & Lifestyle</h1>
+    <div class="hero-eyebrow">COMMUNITY · BAJA SUR</div>
+    <h1 class="hero-title">Life in Baja Happens Between the Listings</h1>
     <p class="hero-sub">
-      Todos Santos, Cerritos, and El Pescadero — where culture, surf, and quiet luxury meet.
+      Music after sunset. Markets before noon. Surf at first light.
+      This is where the real Baja shows up.
+      This is the rhythm of Todos Santos and Cerritos.
     </p>
   </div>
 </section>
 
 <section class="section">
-  <h2 class="section-title">Explore Baja Living</h2>
-  <div class="section-sub">LOCAL • CURATED • TIMELESS</div>
+  <h2 class="section-title">What’s Happening This Week</h2>
+  <div class="section-sub">A curated look at the moments worth leaving the house for.</div>
 
   <div class="grid">
     <div class="card">
       <img src="images/sunsetcerritos.jpeg">
       <div class="card-content">
-        <h3>Todos Santos</h3>
-        <p>Art, food, culture, and walkable charm — a designated Pueblo Mágico.</p>
-        <a href="#">View Community</a>
+        <h3>Evenings in Baja</h3>
+        <p>
+          Courtyard concerts, local restaurants, late dinners, and the moments
+          that make the town feel alive after the sun goes down.
+        </p>
+        <a href="https://www.bandsintown.com/c/todos-santos-mexico" target="_blank">
+          View Music Calendar
+        </a>
       </div>
     </div>
 
     <div class="card">
       <img src="images/sunsetcerritos.jpeg">
       <div class="card-content">
-        <h3>Cerritos Beach</h3>
-        <p>Surf breaks, oceanfront homes, and sunset-driven living.</p>
-        <a href="#">View Community</a>
+        <h3>Markets & Mornings</h3>
+        <p>Artisan ferias, fresh produce, and community markets.</p>
+        <a href="https://www.eventbrite.com.mx/d/mexico--todos-santos/events/" target="_blank">
+          View Events
+        </a>
       </div>
     </div>
 
     <div class="card">
       <img src="images/sunsetcerritos.jpeg">
       <div class="card-content">
-        <h3>El Pescadero</h3>
-        <p>Wide-open land, farming roots, and private coastal estates.</p>
-        <a href="#">View Community</a>
+        <h3>Official Events</h3>
+        <p>State and regional tourism events across Baja California Sur.</p>
+        <a href="https://setuesbcs.gob.mx/eventos-admin/calendario.php" target="_blank">
+          Official Calendar
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2025 · RE/MAX Cabo Sanctuary · Each office independently owned and operated.
+  Curated locally. Updated often.<br>
+  <span>RE/MAX Cabo Sanctuary</span> · Each office independently owned and operated
 </footer>
 
 <script>
 (function(){
   const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
+
   btn.addEventListener("click", e => {
     e.stopPropagation();
     document.body.classList.toggle("menu-open");
   });
+
   document.addEventListener("click", () => {
     document.body.classList.remove("menu-open");
   });
+
   panel.addEventListener("click", e => e.stopPropagation());
 })();
 </script>
