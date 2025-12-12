@@ -21,7 +21,10 @@ body {
   color: var(--lux-white);
 }
 
-a { text-decoration: none; color: inherit; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* ===================== HEADER ===================== */
 header {
@@ -109,7 +112,7 @@ body.menu-open .menu-panel {
   transition: 0.2s;
 }
 
-/* 🔥 THIS IS THE FIX */
+/* RE/MAX Profile sub-label */
 .menu-panel a span {
   display: block;
   font-size: 12px;
@@ -163,7 +166,9 @@ body.menu-open .menu-panel {
 }
 
 /* ===================== CONTENT ===================== */
-.section { padding: 120px 8%; }
+.section {
+  padding: 120px 8%;
+}
 
 .section-title {
   font-size: 2.4rem;
@@ -273,6 +278,82 @@ footer span { color: var(--lux-gold); }
   </div>
 </header>
 
-<!-- rest of page unchanged -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">BAJA · COMMUNITY · LIFE</div>
+    <h1 class="hero-title">Life in Baja Doesn’t Happen on a Schedule</h1>
+    <p class="hero-copy">
+      Music after sunset. Markets before noon. Surf at first light.
+      This is where the real Baja shows up.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="featured">
+  <h2 class="section-title">What’s Happening This Week</h2>
+  <p class="section-sub">A curated look at the moments worth leaving the house for.</p>
+
+  <div class="feature">
+    <h3>After Dark</h3>
+    <p>Live music, late dinners, fire pits, and nights that stretch longer than planned.</p>
+    <a class="lux-btn" href="https://www.bandsintown.com/c/todos-santos-mexico" target="_blank">
+      View Music Calendar
+    </a>
+  </div>
+
+  <div class="grid">
+    <div class="grid-card">
+      <h4>Markets & Mornings</h4>
+      <p>Local ferias, artisans, food, and slow starts.</p>
+      <a class="lux-btn" href="https://www.eventbrite.com.mx/d/mexico--todos-santos/events/" target="_blank">
+        See Events
+      </a>
+    </div>
+
+    <div class="grid-card">
+      <h4>Festivals & Culture</h4>
+      <p>Art, music, and moments that define the season.</p>
+      <a class="lux-btn" href="https://www.zonaturistica.com/eventos-en/baja-california-sur/todos-santos" target="_blank">
+        Explore
+      </a>
+    </div>
+
+    <div class="grid-card">
+      <h4>Ocean & Movement</h4>
+      <p>Surf meets, beach walks, and sunrise rituals.</p>
+      <a class="lux-btn" href="https://setuesbcs.gob.mx/eventos-admin/calendario.php" target="_blank">
+        Official Calendar
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Curated locally. Updated often.<br>
+  <span>RE/MAX Cabo Sanctuary</span> · Each office independently owned & operated
+</footer>
+
+<script>
+(function () {
+  const body = document.body;
+  const button = document.getElementById("menuButton");
+  const panel  = document.getElementById("menuPanel");
+
+  function openMenu() { body.classList.add("menu-open"); }
+  function closeMenu() { body.classList.remove("menu-open"); }
+
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    body.classList.contains("menu-open") ? closeMenu() : openMenu();
+  });
+
+  panel.addEventListener("click", e => e.stopPropagation());
+
+  document.addEventListener("click", () => {
+    if (body.classList.contains("menu-open")) closeMenu();
+  });
+})();
+</script>
+
 </body>
 </html>
