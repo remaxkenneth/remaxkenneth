@@ -3,350 +3,304 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Community Events – RE/MAX Kenneth</title>
+<title>Baja Community – RE/MAX Cabo Sanctuary</title>
 
 <style>
-    :root {
-        --remax-blue: #003da5;
-        --remax-red:  #e4002b;
-        --text-main:  #222;
-        --text-muted:#6b7280;
-        --bg-light:  #f4f5f7;
-        --card-bg:   #ffffff;
-    }
+:root {
+  --lux-black: #0f1115;
+  --lux-charcoal: #1a1d23;
+  --lux-gold: #c9a24d;
+  --lux-white: #f5f5f5;
+}
 
-    * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: var(--bg-light);
-        color: var(--text-main);
-    }
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--lux-black);
+  color: var(--lux-white);
+}
 
-    a { text-decoration: none; color: inherit; }
+/* ================= HEADER ================= */
 
-    /* ===================== HEADER ===================== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(15,17,21,0.65);
+  backdrop-filter: blur(12px);
+}
 
-    header {
-        background: #fff;
-        border-bottom: 1px solid #e5e7eb;
-        position: sticky;
-        top: 0;
-        z-index: 50;
-    }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 6%;
+}
 
-    .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 5%;
-        position: relative;
-    }
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-    .nav-left {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+.nav-left img {
+  height: 28px;
+}
 
-    .nav-left img {
-        height: 32px;
-        width: auto;
-    }
+.nav-left span {
+  letter-spacing: 0.18em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
 
-    .nav-left span {
-        font-size: 1.05rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--remax-blue);
-    }
+.menu-button {
+  font-size: 28px;
+  cursor: pointer;
+}
 
-    .menu-button {
-        font-size: 32px;
-        cursor: pointer;
-        padding: 8px 10px;
-    }
+/* ================= HERO ================= */
 
-    /* ===================== MENU PANEL ===================== */
+#hero {
+  height: 100vh;
+  background:
+    linear-gradient(rgba(15,17,21,0.55), rgba(15,17,21,0.85)),
+    url("images/sunsetcerritos.jpeg") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 8%;
+}
 
-    .menu-panel {
-        position: absolute;
-        right: 18px;
-        top: 65px;
-        background: rgba(255,255,255,0.3);
-        backdrop-filter: blur(18px);
-        border-radius: 26px;
-        padding: 22px;
-        min-width: 180px;
-        box-shadow: 0 10px 35px rgba(0,0,0,0.22);
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-        opacity: 0;
-        pointer-events: none;
-        transform: scale(0.95);
-        transition: .25s ease;
-    }
+.hero-inner {
+  max-width: 900px;
+}
 
-    body.menu-open .menu-panel {
-        opacity: 1;
-        pointer-events: auto;
-        transform: scale(1);
-    }
+.hero-eyebrow {
+  letter-spacing: 0.35em;
+  font-size: 0.75rem;
+  color: var(--lux-gold);
+  margin-bottom: 24px;
+}
 
-    .menu-panel a {
-        font-size: 15px;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: #000;
-    }
+.hero-title {
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
 
-    /* ===================== HERO ===================== */
+.hero-copy {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #d6d6d6;
+  max-width: 620px;
+  margin: 0 auto;
+}
 
-    #hero {
-        position: relative;
-        height: 38vh;
-        min-height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
-        color: #fff;
-        text-align: center;
-    }
+/* ================= SECTIONS ================= */
 
-    #hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(120deg, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
-    }
+.section {
+  padding: 120px 8%;
+}
 
-    .hero-inner {
-        position: relative;
-        z-index: 2;
-        width: 90%;
-        max-width: 1100px;
-    }
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
 
-    .hero-title {
-        font-size: 2.8rem;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-    }
+.section-sub {
+  color: #b6b6b6;
+  max-width: 520px;
+  margin-bottom: 60px;
+}
 
-    .hero-copy {
-        color: #e5e7eb;
-        font-size: 1.05rem;
-        max-width: 520px;
-        margin: 0 auto;
-    }
+/* ================= FEATURE ================= */
 
-    /* ===================== COMMUNITY SECTION ===================== */
+.feature {
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
+    url("images/sunsetcerritos.jpeg") center / cover no-repeat;
+  border-radius: 18px;
+  padding: 90px 8%;
+  margin-bottom: 90px;
+  transition: transform .5s ease, box-shadow .5s ease;
+}
 
-    .events-section {
-        padding: 60px 0;
-    }
+.feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+}
 
-    .events-title {
-        text-align: center;
-        font-size: 2.2rem;
-        color: var(--remax-blue);
-        margin-bottom: 8px;
-    }
+.feature h3 {
+  font-size: 2.8rem;
+  font-weight: 300;
+  margin-bottom: 14px;
+}
 
-    .events-subtitle {
-        text-align: center;
-        color: var(--text-muted);
-        margin-bottom: 40px;
-    }
+.feature p {
+  max-width: 480px;
+  line-height: 1.6;
+  color: #d8d8d8;
+  margin-bottom: 28px;
+}
 
-    .featured-events {
-        width: 92%;
-        max-width: 900px;
-        margin: 0 auto 40px auto;
-        background: #fff;
-        border-left: 4px solid var(--remax-red);
-        padding: 20px 24px;
-        border-radius: 6px;
-    }
+.lux-btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border: 1px solid var(--lux-gold);
+  color: var(--lux-gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  transition: all .35s ease;
+}
 
-    .featured-events ul {
-        padding-left: 18px;
-        margin: 0;
-    }
+.lux-btn:hover {
+  background: var(--lux-gold);
+  color: #000;
+}
 
-    /* ===================== EVENT CARDS ===================== */
+/* ================= GRID ================= */
 
-    .event-widgets-row {
-        width: 92%;
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 30px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 50px;
+}
 
-    .event-widget {
-        background: #fff;
-        padding: 24px;
-        border-radius: 8px;
-        border: 1px solid #e0e0e0;
-    }
+.grid-card {
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)),
+    url("images/sunsetcerritos.jpeg") center / cover no-repeat;
+  border-radius: 16px;
+  padding: 60px 36px;
+  min-height: 360px;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
 
-    .event-widget h4 {
-        margin-bottom: 12px;
-        color: var(--remax-blue);
-    }
+.grid-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+}
 
-    .event-widget p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        line-height: 1.45;
-        margin-bottom: 18px;
-    }
+.grid-card h4 {
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
 
-    .event-btn {
-        display: inline-block;
-        padding: 10px 16px;
-        background: var(--remax-blue);
-        color: #fff;
-        border-radius: 4px;
-        font-size: 0.9rem;
-        font-weight: 600;
-    }
+.grid-card p {
+  color: #cfcfcf;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
 
-    .event-btn:hover {
-        background: var(--remax-red);
-    }
+/* ================= FOOTER ================= */
 
-    /* ===================== FOOTER ===================== */
+footer {
+  padding: 80px 8%;
+  text-align: center;
+  color: #8a8a8a;
+  font-size: 0.8rem;
+}
 
-    footer {
-        text-align: center;
-        padding: 30px 0 40px;
-        font-size: 0.85rem;
-        color: #666;
-    }
+footer span {
+  color: var(--lux-gold);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px) {
+  .section { padding: 90px 6%; }
+  .feature { padding: 70px 6%; }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="nav">
-        <div class="nav-left">
-            <img src="images/logo.png" alt="RE/MAX Logo">
-            <span>KENNETH GEHLHOFF</span>
-        </div>
-        <div class="menu-button" id="menuButton">≡</div>
-        <div class="menu-panel" id="menuPanel">
-            <a href="index.html">Home</a>
-            <a href="businesscard.html">Contact</a>
-            <a href="community.html">Community</a>
-            <a href="#our-listings">Listings</a>
-        </div>
+  <div class="nav">
+    <div class="nav-left">
+      <img src="images/logo.png">
+      <span>Kenneth Gehlhoff</span>
     </div>
+    <div class="menu-button">≡</div>
+  </div>
 </header>
 
-<script>
-(() => {
-    const body = document.body;
-    const btn = document.getElementById("menuButton");
-    btn.onclick = e => {
-        e.stopPropagation();
-        body.classList.toggle("menu-open");
-    };
-    document.onclick = () => body.classList.remove("menu-open");
-})();
-</script>
-
 <section id="hero">
-    <div class="hero-inner">
-        <h1 class="hero-title">Community Events</h1>
-        <p class="hero-copy">
-            Discover what’s happening around Todos Santos, El Pescadero, and Baja California Sur.
-        </p>
-    </div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">BAJA · COMMUNITY · LIFE</div>
+    <h1 class="hero-title">Life in Baja Doesn’t Happen on a Schedule</h1>
+    <p class="hero-copy">
+      Music after sunset. Markets before noon. Surf at first light.
+      This is where the real Baja shows up.
+    </p>
+  </div>
 </section>
 
-<section class="events-section">
+<section class="section">
+  <h2 class="section-title">What’s Happening This Week</h2>
+  <p class="section-sub">
+    A curated look at the moments worth leaving the house for.
+  </p>
 
-    <h2 class="events-title">Local Happenings</h2>
-    <p class="events-subtitle">
-        Culture · Music · Markets · Surf · Community Life
+  <div class="feature">
+    <h3>After Dark</h3>
+    <p>
+      Live music, late dinners, fire pits, and nights that stretch
+      longer than planned.
     </p>
+    <a class="lux-btn"
+       href="https://www.bandsintown.com/c/todos-santos-mexico"
+       target="_blank">
+       View Music Calendar
+    </a>
+  </div>
 
-    <div class="featured-events">
-        <h3>Featured Annual Events</h3>
-        <ul>
-            <li>🎨 Todos Santos Art Festival</li>
-            <li>🥭 Festival del Mango</li>
-            <li>🧘 Todos Santos Wellness Fest</li>
-            <li>🌊 Surf Tournaments & Beach Events</li>
-        </ul>
+  <div class="grid">
+    <div class="grid-card">
+      <h4>Markets & Mornings</h4>
+      <p>Local ferias, artisans, food, and slow starts.</p>
+      <a class="lux-btn"
+         href="https://www.eventbrite.com.mx/d/mexico--todos-santos/events/"
+         target="_blank">
+         See Events
+      </a>
     </div>
 
-    <div class="event-widgets-row">
-
-        <div class="event-widget">
-            <h4>Local Events & Meetups</h4>
-            <p>
-                Browse upcoming community events, workshops, markets, and gatherings
-                in Todos Santos and surrounding areas.
-            </p>
-            <a class="event-btn"
-               href="https://www.eventbrite.com.mx/d/mexico--todos-santos/events/"
-               target="_blank">
-               View Events on Eventbrite →
-            </a>
-        </div>
-
-        <div class="event-widget">
-            <h4>Live Music & Shows</h4>
-            <p>
-                Discover concerts and live performances happening at local venues,
-                bars, and cultural spaces.
-            </p>
-            <a class="event-btn"
-               href="https://www.bandsintown.com/c/todos-santos-mexico"
-               target="_blank">
-               View Music Calendar →
-            </a>
-        </div>
-
-        <div class="event-widget">
-            <h4>Tourism & Cultural Events</h4>
-            <p>
-                Official tourism events, festivals, and cultural activities
-                across Baja California Sur.
-            </p>
-            <a class="event-btn"
-               href="https://www.zonaturistica.com/eventos-en/baja-california-sur/todos-santos"
-               target="_blank">
-               Open ZonaTurística →
-            </a>
-        </div>
-
-        <div class="event-widget">
-            <h4>Government & Public Events</h4>
-            <p>
-                State-run cultural programs, public events, and official announcements.
-            </p>
-            <a class="event-btn"
-               href="https://setuesbcs.gob.mx/eventos-admin/calendario.php"
-               target="_blank">
-               Open SETUE Calendar →
-            </a>
-        </div>
-
+    <div class="grid-card">
+      <h4>Festivals & Culture</h4>
+      <p>Art, music, and moments that define the season.</p>
+      <a class="lux-btn"
+         href="https://www.zonaturistica.com/eventos-en/baja-california-sur/todos-santos"
+         target="_blank">
+         Explore
+      </a>
     </div>
+
+    <div class="grid-card">
+      <h4>Ocean & Movement</h4>
+      <p>Surf meets, beach walks, and sunrise rituals.</p>
+      <a class="lux-btn"
+         href="https://setuesbcs.gob.mx/eventos-admin/calendario.php"
+         target="_blank">
+         Official Calendar
+      </a>
+    </div>
+  </div>
 </section>
 
 <footer>
-    © 2025 · RE/MAX Cabo Sanctuary · Each office is independently owned and operated.
+  Curated locally. Updated often.<br>
+  <span>RE/MAX Cabo Sanctuary</span> · Each office independently owned & operated
 </footer>
 
 </body>
