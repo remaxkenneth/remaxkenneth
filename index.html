@@ -6,456 +6,489 @@
 <title>KENNETH GEHLHOFF – RE/MAX Cabo Sanctuary</title>
 
 <style>
-    :root {
-        --remax-blue: #003da5;
-        --remax-red:  #e4002b;
-        --text-main:  #222;
-        --text-muted:#6b7280;
-        --bg-light:  #f4f5f7;
-        --card-bg:   #ffffff;
-    }
+:root {
+  --remax-blue: #003da5;
+  --remax-red:  #e4002b;
 
-    * { box-sizing: border-box; }
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: var(--bg-light);
-        color: var(--text-main);
-    }
+  --remax-dark-blue: #000E35;
+  --bg-light:  #f5f6f7;
+  --card-bg:   #ffffff;
 
-    a { text-decoration: none; color: inherit; }
+  --text-main: #111;
+  --text-muted:#6b7280;
 
-    /* ===================== HEADER ===================== */
-    header {
-        background: #fff;
-        border-bottom: 1px solid #e5e7eb;
-        position: sticky;
-        top: 0;
-        z-index: 50;
-    }
+  --glass: rgba(255,255,255,0.75);
+}
 
-    .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 5%;
-    }
+* { box-sizing: border-box; }
 
-    .nav-left {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-main);
+}
 
-    .nav-left img {
-        height: 32px;
-        width: auto;
-    }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
 
-    .nav-left span {
-        font-size: 1.05rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--remax-blue);
-    }
+/* ================= HEADER (COMMUNITIES TEMPLATE) ================= */
 
-    .menu-button {
-        font-size: 32px;
-        cursor: pointer;
-        padding: 8px 10px;
-        transition: 0.2s ease;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245,246,247,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e5e7eb;
+}
 
-    .menu-button:hover { opacity: 0.6; }
-    .menu-button:active { transform: scale(0.88); }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 5%;
+  position: relative;
+}
 
-    /* ===================== GLASS MENU ===================== */
-    .menu-panel {
-        position: absolute;
-        right: 18px;
-        top: 65px;
-        background: rgba(255,255,255,0.30);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border-radius: 26px;
-        padding: 25px 22px;
-        min-width: 190px;
-        box-shadow:
-            inset 0 0 1px rgba(255,255,255,0.55),
-            0 10px 35px rgba(0,0,0,0.22);
-        border: 1px solid rgba(255,255,255,0.5);
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-        opacity: 0;
-        transform: scale(0.92);
-        pointer-events: none;
-        transition: opacity .25s ease, transform .25s ease;
-        z-index: 9999;
-    }
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-    body.menu-open .menu-panel {
-        opacity: 1;
-        transform: scale(1);
-        pointer-events: auto;
-    }
+.nav-left img { height: 32px; }
 
-    .menu-panel a {
-        font-size: 16px;
-        font-weight: 500;
-        color: #000;
-        text-transform: uppercase;
-        letter-spacing: 0.03em;
-        transition: 0.2s;
-    }
+.nav-left span {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--remax-dark-blue);
+  text-transform: uppercase;
+}
 
-    .menu-panel a:hover {
-        transform: translateX(6px);
-        opacity: 0.8;
-    }
+.menu-button {
+  font-size: 30px;
+  cursor: pointer;
+}
 
-    /* ===================== HERO ===================== */
-    #hero {
-        position: relative;
-        min-height: 340px;
-        padding: 40px 0;
-        display: flex;
-        align-items: center;
-        background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
-        color: #fff;
-    }
+/* ================= MENU (COMMUNITIES TEMPLATE) ================= */
 
-    #hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(120deg, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
-    }
+.menu-panel {
+  position: absolute;
+  right: 18px;
+  top: 64px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border-radius: 22px;
+  padding: 22px;
+  min-width: 190px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: 0.25s ease;
+}
 
-    .hero-inner {
-        position: relative;
-        z-index: 2;
-        width: 92%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+body.menu-open .menu-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
 
-    .hero-kicker {
-        color: #e5e7eb;
-        letter-spacing: 0.25em;
-        text-transform: uppercase;
-        text-align: center;
-        width: 100%;
-        margin-bottom: 12px;
-    }
+.menu-panel a {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
 
-    .hero-title {
-        font-size: 2.8rem;
-        margin-bottom: 20px;
-        line-height: 1.1;
-    }
+.menu-panel a span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #888;
+}
 
-    .hero-title span { color: var(--remax-red); }
+/* ================= HERO (KEEP YOUR HERO, TEMPLATE TYPE) ================= */
 
-    .hero-copy {
-        max-width: 30rem;
-        margin-bottom: 22px;
-    }
+#hero {
+  position: relative;
+  min-height: 340px; /* leaving flexible for now; we’ll normalize later */
+  display: flex;
+  align-items: center;
+  background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
+  color: #fff;
+}
 
-    .btn {
-        padding: 14px 26px;
-        border-radius: 999px;
-        background: var(--remax-red);
-        color: #fff;
-        font-weight: 700;
-        letter-spacing: 0.15em;
-        cursor: pointer;
-        border: none;
-        display: inline-block;
-        margin-top: 22px;
-    }
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, rgba(0,14,53,0.65), rgba(0,0,0,0.25));
+}
 
-    /* ===================== TILES ===================== */
-    .tile {
-        background: #fff;
-        border-radius: 28px;
-        padding: 35px 40px 45px;
-        margin: 60px auto;
-        max-width: 1100px;
-        width: calc(100% - 40px);
-        box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-    }
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 92%;
+  margin: auto;
+}
 
-    .section-title {
-        text-align: center;
-        font-size: 2rem;
-        text-transform: uppercase;
-        color: var(--remax-blue);
-    }
+.hero-eyebrow {
+  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  color: #e5e7eb;
+}
 
-    .section-subtitle {
-        text-align: center;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        font-size: .95rem;
-        letter-spacing: 0.12em;
-        margin-bottom: 20px;
-    }
+.hero-title {
+  font-size: 2.6rem;
+  margin: 14px 0;
+  font-weight: 600;
+  line-height: 1.1;
+}
 
-    .video-wrapper {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 14px;
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-    }
+.hero-sub {
+  max-width: 520px;
+  color: #e5e7eb;
+}
 
-    .video-wrapper iframe {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
+/* ================= SECTIONS / TILES (TEMPLATE) ================= */
 
-    /* ===================== FIX: FEATURED GRID ===================== */
-    .featured-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
+.section {
+  max-width: 1100px;
+  width: 92%;
+  margin: 70px auto;
+}
 
-    @media (min-width: 820px) {
-        .featured-grid {
-            grid-template-columns: 3fr 2fr;
-        }
-    }
+.tile {
+  background: var(--card-bg);
+  border-radius: 26px;
+  padding: 40px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+}
 
-    .featured-main img {
-        width: 100%;
-        height: 340px;
-        object-fit: cover;
-        border-radius: 14px;
-    }
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--remax-dark-blue);
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
 
-    /* ===================== VIDEO FLEX ===================== */
-    .video-flex {
-        display: flex;
-        gap: 32px;
-        align-items: flex-start;
-        margin-top: 20px;
-    }
+.section-sub {
+  text-align: center;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  margin: 0 0 34px 0;
+}
 
-    .video-flex-text,
-    .video-flex-media {
-        flex: 1;
-    }
+/* ================= BUTTONS (NO RED) ================= */
 
-    /* ===================== AGENT GRID FIX ===================== */
-    .agent-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 40px;
-        text-align: center;
-        align-items: center;
-    }
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #eaecef;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: 0.2s ease;
+}
 
-    .agent-photo img {
-        width: 260px;
-        height: 260px;
-        object-fit: cover;
-        border-radius: 14px;
-        box-shadow: 0 18px 40px rgba(0,0,0,0.16);
-        max-width: 100%;
-    }
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
 
-    .tile#contact img.footer-logo {
-        max-width: 200px;
-        width: 100%;
-        display: block;
-        margin: 0 auto 20px;
-    }
+/* ================= MEDIA ================= */
 
-    footer {
-        text-align: center;
-        padding: 20px 0 40px;
-        font-size: 0.85rem;
-        color: #666;
-    }
+.video-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ================= FEATURED GRID ================= */
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .featured-grid {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+.featured-main img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ================= VIDEO FLEX ================= */
+
+.video-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .video-flex {
+    flex-direction: row;
+    gap: 32px;
+    align-items: flex-start;
+  }
+}
+
+.video-flex-text,
+.video-flex-media {
+  flex: 1;
+}
+
+/* ================= AGENT GRID ================= */
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+  text-align: center;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .agent-grid {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    gap: 40px;
+  }
+}
+
+.agent-photo img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .agent-photo img { margin: 0; }
+}
+
+.tile#contactTile img.footer-logo {
+  max-width: 200px;
+  width: 100%;
+  display: block;
+  margin: 0 auto 18px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 0.8rem;
+  color: #777;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="nav">
-        <div class="nav-left">
-            <img src="images/logo.png" alt="RE/MAX Logo">
-            <span>KENNETH GEHLHOFF</span>
-        </div>
-
-        <div class="menu-button" id="menuButton">≡</div>
-
-        <div class="menu-panel" id="menuPanel">
-            <a href="index.html">HOME</a>
-            <a href="businesscard.html">CONTACT</a>
-            <a href="#featured">FEATURED</a>
-            <a href="#agent">AGENT</a>
-            <a href="#our-listings">LISTINGS</a>
-            <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US"
-               target="_blank">
-               RE/MAX<br><span>Profile</span>
-            </a>
-        </div>
+  <div class="nav">
+    <div class="nav-left">
+      <img src="images/logo.png" alt="RE/MAX Logo">
+      <span>KENNETH GEHLHOFF</span>
     </div>
+
+    <div class="menu-button" id="menuButton">≡</div>
+
+    <div class="menu-panel" id="menuPanel">
+      <a href="index.html">Home</a>
+      <a href="events.html">Events</a>
+      <a href="businesscard.html">Contact</a>
+      <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US" target="_blank">
+        RE/MAX <span>Profile</span>
+      </a>
+    </div>
+  </div>
 </header>
 
 <section id="hero">
-    <div class="hero-inner">
-        <div class="hero-kicker">CERRITOS · TODOS SANTOS · PESCADERO</div>
-
-        <h1 class="hero-title">
-            Luxury Oceanview<br>Real Estate<br><span>Baja Sur</span>
-        </h1>
-
-        <p class="hero-copy">
-            Private villas, income properties, and beachfront homes for discerning buyers.
-        </p>
-
-        <a href="#featured" class="btn">View Featured Listing</a>
-    </div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">CERRITOS · TODOS SANTOS · PESCADERO</div>
+    <h1 class="hero-title">Luxury Oceanview<br>Real Estate</h1>
+    <p class="hero-sub">
+      Private villas, income properties, and beachfront homes for discerning buyers.
+    </p>
+  </div>
 </section>
 
-<div class="tile" id="about-baja">
+<section class="section" id="about-baja">
+  <div class="tile">
     <h2 class="section-title">The Magic of Baja</h2>
-    <p class="section-subtitle">This Is The Awe of Baja Sur</p>
+    <p class="section-sub">This Is The Awe of Baja Sur</p>
 
     <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/ouhsNMe_Jsw?si=5gtClQVWUc94KT4w"
-                allow="autoplay; encrypted-media"
-                allowfullscreen></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/ouhsNMe_Jsw?si=5gtClQVWUc94KT4w"
+        allow="autoplay; encrypted-media"
+        allowfullscreen></iframe>
     </div>
-</div>
+  </div>
+</section>
 
-<div class="tile" id="featured">
+<section class="section" id="featured">
+  <div class="tile">
     <h2 class="section-title">Featured Property</h2>
-    <p class="section-subtitle">Hand-selected</p>
+    <p class="section-sub">Hand-Selected</p>
 
     <div class="featured-grid">
-        <div class="featured-main">
-            <img src="images/Casa Sol Y Luna Landscaping - 8.jpeg">
+      <div class="featured-main">
+        <img src="images/Casa Sol Y Luna Landscaping - 8.jpeg" alt="Casa Sol y Luna">
+      </div>
+
+      <div>
+        <h3 style="margin-top:0;">Casa Sol y Luna · Cerritos</h3>
+
+        <div style="color:var(--text-muted); font-weight:700; letter-spacing:0.08em; margin:10px 0 14px; text-transform:uppercase;">
+          $1,300,000 USD
         </div>
 
-        <div>
-            <h3>Casa Sol y Luna · Cerritos</h3>
-            <div style="color:var(--remax-red); font-weight:700; margin:10px 0 16px;">
-                $1,300,000 USD
-            </div>
+        <p style="color:#444; line-height:1.55;">
+          Where the desert meets the sea. Casa Sol y Luna sits on an 1,800 m2 lot
+          with 180° views, casitas, endless pool, and an upstairs sunset studio.
+        </p>
 
-            <p>
-                Where the desert meets the sea. Casa Sol y Luna sits on an 1,800 m2 lot
-                with 180° views, casitas, endless pool, and an upstairs sunset studio.
-            </p>
-
-            <a class="btn" target="_blank"
-               href="https://global.remax.com/en/listings/mexico/house/for-sale/todos-santos/casa-sol-y-luna-cerritos/1001122140-4">
-                See Full Listing Info
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="tile" id="our-listings">
-    <h2 class="section-title">Our Listings</h2>
-    <p class="section-subtitle">Explore Our Current Inventory</p>
-
-    <div style="text-align:center;">
         <a class="btn" target="_blank"
-           href="https://global.remax.com/searchresults.aspx?action=list&start=1&page=1&count=24&currency=USD&min=1&max=none&sb=MostRecent&sort=MostRecent&aid=1001122140">
-            My Listings
+           href="https://global.remax.com/en/listings/mexico/house/for-sale/todos-santos/casa-sol-y-luna-cerritos/1001122140-4">
+          View Listing
         </a>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
-<div class="tile" id="video-highlights">
+<section class="section" id="our-listings">
+  <div class="tile" style="text-align:center;">
+    <h2 class="section-title">Our Listings</h2>
+    <p class="section-sub">Explore Our Current Inventory</p>
+
+    <a class="btn" target="_blank"
+       href="https://global.remax.com/searchresults.aspx?action=list&start=1&page=1&count=24&currency=USD&min=1&max=none&sb=MostRecent&sort=MostRecent&aid=1001122140">
+      View All Listings
+    </a>
+  </div>
+</section>
+
+<section class="section" id="video-highlights">
+  <div class="tile">
     <h2 class="section-title">Video Highlights</h2>
-    <p class="section-subtitle">A Closer Look at Our Properties</p>
+    <p class="section-sub">A Closer Look at Our Properties</p>
 
     <div class="video-flex">
-        <div class="video-flex-text">
-            <p>
-                Take a moment and step into Baja Sur. These highlights showcase the coastline,
-                lifestyle, and hand-picked properties that continue to attract serious buyers
-                from around the world.
-            </p>
-        </div>
+      <div class="video-flex-text">
+        <p style="color:#444; line-height:1.55; margin:0;">
+          Take a moment and step into Baja Sur. These highlights showcase the coastline,
+          lifestyle, and hand-picked properties that continue to attract serious buyers
+          from around the world.
+        </p>
+      </div>
 
-        <div class="video-flex-media">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/3bdkYsFjr6A?si=o8QAyQJGRSD7S15w"
-                        allow="autoplay; encrypted-media"
-                        allowfullscreen></iframe>
-            </div>
+      <div class="video-flex-media">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/3bdkYsFjr6A?si=o8QAyQJGRSD7S15w"
+            allow="autoplay; encrypted-media"
+            allowfullscreen></iframe>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
-<div class="tile" id="agent">
+<section class="section" id="agent">
+  <div class="tile">
     <div class="agent-grid">
-        <div class="agent-photo">
-            <img src="images/kenny.jpeg">
-        </div>
+      <div class="agent-photo">
+        <img src="images/kenny.jpeg" alt="Kenneth Gehlhoff">
+      </div>
 
-        <div>
-            <h2 class="section-title">Kenneth Gehlhoff</h2>
-            <p>
-                With years of experience in the Todos Santos & Cerritos corridor,
-                Kenneth helps clients navigate Baja real estate with clarity,
-                confidence, and trusted local expertise.
-            </p>
+      <div>
+        <h2 class="section-title" style="text-align:inherit; margin-top:0;">Kenneth Gehlhoff</h2>
+        <p style="color:#444; line-height:1.55; margin-top:10px;">
+          With years of experience in the Todos Santos & Cerritos corridor,
+          Kenneth helps clients navigate Baja real estate with clarity,
+          confidence, and trusted local expertise.
+        </p>
 
-            <a class="btn" target="_blank"
-               href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US">
-               RE/MAX Profile
-            </a>
-        </div>
+        <a class="btn" target="_blank"
+           href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US">
+          RE/MAX Profile
+        </a>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
-<a href="businesscard.html" class="tile" id="contact" style="display:block; text-decoration:none; color:inherit;">
-    <img src="images/logo.png" class="footer-logo">
-    <h2 class="section-title">Contact Me Today!</h2>
-    <p class="section-subtitle">We're Living The Dream — Come Join Us</p>
-</a>
+<section class="section">
+  <a href="businesscard.html" class="tile" id="contactTile" style="display:block;">
+    <img src="images/logo.png" class="footer-logo" alt="RE/MAX">
+    <h2 class="section-title">Contact Me Today</h2>
+    <p class="section-sub" style="margin-bottom:0;">We’re Living The Dream — Come Join Us</p>
+  </a>
+</section>
 
 <footer>
-    © 2025 · RE/MAX Cabo Sanctuary · Each office is independently owned and operated.
+  © 2025 · RE/MAX Cabo Sanctuary · Each office is independently owned and operated.
 </footer>
 
 <script>
-(function () {
-    const body = document.body;
-    const button = document.getElementById("menuButton");
-    const panel  = document.getElementById("menuPanel");
+(function(){
+  const btn = document.getElementById("menuButton");
+  const panel = document.getElementById("menuPanel");
 
-    if (!button || !panel) return;
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    document.body.classList.toggle("menu-open");
+  });
 
-    function openMenu() { body.classList.add("menu-open"); }
-    function closeMenu() { body.classList.remove("menu-open"); }
+  document.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+  });
 
-    button.addEventListener("click", (e) => {
-        e.stopPropagation();
-        body.classList.contains("menu-open") ? closeMenu() : openMenu();
-    });
-
-    panel.addEventListener("click", e => e.stopPropagation());
-
-    document.addEventListener("click", (e) => {
-        if (!body.classList.contains("menu-open")) return;
-        if (!panel.contains(e.target) && !button.contains(e.target)) closeMenu();
-    });
+  panel.addEventListener("click", e => e.stopPropagation());
 })();
 </script>
 
