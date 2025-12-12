@@ -3,16 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kenneth Gehlhoff | RE/MAX Cabo Sanctuary</title>
+<title>KENNETH GEHLHOFF – RE/MAX Cabo Sanctuary</title>
 
 <style>
 :root {
   --remax-blue: #003da5;
+  --remax-red:  #e4002b;
+
   --remax-dark-blue: #000E35;
-  --bg-light: #f5f6f7;
-  --card-bg: #ffffff;
+  --bg-light:  #f5f6f7;
+  --card-bg:   #ffffff;
+
   --text-main: #111;
-  --text-muted: #6b7280;
+  --text-muted:#6b7280;
+
   --glass: rgba(255,255,255,0.75);
 }
 
@@ -28,7 +32,7 @@ body {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
-/* ================= HEADER ================= */
+/* ================= HEADER (COMMUNITIES TEMPLATE) ================= */
 
 header {
   position: sticky;
@@ -60,6 +64,7 @@ header {
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--remax-dark-blue);
+  text-transform: uppercase;
 }
 
 .menu-button {
@@ -67,7 +72,7 @@ header {
   cursor: pointer;
 }
 
-/* ================= MENU ================= */
+/* ================= MENU (COMMUNITIES TEMPLATE) ================= */
 
 .menu-panel {
   position: absolute;
@@ -98,6 +103,7 @@ body.menu-open .menu-panel {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--text-main);
 }
 
 .menu-panel a span {
@@ -107,11 +113,11 @@ body.menu-open .menu-panel {
   color: #888;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (KEEP YOUR HERO, TEMPLATE TYPE) ================= */
 
 #hero {
   position: relative;
-  min-height: 340px;
+  min-height: 340px; /* leaving flexible for now; we’ll normalize later */
   display: flex;
   align-items: center;
   background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
@@ -122,11 +128,7 @@ body.menu-open .menu-panel {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    130deg,
-    rgba(0,14,53,0.65),
-    rgba(0,0,0,0.25)
-  );
+  background: linear-gradient(130deg, rgba(0,14,53,0.65), rgba(0,0,0,0.25));
 }
 
 .hero-inner {
@@ -140,43 +142,30 @@ body.menu-open .menu-panel {
 .hero-eyebrow {
   letter-spacing: 0.35em;
   font-size: 0.7rem;
-  opacity: 0.85;
+  opacity: 0.9;
+  text-transform: uppercase;
+  color: #e5e7eb;
 }
 
 .hero-title {
   font-size: 2.6rem;
   margin: 14px 0;
   font-weight: 600;
+  line-height: 1.1;
 }
 
 .hero-sub {
-  max-width: 420px;
+  max-width: 520px;
   color: #e5e7eb;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SECTIONS / TILES (TEMPLATE) ================= */
 
 .section {
   max-width: 1100px;
   width: 92%;
   margin: 70px auto;
 }
-
-.section-title {
-  font-size: 2rem;
-  color: var(--remax-dark-blue);
-  text-align: center;
-}
-
-.section-sub {
-  text-align: center;
-  font-size: 0.8rem;
-  letter-spacing: 0.22em;
-  color: var(--text-muted);
-  margin-bottom: 40px;
-}
-
-/* ================= TILES ================= */
 
 .tile {
   background: var(--card-bg);
@@ -185,12 +174,51 @@ body.menu-open .menu-panel {
   box-shadow: 0 20px 45px rgba(0,0,0,0.08);
 }
 
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--remax-dark-blue);
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  margin: 0 0 34px 0;
+}
+
+/* ================= BUTTONS (NO RED) ================= */
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #eaecef;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+
+/* ================= MEDIA ================= */
+
 .video-wrapper {
   width: 100%;
   overflow: hidden;
   border-radius: 14px;
   position: relative;
   padding-bottom: 56.25%;
+  height: 0;
 }
 
 .video-wrapper iframe {
@@ -201,9 +229,13 @@ body.menu-open .menu-panel {
   border: 0;
 }
 
+/* ================= FEATURED GRID ================= */
+
 .featured-grid {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 40px;
+  align-items: start;
 }
 
 @media (min-width: 900px) {
@@ -212,22 +244,72 @@ body.menu-open .menu-panel {
   }
 }
 
-.featured-grid img {
+.featured-main img {
   width: 100%;
   height: 340px;
   object-fit: cover;
   border-radius: 14px;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: #eaecef;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+/* ================= VIDEO FLEX ================= */
+
+.video-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .video-flex {
+    flex-direction: row;
+    gap: 32px;
+    align-items: flex-start;
+  }
+}
+
+.video-flex-text,
+.video-flex-media {
+  flex: 1;
+}
+
+/* ================= AGENT GRID ================= */
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+  text-align: center;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .agent-grid {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    gap: 40px;
+  }
+}
+
+.agent-photo img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .agent-photo img { margin: 0; }
+}
+
+.tile#contactTile img.footer-logo {
+  max-width: 200px;
+  width: 100%;
+  display: block;
+  margin: 0 auto 18px;
 }
 
 /* ================= FOOTER ================= */
@@ -246,7 +328,7 @@ footer {
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png" alt="RE/MAX">
+      <img src="images/logo.png" alt="RE/MAX Logo">
       <span>KENNETH GEHLHOFF</span>
     </div>
 
@@ -266,38 +348,47 @@ footer {
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">CERRITOS · TODOS SANTOS · PESCADERO</div>
-    <h1 class="hero-title">Luxury Real Estate<br>Baja Sur</h1>
+    <h1 class="hero-title">Luxury Oceanview<br>Real Estate</h1>
     <p class="hero-sub">
-      Private homes, income properties, and beachfront living in Southern Baja.
+      Private villas, income properties, and beachfront homes for discerning buyers.
     </p>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="about-baja">
   <div class="tile">
     <h2 class="section-title">The Magic of Baja</h2>
-    <div class="section-sub">This Is the Awe of Baja Sur</div>
+    <p class="section-sub">This Is The Awe of Baja Sur</p>
 
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/ouhsNMe_Jsw"
-              allowfullscreen></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/ouhsNMe_Jsw?si=5gtClQVWUc94KT4w"
+        allow="autoplay; encrypted-media"
+        allowfullscreen></iframe>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="featured">
   <div class="tile">
     <h2 class="section-title">Featured Property</h2>
-    <div class="section-sub">Hand-Selected</div>
+    <p class="section-sub">Hand-Selected</p>
 
     <div class="featured-grid">
-      <img src="images/Casa Sol Y Luna Landscaping - 8.jpeg">
+      <div class="featured-main">
+        <img src="images/Casa Sol Y Luna Landscaping - 8.jpeg" alt="Casa Sol y Luna">
+      </div>
 
       <div>
-        <h3>Casa Sol y Luna · Cerritos</h3>
-        <p>
-          A refined ocean-view estate with casitas, infinity pool, and sweeping
-          coastal sunsets — designed for both living and income.
+        <h3 style="margin-top:0;">Casa Sol y Luna · Cerritos</h3>
+
+        <div style="color:var(--text-muted); font-weight:700; letter-spacing:0.08em; margin:10px 0 14px; text-transform:uppercase;">
+          $1,300,000 USD
+        </div>
+
+        <p style="color:#444; line-height:1.55;">
+          Where the desert meets the sea. Casa Sol y Luna sits on an 1,800 m2 lot
+          with 180° views, casitas, endless pool, and an upstairs sunset studio.
         </p>
 
         <a class="btn" target="_blank"
@@ -309,20 +400,78 @@ footer {
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="our-listings">
   <div class="tile" style="text-align:center;">
-    <h2 class="section-title">Explore Listings</h2>
-    <div class="section-sub">Current Inventory</div>
+    <h2 class="section-title">Our Listings</h2>
+    <p class="section-sub">Explore Our Current Inventory</p>
 
     <a class="btn" target="_blank"
-       href="https://global.remax.com/searchresults.aspx?aid=1001122140">
+       href="https://global.remax.com/searchresults.aspx?action=list&start=1&page=1&count=24&currency=USD&min=1&max=none&sb=MostRecent&sort=MostRecent&aid=1001122140">
       View All Listings
     </a>
   </div>
 </section>
 
+<section class="section" id="video-highlights">
+  <div class="tile">
+    <h2 class="section-title">Video Highlights</h2>
+    <p class="section-sub">A Closer Look at Our Properties</p>
+
+    <div class="video-flex">
+      <div class="video-flex-text">
+        <p style="color:#444; line-height:1.55; margin:0;">
+          Take a moment and step into Baja Sur. These highlights showcase the coastline,
+          lifestyle, and hand-picked properties that continue to attract serious buyers
+          from around the world.
+        </p>
+      </div>
+
+      <div class="video-flex-media">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/3bdkYsFjr6A?si=o8QAyQJGRSD7S15w"
+            allow="autoplay; encrypted-media"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="agent">
+  <div class="tile">
+    <div class="agent-grid">
+      <div class="agent-photo">
+        <img src="images/kenny.jpeg" alt="Kenneth Gehlhoff">
+      </div>
+
+      <div>
+        <h2 class="section-title" style="text-align:inherit; margin-top:0;">Kenneth Gehlhoff</h2>
+        <p style="color:#444; line-height:1.55; margin-top:10px;">
+          With years of experience in the Todos Santos & Cerritos corridor,
+          Kenneth helps clients navigate Baja real estate with clarity,
+          confidence, and trusted local expertise.
+        </p>
+
+        <a class="btn" target="_blank"
+           href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US">
+          RE/MAX Profile
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <a href="businesscard.html" class="tile" id="contactTile" style="display:block;">
+    <img src="images/logo.png" class="footer-logo" alt="RE/MAX">
+    <h2 class="section-title">Contact Me Today</h2>
+    <p class="section-sub" style="margin-bottom:0;">We’re Living The Dream — Come Join Us</p>
+  </a>
+</section>
+
 <footer>
-  © 2025 · RE/MAX Cabo Sanctuary · Each office independently owned and operated.
+  © 2025 · RE/MAX Cabo Sanctuary · Each office is independently owned and operated.
 </footer>
 
 <script>
