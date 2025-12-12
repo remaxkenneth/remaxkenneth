@@ -4,30 +4,22 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
-
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>KENNETH GEHLHOFF – RE/MAX Cabo Sanctuary</title>
-
-<!-- OPEN GRAPH / META (ONLY ADDITION) -->
-<meta property="og:title" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
-<meta property="og:description" content="Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero. Trusted local expertise in Baja California Sur.">
-<meta property="og:image" content="https://remaxkenneth.vercel.app/og-image.png">
-<meta property="og:url" content="https://remaxkenneth.vercel.app/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<!-- END META -->
 
 <style>
 :root {
   --remax-blue: #003da5;
   --remax-red:  #e4002b;
+
   --remax-dark-blue: #000E35;
   --bg-light:  #f5f6f7;
   --card-bg:   #ffffff;
+
   --text-main: #111;
   --text-muted:#6b7280;
+
   --glass: rgba(255,255,255,0.75);
 }
 
@@ -43,7 +35,7 @@ body {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
-/* ================= HEADER ================= */
+/* ================= HEADER (COMMUNITIES TEMPLATE) ================= */
 
 header {
   position: sticky;
@@ -83,7 +75,7 @@ header {
   cursor: pointer;
 }
 
-/* ================= MENU ================= */
+/* ================= MENU (COMMUNITIES TEMPLATE) ================= */
 
 .menu-panel {
   position: absolute;
@@ -124,11 +116,11 @@ body.menu-open .menu-panel {
   color: #888;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (KEEP YOUR HERO, TEMPLATE TYPE) ================= */
 
 #hero {
   position: relative;
-  min-height: 340px;
+  min-height: 340px; /* leaving flexible for now; we’ll normalize later */
   display: flex;
   align-items: center;
   background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
@@ -170,7 +162,7 @@ body.menu-open .menu-panel {
   color: #e5e7eb;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SECTIONS / TILES (TEMPLATE) ================= */
 
 .section {
   max-width: 1100px;
@@ -183,6 +175,144 @@ body.menu-open .menu-panel {
   border-radius: 26px;
   padding: 40px;
   box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--remax-dark-blue);
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  margin: 0 0 34px 0;
+}
+
+/* ================= BUTTONS (NO RED) ================= */
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #eaecef;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+
+/* ================= MEDIA ================= */
+
+.video-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ================= FEATURED GRID ================= */
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .featured-grid {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+.featured-main img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ================= VIDEO FLEX ================= */
+
+.video-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .video-flex {
+    flex-direction: row;
+    gap: 32px;
+    align-items: flex-start;
+  }
+}
+
+.video-flex-text,
+.video-flex-media {
+  flex: 1;
+}
+
+/* ================= AGENT GRID ================= */
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+  text-align: center;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .agent-grid {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    gap: 40px;
+  }
+}
+
+.agent-photo img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .agent-photo img { margin: 0; }
+}
+
+.tile#contactTile img.footer-logo {
+  max-width: 200px;
+  width: 100%;
+  display: block;
+  margin: 0 auto 18px;
 }
 
 /* ================= FOOTER ================= */
@@ -345,8 +475,8 @@ footer {
 
 <footer>
   Curated locally. Updated often.<br>
-  <span>© 2025 · REMAX Kenneth<br></span>
-  Each office independently owned and operated
+  <span>© 2025 · REMAX Kenneth<br> 
+  </span>Each office independently owned and operated
 </footer>
 
 <script>
