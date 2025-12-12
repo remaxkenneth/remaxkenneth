@@ -9,7 +9,7 @@
 
 <title>Events | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-<!-- OPEN GRAPH / META (ONLY ADDITION) -->
+<!-- OPEN GRAPH / META -->
 <meta property="og:title" content="Baja Events & Community – RE/MAX Cabo Sanctuary">
 <meta property="og:description" content="Live music, markets, and community events in Cerritos and Todos Santos. Experience Baja beyond the listings.">
 <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
@@ -65,9 +65,7 @@ header {
   gap: 10px;
 }
 
-.nav-left img {
-  height: 32px;
-}
+.nav-left img { height: 32px; }
 
 .nav-left span {
   font-size: 1rem;
@@ -206,10 +204,13 @@ body.menu-open .menu-panel {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  display: block;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.06);
 }
 
 .card-content {
-  padding: 26px;
+  padding: 30px 26px 28px;
+  background: #fff;
 }
 
 .card h3 {
@@ -231,6 +232,24 @@ body.menu-open .menu-panel {
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+/* ===== ANDROID / MOBILE FIX ===== */
+@media (max-width: 600px) {
+  .card img {
+    height: 170px;
+  }
+}
+
+/* ===== iPAD LANDSCAPE FIX ===== */
+@media (min-width: 900px) and (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card img {
+    height: 240px;
+  }
 }
 
 /* ================= FOOTER ================= */
@@ -288,7 +307,7 @@ footer {
       <div class="card-content">
         <h3>Evenings in Baja</h3>
         <p>
-         Find concerts, local events, and the moments
+          Find concerts, local events, and the moments
           that make the town feel alive after the sun goes down.
         </p>
         <a href="https://www.bandsintown.com/c/todos-santos-mexico" target="_blank">
@@ -302,8 +321,8 @@ footer {
       <div class="card-content">
         <h3>No Bad Days</h3>
         <p>
-          See what everyone is talking about. Dont forget to mark your calendar.
-           </p>
+          See what everyone is talking about. Don’t forget to mark your calendar.
+        </p>
         <a href="https://gringogazette.com/event/" target="_blank">
           View Events
         </a>
