@@ -3,45 +3,40 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Community Life – REMAX Cabo Sanctuary</title>
-
-<!-- Montserrat (Corporate-approved web font) -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Communities | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
 <style>
 :root {
-  --remax-red: #FF1200;
-  --remax-blue: #003AFF;
+  --remax-blue: #0043FF;
   --remax-dark-blue: #000E35;
-  --remax-dark-red: #660000;
-  --remax-black: #000000;
-  --remax-white: #FFFFFF;
+  --remax-red: #FF1200;
+  --bg-light: #f5f6f7;
+  --card-bg: #ffffff;
+  --text-main: #111;
+  --text-muted: #6b7280;
+  --glass: rgba(255,255,255,0.75);
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: 'Montserrat', Arial, sans-serif;
-  background: var(--remax-dark-blue);
-  color: var(--remax-white);
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-main);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+a { text-decoration: none; color: inherit; }
 
-/* ===================== HEADER ===================== */
+/* ================= HEADER ================= */
+
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: 100%;
-  z-index: 100;
-  background: rgba(0,14,53,0.92);
+  z-index: 50;
+  background: rgba(245,246,247,0.92);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .nav {
@@ -49,8 +44,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 14px 5%;
-  max-width: 1400px;
-  margin: 0 auto;
 }
 
 .nav-left {
@@ -60,14 +53,14 @@ header {
 }
 
 .nav-left img {
-  height: 30px;
+  height: 32px;
 }
 
 .nav-left span {
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--remax-dark-blue);
 }
 
 .menu-button {
@@ -75,177 +68,169 @@ header {
   cursor: pointer;
 }
 
-/* ===================== GLASS MENU ===================== */
+/* ===== MENU ===== */
+
 .menu-panel {
   position: absolute;
   right: 18px;
-  top: 68px;
-  background: rgba(0,14,53,0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  top: 64px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
   border-radius: 22px;
-  padding: 24px 22px;
+  padding: 22px;
   min-width: 190px;
-  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   opacity: 0;
-  transform: scale(0.95);
   pointer-events: none;
+  transform: scale(0.95);
   transition: 0.25s ease;
 }
 
 body.menu-open .menu-panel {
   opacity: 1;
-  transform: scale(1);
   pointer-events: auto;
+  transform: scale(1);
 }
 
 .menu-panel a {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  color: var(--text-main);
 }
 
 .menu-panel a span {
   display: block;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.6);
-  margin-top: 2px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #888;
 }
 
-/* ===================== HERO ===================== */
+/* ================= HERO ================= */
+
 #hero {
-  min-height: 100vh;
-  background:
-    linear-gradient(rgba(0,14,53,0.55), rgba(0,14,53,0.85)),
-    url("images/sunsetcerritos.jpeg") center / cover no-repeat;
+  position: relative;
+  min-height: 360px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 8%;
+  background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
+  color: #fff;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, rgba(0,14,53,0.78), rgba(0,0,0,0.35));
 }
 
 .hero-inner {
-  max-width: 900px;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 92%;
+  margin: auto;
 }
 
 .hero-eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  color: var(--remax-red);
-  margin-bottom: 20px;
+  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+  opacity: 0.85;
 }
 
 .hero-title {
-  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
-  font-weight: 300;
-  line-height: 1.1;
-  margin-bottom: 22px;
+  font-size: 2.6rem;
+  margin: 14px 0;
+  font-weight: 600;
 }
 
-.hero-copy {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 620px;
-  margin: 0 auto;
-  color: rgba(255,255,255,0.85);
+.hero-sub {
+  max-width: 460px;
+  color: #e5e7eb;
 }
 
-/* ===================== CONTENT ===================== */
+/* ================= SECTIONS ================= */
+
 .section {
-  padding: 110px 8%;
+  max-width: 1200px;
+  width: 92%;
+  margin: 70px auto;
 }
 
 .section-title {
-  font-size: 2.3rem;
-  font-weight: 300;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  color: var(--remax-dark-blue);
+  text-align: center;
 }
 
 .section-sub {
-  color: rgba(255,255,255,0.7);
-  max-width: 520px;
-  margin-bottom: 60px;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+  margin-bottom: 40px;
 }
 
-/* ===================== FEATURE ===================== */
-.feature {
-  background:
-    linear-gradient(rgba(0,14,53,0.6), rgba(0,14,53,0.85)),
-    url("images/sunsetcerritos.jpeg") center / cover no-repeat;
-  border-radius: 18px;
-  padding: 80px 8%;
-  margin-bottom: 80px;
-}
+/* ================= CARDS ================= */
 
-.feature h3 {
-  font-size: 2.6rem;
-  font-weight: 300;
-  margin-bottom: 14px;
-}
-
-.feature p {
-  max-width: 460px;
-  line-height: 1.6;
-  margin-bottom: 28px;
-  color: rgba(255,255,255,0.85);
-}
-
-/* ===================== BUTTON ===================== */
-.remax-btn {
-  display: inline-block;
-  padding: 14px 28px;
-  background: var(--remax-red);
-  color: var(--remax-white);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border-radius: 999px;
-}
-
-/* ===================== GRID ===================== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 50px;
+  gap: 32px;
 }
 
-.grid-card {
-  background:
-    linear-gradient(rgba(0,14,53,0.6), rgba(0,14,53,0.85)),
-    url("images/sunsetcerritos.jpeg") center / cover no-repeat;
-  border-radius: 16px;
-  padding: 60px 36px;
-  min-height: 340px;
+.card {
+  background: var(--card-bg);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
 }
 
-.grid-card h4 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-bottom: 12px;
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.grid-card p {
+.card-content {
+  padding: 26px;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--remax-dark-blue);
+}
+
+.card p {
   font-size: 0.95rem;
-  line-height: 1.5;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 22px;
+  color: #444;
 }
 
-/* ===================== FOOTER ===================== */
-footer {
-  padding: 70px 8%;
-  text-align: center;
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.6);
+.card a {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #eaecef;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
+
+/* ================= FOOTER ================= */
+
+footer {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* ================= SCRIPT ================= */
+
 </style>
 </head>
 
@@ -254,20 +239,18 @@ footer {
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png" alt="RE/MAX Logo">
-      <span>Kenneth Gehlhoff</span>
+      <img src="images/logo.png" alt="RE/MAX">
+      <span>KENNETH GEHLHOFF</span>
     </div>
 
     <div class="menu-button" id="menuButton">≡</div>
 
     <div class="menu-panel" id="menuPanel">
-      <a href="index.html">HOME</a>
-      <a href="businesscard.html">CONTACT</a>
-      <a href="#featured">FEATURED</a>
-      <a href="#agent">AGENT</a>
-      <a href="#our-listings">LISTINGS</a>
-      <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US" target="_blank">
-        REMAX<br><span>Profile</span>
+      <a href="index.html">Home</a>
+      <a href="communities.html">Communities</a>
+      <a href="businesscard.html">Contact</a>
+      <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140" target="_blank">
+        RE/MAX <span>Profile</span>
       </a>
     </div>
   </div>
@@ -275,77 +258,64 @@ footer {
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">COMMUNITY · BAJA SUR</div>
-    <h1 class="hero-title">Life in Baja Happens Between the Listings</h1>
-    <p class="hero-copy">
-      Music after sunset. Markets before noon. Surf at first light.
-      This is the rhythm of Todos Santos and Cerritos.
+    <div class="hero-eyebrow">AFTER DARK · BAJA SUR</div>
+    <h1 class="hero-title">Communities & Lifestyle</h1>
+    <p class="hero-sub">
+      Todos Santos, Cerritos, and El Pescadero — where culture, surf, and quiet luxury meet.
     </p>
   </div>
 </section>
 
-<section class="section" id="featured">
-  <h2 class="section-title">After Dark</h2>
-  <p class="section-sub">Live music, gatherings, and nights worth showing up for.</p>
-
-  <div class="feature">
-    <h3>Evenings in Baja</h3>
-    <p>
-      Courtyard concerts, local restaurants, late dinners, and the moments
-      that make the town feel alive after the sun goes down.
-    </p>
-    <a class="remax-btn" href="https://www.bandsintown.com/c/todos-santos-mexico" target="_blank">
-      View Music Calendar
-    </a>
-  </div>
+<section class="section">
+  <h2 class="section-title">Explore Baja Living</h2>
+  <div class="section-sub">LOCAL • CURATED • TIMELESS</div>
 
   <div class="grid">
-    <div class="grid-card">
-      <h4>Markets & Mornings</h4>
-      <p>Artisan ferias, fresh produce, and community markets.</p>
-      <a class="remax-btn" href="https://www.eventbrite.com.mx/d/mexico--todos-santos/events/" target="_blank">
-        View Events
-      </a>
+    <div class="card">
+      <img src="images/sunsetcerritos.jpeg">
+      <div class="card-content">
+        <h3>Todos Santos</h3>
+        <p>Art, food, culture, and walkable charm — a designated Pueblo Mágico.</p>
+        <a href="#">View Community</a>
+      </div>
     </div>
 
-    <div class="grid-card">
-      <h4>Festivals & Culture</h4>
-      <p>Seasonal celebrations, art walks, and cultural events.</p>
-      <a class="remax-btn" href="https://www.zonaturistica.com/eventos-en/baja-california-sur/todos-santos" target="_blank">
-        Explore
-      </a>
+    <div class="card">
+      <img src="images/sunsetcerritos.jpeg">
+      <div class="card-content">
+        <h3>Cerritos Beach</h3>
+        <p>Surf breaks, oceanfront homes, and sunset-driven living.</p>
+        <a href="#">View Community</a>
+      </div>
     </div>
 
-    <div class="grid-card">
-      <h4>Official Events</h4>
-      <p>State and regional tourism events across Baja California Sur.</p>
-      <a class="remax-btn" href="https://setuesbcs.gob.mx/eventos-admin/calendario.php" target="_blank">
-        Official Calendar
-      </a>
+    <div class="card">
+      <img src="images/sunsetcerritos.jpeg">
+      <div class="card-content">
+        <h3>El Pescadero</h3>
+        <p>Wide-open land, farming roots, and private coastal estates.</p>
+        <a href="#">View Community</a>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2025 · REMAX Cabo Sanctuary · Each office independently owned and operated.
+  © 2025 · RE/MAX Cabo Sanctuary · Each office independently owned and operated.
 </footer>
 
 <script>
-(function () {
-  const body = document.body;
-  const button = document.getElementById("menuButton");
+(function(){
+  const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
-
-  button.addEventListener("click", e => {
+  btn.addEventListener("click", e => {
     e.stopPropagation();
-    body.classList.toggle("menu-open");
+    document.body.classList.toggle("menu-open");
   });
-
-  panel.addEventListener("click", e => e.stopPropagation());
-
   document.addEventListener("click", () => {
-    body.classList.remove("menu-open");
+    document.body.classList.remove("menu-open");
   });
+  panel.addEventListener("click", e => e.stopPropagation());
 })();
 </script>
 
