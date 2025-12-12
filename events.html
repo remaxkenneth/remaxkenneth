@@ -110,7 +110,6 @@ body.menu-open .menu-panel {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-main);
 }
 
 .menu-panel a span {
@@ -204,13 +203,13 @@ body.menu-open .menu-panel {
   width: 100%;
   height: 240px;
   object-fit: cover;
+  object-position: center 25%; /* 👈 CROPPING FIX */
   display: block;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .card-content {
   padding: 30px 26px 28px;
-  background: #fff;
 }
 
 .card h3 {
@@ -232,24 +231,6 @@ body.menu-open .menu-panel {
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-}
-
-/* ===== MOBILE / ANDROID — NO CROP ===== */
-@media (max-width: 600px) {
-  .card img {
-    height: auto;
-    max-height: 260px;
-    object-fit: contain;
-    background: #f0f1f2;
-    padding: 10px 0;
-  }
-}
-
-/* ===== iPAD LANDSCAPE ===== */
-@media (min-width: 900px) and (max-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 /* ================= FOOTER ================= */
