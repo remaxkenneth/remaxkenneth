@@ -29,9 +29,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 100;
-
-  /* DARKER, MORE READABLE LUX HEADER */
-  background: rgba(20, 22, 26, 0.88);
+  background: rgba(20,22,26,0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -64,8 +62,60 @@ header {
 }
 
 .menu-button {
-  font-size: 28px;
+  font-size: 30px;
   cursor: pointer;
+}
+
+/* ================= GLASS MENU (DARK LUX VERSION) ================= */
+
+.menu-panel {
+  position: absolute;
+  right: 18px;
+  top: 70px;
+
+  background: rgba(25,27,32,0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 26px;
+  padding: 26px 24px;
+  min-width: 200px;
+
+  box-shadow:
+    inset 0 0 1px rgba(255,255,255,0.15),
+    0 18px 50px rgba(0,0,0,0.55);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  opacity: 0;
+  transform: scale(0.92);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+  z-index: 9999;
+}
+
+body.menu-open .menu-panel {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.menu-panel a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--lux-white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: 0.2s;
+}
+
+.menu-panel a:hover {
+  transform: translateX(6px);
+  opacity: 0.85;
 }
 
 /* ================= HERO ================= */
@@ -237,7 +287,20 @@ footer span {
       <img src="images/logo.png" alt="RE/MAX Logo">
       <span>Kenneth Gehlhoff</span>
     </div>
-    <div class="menu-button">≡</div>
+
+    <div class="menu-button" id="menuButton">≡</div>
+
+    <!-- GLASS MENU -->
+    <div class="menu-panel" id="menuPanel">
+      <a href="index.html">Home</a>
+      <a href="businesscard.html">Contact</a>
+      <a href="community.html">Community</a>
+      <a href="#our-listings">Listings</a>
+      <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US"
+         target="_blank">
+         RE/MAX Profile
+      </a>
+    </div>
   </div>
 </header>
 
@@ -254,20 +317,13 @@ footer span {
 
 <section class="section">
   <h2 class="section-title">What’s Happening This Week</h2>
-  <p class="section-sub">
-    A curated look at the moments worth leaving the house for.
-  </p>
+  <p class="section-sub">A curated look at the moments worth leaving the house for.</p>
 
   <div class="feature">
     <h3>After Dark</h3>
-    <p>
-      Live music, late dinners, fire pits, and nights that stretch
-      longer than planned.
-    </p>
-    <a class="lux-btn"
-       href="https://www.bandsintown.com/c/todos-santos-mexico"
-       target="_blank">
-       View Music Calendar
+    <p>Live music, late dinners, fire pits, and nights that stretch longer than planned.</p>
+    <a class="lux-btn" href="https://www.bandsintown.com/c/todos-santos-mexico" target="_blank">
+      View Music Calendar
     </a>
   </div>
 
@@ -275,30 +331,24 @@ footer span {
     <div class="grid-card">
       <h4>Markets & Mornings</h4>
       <p>Local ferias, artisans, food, and slow starts.</p>
-      <a class="lux-btn"
-         href="https://www.eventbrite.com.mx/d/mexico--todos-santos/events/"
-         target="_blank">
-         See Events
+      <a class="lux-btn" href="https://www.eventbrite.com.mx/d/mexico--todos-santos/events/" target="_blank">
+        See Events
       </a>
     </div>
 
     <div class="grid-card">
       <h4>Festivals & Culture</h4>
       <p>Art, music, and moments that define the season.</p>
-      <a class="lux-btn"
-         href="https://www.zonaturistica.com/eventos-en/baja-california-sur/todos-santos"
-         target="_blank">
-         Explore
+      <a class="lux-btn" href="https://www.zonaturistica.com/eventos-en/baja-california-sur/todos-santos" target="_blank">
+        Explore
       </a>
     </div>
 
     <div class="grid-card">
       <h4>Ocean & Movement</h4>
       <p>Surf meets, beach walks, and sunrise rituals.</p>
-      <a class="lux-btn"
-         href="https://setuesbcs.gob.mx/eventos-admin/calendario.php"
-         target="_blank">
-         Official Calendar
+      <a class="lux-btn" href="https://setuesbcs.gob.mx/eventos-admin/calendario.php" target="_blank">
+        Official Calendar
       </a>
     </div>
   </div>
@@ -308,6 +358,29 @@ footer span {
   Curated locally. Updated often.<br>
   <span>RE/MAX Cabo Sanctuary</span> · Each office independently owned & operated
 </footer>
+
+<script>
+(function () {
+  const body = document.body;
+  const button = document.getElementById("menuButton");
+  const panel  = document.getElementById("menuPanel");
+
+  function openMenu() { body.classList.add("menu-open"); }
+  function closeMenu() { body.classList.remove("menu-open"); }
+
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    body.classList.contains("menu-open") ? closeMenu() : openMenu();
+  });
+
+  panel.addEventListener("click", e => e.stopPropagation());
+
+  document.addEventListener("click", (e) => {
+    if (!body.classList.contains("menu-open")) return;
+    if (!panel.contains(e.target) && !button.contains(e.target)) closeMenu();
+  });
+})();
+</script>
 
 </body>
 </html>
