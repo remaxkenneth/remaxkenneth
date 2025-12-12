@@ -3,46 +3,47 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact – RE/MAX Cabo Sanctuary</title>
+<title>Contact | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
 <style>
 :root {
   --remax-blue: #003da5;
   --remax-dark-blue: #000E35;
-  --text-main: #ffffff;
-  --text-muted: rgba(255,255,255,0.65);
-  --glass: rgba(255,255,255,0.08);
-  --glass-border: rgba(255,255,255,0.18);
+  --bg-light: #f5f6f7;
+  --card-bg: #ffffff;
+  --text-main: #111;
+  --text-muted: #6b7280;
+  --glass: rgba(255,255,255,0.75);
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #000E35 0%, #000B2A 100%);
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-light);
   color: var(--text-main);
 }
 
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
-/* ===================== HEADER ===================== */
+/* ================= HEADER ================= */
 
 header {
-  background: rgba(0,14,53,0.85);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
   position: sticky;
   top: 0;
   z-index: 50;
+  background: rgba(245,246,247,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 5%;
+  padding: 14px 5%;
   position: relative;
 }
 
@@ -60,39 +61,39 @@ header {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.12em;
+  color: var(--remax-dark-blue);
 }
 
 .menu-button {
-  font-size: 32px;
+  font-size: 30px;
   cursor: pointer;
-  padding: 8px 10px;
 }
 
-/* ===================== MENU ===================== */
+/* ================= MENU ================= */
 
 .menu-panel {
   position: absolute;
   right: 18px;
-  top: 65px;
-  background: rgba(15,20,45,0.95);
-  backdrop-filter: blur(18px);
-  border-radius: 26px;
-  padding: 24px;
+  top: 64px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border-radius: 22px;
+  padding: 22px;
   min-width: 190px;
-  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   opacity: 0;
-  transform: scale(0.95);
   pointer-events: none;
+  transform: scale(0.95);
   transition: 0.25s ease;
 }
 
 body.menu-open .menu-panel {
   opacity: 1;
-  transform: scale(1);
   pointer-events: auto;
+  transform: scale(1);
 }
 
 .menu-panel a {
@@ -103,13 +104,12 @@ body.menu-open .menu-panel {
 
 .menu-panel a span {
   display: block;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  color: var(--text-muted);
-  margin-top: 2px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #888;
 }
 
-/* ===================== HERO ===================== */
+/* ================= HERO ================= */
 
 #hero {
   position: relative;
@@ -117,6 +117,7 @@ body.menu-open .menu-panel {
   display: flex;
   align-items: center;
   background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
+  color: #fff;
 }
 
 #hero::before {
@@ -124,95 +125,117 @@ body.menu-open .menu-panel {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    120deg,
-    rgba(0,14,53,0.75),
-    rgba(0,0,0,0.35)
+    130deg,
+    rgba(0,14,53,0.65),
+    rgba(0,0,0,0.25)
   );
 }
 
 .hero-inner {
   position: relative;
   z-index: 2;
-  width: 92%;
   max-width: 1200px;
+  width: 92%;
   margin: auto;
-  text-align: center;
+}
+
+.hero-eyebrow {
+  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+  opacity: 0.85;
 }
 
 .hero-title {
   font-size: 2.6rem;
-  margin-bottom: 10px;
-  letter-spacing: 0.04em;
+  margin: 14px 0;
+  font-weight: 600;
 }
 
-.hero-copy {
-  color: var(--text-muted);
+.hero-sub {
   max-width: 420px;
-  margin: 0 auto;
+  color: #e5e7eb;
 }
 
-/* ===================== CARDS ===================== */
+/* ================= SECTIONS ================= */
 
-.card-wrapper {
-  width: 100%;
-  max-width: 520px;
+.section {
+  max-width: 1200px;
+  width: 92%;
   margin: 70px auto;
 }
 
-.card {
-  background: var(--glass);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  padding: 36px 32px;
-  border-radius: 26px;
+.section-title {
+  font-size: 2rem;
+  color: var(--remax-dark-blue);
   text-align: center;
 }
 
-.nameplate {
-  font-size: 1.9rem;
-  font-weight: 700;
-  margin: 10px 0;
-}
-
-.title {
-  font-size: 0.85rem;
+.section-sub {
+  text-align: center;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
-  text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 26px;
+  margin-bottom: 40px;
 }
 
-.richard-banner {
-  height: 90px;
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 26px;
+/* ================= CARDS ================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 32px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 26px;
+  padding: 36px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.card img.logo {
+  width: 110px;
+  margin: 0 auto 22px;
+}
+
+.card h3 {
+  margin: 0;
+  color: var(--remax-dark-blue);
+}
+
+.card .role {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
 .contact-item {
-  display: flex;
-  align-items: center;
-  padding: 14px 0;
+  margin-top: 18px;
   font-size: 0.95rem;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  color: #444;
 }
 
-.contact-item:last-child { border-bottom: none; }
-
-.contact-item img {
-  width: 26px;
-  height: 26px;
-  margin-right: 14px;
-  opacity: 0.85;
+.contact-item a {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #eaecef;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
-/* ===================== FOOTER ===================== */
+/* ================= FOOTER ================= */
 
 footer {
   text-align: center;
-  padding: 30px 0 50px;
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  padding: 40px 0;
+  font-size: 0.8rem;
+  color: #777;
 }
 </style>
 </head>
@@ -222,108 +245,92 @@ footer {
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png" alt="RE/MAX Logo">
+      <img src="images/logo.png" alt="RE/MAX">
       <span>KENNETH GEHLHOFF</span>
     </div>
 
     <div class="menu-button" id="menuButton">≡</div>
 
     <div class="menu-panel" id="menuPanel">
-      <a href="index.html">HOME</a>
-      <a href="businesscard.html">CONTACT</a>
-      <a href="#featured">FEATURED</a>
-      <a href="#agent">AGENT</a>
-      <a href="#our-listings">LISTINGS</a>
-      <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US" target="_blank">
-        RE/MAX<br><span>Profile</span>
+      <a href="index.html">Home</a>
+      <a href="communities.html">Communities</a>
+      <a href="businesscard.html">Contact</a>
+      <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140" target="_blank">
+        RE/MAX <span>Profile</span>
       </a>
     </div>
   </div>
 </header>
 
-<script>
-(function () {
-  const body = document.body;
-  const button = document.getElementById("menuButton");
-  const panel = document.getElementById("menuPanel");
-
-  button.addEventListener("click", e => {
-    e.stopPropagation();
-    body.classList.toggle("menu-open");
-  });
-
-  panel.addEventListener("click", e => e.stopPropagation());
-
-  document.addEventListener("click", () => {
-    body.classList.remove("menu-open");
-  });
-})();
-</script>
-
 <section id="hero">
   <div class="hero-inner">
-    <h1 class="hero-title">Contact & Team</h1>
-    <p class="hero-copy">Direct access. Local knowledge. No layers.</p>
+    <div class="hero-eyebrow">CONTACT · TEAM</div>
+    <h1 class="hero-title">Let’s Connect</h1>
+    <p class="hero-sub">
+      Direct access to the people behind your Baja real estate decisions.
+    </p>
   </div>
 </section>
 
-<div class="card-wrapper">
-  <div class="card">
-    <img src="images/logo.png" style="width:110px; margin:0 auto 22px;">
-    <div class="nameplate">Kenneth Gehlhoff</div>
-    <div class="title">Realtor</div>
+<section class="section">
+  <h2 class="section-title">Our Team</h2>
+  <div class="section-sub">DIRECT • LOCAL • TRUSTED</div>
 
-    <a href="tel:+526122311639" class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png">
-      +52 612 231 1639
-    </a>
+  <div class="grid">
+    <div class="card">
+      <img src="images/logo.png" class="logo">
+      <h3>Kenneth Gehlhoff</h3>
+      <div class="role">Realtor</div>
 
-    <a href="mailto:Kenny@remaxcaborealestate.com" class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-      Kenny@remaxcaborealestate.com
-    </a>
+      <div class="contact-item">+52 612 231 1639</div>
+      <div class="contact-item">
+        <a href="tel:+526122311639">Call</a>
+        <a href="https://wa.me/526122311639" target="_blank">WhatsApp</a>
+      </div>
 
-    <a href="https://wa.me/526122311639" target="_blank" class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
-      WhatsApp
-    </a>
-
-    <a href="https://www.instagram.com/baja_kennyrealestate" target="_blank" class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-      Instagram
-    </a>
-  </div>
-</div>
-
-<div class="card-wrapper">
-  <div class="card">
-    <div class="nameplate">Richard Gomez</div>
-    <div class="title">Construction · Advisor</div>
-
-    <div class="richard-banner">
-      <img src="images/bannerr.jpeg">
+      <div class="contact-item">
+        <a href="mailto:kenny@remaxcaborealestate.com">Email</a>
+      </div>
     </div>
 
-    <a href="tel:+523781497632" class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png">
-      +52 378 149 7632
-    </a>
+    <div class="card">
+      <h3>Richard Gomez</h3>
+      <div class="role">Construction · Advisor</div>
 
-    <a href="mailto:ricardogomez160622@gmail.com" class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-      ricardogomez160622@gmail.com
-    </a>
+      <div class="contact-item">+52 378 149 7632</div>
+      <div class="contact-item">
+        <a href="tel:+523781497632">Call</a>
+        <a href="https://wa.me/523781497632" target="_blank">WhatsApp</a>
+      </div>
 
-    <a href="https://wa.me/523781497632" target="_blank" class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
-      WhatsApp
-    </a>
+      <div class="contact-item">
+        <a href="mailto:ricardogomez160622@gmail.com">Email</a>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <footer>
-  © 2025 · RE/MAX Cabo Sanctuary · Each office is independently owned and operated.
+  © 2025 · RE/MAX Cabo Sanctuary · Each office independently owned and operated.
 </footer>
+
+<script>
+(function(){
+  const btn = document.getElementById("menuButton");
+  const panel = document.getElementById("menuPanel");
+
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    document.body.classList.toggle("menu-open");
+  });
+
+  document.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+  });
+
+  panel.addEventListener("click", e => e.stopPropagation());
+})();
+</script>
 
 </body>
 </html>
