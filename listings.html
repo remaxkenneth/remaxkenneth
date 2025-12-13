@@ -11,7 +11,7 @@
 
   <!-- OPEN GRAPH / META -->
   <meta property="og:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="Curated homes and land across Cerritos, Todos Santos, and Baja Sur.">
+  <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
   <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
   <meta property="og:url" content="https://remaxkenneth.vercel.app/listings.html">
   <meta property="og:type" content="website">
@@ -63,9 +63,7 @@
       gap: 10px;
     }
 
-    .nav-left img {
-      height: 32px;
-    }
+    .nav-left img { height: 32px; }
 
     .nav-left span {
       font-size: 1rem;
@@ -109,8 +107,6 @@
       font-size: 14px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      display: block;
-      padding: 6px 0;
     }
 
     .menu-panel a span {
@@ -118,7 +114,6 @@
       font-size: 11px;
       letter-spacing: 0.18em;
       color: #888;
-      margin-top: 2px;
     }
 
     /* ========== HERO ========== */
@@ -161,13 +156,12 @@
       line-height: 1.1;
     }
 
-    .hero-title span {
-      font-weight: 400;
-      display: block;
-      font-size: 1.2rem;
+    .hero-sub {
+      max-width: 520px;
+      color: #e5e7eb;
     }
 
-    /* ========== SECTIONS ========== */
+    /* ========== SECTION ========== */
     .section {
       max-width: 1200px;
       width: 92%;
@@ -188,16 +182,14 @@
       margin-bottom: 40px;
     }
 
-    /* ========== CARDS ========== */
+    /* ========== GRID / CARDS ========== */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
       gap: 32px;
     }
 
-    .card-link {
-      display: block;
-    }
+    .card-link { display: block; }
 
     .card {
       background: var(--card-bg);
@@ -238,7 +230,7 @@
       margin: 0 auto;
     }
 
-    .card-btn {
+    .btn {
       display: inline-block;
       margin-top: 20px;
       padding: 12px 22px;
@@ -275,7 +267,9 @@
         <a href="listings.html">Listings</a>
         <a href="events.html">Events</a>
         <a href="businesscard.html">Contact</a>
-        <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US" target="_blank">RE/MAX<span>Profile</span></a>
+        <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US" target="_blank">
+          RE/MAX <span>Profile</span>
+        </a>
       </div>
     </div>
   </header>
@@ -283,16 +277,14 @@
   <section id="hero">
     <div class="hero-inner">
       <div class="hero-eyebrow">Homes · Condos · Land · Investment</div>
-      <h1 class="hero-title">
-        Listings
-        <span>Baja Properties Worth Seeing</span>
-      </h1>
+      <h1 class="hero-title">Featured Listings</h1>
+      <p class="hero-sub">Homes, land, and investments across Baja Sur</p>
     </div>
   </section>
 
   <section class="section">
-    <h2 class="section-title">Featured Listings</h2>
-    <div class="section-sub">Available properties across Baja Sur</div>
+    <h2 class="section-title">Available Properties</h2>
+    <p class="section-sub">Curated for lifestyle, location, and value</p>
 
     <div class="grid">
 
@@ -302,7 +294,7 @@
           <div class="card-content">
             <h3>Casa Sol y Luna</h3>
             <p>Cerritos · $1,300,000 USD</p>
-            <span class="card-btn">View Listing</span>
+            <span class="btn">View Listing</span>
           </div>
         </div>
       </a>
@@ -313,7 +305,7 @@
           <div class="card-content">
             <h3>Casa Lorenzo</h3>
             <p>Todos Santos · Ocean View</p>
-            <span class="card-btn">View Listing</span>
+            <span class="btn">View Listing</span>
           </div>
         </div>
       </a>
@@ -324,7 +316,7 @@
           <div class="card-content">
             <h3>Cerritos Beach Lot</h3>
             <p>Land · Investment Opportunity</p>
-            <span class="card-btn">View Listing</span>
+            <span class="btn">View Listing</span>
           </div>
         </div>
       </a>
@@ -335,7 +327,7 @@
           <div class="card-content">
             <h3>Modern Baja Retreat</h3>
             <p>Pescadero · New Construction</p>
-            <span class="card-btn">View Listing</span>
+            <span class="btn">View Listing</span>
           </div>
         </div>
       </a>
