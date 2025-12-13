@@ -18,7 +18,6 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
-/* --- SAME CSS AS EVENTS PAGE (UNCHANGED) --- */
 :root {
   --remax-blue: #003da5;
   --remax-dark-blue: #000E35;
@@ -55,6 +54,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 14px 5%;
+  position: relative;
 }
 
 .nav-left {
@@ -107,6 +107,13 @@ body.menu-open .menu-panel {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.menu-panel a span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #888;
 }
 
 /* HERO */
@@ -232,15 +239,34 @@ footer {
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png">
+      <img src="images/logo.png" alt="RE/MAX">
       <span>KENNETH GEHLHOFF</span>
     </div>
+
     <div class="menu-button" id="menuButton">≡</div>
+
     <div class="menu-panel" id="menuPanel">
       <a href="index.html">Home</a>
-      <a href="listings.html">Listings</a>
-      <a href="events.html">Events</a>
-      <a href="businesscard.html">Contact</a>
+
+      <a href="listings.html">
+        Listings
+        <span>Available Properties</span>
+      </a>
+
+      <a href="events.html">
+        Events
+        <span>Community & Local Life</span>
+      </a>
+
+      <a href="businesscard.html">
+        Contact
+        <span>Direct Info</span>
+      </a>
+
+      <a href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US" target="_blank">
+        RE/MAX
+        <span>Profile</span>
+      </a>
     </div>
   </div>
 </header>
@@ -249,8 +275,9 @@ footer {
   <div class="hero-inner">
     <div class="hero-eyebrow">Homes · Condos · Land · Investment</div>
     <h1 class="hero-title">
-      Listings</h1>
-      Baja Properties Worth Seeing
+      Listings<br>
+      <span style="font-weight:400;">Baja Properties Worth Seeing</span>
+    </h1>
   </div>
 </section>
 
@@ -260,9 +287,8 @@ footer {
 
   <div class="grid">
 
-    <!-- LISTING 1 -->
     <a href="#" class="card">
-      <img src="images/listing1.jpg">
+      <img src="images/listing1.jpg" alt="">
       <div class="card-content">
         <h3>Casa Sol y Luna</h3>
         <p>Cerritos · $1,300,000 USD</p>
@@ -270,9 +296,8 @@ footer {
       </div>
     </a>
 
-    <!-- LISTING 2 -->
     <a href="#" class="card">
-      <img src="images/listing2.jpg">
+      <img src="images/listing2.jpg" alt="">
       <div class="card-content">
         <h3>Casa Lorenzo</h3>
         <p>Todos Santos · Ocean View</p>
@@ -280,9 +305,8 @@ footer {
       </div>
     </a>
 
-    <!-- LISTING 3 -->
     <a href="#" class="card">
-      <img src="images/listing3.jpg">
+      <img src="images/listing3.jpg" alt="">
       <div class="card-content">
         <h3>Cerritos Beach Lot</h3>
         <p>Land · Investment Opportunity</p>
@@ -290,9 +314,8 @@ footer {
       </div>
     </a>
 
-    <!-- LISTING 4 -->
     <a href="#" class="card">
-      <img src="images/listing4.jpg">
+      <img src="images/listing4.jpg" alt="">
       <div class="card-content">
         <h3>Modern Baja Retreat</h3>
         <p>Pescadero · New Construction</p>
@@ -304,7 +327,7 @@ footer {
 </section>
 
 <footer>
-  Curated locally. Updated often.<br>  
+  Curated locally. Updated often.<br>
   © 2025 · RE/MAX Kenneth<br>
   Each office independently owned and operated
 </footer>
@@ -313,13 +336,16 @@ footer {
 (function(){
   const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
+
   btn.addEventListener("click", e => {
     e.stopPropagation();
     document.body.classList.toggle("menu-open");
   });
+
   document.addEventListener("click", () => {
     document.body.classList.remove("menu-open");
   });
+
   panel.addEventListener("click", e => e.stopPropagation());
 })();
 </script>
