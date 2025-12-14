@@ -286,6 +286,7 @@ body.menu-open .menu-panel {
   box-shadow: 0 26px 60px rgba(0,0,0,0.14);
 }
 
+/* base image style for listing cards */
 .card img {
   width: 100%;
   height: 240px;
@@ -293,6 +294,11 @@ body.menu-open .menu-panel {
   object-position: center 25%;
   display: block;
   border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* fine-tune the Molusco image so it's not sitting so low */
+.card img.listing-image--molusco {
+  object-position: center 10%;
 }
 
 .card-content {
@@ -453,7 +459,7 @@ footer {
 
       <!-- Casa Vista -->
       <div class="card">
-        <img src="images/IMG_0796.jpeg" alt="Casa Vista">
+        <img src="images/IMG_0796.jpeg" alt="Casa Vista" class="listing-image">
         <div class="card-content">
           <h3>Casa Vista</h3>
           <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
@@ -462,7 +468,7 @@ footer {
 
       <!-- Casa Lienzo C. Molusco -->
       <div class="card">
-        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
+        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco" class="listing-image--molusco">
         <div class="card-content">
           <h3>Casa Lienzo C. Molusco</h3>
           <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
