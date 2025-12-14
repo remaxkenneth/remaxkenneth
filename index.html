@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>KENNETH GEHLHOFF – RE/MAX Cabo Sanctuary</title>
 
-<!-- OPEN GRAPH / META (ONLY CHANGE ADDED) -->
+<!-- OPEN GRAPH / META -->
 <meta property="og:title" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
 <meta property="og:description" content="Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero. Trusted local expertise in Baja California Sur.">
 <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
@@ -44,7 +44,7 @@ body {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
-/* ================= HEADER (COMMUNITIES TEMPLATE) ================= */
+/* ================= HEADER ================= */
 
 header {
   position: sticky;
@@ -84,7 +84,7 @@ header {
   cursor: pointer;
 }
 
-/* ================= MENU (COMMUNITIES TEMPLATE) ================= */
+/* ================= MENU ================= */
 
 .menu-panel {
   position: absolute;
@@ -125,11 +125,11 @@ body.menu-open .menu-panel {
   color: #888;
 }
 
-/* ================= HERO (KEEP YOUR HERO, TEMPLATE TYPE) ================= */
+/* ================= HERO ================= */
 
 #hero {
   position: relative;
-  min-height: 340px; /* leaving flexible for now; we’ll normalize later */
+  min-height: 340px;
   display: flex;
   align-items: center;
   background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
@@ -171,7 +171,7 @@ body.menu-open .menu-panel {
   color: #e5e7eb;
 }
 
-/* ================= SECTIONS / TILES (TEMPLATE) ================= */
+/* ================= SECTIONS / TILES ================= */
 
 .section {
   max-width: 1100px;
@@ -204,7 +204,7 @@ body.menu-open .menu-panel {
   margin: 0 0 34px 0;
 }
 
-/* ================= BUTTONS (NO RED) ================= */
+/* ================= BUTTONS ================= */
 
 .btn {
   display: inline-block;
@@ -220,6 +220,18 @@ body.menu-open .menu-panel {
 .btn:hover {
   transform: translateY(-1px);
   filter: brightness(0.98);
+}
+
+/* wider central CTA under listing tiles */
+.cta-center {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.btn-wide {
+  padding: 14px 40px;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
 }
 
 /* ================= MEDIA ================= */
@@ -324,7 +336,7 @@ body.menu-open .menu-panel {
   margin: 0 auto 18px;
 }
 
-/* ================= LISTINGS GRID (SHARED WITH LISTINGS PAGE) ================= */
+/* ================= LISTINGS GRID ================= */
 
 .grid {
   display: grid;
@@ -416,22 +428,7 @@ footer {
   </div>
 </section>
 
-<section class="section" id="about-baja">
-  <div class="tile">
-    <h2 class="section-title">The Magic of Baja</h2>
-    <p class="section-sub">Discover The Awe of Cerritos Beach</p>
-
-    <div class="video-wrapper">
-      <iframe
-        src="https://www.youtube.com/embed/ouhsNMe_Jsw?si=5gtClQVWUc94KT4w"
-        allow="autoplay; encrypted-media"
-        allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURED TILE GRID SECTION -->
-
+<!-- FEATURED PROPERTY NOW COMES FIRST -->
 <section class="section" id="featured">
   <div class="tile">
     <h2 class="section-title">Featured Property</h2>
@@ -454,7 +451,8 @@ footer {
           with 180° views, casitas, endless pool, and an upstairs sunset studio.
         </p>
 
-        <a class="btn" target="_blank"
+        <a class="btn"
+           target="_blank"
            href="https://global.remax.com/en/listings/mexico/house/for-sale/todos-santos/casa-sol-y-luna-cerritos/1001122140-4">
           View Listing
         </a>
@@ -463,19 +461,36 @@ footer {
   </div>
 </section>
 
-<!-- NEW LISTINGS TILE GRID SECTION -->
+<!-- MAGIC OF BAJA NOW AFTER FEATURED PROPERTY -->
+<section class="section" id="about-baja">
+  <div class="tile">
+    <h2 class="section-title">The Magic of Baja</h2>
+    <p class="section-sub">Discover The Awe of Cerritos Beach</p>
+
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/ouhsNMe_Jsw?si=5gtClQVWUc94KT4w"
+        allow="autoplay; encrypted-media"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="featured-listings">
   <h2 class="section-title">Featured Listings</h2>
   <p class="section-sub">Curated for lifestyle, location, and value</p>
 
   <div class="grid">
-
     <div class="card">
       <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
       <div class="card-content">
         <h3>Casa Sol y Luna</h3>
-        <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Gavilon, Mexico</p>
+        <p>
+          House<br>
+          $1,300,000 USD<br>
+          5 Bedrooms · 5 Bathrooms<br>
+          Gavilon, Mexico
+        </p>
       </div>
     </div>
 
@@ -483,11 +498,19 @@ footer {
       <img src="images/IMG_0796.jpeg" alt="Casa Vista">
       <div class="card-content">
         <h3>Casa Vista</h3>
-        <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
+        <p>
+          House<br>
+          $749,000 USD<br>
+          5 Bedrooms · 4 Bathrooms<br>
+          Cerritos, Mexico
+        </p>
       </div>
     </div>
+  </div>
 
- </div>
+  <div class="cta-center">
+    <a href="listings.html" class="btn btn-wide">View All Listings</a>
+  </div>
 </section>
 
 <section class="section" id="agent">
@@ -505,7 +528,8 @@ footer {
           confidence, and trusted local expertise.
         </p>
 
-        <a class="btn" target="_blank"
+        <a class="btn"
+           target="_blank"
            href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US">
           RE/MAX Profile
         </a>
@@ -524,8 +548,8 @@ footer {
 
 <footer>
   Curated locally. Updated often.<br>
-  <span>© 2025 · REMAX Kenneth<br> 
-  </span>Each office independently owned and operated
+  <span>© 2025 · REMAX Kenneth<br></span>
+  Each office independently owned and operated
 </footer>
 
 <script>
