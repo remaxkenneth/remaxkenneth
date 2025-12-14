@@ -324,6 +324,54 @@ body.menu-open .menu-panel {
   margin: 0 auto 18px;
 }
 
+/* ================= LISTINGS GRID (SHARED WITH LISTINGS PAGE) ================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 32px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 60px rgba(0,0,0,0.14);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.card-content {
+  padding: 30px 26px;
+  text-align: center;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  color: var(--remax-dark-blue);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #444;
+  max-width: 90%;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
 /* ================= FOOTER ================= */
 
 footer {
@@ -412,41 +460,46 @@ footer {
   </div>
 </section>
 
-<section class="section" id="our-listings">
-  <div class="tile" style="text-align:center;">
-    <h2 class="section-title">Our Listings</h2>
-    <p class="section-sub">Explore Our Current Inventory</p>
+<!-- NEW LISTINGS TILE GRID SECTION -->
 
-    <a class="btn" target="_blank"
-       href="https://global.remax.com/searchresults.aspx?action=list&start=1&page=1&count=24&currency=USD&min=1&max=none&sb=MostRecent&sort=MostRecent&aid=1001122140">
-      View All Listings
-    </a>
-  </div>
-</section>
+<section class="section" id="featured-listings">
+  <h2 class="section-title">My Listings</h2>
+  <p class="section-sub">Curated for lifestyle, location, and value</p>
 
-<section class="section" id="video-highlights">
-  <div class="tile">
-    <h2 class="section-title">Video Highlights</h2>
-    <p class="section-sub">A Closer Look at Our Properties</p>
+  <div class="grid">
 
-    <div class="video-flex">
-      <div class="video-flex-text">
-        <p style="color:#444; line-height:1.55; margin:0;">
-          Take a moment and step into Baja Sur. These highlights showcase the coastline,
-          lifestyle, and hand-picked properties that continue to attract serious buyers
-          from around the world.
-        </p>
-      </div>
-
-      <div class="video-flex-media">
-        <div class="video-wrapper">
-          <iframe
-            src="https://www.youtube.com/embed/3bdkYsFjr6A?si=o8QAyQJGRSD7S15w"
-            allow="autoplay; encrypted-media"
-            allowfullscreen></iframe>
-        </div>
+    <div class="card">
+      <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
+      <div class="card-content">
+        <h3>Casa Sol y Luna</h3>
+        <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Todos Santos, Mexico</p>
       </div>
     </div>
+
+    <div class="card">
+      <img src="images/IMG_0796.jpeg" alt="Casa Vista">
+      <div class="card-content">
+        <h3>Casa Vista</h3>
+        <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Todos Santos, Mexico</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
+      <div class="card-content">
+        <h3>Casa Lienzo C. Molusco</h3>
+        <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Todos Santos, Mexico</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/IMG_0798.jpeg" alt="Central Cerritos Lot">
+      <div class="card-content">
+        <h3>Central Cerritos Lot</h3>
+        <p>Plot of Land for Investment<br>$265,000 USD<br>Todos Santos, Mexico</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
