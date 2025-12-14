@@ -217,12 +217,13 @@ body.menu-open .menu-panel {
 .card img.banner {
   width: 100%;
   max-width: 260px;
+  height: 80px;
   margin: 18px auto 10px;
-  height: auto;
   border-radius: 12px;
+  object-fit: contain;   /* no cropping */
+  object-position: center;
+  background: #e5e7eb;   /* subtle backdrop if letterboxed */
 }
-
-/* (no cropping – natural aspect) */
 
 .card h3 {
   margin: 0;
