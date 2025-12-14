@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>KENNETH GEHLHOFF – RE/MAX Cabo Sanctuary</title>
 
-<!-- OPEN GRAPH / META (ONLY CHANGE ADDED) -->
+<!-- OPEN GRAPH / META -->
 <meta property="og:title" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
 <meta property="og:description" content="Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero. Trusted local expertise in Baja California Sur.">
 <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
@@ -44,7 +44,7 @@ body {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
-/* ================= HEADER (COMMUNITIES TEMPLATE) ================= */
+/* ================= HEADER ================= */
 
 header {
   position: sticky;
@@ -69,7 +69,9 @@ header {
   gap: 10px;
 }
 
-.nav-left img { height: 32px; }
+.nav-left img {
+  height: 32px;
+}
 
 .nav-left span {
   font-size: 1rem;
@@ -84,7 +86,7 @@ header {
   cursor: pointer;
 }
 
-/* ================= MENU (COMMUNITIES TEMPLATE) ================= */
+/* ================= MENU ================= */
 
 .menu-panel {
   position: absolute;
@@ -263,26 +265,52 @@ body.menu-open .menu-panel {
   border-radius: 14px;
 }
 
-/* ================= VIDEO FLEX ================= */
+/* ================= LISTINGS GRID ================= */
 
-.video-flex {
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-  align-items: stretch;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 32px;
 }
 
-@media (min-width: 900px) {
-  .video-flex {
-    flex-direction: row;
-    gap: 32px;
-    align-items: flex-start;
-  }
+.card {
+  background: var(--card-bg);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.video-flex-text,
-.video-flex-media {
-  flex: 1;
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 60px rgba(0,0,0,0.14);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center center; /* crop equally top/bottom, keep middle in frame */
+  display: block;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.card-content {
+  padding: 30px 26px;
+  text-align: center;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  color: var(--remax-dark-blue);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #444;
+  max-width: 90%;
+  margin: 0 auto;
+  line-height: 1.4;
 }
 
 /* ================= AGENT GRID ================= */
@@ -322,54 +350,6 @@ body.menu-open .menu-panel {
   width: 100%;
   display: block;
   margin: 0 auto 18px;
-}
-
-/* ================= LISTINGS GRID (SHARED WITH LISTINGS PAGE) ================= */
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 32px;
-}
-
-.card {
-  background: var(--card-bg);
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 26px 60px rgba(0,0,0,0.14);
-}
-
-.card img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  object-position: center 25%;
-  display: block;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-.card-content {
-  padding: 30px 26px;
-  text-align: center;
-}
-
-.card h3 {
-  margin: 0 0 10px;
-  color: var(--remax-dark-blue);
-}
-
-.card p {
-  font-size: 0.95rem;
-  color: #444;
-  max-width: 90%;
-  margin: 0 auto;
-  line-height: 1.4;
 }
 
 /* ================= FOOTER ================= */
@@ -416,7 +396,7 @@ footer {
   </div>
 </section>
 
-<!-- 1) FEATURED PROPERTY FIRST -->
+<!-- 1) FEATURED PROPERTY (Sol y Luna ONLY HERE) -->
 <section class="section" id="featured">
   <div class="tile">
     <h2 class="section-title">Featured Property</h2>
@@ -428,7 +408,7 @@ footer {
       </div>
 
       <div>
-        <h3 style="margin-top:0;">Casa Sol y Luna · Cerritos</h3>
+        <h3 style="margin-top:0;">Casa Sol y Luna · Gavilon</h3>
 
         <div style="color:var(--text-muted); font-weight:700; letter-spacing:0.08em; margin:10px 0 14px; text-transform:uppercase;">
           $1,300,000 USD
@@ -448,7 +428,7 @@ footer {
   </div>
 </section>
 
-<!-- 2) MAGIC / EXPLORE BAJA VIDEO TILE -->
+<!-- 2) MAGIC OF BAJA -->
 <section class="section" id="about-baja">
   <div class="tile">
     <h2 class="section-title">The Magic of Baja</h2>
@@ -463,7 +443,7 @@ footer {
   </div>
 </section>
 
-<!-- 3) FEATURED LISTINGS TILE WITH 2 CARDS + CTA -->
+<!-- 3) FEATURED LISTINGS: Vista + Lienzo ONLY -->
 <section class="section" id="featured-listings">
   <div class="tile">
     <h2 class="section-title">Featured Listings</h2>
@@ -471,29 +451,21 @@ footer {
 
     <div class="grid">
 
-      <div class="card">
-        <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
-        <div class="card-content">
-          <h3>Casa Sol y Luna</h3>
-          <p>
-            House<br>
-            $1,300,000 USD<br>
-            5 Bedrooms · 5 Bathrooms<br>
-            Gavilon, Mexico
-          </p>
-        </div>
-      </div>
-
+      <!-- Casa Vista -->
       <div class="card">
         <img src="images/IMG_0796.jpeg" alt="Casa Vista">
         <div class="card-content">
           <h3>Casa Vista</h3>
-          <p>
-            House<br>
-            $749,000 USD<br>
-            5 Bedrooms · 4 Bathrooms<br>
-            Cerritos, Mexico
-          </p>
+          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
+        </div>
+      </div>
+
+      <!-- Casa Lienzo C. Molusco -->
+      <div class="card">
+        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
+        <div class="card-content">
+          <h3>Casa Lienzo C. Molusco</h3>
+          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
         </div>
       </div>
 
@@ -539,8 +511,8 @@ footer {
 
 <footer>
   Curated locally. Updated often.<br>
-  <span>© 2025 · REMAX Kenneth<br> 
-  </span>Each office independently owned and operated
+  <span>© 2025 · REMAX Kenneth<br></span>
+  Each office independently owned and operated
 </footer>
 
 <script>
