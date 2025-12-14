@@ -185,8 +185,6 @@
       gap: 32px;
     }
 
-    .card-link { display: block; }
-
     .card {
       background: var(--card-bg);
       border-radius: 26px;
@@ -195,7 +193,7 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .card-link:hover .card {
+    .card:hover {
       transform: translateY(-2px);
       box-shadow: 0 26px 60px rgba(0,0,0,0.14);
     }
@@ -224,17 +222,7 @@
       color: #444;
       max-width: 90%;
       margin: 0 auto;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 22px;
-      border-radius: 999px;
-      background: #eaecef;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      line-height: 1.4;
     }
 
     footer {
@@ -281,49 +269,37 @@
 
     <div class="grid">
 
-      <a href="#" class="card-link">
-        <div class="card">
-          <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
-          <div class="card-content">
-            <h3>Casa Sol y Luna</h3>
-            <p>Gavilan · $1,300,000 USD</p>
-            <span class="btn">View Listing</span>
-          </div>
+      <div class="card">
+        <img src="images/1F88602C-827D-432D-81CF-A6BB972373E0.jpeg" alt="Casa Sol y Luna">
+        <div class="card-content">
+          <h3>Casa Sol y Luna</h3>
+          <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Todos Santos, Mexico</p>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="card-link">
-        <div class="card">
-          <img src="images/IMG_0796.jpeg" alt="Casa Vista">
-          <div class="card-content">
-            <h3>Casa Vista</h3>
-            <p>Cerritos · 2BR · Pool + Solar</p>
-            <span class="btn">View Listing</span>
-          </div>
+      <div class="card">
+        <img src="images/1B0522DB-5141-400D-9C94-D86E00132ACE.jpeg" alt="Casa Vista">
+        <div class="card-content">
+          <h3>Casa Vista</h3>
+          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Todos Santos, Mexico</p>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="card-link">
-        <div class="card">
-          <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
-          <div class="card-content">
-            <h3>Casa Lienzo C. Molusco</h3>
-            <p>Las Tunas · 3BR · Garage</p>
-            <span class="btn">View Listing</span>
-          </div>
+      <div class="card">
+        <img src="images/32437EDE-3280-4709-BB18-2DD6C2C72B6B.jpeg" alt="Casa Lienzo C. Molusco">
+        <div class="card-content">
+          <h3>Casa Lienzo C. Molusco</h3>
+          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Todos Santos, Mexico</p>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="card-link">
-        <div class="card">
-          <img src="images/IMG_0798.jpeg" alt="Central Cerritos Lot">
-          <div class="card-content">
-            <h3>Central Cerritos Lot</h3>
-            <p>2,000 m² · Cul-de-Sac</p>
-            <span class="btn">View Listing</span>
-          </div>
+      <div class="card">
+        <img src="images/C989A94C-EAF4-4661-B82A-52134CAC1A40.jpeg" alt="Central Cerritos Lot">
+        <div class="card-content">
+          <h3>Central Cerritos Lot</h3>
+          <p>Plot of Land for Investment<br>$265,000 USD<br>Todos Santos, Mexico</p>
         </div>
-      </a>
+      </div>
 
     </div>
   </section>
