@@ -213,16 +213,23 @@ body.menu-open .menu-panel {
   margin: 0 auto 22px;
 }
 
-/* uniform banner style for team cards */
+/* base banner style (Richard) */
 .card img.banner {
   width: 100%;
   max-width: 260px;
-  height: 80px;
+  margin: 18px auto 10px;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* David only — make shorter */
+.card img.banner-david {
+  width: 100%;
+  max-width: 260px;
+  max-height: 70px;   /* <— shorter */
   margin: 18px auto 10px;
   border-radius: 12px;
-  object-fit: contain;   /* no cropping */
-  object-position: center;
-  background: #e5e7eb;   /* subtle backdrop if letterboxed */
+  object-fit: cover;
 }
 
 .card h3 {
@@ -340,7 +347,7 @@ footer {
     <div class="card">
       <h3>David Ray</h3>
       <div class="role">Operations · Marketing</div>
-      <img src="images/IMG_0810.jpeg" alt="Operations & Marketing" class="banner">
+      <img src="images/IMG_0810.jpeg" alt="Operations & Marketing" class="banner banner-david">
 
       <div class="contact-actions">
         <a href="tel:+526121315839">Call</a>
