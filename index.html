@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>KENNETH GEHLHOFF – RE/MAX Cabo Sanctuary</title>
 
-<!-- OPEN GRAPH / META -->
+<!-- OPEN GRAPH / META (ONLY CHANGE ADDED) -->
 <meta property="og:title" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
 <meta property="og:description" content="Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero. Trusted local expertise in Baja California Sur.">
 <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
@@ -44,7 +44,7 @@ body {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
-/* ================= HEADER ================= */
+/* ================= HEADER (COMMUNITIES TEMPLATE) ================= */
 
 header {
   position: sticky;
@@ -84,7 +84,7 @@ header {
   cursor: pointer;
 }
 
-/* ================= MENU ================= */
+/* ================= MENU (COMMUNITIES TEMPLATE) ================= */
 
 .menu-panel {
   position: absolute;
@@ -222,18 +222,6 @@ body.menu-open .menu-panel {
   filter: brightness(0.98);
 }
 
-/* wider central CTA under listing tiles */
-.cta-center {
-  margin-top: 32px;
-  text-align: center;
-}
-
-.btn-wide {
-  padding: 14px 40px;
-  font-size: 0.8rem;
-  letter-spacing: 0.22em;
-}
-
 /* ================= MEDIA ================= */
 
 .video-wrapper {
@@ -336,7 +324,7 @@ body.menu-open .menu-panel {
   margin: 0 auto 18px;
 }
 
-/* ================= LISTINGS GRID ================= */
+/* ================= LISTINGS GRID (SHARED WITH LISTINGS PAGE) ================= */
 
 .grid {
   display: grid;
@@ -428,7 +416,7 @@ footer {
   </div>
 </section>
 
-<!-- FEATURED PROPERTY NOW COMES FIRST -->
+<!-- 1) FEATURED PROPERTY FIRST -->
 <section class="section" id="featured">
   <div class="tile">
     <h2 class="section-title">Featured Property</h2>
@@ -451,8 +439,7 @@ footer {
           with 180° views, casitas, endless pool, and an upstairs sunset studio.
         </p>
 
-        <a class="btn"
-           target="_blank"
+        <a class="btn" target="_blank"
            href="https://global.remax.com/en/listings/mexico/house/for-sale/todos-santos/casa-sol-y-luna-cerritos/1001122140-4">
           View Listing
         </a>
@@ -461,7 +448,7 @@ footer {
   </div>
 </section>
 
-<!-- MAGIC OF BAJA NOW AFTER FEATURED PROPERTY -->
+<!-- 2) MAGIC / EXPLORE BAJA VIDEO TILE -->
 <section class="section" id="about-baja">
   <div class="tile">
     <h2 class="section-title">The Magic of Baja</h2>
@@ -476,40 +463,45 @@ footer {
   </div>
 </section>
 
+<!-- 3) FEATURED LISTINGS TILE WITH 2 CARDS + CTA -->
 <section class="section" id="featured-listings">
-  <h2 class="section-title">Featured Listings</h2>
-  <p class="section-sub">Curated for lifestyle, location, and value</p>
+  <div class="tile">
+    <h2 class="section-title">Featured Listings</h2>
+    <p class="section-sub">Curated for lifestyle, location, and value</p>
 
-  <div class="grid">
-    <div class="card">
-      <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
-      <div class="card-content">
-        <h3>Casa Sol y Luna</h3>
-        <p>
-          House<br>
-          $1,300,000 USD<br>
-          5 Bedrooms · 5 Bathrooms<br>
-          Gavilon, Mexico
-        </p>
+    <div class="grid">
+
+      <div class="card">
+        <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
+        <div class="card-content">
+          <h3>Casa Sol y Luna</h3>
+          <p>
+            House<br>
+            $1,300,000 USD<br>
+            5 Bedrooms · 5 Bathrooms<br>
+            Gavilon, Mexico
+          </p>
+        </div>
       </div>
+
+      <div class="card">
+        <img src="images/IMG_0796.jpeg" alt="Casa Vista">
+        <div class="card-content">
+          <h3>Casa Vista</h3>
+          <p>
+            House<br>
+            $749,000 USD<br>
+            5 Bedrooms · 4 Bathrooms<br>
+            Cerritos, Mexico
+          </p>
+        </div>
+      </div>
+
     </div>
 
-    <div class="card">
-      <img src="images/IMG_0796.jpeg" alt="Casa Vista">
-      <div class="card-content">
-        <h3>Casa Vista</h3>
-        <p>
-          House<br>
-          $749,000 USD<br>
-          5 Bedrooms · 4 Bathrooms<br>
-          Cerritos, Mexico
-        </p>
-      </div>
+    <div style="text-align:center; margin-top:30px;">
+      <a href="listings.html" class="btn">View All Listings</a>
     </div>
-  </div>
-
-  <div class="cta-center">
-    <a href="listings.html" class="btn btn-wide">View All Listings</a>
   </div>
 </section>
 
@@ -528,8 +520,7 @@ footer {
           confidence, and trusted local expertise.
         </p>
 
-        <a class="btn"
-           target="_blank"
+        <a class="btn" target="_blank"
            href="https://global.remax.com/AgentProfile.aspx?AgentID=1001122140&lang=en-US">
           RE/MAX Profile
         </a>
@@ -548,8 +539,8 @@ footer {
 
 <footer>
   Curated locally. Updated often.<br>
-  <span>© 2025 · REMAX Kenneth<br></span>
-  Each office independently owned and operated
+  <span>© 2025 · REMAX Kenneth<br> 
+  </span>Each office independently owned and operated
 </footer>
 
 <script>
