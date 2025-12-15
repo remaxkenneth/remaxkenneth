@@ -52,17 +52,6 @@ header {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* slim RE/MAX nod bar */
-.top-bar {
-  background: var(--remax-dark-blue);
-  color: #f9fafb;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 6px 5%;
-}
-
 .nav {
   display: flex;
   justify-content: space-between;
@@ -223,23 +212,14 @@ body.menu-open .menu-panel {
   margin: 0 auto 22px;
 }
 
-/* banner style for Richard */
+/* shared banner style – SAME for Richard and David */
 .card img.banner {
   width: 100%;
   max-width: 260px;
-  margin: 18px auto 10px;
-  height: auto;
-  border-radius: 12px;
-}
-
-/* David — bigger now, still cropped nicely */
-.card img.banner-david {
-  width: 100%;
-  max-width: 260px;
-  height: 90px;
+  height: 90px;          /* consistent height */
   margin: 18px auto 10px;
   border-radius: 12px;
-  object-fit: cover;
+  object-fit: cover;     /* crop center, don’t stretch */
 }
 
 .card h3 {
@@ -289,10 +269,6 @@ footer {
 <body>
 
 <header>
-  <div class="top-bar">
-    RE/MAX CABO SANCTUARY · EACH OFFICE INDEPENDENTLY OWNED AND OPERATED
-  </div>
-
   <div class="nav">
     <div class="nav-left">
       <img src="images/logo.png" alt="RE/MAX">
@@ -359,7 +335,7 @@ footer {
     <div class="card">
       <h3>David Ray</h3>
       <div class="role">Operations · Marketing</div>
-      <img src="images/IMG_0830.png" alt="Operations & Marketing" class="banner-david">
+      <img src="images/IMG_0830.png" alt="Operations & Marketing" class="banner">
 
       <div class="contact-actions">
         <a href="tel:+526121315839">Call</a>
