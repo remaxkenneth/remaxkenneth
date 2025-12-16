@@ -21,11 +21,14 @@
 :root {
   --remax-blue: #003da5;
   --remax-red:  #e4002b;
+
   --remax-dark-blue: #000E35;
   --bg-light:  #f5f6f7;
   --card-bg:   #ffffff;
+
   --text-main: #111;
   --text-muted:#6b7280;
+
   --glass: rgba(255,255,255,0.75);
 }
 
@@ -40,6 +43,40 @@ body {
 
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
+
+/* ================= SPLASH SCREEN ================= */
+
+#splash {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#splash img {
+  max-width: 70%;
+  width: 70%;
+  height: auto;
+}
+
+/* Glitch flicker during display + fade */
+#splash.is-on img {
+  animation: glitch 0.15s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); opacity: 1; }
+  20% { transform: translate(-2px, 2px); opacity: 0.8; }
+  40% { transform: translate(2px, -1px); opacity: 0.9; }
+  60% { transform: translate(-1px, 1px); opacity: 0.85; }
+  80% { transform: translate(1px, -2px); opacity: 0.95; }
+  100% { transform: translate(0); opacity: 1; }
+}
 
 /* ================= HEADER ================= */
 
@@ -117,6 +154,13 @@ body.menu-open .menu-panel {
   color: var(--text-main);
 }
 
+.menu-panel a span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #888;
+}
+
 /* ================= HERO ================= */
 
 #hero {
@@ -163,7 +207,7 @@ body.menu-open .menu-panel {
   color: #e5e7eb;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SECTIONS / TILES ================= */
 
 .section {
   max-width: 1100px;
@@ -184,6 +228,7 @@ body.menu-open .menu-panel {
   color: var(--remax-dark-blue);
   margin: 0 0 10px 0;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .section-sub {
@@ -192,15 +237,53 @@ body.menu-open .menu-panel {
   text-transform: uppercase;
   font-size: 0.8rem;
   letter-spacing: 0.22em;
-  margin-bottom: 34px;
+  margin: 0 0 34px 0;
 }
 
-/* ================= FEATURED ================= */
+/* ================= BUTTONS ================= */
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #eaecef;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+
+/* ================= MEDIA ================= */
+
+.video-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-wrapper video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ================= FEATURED GRID ================= */
 
 .featured-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
+  align-items: start;
 }
 
 @media (min-width: 900px) {
@@ -216,18 +299,91 @@ body.menu-open .menu-panel {
   border-radius: 14px;
 }
 
-/* ================= VIDEO ================= */
+/* ================= LISTINGS GRID ================= */
 
-.video-wrapper {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 32px;
 }
 
-.video-wrapper video {
+.card {
+  background: var(--card-bg);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 60px rgba(0,0,0,0.14);
+}
+
+.card img {
   width: 100%;
-  height: auto;
+  height: 240px;
+  object-fit: cover;
+  object-position: center center;
   display: block;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.card-content {
+  padding: 30px 26px;
+  text-align: center;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  color: var(--remax-dark-blue);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #444;
+  max-width: 90%;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+/* ================= AGENT GRID ================= */
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+  text-align: center;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .agent-grid {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    gap: 40px;
+  }
+}
+
+.agent-photo img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .agent-photo img { margin: 0; }
+}
+
+.tile#contactTile img.footer-logo {
+  max-width: 200px;
+  width: 100%;
+  display: block;
+  margin: 0 auto 18px;
 }
 
 /* ================= FOOTER ================= */
@@ -242,6 +398,11 @@ footer {
 </head>
 
 <body>
+
+<!-- SPLASH SCREEN (index only) -->
+<div id="splash" aria-hidden="true">
+  <img src="images/Unknown-1.png" alt="RE/MAX Futuristic Logo Splash">
+</div>
 
 <header>
   <div class="nav">
@@ -271,6 +432,7 @@ footer {
   </div>
 </section>
 
+<!-- 1) FEATURED PROPERTY (Sol y Luna ONLY HERE) -->
 <section class="section" id="featured">
   <div class="tile">
     <h2 class="section-title">Featured Property</h2>
@@ -297,6 +459,7 @@ footer {
   </div>
 </section>
 
+<!-- 2) MAGIC OF BAJA -->
 <section class="section" id="about-baja">
   <div class="tile">
     <h2 class="section-title">The Magic of Baja</h2>
@@ -305,10 +468,70 @@ footer {
     <div class="video-wrapper">
       <video controls playsinline muted preload="metadata">
         <source src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/baja.mp4" type="video/mp4">
-        Your browser does not support the video tag.
       </video>
     </div>
   </div>
+</section>
+
+<!-- 3) FEATURED LISTINGS: Vista + Lienzo ONLY -->
+<section class="section" id="featured-listings">
+  <div class="tile">
+    <h2 class="section-title">Featured Listings</h2>
+    <p class="section-sub">Curated for lifestyle, location, and value</p>
+
+    <div class="grid">
+
+      <!-- Casa Vista -->
+      <div class="card">
+        <img src="images/IMG_0822.png" alt="Casa Vista">
+        <div class="card-content">
+          <h3>Casa Vista</h3>
+          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
+        </div>
+      </div>
+
+      <!-- Casa Lienzo C. Molusco -->
+      <div class="card">
+        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
+        <div class="card-content">
+          <h3>Casa Lienzo C. Molusco</h3>
+          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+      <a href="listings.html" class="btn">View All Listings</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="agent">
+  <div class="tile">
+    <div class="agent-grid">
+      <div class="agent-photo">
+        <img src="images/kenny.jpeg" alt="Kenneth Gehlhoff">
+      </div>
+
+      <div>
+        <h2 class="section-title" style="text-align:inherit; margin-top:0;">Kenneth Gehlhoff</h2>
+        <p style="color:#444; line-height:1.55; margin-top:10px;">
+          With years of experience in the Todos Santos & Cerritos corridor,
+          Kenneth helps clients navigate Baja real estate with clarity,
+          confidence, and trusted local expertise.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <a href="businesscard.html" class="tile" id="contactTile" style="display:block;">
+    <img src="images/logo.png" class="footer-logo" alt="RE/MAX">
+    <h2 class="section-title">Contact Me Today</h2>
+    <p class="section-sub" style="margin-bottom:0;">We’re Living The Dream — Come Join Us</p>
+  </a>
 </section>
 
 <footer>
@@ -319,6 +542,7 @@ footer {
 
 <script>
 (function(){
+  // MENU TOGGLE
   const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
 
@@ -332,6 +556,39 @@ footer {
   });
 
   panel.addEventListener("click", e => e.stopPropagation());
+})();
+</script>
+
+<script>
+(function(){
+  // SPLASH (index only): show once per 15 minutes per browser/device
+  const INTERVAL = 15 * 60 * 1000;
+  const KEY = "splashLastSeen";
+  const splash = document.getElementById("splash");
+  const now = Date.now();
+  const last = Number(localStorage.getItem(KEY) || 0);
+
+  if (!splash) return;
+
+  if (!last || (now - last) > INTERVAL) {
+    splash.classList.add("is-on");
+    splash.style.opacity = "1";
+    splash.style.pointerEvents = "auto";
+
+    // visible time
+    setTimeout(() => {
+      splash.style.transition = "opacity 0.65s ease";
+      splash.style.opacity = "0";
+
+      setTimeout(() => {
+        splash.style.display = "none";
+      }, 750);
+    }, 2000);
+
+    localStorage.setItem(KEY, String(now));
+  } else {
+    splash.remove();
+  }
 })();
 </script>
 
