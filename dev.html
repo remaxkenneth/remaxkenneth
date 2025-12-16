@@ -23,17 +23,17 @@
   --remax-red:  #e4002b;
 
   --remax-dark-blue: #000E35;
-
-  /* Luxe near-black (neutral, not blue) */
-  --bg-luxe-1: #0b0b0c;
-  --bg-luxe-2: #050506;
-
+  --bg-light:  #f5f6f7;
   --card-bg:   #ffffff;
 
   --text-main: #111;
   --text-muted:#6b7280;
 
   --glass: rgba(255,255,255,0.75);
+
+  /* luxe glass system */
+  --glass-bg: rgba(255,255,255,0.82);
+  --glass-border: rgba(255,255,255,0.14);
 }
 
 * { box-sizing: border-box; }
@@ -43,8 +43,17 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+
+  /* luxury near-black background (your version) */
   background:
-    radial-gradient(circle at 20% 0%, #141416 0%, var(--bg-luxe-1) 35%, var(--bg-luxe-2) 100%);
+    radial-gradient(
+      circle at top,
+      #0f172a 0%,
+      #0a0f1f 35%,
+      #05070d 70%,
+      #020409 100%
+    );
+
   color: var(--text-main);
 }
 
@@ -52,33 +61,32 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
 /* ================= SPLASH ================= */
-
-/* Full-screen overlay that cannot crop the image */
+/* Full screen overlay + "electric" feel without cropping the image */
 #splash {
   position: fixed;
   inset: 0;
   z-index: 9999;
 
-  /* iOS Safari friendly viewport */
+  width: 100vw;
   height: 100svh;
   height: 100dvh;
-  width: 100vw;
 
-  background: radial-gradient(circle at center, #111113 0%, #050506 70%);
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.92) 65%, rgba(0,0,0,0.98) 100%);
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* prevent weird scroll/lips */
   overflow: hidden;
 
-  /* Safe-area padding so browser UI never chops it */
+  /* Safe area so iOS Safari chrome doesn't "lip" you */
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 
-  transition: opacity 420ms ease;
+  transition: opacity 520ms ease;
 }
 
 #splash.hidden {
@@ -89,34 +97,56 @@ img { max-width: 100%; display: block; }
 .splash-inner {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 }
 
-/* The important part: CONTAIN = never crop */
 #splashImg {
-  width: min(92vw, 1100px);
+  /* never crop, ever */
+  width: min(92vw, 1200px);
   height: auto;
 
-  /* keep the whole image visible */
   max-height: calc(100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
   max-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 
   object-fit: contain;
   object-position: center center;
 
-  /* subtle “electric” vibe without glitching */
+  /* electric vibe */
   filter:
-    drop-shadow(0 0 18px rgba(255,255,255,0.18))
-    drop-shadow(0 0 40px rgba(0,61,165,0.10));
+    drop-shadow(0 0 14px rgba(255,255,255,0.18))
+    drop-shadow(0 0 32px rgba(0,61,165,0.16))
+    drop-shadow(0 0 26px rgba(228,0,43,0.10));
 
-  animation: splashPulse 1.7s ease-in-out infinite;
+  animation: electricPulse 1.35s ease-in-out infinite;
+  transform: translateZ(0);
 }
 
-@keyframes splashPulse {
+/* subtle “charge up” */
+@keyframes electricPulse {
   0%, 100% { transform: translateZ(0) scale(1); opacity: 1; }
-  50%      { transform: translateZ(0) scale(1.01); opacity: 0.92; }
+  45%      { transform: translateZ(0) scale(1.01); opacity: 0.93; }
+  55%      { transform: translateZ(0) scale(1.008); opacity: 0.98; }
+}
+
+/* fast micro-flicker that feels like electricity, not teleporting */
+#splash.electrify #splashImg {
+  animation: electricPulse 1.35s ease-in-out infinite, microFlicker 520ms steps(2, end) infinite;
+}
+
+@keyframes microFlicker {
+  0%   { filter: drop-shadow(0 0 12px rgba(255,255,255,0.15)) drop-shadow(0 0 28px rgba(0,61,165,0.14)) drop-shadow(0 0 22px rgba(228,0,43,0.08)); }
+  50%  { filter: drop-shadow(0 0 20px rgba(255,255,255,0.22)) drop-shadow(0 0 44px rgba(0,61,165,0.20)) drop-shadow(0 0 30px rgba(228,0,43,0.12)); }
+  100% { filter: drop-shadow(0 0 12px rgba(255,255,255,0.15)) drop-shadow(0 0 28px rgba(0,61,165,0.14)) drop-shadow(0 0 22px rgba(228,0,43,0.08)); }
+}
+
+/* tiny jitter burst at the end (electric discharge) */
+@keyframes dischargeJitter {
+  0%   { transform: translateZ(0) scale(1) translate(0,0); }
+  25%  { transform: translateZ(0) scale(1.01) translate(1px,-1px); }
+  50%  { transform: translateZ(0) scale(1.01) translate(-1px,1px); }
+  75%  { transform: translateZ(0) scale(1.01) translate(1px,1px); }
+  100% { transform: translateZ(0) scale(1) translate(0,0); }
 }
 
 /* ================= HEADER ================= */
@@ -156,14 +186,9 @@ header {
   text-transform: uppercase;
 }
 
-/* Make it an actual button (fixes accessibility warning) */
 .menu-button {
   font-size: 30px;
   cursor: pointer;
-  background: transparent;
-  border: 0;
-  padding: 6px 10px;
-  line-height: 1;
 }
 
 /* ================= MENU ================= */
@@ -261,14 +286,16 @@ body.menu-open .menu-panel {
   margin: 70px auto;
 }
 
-/* Luxury “glass” without looking like a hospital card */
+/* luxe glass tile */
 .tile {
-  background: rgba(255,255,255,0.92);
+  background: var(--glass-bg);
   border-radius: 26px;
   padding: 40px;
-  box-shadow: 0 28px 70px rgba(0,0,0,0.55);
-  border: 1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
 .section-title {
@@ -441,14 +468,14 @@ footer {
   text-align: center;
   padding: 40px 0;
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.75);
+  color: #aaa;
 }
 </style>
 </head>
 
 <body>
 
-<!-- SPLASH OVERLAY (loads first, never crops) -->
+<!-- SPLASH (runs on every refresh) -->
 <div id="splash" aria-hidden="true">
   <div class="splash-inner">
     <img id="splashImg" src="" alt="RE/MAX Splash">
@@ -462,7 +489,7 @@ footer {
       <span>KENNETH GEHLHOFF</span>
     </div>
 
-    <button class="menu-button" id="menuButton" aria-label="Open menu">≡</button>
+    <div class="menu-button" id="menuButton">≡</div>
 
     <div class="menu-panel" id="menuPanel">
       <a href="index.html">Home</a>
@@ -595,32 +622,43 @@ footer {
 </footer>
 
 <script>
-/* ===== Splash config: set your file path here ===== */
-const SPLASH_SRC = "images/Unknown-1.png";   // <-- change if needed
-const SPLASH_MS  = 1800;                    // how long it stays before fade
+/* ===== SPLASH SETTINGS =====
+   - runs on every refresh
+   - no cropping (contain)
+   - electric effect enabled
+*/
+const SPLASH_SRC = "images/Unknown-1.png";  // <-- put your exact file path here
+const SPLASH_MS  = 1700;                   // how long it stays up before fading
 
-/* Put image in place immediately */
-const splashImg = document.getElementById("splashImg");
-splashImg.src = SPLASH_SRC;
+(function splashInit(){
+  const splash = document.getElementById("splash");
+  const img = document.getElementById("splashImg");
 
-/* Ensure no scroll weirdness while splash is up */
-document.documentElement.style.overflow = "hidden";
-document.body.style.overflow = "hidden";
+  // set image immediately
+  img.src = SPLASH_SRC;
 
-/* Fade out after load */
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    const splash = document.getElementById("splash");
-    splash.classList.add("hidden");
+  // turn on electric styling
+  splash.classList.add("electrify");
+
+  // stop scroll while splash is visible (prevents weird lips)
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+
+  // once page is loaded, do a little discharge + fade
+  window.addEventListener("load", () => {
     setTimeout(() => {
-      splash.remove();
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    }, 450);
-  }, SPLASH_MS);
-});
+      img.style.animation = "electricPulse 1.35s ease-in-out infinite, microFlicker 520ms steps(2,end) infinite, dischargeJitter 220ms ease-in-out 1";
+      splash.classList.add("hidden");
+      setTimeout(() => {
+        splash.remove();
+        document.documentElement.style.overflow = "";
+        document.body.style.overflow = "";
+      }, 560);
+    }, SPLASH_MS);
+  });
+})();
 
-/* ===== Menu ===== */
+/* ===== MENU ===== */
 (function(){
   const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
