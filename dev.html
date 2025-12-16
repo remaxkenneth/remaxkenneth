@@ -195,20 +195,6 @@ body.menu-open .menu-panel {
   margin-bottom: 34px;
 }
 
-/* ================= VIDEO ================= */
-
-.video-wrapper {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
-}
-
-.video-wrapper video {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 /* ================= FEATURED ================= */
 
 .featured-grid {
@@ -221,6 +207,27 @@ body.menu-open .menu-panel {
   .featured-grid {
     grid-template-columns: 3fr 2fr;
   }
+}
+
+.featured-main img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ================= VIDEO ================= */
+
+.video-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ================= FOOTER ================= */
@@ -264,31 +271,49 @@ footer {
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="featured">
   <div class="tile">
     <h2 class="section-title">Featured Property</h2>
     <p class="section-sub">Hand-Selected</p>
 
-    <h3>Casa Sol y Luna · Gavilan</h3>
-    <strong>$1,300,000 USD</strong>
+    <div class="featured-grid">
+      <div class="featured-main">
+        <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
+      </div>
+
+      <div>
+        <h3 style="margin-top:0;">Casa Sol y Luna · Gavilan</h3>
+
+        <div style="color:var(--text-muted); font-weight:700; letter-spacing:0.08em; margin:10px 0 14px; text-transform:uppercase;">
+          $1,300,000 USD
+        </div>
+
+        <p style="color:#444; line-height:1.55;">
+          Where the desert meets the sea. Casa Sol y Luna sits on an 1,800 m2 lot
+          with 180° views, casitas, endless pool, and an upstairs sunset studio.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="about-baja">
   <div class="tile">
     <h2 class="section-title">The Magic of Baja</h2>
-    <p class="section-sub">Discover the Awe of Cerritos Beach</p>
+    <p class="section-sub">Discover The Awe of Cerritos Beach</p>
 
     <div class="video-wrapper">
-      <video controls playsinline muted autoplay loop>
+      <video controls playsinline muted preload="metadata">
         <source src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/baja.mp4" type="video/mp4">
+        Your browser does not support the video tag.
       </video>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2025 · REMAX Kenneth<br>
+  Curated locally. Updated often.<br>
+  <span>© 2025 · REMAX Kenneth<br></span>
   Each office independently owned and operated
 </footer>
 
