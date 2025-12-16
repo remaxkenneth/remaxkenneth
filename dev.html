@@ -19,400 +19,281 @@
 
 <style>
 :root {
-  --remax-blue: #003da5;
-  --remax-red:  #e4002b;
-
-  --remax-dark-blue: #000E35;
-  --bg-light:  #f5f6f7;
-  --card-bg:   #ffffff;
-
-  --text-main: #111;
+  --remax-blue:#003da5;
+  --remax-red:#e4002b;
+  --remax-dark-blue:#000E35;
+  --bg-light:#f5f6f7;
+  --card-bg:#ffffff;
+  --text-main:#111;
   --text-muted:#6b7280;
-
-  --glass: rgba(255,255,255,0.75);
+  --glass:rgba(255,255,255,0.75);
 }
 
-* { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg-light);
-  color: var(--text-main);
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg-light);
+  color:var(--text-main);
 }
 
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
 
-/* ================= SPLASH SCREEN ================= */
+/* ================= SPLASH ================= */
 
-#splash {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  opacity: 0;
-  pointer-events: none;
+#splash{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  opacity:0;
+  pointer-events:none;
 }
 
-#splash img {
-  max-width: 70%;
-  width: 70%;
-  height: auto;
+#splash img{
+  max-width:70%;
 }
 
-#splash.is-on img {
-  animation: glitch 0.15s infinite;
+#splash.is-on img{
+  animation:glitch .15s infinite;
 }
 
-@keyframes glitch {
-  0% { transform: translate(0); opacity: 1; }
-  20% { transform: translate(-2px, 2px); opacity: 0.8; }
-  40% { transform: translate(2px, -1px); opacity: 0.9; }
-  60% { transform: translate(-1px, 1px); opacity: 0.85; }
-  80% { transform: translate(1px, -2px); opacity: 0.95; }
-  100% { transform: translate(0); opacity: 1; }
+@keyframes glitch{
+  0%{transform:translate(0);opacity:1}
+  20%{transform:translate(-2px,2px);opacity:.8}
+  40%{transform:translate(2px,-1px);opacity:.9}
+  60%{transform:translate(-1px,1px);opacity:.85}
+  80%{transform:translate(1px,-2px);opacity:.95}
+  100%{transform:translate(0);opacity:1}
 }
 
 /* ================= HEADER ================= */
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(245,246,247,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #e5e7eb;
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,246,247,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e5e7eb;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 5%;
-  position: relative;
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 5%;
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.nav-left img {
-  height: 32px;
+.nav-left img{height:32px}
+
+.nav-left span{
+  font-size:1rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  color:var(--remax-dark-blue);
 }
 
-.nav-left span {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--remax-dark-blue);
-  text-transform: uppercase;
-}
-
-.menu-button {
-  font-size: 30px;
-  cursor: pointer;
+.menu-button{
+  font-size:30px;
+  cursor:pointer;
 }
 
 /* ================= MENU ================= */
 
-.menu-panel {
-  position: absolute;
-  right: 18px;
-  top: 64px;
-  background: var(--glass);
-  backdrop-filter: blur(20px);
-  border-radius: 22px;
-  padding: 22px;
-  min-width: 190px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.95);
-  transition: 0.25s ease;
+.menu-panel{
+  position:absolute;
+  right:18px;
+  top:64px;
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border-radius:22px;
+  padding:22px;
+  min-width:190px;
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  opacity:0;
+  pointer-events:none;
+  transform:scale(.95);
+  transition:.25s ease;
 }
 
-body.menu-open .menu-panel {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
+body.menu-open .menu-panel{
+  opacity:1;
+  pointer-events:auto;
+  transform:scale(1);
 }
 
-.menu-panel a {
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-main);
-}
-
-.menu-panel a span {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: #888;
+.menu-panel a{
+  font-size:14px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
 }
 
 /* ================= HERO ================= */
 
-#hero {
-  position: relative;
-  min-height: 340px;
-  display: flex;
-  align-items: center;
-  background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
-  color: #fff;
+#hero{
+  position:relative;
+  min-height:340px;
+  display:flex;
+  align-items:center;
+  background:url('images/sunsetcerritos.jpeg') center/cover no-repeat;
+  color:#fff;
 }
 
-#hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(130deg, rgba(0,14,53,0.65), rgba(0,0,0,0.25));
+#hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(130deg,rgba(0,14,53,.65),rgba(0,0,0,.25));
 }
 
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  width: 92%;
-  margin: auto;
+.hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:1200px;
+  width:92%;
+  margin:auto;
 }
 
-.hero-eyebrow {
-  letter-spacing: 0.35em;
-  font-size: 0.7rem;
-  opacity: 0.9;
-  text-transform: uppercase;
-  color: #e5e7eb;
+.hero-eyebrow{
+  letter-spacing:.35em;
+  font-size:.7rem;
+  color:#e5e7eb;
 }
 
-.hero-title {
-  font-size: 2.6rem;
-  margin: 14px 0;
-  font-weight: 600;
-  line-height: 1.1;
+.hero-title{
+  font-size:2.6rem;
+  margin:14px 0;
 }
 
-.hero-sub {
-  max-width: 520px;
-  color: #e5e7eb;
+.hero-sub{
+  max-width:520px;
+  color:#e5e7eb;
 }
 
-/* ================= SECTIONS / TILES ================= */
+/* ================= SECTIONS ================= */
 
-.section {
-  max-width: 1100px;
-  width: 92%;
-  margin: 70px auto;
+.section{
+  max-width:1100px;
+  width:92%;
+  margin:70px auto;
 }
 
-.tile {
-  background: var(--card-bg);
-  border-radius: 26px;
-  padding: 40px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+.tile{
+  background:var(--card-bg);
+  border-radius:26px;
+  padding:40px;
+  box-shadow:0 20px 45px rgba(0,0,0,.08);
 }
 
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  color: var(--remax-dark-blue);
-  margin: 0 0 10px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+.section-title{
+  text-align:center;
+  font-size:2rem;
+  color:var(--remax-dark-blue);
 }
 
-.section-sub {
-  text-align: center;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.22em;
-  margin: 0 0 34px 0;
+.section-sub{
+  text-align:center;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  letter-spacing:.22em;
 }
 
-/* ================= BUTTONS ================= */
+/* ================= VIDEO ================= */
 
-.btn {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: #eaecef;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  transition: 0.2s ease;
+.video-wrapper{
+  position:relative;
+  padding-bottom:56.25%;
+  height:0;
+  overflow:hidden;
+  border-radius:14px;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-  filter: brightness(0.98);
+.video-wrapper video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
 }
 
-/* ================= MEDIA ================= */
+/* ================= FEATURED ================= */
 
-.video-wrapper {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
+.featured-grid{
+  display:grid;
+  gap:40px;
 }
 
-/* Replace iframe rules with video rules */
-.video-wrapper video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+@media(min-width:900px){
+  .featured-grid{grid-template-columns:3fr 2fr}
 }
 
-/* ================= FEATURED GRID ================= */
-
-.featured-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  align-items: start;
+.featured-main img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  border-radius:14px;
 }
 
-@media (min-width: 900px) {
-  .featured-grid {
-    grid-template-columns: 3fr 2fr;
-  }
+/* ================= GRID ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:32px;
 }
 
-.featured-main img {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-  border-radius: 14px;
+.card{
+  background:#fff;
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 20px 45px rgba(0,0,0,.08);
 }
 
-/* ================= LISTINGS GRID ================= */
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 32px;
-}
-
-.card {
-  background: var(--card-bg);
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 26px 60px rgba(0,0,0,0.14);
-}
-
-.card img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  object-position: center center; /* crop equally top/bottom, keep middle in frame */
-  display: block;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-.card-content {
-  padding: 30px 26px;
-  text-align: center;
-}
-
-.card h3 {
-  margin: 0 0 10px;
-  color: var(--remax-dark-blue);
-}
-
-.card p {
-  font-size: 0.95rem;
-  color: #444;
-  max-width: 90%;
-  margin: 0 auto;
-  line-height: 1.4;
-}
-
-/* ================= AGENT GRID ================= */
-
-.agent-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 34px;
-  text-align: center;
-  align-items: center;
-}
-
-@media (min-width: 900px) {
-  .agent-grid {
-    grid-template-columns: 1fr 1fr;
-    text-align: left;
-    gap: 40px;
-  }
-}
-
-.agent-photo img {
-  width: 260px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-@media (min-width: 900px) {
-  .agent-photo img { margin: 0; }
-}
-
-.tile#contactTile img.footer-logo {
-  max-width: 200px;
-  width: 100%;
-  display: block;
-  margin: 0 auto 18px;
+.card img{
+  height:240px;
+  width:100%;
+  object-fit:cover;
 }
 
 /* ================= FOOTER ================= */
 
-footer {
-  text-align: center;
-  padding: 40px 0;
-  font-size: 0.8rem;
-  color: #777;
+footer{
+  text-align:center;
+  padding:40px 0;
+  font-size:.8rem;
+  color:#777;
 }
 </style>
 </head>
 
 <body>
 
-<!-- SPLASH (index only) -->
-<div id="splash" aria-hidden="true">
-  <img src="images/Unknown-1.png" alt="RE/MAX Futuristic Logo Splash">
+<!-- SPLASH TEST MODE -->
+<div id="splash">
+  <img src="images/Unknown-1.png" alt="RE/MAX Futuristic Splash">
 </div>
 
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png" alt="RE/MAX Logo">
+      <img src="images/logo.png" alt="RE/MAX">
       <span>KENNETH GEHLHOFF</span>
     </div>
-
     <div class="menu-button" id="menuButton">≡</div>
-
     <div class="menu-panel" id="menuPanel">
       <a href="index.html">Home</a>
       <a href="listings.html">Listings</a>
@@ -426,14 +307,11 @@ footer {
   <div class="hero-inner">
     <div class="hero-eyebrow">CERRITOS · TODOS SANTOS · PESCADERO</div>
     <h1 class="hero-title">Luxury Oceanview<br>Real Estate</h1>
-    <p class="hero-sub">
-      Private villas, income properties, and beachfront homes for discerning buyers.
-    </p>
+    <p class="hero-sub">Private villas, income properties, and beachfront homes.</p>
   </div>
 </section>
 
-<!-- 1) FEATURED PROPERTY (Sol y Luna ONLY HERE) -->
-<section class="section" id="featured">
+<section class="section">
   <div class="tile">
     <h2 class="section-title">Featured Property</h2>
     <p class="section-sub">Hand-Selected</p>
@@ -442,29 +320,18 @@ footer {
       <div class="featured-main">
         <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
       </div>
-
       <div>
-        <h3 style="margin-top:0;">Casa Sol y Luna · Gavilan</h3>
-
-        <div style="color:var(--text-muted); font-weight:700; letter-spacing:0.08em; margin:10px 0 14px; text-transform:uppercase;">
-          $1,300,000 USD
-        </div>
-
-        <p style="color:#444; line-height:1.55;">
-          Where the desert meets the sea. Casa Sol y Luna sits on an 1,800 m2 lot
-          with 180° views, casitas, endless pool, and an upstairs sunset studio.
-        </p>
+        <h3>Casa Sol y Luna · Gavilan</h3>
+        <strong>$1,300,000 USD</strong>
+        <p>180° ocean views · casitas · endless pool · sunset studio</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 2) MAGIC OF BAJA -->
-<section class="section" id="about-baja">
+<section class="section">
   <div class="tile">
     <h2 class="section-title">The Magic of Baja</h2>
-    <p class="section-sub">Discover The Awe of Cerritos Beach</p>
-
     <div class="video-wrapper">
       <video controls playsinline muted preload="metadata">
         <source src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/baja.mp4" type="video/mp4">
@@ -473,120 +340,33 @@ footer {
   </div>
 </section>
 
-<!-- 3) FEATURED LISTINGS: Vista + Lienzo ONLY -->
-<section class="section" id="featured-listings">
-  <div class="tile">
-    <h2 class="section-title">Featured Listings</h2>
-    <p class="section-sub">Curated for lifestyle, location, and value</p>
-
-    <div class="grid">
-
-      <!-- Casa Vista -->
-      <div class="card">
-        <img src="images/IMG_0822.png" alt="Casa Vista">
-        <div class="card-content">
-          <h3>Casa Vista</h3>
-          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
-        </div>
-      </div>
-
-      <!-- Casa Lienzo C. Molusco -->
-      <div class="card">
-        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
-        <div class="card-content">
-          <h3>Casa Lienzo C. Molusco</h3>
-          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="text-align:center; margin-top:30px;">
-      <a href="listings.html" class="btn">View All Listings</a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="agent">
-  <div class="tile">
-    <div class="agent-grid">
-      <div class="agent-photo">
-        <img src="images/kenny.jpeg" alt="Kenneth Gehlhoff">
-      </div>
-
-      <div>
-        <h2 class="section-title" style="text-align:inherit; margin-top:0;">Kenneth Gehlhoff</h2>
-        <p style="color:#444; line-height:1.55; margin-top:10px;">
-          With years of experience in the Todos Santos & Cerritos corridor,
-          Kenneth helps clients navigate Baja real estate with clarity,
-          confidence, and trusted local expertise.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <a href="businesscard.html" class="tile" id="contactTile" style="display:block;">
-    <img src="images/logo.png" class="footer-logo" alt="RE/MAX">
-    <h2 class="section-title">Contact Me Today</h2>
-    <p class="section-sub" style="margin-bottom:0;">We’re Living The Dream — Come Join Us</p>
-  </a>
-</section>
-
 <footer>
-  Curated locally. Updated often.<br>
-  <span>© 2025 · REMAX Kenneth<br></span>
+  © 2025 · REMAX Kenneth<br>
   Each office independently owned and operated
 </footer>
 
 <script>
 (function(){
-  const btn = document.getElementById("menuButton");
-  const panel = document.getElementById("menuPanel");
-
-  btn.addEventListener("click", e => {
-    e.stopPropagation();
-    document.body.classList.toggle("menu-open");
-  });
-
-  document.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
-  });
-
-  panel.addEventListener("click", e => e.stopPropagation());
+  const btn=document.getElementById("menuButton");
+  const panel=document.getElementById("menuPanel");
+  btn.onclick=e=>{e.stopPropagation();document.body.classList.toggle("menu-open")}
+  document.onclick=()=>document.body.classList.remove("menu-open")
+  panel.onclick=e=>e.stopPropagation()
 })();
 </script>
 
 <script>
 (function(){
-  // Splash shows once per 15 minutes on THIS page only (index.html)
-  const INTERVAL = 15 * 60 * 1000;
-  const KEY = "splashLastSeen";
-  const splash = document.getElementById("splash");
-  const now = Date.now();
-  const last = Number(localStorage.getItem(KEY) || 0);
+  const splash=document.getElementById("splash");
+  splash.classList.add("is-on");
+  splash.style.opacity="1";
+  splash.style.pointerEvents="auto";
 
-  if (!splash) return;
-
-  if (!last || (now - last) > INTERVAL) {
-    splash.classList.add("is-on");
-    splash.style.opacity = "1";
-    splash.style.pointerEvents = "auto";
-
-    setTimeout(() => {
-      splash.style.transition = "opacity 0.65s ease";
-      splash.style.opacity = "0";
-
-      setTimeout(() => {
-        splash.style.display = "none";
-      }, 750);
-    }, 2000);
-
-    localStorage.setItem(KEY, String(now));
-  } else {
-    splash.remove();
-  }
+  setTimeout(()=>{
+    splash.style.transition="opacity .65s ease";
+    splash.style.opacity="0";
+    setTimeout(()=>splash.remove(),750);
+  },2000);
 })();
 </script>
 
