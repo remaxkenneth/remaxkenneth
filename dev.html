@@ -64,7 +64,6 @@ img { max-width: 100%; display: block; }
   height: auto;
 }
 
-/* Glitch flicker during display + fade */
 #splash.is-on img {
   animation: glitch 0.15s infinite;
 }
@@ -269,6 +268,7 @@ body.menu-open .menu-panel {
   height: 0;
 }
 
+/* Replace iframe rules with video rules */
 .video-wrapper video {
   position: absolute;
   inset: 0;
@@ -324,7 +324,7 @@ body.menu-open .menu-panel {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  object-position: center center;
+  object-position: center center; /* crop equally top/bottom, keep middle in frame */
   display: block;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
@@ -399,7 +399,7 @@ footer {
 
 <body>
 
-<!-- SPLASH SCREEN (index only) -->
+<!-- SPLASH (index only) -->
 <div id="splash" aria-hidden="true">
   <img src="images/Unknown-1.png" alt="RE/MAX Futuristic Logo Splash">
 </div>
@@ -542,7 +542,6 @@ footer {
 
 <script>
 (function(){
-  // MENU TOGGLE
   const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
 
@@ -561,7 +560,7 @@ footer {
 
 <script>
 (function(){
-  // SPLASH (index only): show once per 15 minutes per browser/device
+  // Splash shows once per 15 minutes on THIS page only (index.html)
   const INTERVAL = 15 * 60 * 1000;
   const KEY = "splashLastSeen";
   const splash = document.getElementById("splash");
@@ -575,7 +574,6 @@ footer {
     splash.style.opacity = "1";
     splash.style.pointerEvents = "auto";
 
-    // visible time
     setTimeout(() => {
       splash.style.transition = "opacity 0.65s ease";
       splash.style.opacity = "0";
