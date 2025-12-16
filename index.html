@@ -30,6 +30,10 @@
   --text-muted:#6b7280;
 
   --glass: rgba(255,255,255,0.75);
+
+  /* NEW: luxe glass system */
+  --glass-bg: rgba(255,255,255,0.82);
+  --glass-border: rgba(255,255,255,0.14);
 }
 
 * { box-sizing: border-box; }
@@ -37,7 +41,17 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg-light);
+
+  /* UPDATED: luxury near-black background (not jet black) */
+  background:
+    radial-gradient(
+      circle at top,
+      #0f172a 0%,
+      #0a0f1f 35%,
+      #05070d 70%,
+      #020409 100%
+    );
+
   color: var(--text-main);
 }
 
@@ -181,11 +195,16 @@ body.menu-open .menu-panel {
   margin: 70px auto;
 }
 
+/* UPDATED: luxe glass tile (still readable, corporate-safe) */
 .tile {
-  background: var(--card-bg);
+  background: var(--glass-bg);
   border-radius: 26px;
   padding: 40px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
 .section-title {
@@ -290,7 +309,7 @@ body.menu-open .menu-panel {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  object-position: center center; /* crop equally top/bottom, keep middle in frame */
+  object-position: center center;
   display: block;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
@@ -358,7 +377,7 @@ footer {
   text-align: center;
   padding: 40px 0;
   font-size: 0.8rem;
-  color: #777;
+  color: #aaa; /* slightly brighter for dark background */
 }
 </style>
 </head>
@@ -379,7 +398,6 @@ footer {
       <a href="listings.html">Listings</a>
       <a href="events.html">Events</a>
       <a href="businesscard.html">Contact</a>
-      </a>
     </div>
   </div>
 </header>
@@ -417,7 +435,6 @@ footer {
           with 180° views, casitas, endless pool, and an upstairs sunset studio.
         </p>
 
-    
       </div>
     </div>
   </div>
@@ -432,7 +449,7 @@ footer {
     <div class="video-wrapper">
       <iframe
         src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/baja.mp4"
-        allow="autoplay; encrypted-media"
+        allow="encrypted-media"
         allowfullscreen></iframe>
     </div>
   </div>
@@ -487,7 +504,8 @@ footer {
           confidence, and trusted local expertise.
         </p>
       </div>
-      
+
+    </div>
   </div>
 </section>
 
