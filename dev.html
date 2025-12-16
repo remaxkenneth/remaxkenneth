@@ -4,28 +4,28 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
-
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>Contact | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+<title>KENNETH GEHLHOFF – RE/MAX Cabo Sanctuary</title>
 
 <!-- OPEN GRAPH / META -->
-<meta property="og:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
-<meta property="og:description" content="Direct contact with Kenneth Gehlhoff and team. Trusted local guidance for luxury real estate in Baja California Sur.">
+<meta property="og:title" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+<meta property="og:description" content="Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero. Trusted local expertise in Baja California Sur.">
 <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
-<meta property="og:url" content="https://remaxkenneth.vercel.app/businesscard.html">
+<meta property="og:url" content="https://remaxkenneth.vercel.app/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<!-- END META -->
 
 <style>
 :root {
   --remax-blue: #003da5;
+  --remax-red:  #e4002b;
   --remax-dark-blue: #000E35;
-  --bg-light: #f5f6f7;
-  --card-bg: #ffffff;
+  --bg-light:  #f5f6f7;
+  --card-bg:   #ffffff;
   --text-main: #111;
-  --text-muted: #6b7280;
+  --text-muted:#6b7280;
   --glass: rgba(255,255,255,0.75);
 }
 
@@ -75,6 +75,7 @@ header {
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--remax-dark-blue);
+  text-transform: uppercase;
 }
 
 .menu-button {
@@ -113,20 +114,14 @@ body.menu-open .menu-panel {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.menu-panel a span {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: #888;
+  color: var(--text-main);
 }
 
 /* ================= HERO ================= */
 
 #hero {
   position: relative;
-  min-height: 320px;
+  min-height: 340px;
   display: flex;
   align-items: center;
   background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
@@ -137,11 +132,7 @@ body.menu-open .menu-panel {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    130deg,
-    rgba(0,14,53,0.65),
-    rgba(0,0,0,0.25)
-  );
+  background: linear-gradient(130deg, rgba(0,14,53,0.65), rgba(0,0,0,0.25));
 }
 
 .hero-inner {
@@ -155,104 +146,81 @@ body.menu-open .menu-panel {
 .hero-eyebrow {
   letter-spacing: 0.35em;
   font-size: 0.7rem;
-  opacity: 0.85;
+  opacity: 0.9;
+  text-transform: uppercase;
+  color: #e5e7eb;
 }
 
 .hero-title {
   font-size: 2.6rem;
   margin: 14px 0;
   font-weight: 600;
+  line-height: 1.1;
 }
 
 .hero-sub {
-  max-width: 420px;
+  max-width: 520px;
   color: #e5e7eb;
 }
 
 /* ================= SECTIONS ================= */
 
 .section {
-  max-width: 1200px;
+  max-width: 1100px;
   width: 92%;
   margin: 70px auto;
 }
 
+.tile {
+  background: var(--card-bg);
+  border-radius: 26px;
+  padding: 40px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+}
+
 .section-title {
+  text-align: center;
   font-size: 2rem;
   color: var(--remax-dark-blue);
-  text-align: center;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
 }
 
 .section-sub {
   text-align: center;
+  color: var(--text-muted);
+  text-transform: uppercase;
   font-size: 0.8rem;
   letter-spacing: 0.22em;
-  color: var(--text-muted);
-  margin-bottom: 40px;
+  margin-bottom: 34px;
 }
 
-/* ================= CARDS ================= */
+/* ================= VIDEO ================= */
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 32px;
-}
-
-.card {
-  background: var(--card-bg);
-  border-radius: 26px;
-  padding: 36px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
-  text-align: center;
-}
-
-.card img.logo {
-  width: 110px;
-  margin: 0 auto 22px;
-}
-
-/* shared banner style – SAME for Richard and David */
-.card img.banner {
+.video-wrapper {
   width: 100%;
-  max-width: 260px;
-  height: 90px;          /* consistent height */
-  margin: 18px auto 10px;
-  border-radius: 12px;
-  object-fit: cover;     /* crop center, don’t stretch */
+  overflow: hidden;
+  border-radius: 14px;
 }
 
-.card h3 {
-  margin: 0;
-  color: var(--remax-dark-blue);
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.card .role {
-  margin-top: 8px;
-  font-size: 0.75rem;
-  letter-spacing: 0.22em;
-  color: var(--text-muted);
-  text-transform: uppercase;
+/* ================= FEATURED ================= */
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
 }
 
-/* ===== CONTACT ACTIONS (BUTTON CLUSTER) ===== */
-
-.contact-actions {
-  margin-top: 22px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-
-.contact-actions a {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: #eaecef;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+@media (min-width: 900px) {
+  .featured-grid {
+    grid-template-columns: 3fr 2fr;
+  }
 }
 
 /* ================= FOOTER ================= */
@@ -271,7 +239,7 @@ footer {
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png" alt="RE/MAX">
+      <img src="images/logo.png" alt="RE/MAX Logo">
       <span>KENNETH GEHLHOFF</span>
     </div>
 
@@ -282,75 +250,45 @@ footer {
       <a href="listings.html">Listings</a>
       <a href="events.html">Events</a>
       <a href="businesscard.html">Contact</a>
-      <!-- RE/MAX profile link removed -->
     </div>
   </div>
 </header>
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">CONTACT · TEAM</div>
-    <h1 class="hero-title">Let’s Connect</h1>
+    <div class="hero-eyebrow">CERRITOS · TODOS SANTOS · PESCADERO</div>
+    <h1 class="hero-title">Luxury Oceanview<br>Real Estate</h1>
     <p class="hero-sub">
-      Direct access to the people behind your Baja real estate decisions.
+      Private villas, income properties, and beachfront homes for discerning buyers.
     </p>
   </div>
 </section>
 
 <section class="section">
-  <h2 class="section-title">Our Team</h2>
-  <div class="section-sub">DIRECT · LOCAL · TRUSTED</div>
+  <div class="tile">
+    <h2 class="section-title">Featured Property</h2>
+    <p class="section-sub">Hand-Selected</p>
 
-  <div class="grid">
+    <h3>Casa Sol y Luna · Gavilan</h3>
+    <strong>$1,300,000 USD</strong>
+  </div>
+</section>
 
-    <!-- Kenneth -->
-    <div class="card">
-      <img src="images/logo.png" class="logo" alt="RE/MAX Logo">
-      <h3>Kenneth Gehlhoff</h3>
-      <div class="role">Realtor</div>
+<section class="section">
+  <div class="tile">
+    <h2 class="section-title">The Magic of Baja</h2>
+    <p class="section-sub">Discover the Awe of Cerritos Beach</p>
 
-      <div class="contact-actions">
-        <a href="tel:+526122311639">Call</a>
-        <a href="https://wa.me/526122311639" target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/profile.php?id=61584034062665" target="_blank">Facebook</a>
-        <a href="mailto:kenny@remaxcaborealestate.com">Email</a>
-      </div>
+    <div class="video-wrapper">
+      <video controls playsinline muted autoplay loop>
+        <source src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/baja.mp4" type="video/mp4">
+      </video>
     </div>
-
-    <!-- Richard -->
-    <div class="card">
-      <h3>Richard Gomez</h3>
-      <div class="role">Construction Specialist</div>
-      <img src="images/bannerr.jpeg" alt="Construction Services" class="banner">
-
-      <div class="contact-actions">
-        <a href="tel:+523781497632">Call</a>
-        <a href="https://wa.me/523781497632" target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/richard.g.654694?" target="_blank">Facebook</a>
-        <a href="mailto:ricardogomez160622@gmail.com">Email</a>
-      </div>
-    </div>
-
-    <!-- David -->
-    <div class="card">
-      <h3>David Ray</h3>
-      <div class="role">Operations · Marketing</div>
-      <img src="images/IMG_0830.png" alt="Operations & Marketing" class="banner">
-
-      <div class="contact-actions">
-        <a href="tel:+526121315839">Call</a>
-        <a href="https://wa.me/526121315839" target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/profile.php?id=61581876812521" target="_blank">Facebook</a>
-        <a href="mailto:Bajaheat24x7@gmail.com">Email</a>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <footer>
-  Curated locally. Updated often.<br>
-  <span>© 2025 · REMAX Kenneth<br></span>
+  © 2025 · REMAX Kenneth<br>
   Each office independently owned and operated
 </footer>
 
