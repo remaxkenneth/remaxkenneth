@@ -23,130 +23,138 @@
   --remax-red:  #e4002b;
 
   --remax-dark-blue: #000E35;
-  --bg-light:  #f5f6f7;
-  --card-bg:   #ffffff;
 
   --text-main: #111;
   --text-muted:#6b7280;
 
-  --glass: rgba(255,255,255,0.75);
-
   /* luxe glass system */
+  --glass: rgba(255,255,255,0.75);
   --glass-bg: rgba(255,255,255,0.82);
   --glass-border: rgba(255,255,255,0.14);
+
+  --card-bg: #ffffff;
 }
 
 * { box-sizing: border-box; }
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 
-  /* luxury near-black background (your version) */
+  /* luxury near-black background (not jet black, not blue) */
   background:
-    radial-gradient(
-      circle at top,
-      #0f172a 0%,
-      #0a0f1f 35%,
-      #05070d 70%,
-      #020409 100%
-    );
+    radial-gradient(circle at top, #111827 0%, #0b1020 38%, #05070d 72%, #020409 100%);
 
   color: var(--text-main);
+  overflow-x: hidden;
 }
 
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
 /* ================= SPLASH ================= */
-/* Full screen overlay + "electric" feel without cropping the image */
+/* NOTE: Update this path to your futuristic RE/MAX image if different */
 #splash {
   position: fixed;
   inset: 0;
   z-index: 9999;
-
-  width: 100vw;
-  height: 100svh;
-  height: 100dvh;
-
-  background:
-    radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.92) 65%, rgba(0,0,0,0.98) 100%);
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  overflow: hidden;
+  /* kill the “blue lip”/gaps */
+  background: #020409;
 
-  /* Safe area so iOS Safari chrome doesn't "lip" you */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-
-  transition: opacity 520ms ease;
-}
-
-#splash.hidden {
-  opacity: 0;
+  /* allow the animation to feel premium */
+  opacity: 1;
   pointer-events: none;
 }
 
-.splash-inner {
-  width: 100%;
-  height: 100%;
+#splash-inner {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   display: grid;
   place-items: center;
+  overflow: hidden;
 }
 
-#splashImg {
-  /* never crop, ever */
-  width: min(92vw, 1200px);
-  height: auto;
-
-  max-height: calc(100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  max-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-
+#splash-logo {
+  width: min(92vw, 980px);
+  height: min(92vh, 980px);
   object-fit: contain;
   object-position: center center;
 
-  /* electric vibe */
-  filter:
-    drop-shadow(0 0 14px rgba(255,255,255,0.18))
-    drop-shadow(0 0 32px rgba(0,61,165,0.16))
-    drop-shadow(0 0 26px rgba(228,0,43,0.10));
-
-  animation: electricPulse 1.35s ease-in-out infinite;
+  /* electrify vibe baseline */
+  filter: contrast(1.08) saturate(1.06);
   transform: translateZ(0);
+  animation: splashZap 0.55s ease-in-out 1;
 }
 
-/* subtle “charge up” */
-@keyframes electricPulse {
-  0%, 100% { transform: translateZ(0) scale(1); opacity: 1; }
-  45%      { transform: translateZ(0) scale(1.01); opacity: 0.93; }
-  55%      { transform: translateZ(0) scale(1.008); opacity: 0.98; }
+/* subtle “electric” aura without looking like a rave */
+#splash-inner::before,
+#splash-inner::after {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  pointer-events: none;
+  opacity: 0.0;
 }
 
-/* fast micro-flicker that feels like electricity, not teleporting */
-#splash.electrify #splashImg {
-  animation: electricPulse 1.35s ease-in-out infinite, microFlicker 520ms steps(2, end) infinite;
+#splash-inner::before {
+  background:
+    radial-gradient(circle at 40% 40%, rgba(228,0,43,0.22), transparent 45%),
+    radial-gradient(circle at 65% 60%, rgba(0,61,165,0.20), transparent 50%);
+  animation: auraPulse 0.7s ease-in-out 1;
 }
 
-@keyframes microFlicker {
-  0%   { filter: drop-shadow(0 0 12px rgba(255,255,255,0.15)) drop-shadow(0 0 28px rgba(0,61,165,0.14)) drop-shadow(0 0 22px rgba(228,0,43,0.08)); }
-  50%  { filter: drop-shadow(0 0 20px rgba(255,255,255,0.22)) drop-shadow(0 0 44px rgba(0,61,165,0.20)) drop-shadow(0 0 30px rgba(228,0,43,0.12)); }
-  100% { filter: drop-shadow(0 0 12px rgba(255,255,255,0.15)) drop-shadow(0 0 28px rgba(0,61,165,0.14)) drop-shadow(0 0 22px rgba(228,0,43,0.08)); }
+#splash-inner::after {
+  background:
+    linear-gradient(90deg,
+      transparent 0%,
+      rgba(255,255,255,0.10) 48%,
+      transparent 52%,
+      transparent 100%);
+  mix-blend-mode: screen;
+  animation: scanFlick 0.55s ease-in-out 1;
 }
 
-/* tiny jitter burst at the end (electric discharge) */
-@keyframes dischargeJitter {
-  0%   { transform: translateZ(0) scale(1) translate(0,0); }
-  25%  { transform: translateZ(0) scale(1.01) translate(1px,-1px); }
-  50%  { transform: translateZ(0) scale(1.01) translate(-1px,1px); }
-  75%  { transform: translateZ(0) scale(1.01) translate(1px,1px); }
-  100% { transform: translateZ(0) scale(1) translate(0,0); }
+@keyframes splashZap {
+  0%   { transform: translate3d(0,0,0) scale(0.995); filter: contrast(1.02) saturate(1.02); }
+  12%  { transform: translate3d(1px,-1px,0) scale(1.000); filter: contrast(1.14) saturate(1.10); }
+  22%  { transform: translate3d(-2px,1px,0) scale(1.002); }
+  35%  { transform: translate3d(2px,0,0) scale(1.000); }
+  48%  { transform: translate3d(-1px,2px,0) scale(1.001); }
+  60%  { transform: translate3d(1px,-2px,0) scale(1.000); }
+  72%  { transform: translate3d(0,0,0) scale(1.000); filter: contrast(1.08) saturate(1.06); }
+  100% { transform: translate3d(0,0,0) scale(1.000); }
+}
+
+@keyframes auraPulse {
+  0%   { opacity: 0.00; }
+  18%  { opacity: 0.55; }
+  45%  { opacity: 0.18; }
+  100% { opacity: 0.00; }
+}
+
+@keyframes scanFlick {
+  0%   { opacity: 0.00; transform: translateX(-12%); }
+  20%  { opacity: 0.55; }
+  55%  { opacity: 0.18; }
+  100% { opacity: 0.00; transform: translateX(10%); }
+}
+
+/* hide splash smoothly after ~1.35s total */
+.splash-hide {
+  animation: splashFadeOut 0.38s ease forwards;
+}
+
+@keyframes splashFadeOut {
+  to { opacity: 0; }
 }
 
 /* ================= HEADER ================= */
@@ -189,6 +197,7 @@ header {
 .menu-button {
   font-size: 30px;
   cursor: pointer;
+  line-height: 1;
 }
 
 /* ================= MENU ================= */
@@ -223,13 +232,6 @@ body.menu-open .menu-panel {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-main);
-}
-
-.menu-panel a span {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: #888;
 }
 
 /* ================= HERO ================= */
@@ -286,7 +288,7 @@ body.menu-open .menu-panel {
   margin: 70px auto;
 }
 
-/* luxe glass tile */
+/* luxe glass tile (readable, corporate-safe) */
 .tile {
   background: var(--glass-bg);
   border-radius: 26px;
@@ -341,16 +343,13 @@ body.menu-open .menu-panel {
   overflow: hidden;
   border-radius: 14px;
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
 }
 
-.video-wrapper iframe {
-  position: absolute;
-  inset: 0;
+.video-wrapper video {
   width: 100%;
-  height: 100%;
-  border: 0;
+  height: auto;
+  display: block;
+  border-radius: 14px;
 }
 
 /* ================= FEATURED GRID ================= */
@@ -475,10 +474,11 @@ footer {
 
 <body>
 
-<!-- SPLASH (runs on every refresh) -->
+<!-- SPLASH OVERLAY -->
 <div id="splash" aria-hidden="true">
-  <div class="splash-inner">
-    <img id="splashImg" src="" alt="RE/MAX Splash">
+  <div id="splash-inner">
+    <!-- IMPORTANT: set this to your actual futuristic image path -->
+    <img id="splash-logo" src="images/Unknown-1.png" alt="">
   </div>
 </div>
 
@@ -489,7 +489,7 @@ footer {
       <span>KENNETH GEHLHOFF</span>
     </div>
 
-    <div class="menu-button" id="menuButton">≡</div>
+    <div class="menu-button" id="menuButton" role="button" aria-label="Open menu" tabindex="0">≡</div>
 
     <div class="menu-panel" id="menuPanel">
       <a href="index.html">Home</a>
@@ -510,7 +510,7 @@ footer {
   </div>
 </section>
 
-<!-- 1) FEATURED PROPERTY (Sol y Luna ONLY HERE) -->
+<!-- 1) FEATURED PROPERTY -->
 <section class="section" id="featured">
   <div class="tile">
     <h2 class="section-title">Featured Property</h2>
@@ -532,36 +532,36 @@ footer {
           Where the desert meets the sea. Casa Sol y Luna sits on an 1,800 m2 lot
           with 180° views, casitas, endless pool, and an upstairs sunset studio.
         </p>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- 2) MAGIC OF BAJA -->
+<!-- 2) MAGIC OF BAJA (NO AUTOPLAY) -->
 <section class="section" id="about-baja">
   <div class="tile">
     <h2 class="section-title">The Magic of Baja</h2>
     <p class="section-sub">Discover The Awe of Cerritos Beach</p>
 
     <div class="video-wrapper">
-      <iframe
-        src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/baja.mp4"
-        allow="encrypted-media"
-        allowfullscreen></iframe>
+      <video
+        controls
+        playsinline
+        preload="metadata">
+        <source src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/baja.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
 </section>
 
-<!-- 3) FEATURED LISTINGS: Vista + Lienzo ONLY -->
+<!-- 3) FEATURED LISTINGS -->
 <section class="section" id="featured-listings">
   <div class="tile">
     <h2 class="section-title">Featured Listings</h2>
     <p class="section-sub">Curated for lifestyle, location, and value</p>
 
     <div class="grid">
-
-      <!-- Casa Vista -->
       <div class="card">
         <img src="images/IMG_0822.png" alt="Casa Vista">
         <div class="card-content">
@@ -570,7 +570,6 @@ footer {
         </div>
       </div>
 
-      <!-- Casa Lienzo C. Molusco -->
       <div class="card">
         <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
         <div class="card-content">
@@ -578,7 +577,6 @@ footer {
           <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
         </div>
       </div>
-
     </div>
 
     <div style="text-align:center; margin-top:30px;">
@@ -587,6 +585,7 @@ footer {
   </div>
 </section>
 
+<!-- AGENT -->
 <section class="section" id="agent">
   <div class="tile">
     <div class="agent-grid">
@@ -602,11 +601,11 @@ footer {
           confidence, and trusted local expertise.
         </p>
       </div>
-
     </div>
   </div>
 </section>
 
+<!-- CONTACT TILE -->
 <section class="section">
   <a href="businesscard.html" class="tile" id="contactTile" style="display:block;">
     <img src="images/logo.png" class="footer-logo" alt="RE/MAX">
@@ -622,50 +621,35 @@ footer {
 </footer>
 
 <script>
-/* ===== SPLASH SETTINGS =====
-   - runs on every refresh
-   - no cropping (contain)
-   - electric effect enabled
-*/
-const SPLASH_SRC = "images/Unknown-1.png";  // <-- put your exact file path here
-const SPLASH_MS  = 1700;                   // how long it stays up before fading
-
-(function splashInit(){
+(function(){
+  /* ===== Splash timing =====
+     Tuned for “premium”: the effect hits fast, then leaves.
+     Total visible ~1.35s.
+  */
   const splash = document.getElementById("splash");
-  const img = document.getElementById("splashImg");
 
-  // set image immediately
-  img.src = SPLASH_SRC;
-
-  // turn on electric styling
-  splash.classList.add("electrify");
-
-  // stop scroll while splash is visible (prevents weird lips)
-  document.documentElement.style.overflow = "hidden";
-  document.body.style.overflow = "hidden";
-
-  // once page is loaded, do a little discharge + fade
+  // show immediately (already visible by default)
+  // hide after a short premium beat
   window.addEventListener("load", () => {
     setTimeout(() => {
-      img.style.animation = "electricPulse 1.35s ease-in-out infinite, microFlicker 520ms steps(2,end) infinite, dischargeJitter 220ms ease-in-out 1";
-      splash.classList.add("hidden");
-      setTimeout(() => {
-        splash.remove();
-        document.documentElement.style.overflow = "";
-        document.body.style.overflow = "";
-      }, 560);
-    }, SPLASH_MS);
+      splash.classList.add("splash-hide");
+      // fully remove after fade so it never blocks clicks
+      setTimeout(() => { splash.style.display = "none"; }, 420);
+    }, 950); // 0.95s + 0.38–0.42s fade ≈ 1.33–1.37s total
   });
-})();
 
-/* ===== MENU ===== */
-(function(){
+  /* ===== Menu ===== */
   const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
 
-  btn.addEventListener("click", e => {
-    e.stopPropagation();
+  function toggleMenu(e){
+    if (e) e.stopPropagation();
     document.body.classList.toggle("menu-open");
+  }
+
+  btn.addEventListener("click", toggleMenu);
+  btn.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") toggleMenu(e);
   });
 
   document.addEventListener("click", () => {
