@@ -60,6 +60,94 @@ body {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
+/* ================= SPLASH ================= */
+/* Full screen overlay + "electric" feel */
+#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  width: 100vw;
+  height: 100vh;
+
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.96) 65%, rgba(0,0,0,1) 100%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  /* Safe area so iOS Safari chrome doesn't "lip" you */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+
+  transition: opacity 520ms ease;
+}
+
+#splash.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+#splashImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  /* fill the whole screen, crop if needed */
+  object-fit: cover;
+  object-position: center center;
+
+  /* electric vibe */
+  filter:
+    drop-shadow(0 0 14px rgba(255,255,255,0.18))
+    drop-shadow(0 0 32px rgba(0,61,165,0.16))
+    drop-shadow(0 0 26px rgba(228,0,43,0.10));
+
+  animation: electricPulse 1.35s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+/* subtle “charge up” */
+@keyframes electricPulse {
+  0%, 100% { transform: translateZ(0) scale(1); opacity: 1; }
+  45%      { transform: translateZ(0) scale(1.01); opacity: 0.93; }
+  55%      { transform: translateZ(0) scale(1.008); opacity: 0.98; }
+}
+
+/* fast micro-flicker that feels like electricity, not teleporting */
+#splash.electrify #splashImg {
+  animation: electricPulse 1.35s ease-in-out infinite, microFlicker 520ms steps(2, end) infinite;
+}
+
+@keyframes microFlicker {
+  0%   { filter: drop-shadow(0 0 12px rgba(255,255,255,0.15)) drop-shadow(0 0 28px rgba(0,61,165,0.14)) drop-shadow(0 0 22px rgba(228,0,43,0.08)); }
+  50%  { filter: drop-shadow(0 0 20px rgba(255,255,255,0.22)) drop-shadow(0 0 44px rgba(0,61,165,0.20)) drop-shadow(0 0 30px rgba(228,0,43,0.12)); }
+  100% { filter: drop-shadow(0 0 12px rgba(255,255,255,0.15)) drop-shadow(0 0 28px rgba(0,61,165,0.14)) drop-shadow(0 0 22px rgba(228,0,43,0.08)); }
+}
+
+/* tiny jitter burst at the end (electric discharge) */
+@keyframes dischargeJitter {
+  0%   { transform: translateZ(0) scale(1) translate(0,0); }
+  25%  { transform: translateZ(0) scale(1.01) translate(1px,-1px); }
+  50%  { transform: translateZ(0) scale(1.01) translate(-1px,1px); }
+  75%  { transform: translateZ(0) scale(1.01) translate(1px,1px); }
+  100% { transform: translateZ(0) scale(1) translate(0,0); }
+}
+
 /* ================= HEADER ================= */
 
 header {
@@ -386,6 +474,13 @@ footer {
 
 <body>
 
+<!-- SPLASH (runs on every refresh) -->
+<div id="splash" aria-hidden="true">
+  <div class="splash-inner">
+    <img id="splashImg" src="" alt="RE/MAX Splash">
+  </div>
+</div>
+
 <header>
   <div class="nav">
     <div class="nav-left">
@@ -526,6 +621,41 @@ footer {
 </footer>
 
 <script>
+/* ===== SPLASH SETTINGS =====
+   - runs on every refresh
+   - full-screen cover
+*/
+const SPLASH_SRC = "images/Unknown-1.png";  // <-- your file path
+const SPLASH_MS  = 1700;                   // how long it stays up before fading
+
+(function splashInit(){
+  const splash = document.getElementById("splash");
+  const img = document.getElementById("splashImg");
+
+  // set image immediately
+  img.src = SPLASH_SRC;
+
+  // turn on electric styling
+  splash.classList.add("electrify");
+
+  // stop scroll while splash is visible
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+
+  // once page is loaded, do a little discharge + fade
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      img.style.animation = "electricPulse 1.35s ease-in-out infinite, microFlicker 520ms steps(2,end) infinite, dischargeJitter 220ms ease-in-out 1";
+      splash.classList.add("hidden");
+      setTimeout(() => {
+        splash.remove();
+        document.documentElement.style.overflow = "";
+        document.body.style.overflow = "";
+      }, 560);
+    }, SPLASH_MS);
+  });
+})();
+
 /* ===== MENU ===== */
 (function(){
   const btn = document.getElementById("menuButton");
