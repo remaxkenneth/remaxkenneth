@@ -9,7 +9,7 @@
 
   <title>Casa Sol y Luna | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <!-- OPEN GRAPH / META -->
+  <!-- OPEN GRAPH -->
   <meta property="og:title" content="Casa Sol y Luna – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="5 Bedrooms · 5 Bathrooms · 1,801 m² lot · Gavilan above Cerritos / El Pescadero">
   <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
@@ -18,18 +18,14 @@
 
   <style>
     :root {
-      --remax-blue: #003da5;
       --remax-dark-blue: #000E35;
 
-      /* RE/MAX creamy whites */
       --remax-cream: rgba(255,255,255,0.90);
       --remax-cream-muted: rgba(255,255,255,0.65);
 
-      /* chips */
       --remax-chip-bg: rgba(255,255,255,0.20);
       --remax-chip-border: rgba(255,255,255,0.18);
 
-      /* glass */
       --glass-bg: rgba(255,255,255,0.12);
       --glass-border: rgba(255,255,255,0.18);
 
@@ -56,7 +52,7 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* ===== HEADER (UNCHANGED) ===== */
+    /* ===== HEADER (UNCHANGED EXCEPT TEXT COLOR) ===== */
     header {
       position: sticky;
       top: 0;
@@ -86,7 +82,7 @@
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: var(--remax-dark-blue);
+      color: #000; /* FIXED */
       text-transform: uppercase;
     }
 
@@ -121,7 +117,7 @@
       transform: scale(1);
     }
 
-    /* ===== HERO (MATCHES OTHER PAGES) ===== */
+    /* ===== HERO ===== */
     #hero {
       position: relative;
       min-height: 340px;
@@ -184,7 +180,7 @@
       border: 1px solid var(--glass-border);
     }
 
-    /* ===== GALLERY ===== */
+    /* ===== SLIDES ===== */
     .slides {
       position: relative;
       height: 520px;
@@ -239,7 +235,6 @@
       border-radius: 999px;
       padding: 8px 14px;
       font-size: 0.8rem;
-      letter-spacing: 0.02em;
     }
 
     .description p {
@@ -262,14 +257,10 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="../../index.html">
-        <img src="../../images/logo.png" alt="RE/MAX">
-      </a>
+      <a href="../../index.html"><img src="../../images/logo.png" alt="RE/MAX"></a>
       <span>KENNETH GEHLHOFF</span>
     </div>
-
     <div class="menu-button" id="menuButton">≡</div>
-
     <div class="menu-panel" id="menuPanel">
       <a href="../../index.html">Home</a>
       <a href="../../listings.html">Listings</a>
@@ -290,9 +281,26 @@
 <section class="section">
   <div class="tile">
     <div class="slides">
-      <img src="img-1.jpg" class="active" alt="">
-      <img src="img-2.jpg" alt="">
-      <img src="img-3.jpg" alt="">
+      <img src="../../images/IMG_8515.JPG" class="active">
+      <img src="../../images/IMG_8514.JPG">
+      <img src="../../images/IMG_8513.JPG">
+      <img src="../../images/IMG_8512.JPG">
+      <img src="../../images/IMG_8511.JPG">
+      <img src="../../images/IMG_8509.JPG">
+      <img src="../../images/IMG_8506.JPG">
+      <img src="../../images/IMG_8501.JPG">
+      <img src="../../images/IMG_8499.JPG">
+      <img src="../../images/IMG_8498.JPG">
+      <img src="../../images/IMG_8497.JPG">
+      <img src="../../images/IMG_8496.JPG">
+      <img src="../../images/IMG_8495.JPG">
+      <img src="../../images/IMG_8493.JPG">
+      <img src="../../images/IMG_8491.JPG">
+      <img src="../../images/IMG_8490.JPG">
+      <img src="../../images/IMG_8485.JPG">
+      <img src="../../images/IMG_8482.JPG">
+      <img src="../../images/IMG_8480.JPG">
+      <img src="../../images/IMG_8479.JPG">
     </div>
   </div>
 </section>
@@ -311,23 +319,9 @@
     </div>
 
     <div class="description">
-      <p>
-        Where the desert meets the sea, and the sun meets the moon. Casa Sol y Luna is a unique
-        Baja property located above Playa Los Cerritos, positioned between two iconic surf
-        breaks where sunsets paint the sky year-round.
-      </p>
-
-      <p>
-        Featuring three independent casitas surrounded by native gardens, the property includes
-        a pool and generous outdoor living areas designed to take full advantage of the setting
-        and views.
-      </p>
-
-      <p>
-        Located minutes from Cerritos Beach and within easy reach of Todos Santos and El
-        Pescadero, Casa Sol y Luna offers a relaxed coastal lifestyle in one of Baja California
-        Sur’s most sought-after areas.
-      </p>
+      <p>Where the desert meets the sea, and the sun meets the moon…</p>
+      <p>Featuring three independent casitas surrounded by native gardens…</p>
+      <p>Located minutes from Cerritos Beach and close to Todos Santos and El Pescadero…</p>
     </div>
   </div>
 </section>
@@ -342,17 +336,9 @@
 (function(){
   const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
-
-  btn.addEventListener("click", e => {
-    e.stopPropagation();
-    document.body.classList.toggle("menu-open");
-  });
-
-  document.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
-  });
-
-  panel.addEventListener("click", e => e.stopPropagation());
+  btn.onclick = e => { e.stopPropagation(); document.body.classList.toggle("menu-open"); };
+  document.onclick = () => document.body.classList.remove("menu-open");
+  panel.onclick = e => e.stopPropagation();
 })();
 </script>
 
