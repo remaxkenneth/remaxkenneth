@@ -8,29 +8,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Casa Sol y Luna | Gavilan, Cerritos – RE/MAX Cabo Sanctuary</title>
+  <title>Villa Sol y Luna | Gavilan, Cerritos – RE/MAX Cabo Sanctuary</title>
 
   <!-- OPEN GRAPH -->
-  <meta property="og:title" content="Casa Sol y Luna – Gavilan, Cerritos">
-  <meta property="og:description" content="5-bedroom residential home in Gavilan near Cerritos and El Pescadero, Baja California Sur.">
+  <meta property="og:title" content="Villa Sol y Luna – Gavilan, Cerritos">
+  <meta property="og:description" content="5-bedroom villa on an 1,800 m² lot with 180° ocean views, private casitas, and pools above Playa Los Cerritos.">
   <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
   <style>
     :root {
-      --remax-blue: #003da5;
       --remax-red: #e4002b;
       --remax-dark-blue: #000E35;
-
       --glass-bg: rgba(255,255,255,0.82);
       --glass-border: rgba(255,255,255,0.14);
-
       --fallback-hero-bg: #0a0f1f;
-      --slide-bg: rgba(0,0,0,0.35);
     }
 
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -141,7 +138,7 @@
     }
 
     .hero-title {
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       margin: 12px 0 0;
       font-weight: 600;
     }
@@ -149,6 +146,7 @@
     .hero-sub {
       margin-top: 10px;
       color: #e5e7eb;
+      max-width: 720px;
     }
 
     .section {
@@ -166,11 +164,10 @@
       box-shadow: 0 30px 60px rgba(0,0,0,0.45);
     }
 
-    /* SLIDER */
     .slides {
       position: relative;
       height: 520px;
-      background: var(--slide-bg);
+      background: rgba(0,0,0,0.35);
       overflow: hidden;
     }
 
@@ -185,28 +182,12 @@
 
     .slides img.active { display: block; }
 
-    .nav-slide {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.45);
-      color: #fff;
-      border: none;
-      font-size: 28px;
-      padding: 10px 16px;
-      cursor: pointer;
-      border-radius: 14px;
-    }
-
-    .nav-slide.prev { left: 16px; }
-    .nav-slide.next { right: 16px; }
-
     @media (max-width: 768px) {
       .slides { height: 320px; }
     }
 
     .price {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       color: var(--remax-red);
       text-align: center;
       margin: 0;
@@ -214,7 +195,7 @@
 
     .location {
       text-align: center;
-      margin: 10px 0 22px;
+      margin: 10px 0 26px;
       color: #444;
     }
 
@@ -223,20 +204,20 @@
       justify-content: center;
       gap: 18px;
       flex-wrap: wrap;
-      margin-bottom: 24px;
+      margin-bottom: 30px;
     }
 
     .stat-pill {
       background: rgba(255,255,255,0.85);
       border-radius: 999px;
-      padding: 10px 14px;
+      padding: 10px 16px;
       font-size: 0.85rem;
     }
 
     .description p {
-      line-height: 1.7;
+      line-height: 1.75;
       color: #333;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     footer {
@@ -268,21 +249,22 @@
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Residential Property</div>
-    <h1 class="hero-title">Casa Sol y Luna</h1>
+    <div class="hero-eyebrow">Gavilan · Cerritos</div>
+    <h1 class="hero-title">Villa Sol y Luna</h1>
     <p class="hero-sub">
-      5 Bedrooms · 5 Bathrooms · Gavilan, Cerritos / El Pescadero · Baja California Sur
+      A private Baja retreat set on an 1,800 m² lot with 180° Pacific views,
+      positioned between two iconic surf breaks above Playa Los Cerritos.
     </p>
   </div>
 </section>
 
 <section class="section">
   <div class="tile">
-    <div class="slides" id="slides">
-      <!-- ADD YOUR IMAGES HERE -->
-      <img src="img-1.jpg" class="active" alt="Casa Sol y Luna photo 1">
-      <img src="img-2.jpg" alt="Casa Sol y Luna photo 2">
-      <img src="img-3.jpg" alt="Casa Sol y Luna photo 3">
+    <div class="slides">
+      <!-- ADD PROPERTY IMAGES HERE -->
+      <img src="img-1.jpg" class="active" alt="Villa Sol y Luna photo 1">
+      <img src="img-2.jpg" alt="Villa Sol y Luna photo 2">
+      <img src="img-3.jpg" alt="Villa Sol y Luna photo 3">
     </div>
   </div>
 </section>
@@ -291,28 +273,42 @@
   <div class="tile">
     <h2 class="price">$1,300,000 USD</h2>
     <p class="location">
-      Residential House · Gavilan · Cerritos / El Pescadero · Baja California Sur, Mexico
+      Residential Villa · Gavilan · Cerritos / El Pescadero · Baja California Sur, Mexico
     </p>
 
     <div class="stats">
-      <span class="stat-pill">Bedrooms: 5</span>
-      <span class="stat-pill">Bathrooms: 5</span>
-      <span class="stat-pill">Property Type: House</span>
-      <span class="stat-pill">Status: For Sale</span>
+      <span class="stat-pill">5 Bedrooms</span>
+      <span class="stat-pill">5 Bathrooms</span>
+      <span class="stat-pill">1,801 m² Lot</span>
+      <span class="stat-pill">245.82 m² Construction</span>
+      <span class="stat-pill">Three Independent Casitas</span>
+      <span class="stat-pill">Garage · 1 Stall</span>
+      <span class="stat-pill">Seller Financing Available</span>
     </div>
 
     <div class="description">
       <p>
-        Casa Sol y Luna is located in the Gavilan neighborhood above Playa Los Cerritos,
-        within the El Pescadero corridor of Baja California Sur. This elevated setting
-        offers privacy and sweeping views while remaining minutes from one of the
-        region’s most popular swimmable and surf-friendly beaches.
+        Where the desert meets the sea and the sun meets the moon, Villa Sol y Luna
+        occupies a rare position above Playa Los Cerritos, offering uninterrupted
+        180-degree ocean views and year-round sunsets over the Pacific. The property
+        spans an expansive 1,800 m² lot and is thoughtfully designed as three
+        independent casitas surrounded by native gardens and open terraces.
       </p>
+
       <p>
-        The area is known for its relaxed coastal lifestyle, organic farms, and strong
-        sense of community, with easy access to both Cerritos Beach and the cultural
-        amenities of Todos Santos. The home’s five-bedroom, five-bathroom layout makes
-        it well suited for full-time living, vacation use, or long-term investment.
+        At the heart of the property is an endless pool with adjustable current,
+        complemented by a solar-heated pool and multiple outdoor living areas shaded
+        by palapa roofs. The main casita features open living spaces, ocean-view terraces,
+        and an upper-level art studio positioned to capture the full spectrum of Baja’s
+        evening light.
+      </p>
+
+      <p>
+        Designed for both independence and comfort, the villa is powered by CFE with a
+        hybrid solar backup system, includes water filtration, spacious garage storage,
+        and modern infrastructure throughout. Located between two renowned surf breaks
+        and minutes from Cerritos Beach, Villa Sol y Luna offers a refined yet authentic
+        Baja lifestyle in one of the region’s most magical settings.
       </p>
     </div>
   </div>
@@ -329,14 +325,6 @@
   btn.onclick = e => { e.stopPropagation(); document.body.classList.toggle("menu-open"); };
   document.onclick = () => document.body.classList.remove("menu-open");
   panel.onclick = e => e.stopPropagation();
-
-  const imgs = [...document.querySelectorAll('#slides img')];
-  let i = 0;
-  setInterval(() => {
-    imgs[i].classList.remove('active');
-    i = (i + 1) % imgs.length;
-    imgs[i].classList.add('active');
-  }, 5000);
 </script>
 
 </body>
