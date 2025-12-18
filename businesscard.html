@@ -10,32 +10,42 @@
 
 <title>Contact | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-<!-- OPEN GRAPH / META (ONLY ADDITION) -->
+<!-- OPEN GRAPH / META -->
 <meta property="og:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
 <meta property="og:description" content="Direct contact with Kenneth Gehlhoff and team. Trusted local guidance for luxury real estate in Baja California Sur.">
 <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
 <meta property="og:url" content="https://remaxkenneth.vercel.app/businesscard.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<!-- END META -->
 
 <style>
 :root {
   --remax-blue: #003da5;
+  --remax-red: #e4002b;
   --remax-dark-blue: #000E35;
-  --bg-light: #f5f6f7;
-  --card-bg: #ffffff;
+
   --text-main: #111;
   --text-muted: #6b7280;
-  --glass: rgba(255,255,255,0.75);
+
+  --glass-bg: rgba(255,255,255,0.82);
+  --glass-border: rgba(255,255,255,0.14);
+  --card-bg: #ffffff;
 }
 
 * { box-sizing: border-box; }
+html, body { height: 100%; }
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg-light);
+  background:
+    radial-gradient(
+      circle at top,
+      #0f172a 0%,
+      #0a0f1f 35%,
+      #05070d 70%,
+      #020409 100%
+    );
   color: var(--text-main);
 }
 
@@ -67,15 +77,14 @@ header {
   gap: 10px;
 }
 
-.nav-left img {
-  height: 32px;
-}
+.nav-left img { height: 32px; }
 
 .nav-left span {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--remax-dark-blue);
+  text-transform: uppercase;
 }
 
 .menu-button {
@@ -89,7 +98,7 @@ header {
   position: absolute;
   right: 18px;
   top: 64px;
-  background: var(--glass);
+  background: rgba(255,255,255,0.75);
   backdrop-filter: blur(20px);
   border-radius: 22px;
   padding: 22px;
@@ -114,13 +123,6 @@ body.menu-open .menu-panel {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.menu-panel a span {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: #888;
 }
 
 /* ================= HERO ================= */
@@ -213,20 +215,17 @@ body.menu-open .menu-panel {
   margin: 0 auto 22px;
 }
 
-/* banner style for Richard */
 .card img.banner {
   width: 100%;
   max-width: 260px;
   margin: 18px auto 10px;
-  height: auto;
   border-radius: 12px;
 }
 
-/* David only — shorter */
 .card img.banner-david {
   width: 100%;
   max-width: 260px;
-  max-height: 40px;  /* shorter than Richard’s */
+  max-height: 40px;
   margin: 18px auto 10px;
   border-radius: 12px;
   object-fit: cover;
@@ -245,24 +244,32 @@ body.menu-open .menu-panel {
   text-transform: uppercase;
 }
 
-/* ===== CONTACT ACTIONS (BUTTON CLUSTER) ===== */
+/* ===== CONTACT ACTIONS (ANDROID-SAFE) ===== */
 
 .contact-actions {
   margin-top: 22px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
 .contact-actions a {
-  display: inline-block;
-  padding: 12px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
   border-radius: 999px;
   background: #eaecef;
   font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .contact-actions {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
 }
 
 /* ================= FOOTER ================= */
@@ -271,7 +278,7 @@ footer {
   text-align: center;
   padding: 40px 0;
   font-size: 0.8rem;
-  color: #777;
+  color: #aaa;
 }
 </style>
 </head>
@@ -284,16 +291,13 @@ footer {
       <img src="images/logo.png" alt="RE/MAX">
       <span>KENNETH GEHLHOFF</span>
     </div>
-
     <div class="menu-button" id="menuButton">≡</div>
-
     <div class="menu-panel" id="menuPanel">
       <a href="index.html">Home</a>
       <a href="listings.html">Listings</a>
       <a href="events.html">Events</a>
       <a href="businesscard.html">Contact</a>
     </div>
-    
   </div>
 </header>
 
@@ -315,10 +319,9 @@ footer {
 
     <!-- Kenneth -->
     <div class="card">
-      <img src="images/logo.png" class="logo" alt="RE/MAX Logo">
+      <img src="images/logo.png" class="logo">
       <h3>Kenneth Gehlhoff</h3>
       <div class="role">Realtor</div>
-
       <div class="contact-actions">
         <a href="tel:+526122311639">Call</a>
         <a href="https://wa.me/526122311639" target="_blank">WhatsApp</a>
@@ -330,9 +333,8 @@ footer {
     <!-- Richard -->
     <div class="card">
       <h3>Richard Gomez</h3>
-      <div class="role">Construction Specialist </div>
-      <img src="images/bannerr.jpeg" alt="Construction Services" class="banner">
-
+      <div class="role">Construction Specialist</div>
+      <img src="images/bannerr.jpeg" class="banner">
       <div class="contact-actions">
         <a href="tel:+523781497632">Call</a>
         <a href="https://wa.me/523781497632" target="_blank">WhatsApp</a>
@@ -345,8 +347,7 @@ footer {
     <div class="card">
       <h3>David Ray</h3>
       <div class="role">Operations · Marketing</div>
-      <img src="images/IMG_0830.png" alt="Operations & Marketing" class="banner-david">
-
+      <img src="images/IMG_0830.png" class="banner-david">
       <div class="contact-actions">
         <a href="tel:+526121315839">Call</a>
         <a href="https://wa.me/526121315839" target="_blank">WhatsApp</a>
@@ -360,7 +361,7 @@ footer {
 
 <footer>
   Curated locally. Updated often.<br>
-  <span>© 2025 · REMAX Kenneth<br></span>
+  © 2025 · REMAX Kenneth<br>
   Each office independently owned and operated
 </footer>
 
