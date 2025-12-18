@@ -68,6 +68,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 14px 5%;
+  position: relative;
 }
 
 .nav-left {
@@ -89,6 +90,7 @@ header {
 .menu-button {
   font-size: 30px;
   cursor: pointer;
+  color: #111; /* BLACK HAMBURGER */
 }
 
 /* ================= MENU ================= */
@@ -178,9 +180,10 @@ body.menu-open .menu-panel {
   max-width: 1200px;
   width: 92%;
   margin: 70px auto;
+  text-align: center;
 }
 
-/* ===== GLASS TILE ===== */
+/* ================= GLASS TILE ================= */
 
 .tile {
   background: var(--glass-bg);
@@ -194,17 +197,22 @@ body.menu-open .menu-panel {
   color: var(--text-main);
 }
 
+/* COMPACT HEADING TILE */
+.tile-heading {
+  display: inline-block;
+  padding: 26px 48px;
+  margin: 0 auto;
+}
+
 /* ================= HEADINGS ================= */
 
 .section-title {
   font-size: 2rem;
   color: var(--remax-dark-blue);
-  text-align: center;
   margin: 0;
 }
 
 .section-sub {
-  text-align: center;
   font-size: 0.8rem;
   letter-spacing: 0.22em;
   color: var(--text-muted);
@@ -217,6 +225,7 @@ body.menu-open .menu-panel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap: 32px;
+  text-align: left;
 }
 
 .card {
@@ -328,9 +337,9 @@ footer {
   </div>
 </section>
 
-<!-- SECTION HEADING TILE -->
+<!-- COMPACT HEADING TILE -->
 <section class="section">
-  <div class="tile">
+  <div class="tile tile-heading">
     <h2 class="section-title">Our Team</h2>
     <p class="section-sub">DIRECT · LOCAL · TRUSTED</p>
   </div>
@@ -339,7 +348,6 @@ footer {
 <section class="section">
   <div class="grid">
 
-    <!-- Kenneth -->
     <div class="card">
       <img src="images/logo.png" class="logo">
       <h3>Kenneth Gehlhoff</h3>
@@ -352,7 +360,6 @@ footer {
       </div>
     </div>
 
-    <!-- Richard -->
     <div class="card">
       <h3>Richard Gomez</h3>
       <div class="role">Construction Specialist</div>
@@ -365,7 +372,6 @@ footer {
       </div>
     </div>
 
-    <!-- David -->
     <div class="card">
       <h3>David Ray</h3>
       <div class="role">Operations · Marketing</div>
