@@ -8,22 +8,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Villa Sol y Luna | Gavilan, Cerritos – RE/MAX Cabo Sanctuary</title>
+  <title>Casa Sol y Luna | Gavilan, Cerritos – RE/MAX Cabo Sanctuary</title>
 
   <!-- OPEN GRAPH -->
-  <meta property="og:title" content="Villa Sol y Luna – Gavilan, Cerritos">
-  <meta property="og:description" content="5-bedroom villa on an 1,800 m² lot with 180° ocean views, private casitas, and pools above Playa Los Cerritos.">
+  <meta property="og:title" content="Casa Sol y Luna – Gavilan, Cerritos">
+  <meta property="og:description" content="A private residence on an 1,801 m² lot with 180° ocean views above Playa Los Cerritos.">
   <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
   <style>
     :root {
-      --remax-red: #e4002b;
-      --remax-dark-blue: #000E35;
-      --glass-bg: rgba(255,255,255,0.82);
-      --glass-border: rgba(255,255,255,0.14);
-      --fallback-hero-bg: #0a0f1f;
+      --ink: #0f172a;
+      --muted: #6b7280;
+      --accent: #e4002b;
+
+      --glass-bg: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.18);
+
+      --bg-dark:
+        radial-gradient(
+          circle at top,
+          #0f172a 0%,
+          #0a0f1f 35%,
+          #05070d 70%,
+          #020409 100%
+        );
     }
 
     * { box-sizing: border-box; }
@@ -31,13 +41,13 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, #0f172a 0%, #0a0f1f 35%, #05070d 70%, #020409 100%);
-      color: #111;
+      background: var(--bg-dark);
+      color: var(--ink);
     }
 
     a { text-decoration: none; color: inherit; }
 
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
@@ -64,15 +74,15 @@
     .nav-left img { height: 32px; }
 
     .nav-left span {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: var(--remax-dark-blue);
       text-transform: uppercase;
+      color: var(--ink);
     }
 
     .menu-button {
-      font-size: 30px;
+      font-size: 28px;
       cursor: pointer;
       color: #000;
     }
@@ -105,10 +115,9 @@
     /* HERO */
     #hero {
       position: relative;
-      min-height: 280px;
+      min-height: 260px;
       display: flex;
       align-items: center;
-      background-color: var(--fallback-hero-bg);
       background-image: url('../../images/sunsetcerritos.jpeg');
       background-size: cover;
       background-position: center;
@@ -119,7 +128,11 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(130deg, rgba(0,14,53,0.65), rgba(0,0,0,0.25));
+      background: linear-gradient(
+        130deg,
+        rgba(0,14,53,0.65),
+        rgba(0,0,0,0.25)
+      );
     }
 
     .hero-inner {
@@ -138,36 +151,40 @@
     }
 
     .hero-title {
-      font-size: 2.5rem;
-      margin: 12px 0 0;
+      font-size: 2.4rem;
+      margin: 10px 0 0;
       font-weight: 600;
     }
 
     .hero-sub {
-      margin-top: 10px;
-      color: #e5e7eb;
+      margin-top: 8px;
       max-width: 720px;
+      color: #e5e7eb;
     }
 
+    /* SECTIONS */
     .section {
       max-width: 1200px;
       width: 92%;
-      margin: 70px auto;
+      margin: 80px auto;
     }
 
     .tile {
       background: var(--glass-bg);
-      border-radius: 26px;
-      padding: 40px;
-      backdrop-filter: blur(20px);
+      backdrop-filter: blur(28px) saturate(120%);
+      -webkit-backdrop-filter: blur(28px) saturate(120%);
+      border-radius: 28px;
       border: 1px solid var(--glass-border);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.25);
+      padding: 52px;
     }
 
+    /* GALLERY */
     .slides {
       position: relative;
       height: 520px;
-      background: rgba(0,0,0,0.35);
       overflow: hidden;
     }
 
@@ -184,46 +201,79 @@
 
     @media (max-width: 768px) {
       .slides { height: 320px; }
+      .tile { padding: 36px; }
+    }
+
+    /* CONTENT */
+    .content-wrap {
+      max-width: 860px;
     }
 
     .price {
-      font-size: 2.4rem;
-      color: var(--remax-red);
-      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
       margin: 0;
     }
 
+    .price::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 2px;
+      background: var(--accent);
+      margin-top: 12px;
+    }
+
     .location {
-      text-align: center;
-      margin: 10px 0 26px;
-      color: #444;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
     .stats {
       display: flex;
-      justify-content: center;
-      gap: 18px;
       flex-wrap: wrap;
-      margin-bottom: 30px;
+      gap: 14px 28px;
+      margin: 36px 0;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1f2937;
     }
 
-    .stat-pill {
-      background: rgba(255,255,255,0.85);
-      border-radius: 999px;
-      padding: 10px 16px;
-      font-size: 0.85rem;
+    .stats span::before {
+      content: "— ";
+      color: #9ca3af;
+    }
+
+    .stats .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: #000;
+      margin: 42px 0;
+    }
+
+    .description {
+      max-width: 760px;
     }
 
     .description p {
-      line-height: 1.75;
-      color: #333;
-      margin-bottom: 16px;
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: #1f2937;
+      margin-bottom: 22px;
     }
 
     footer {
       text-align: center;
       padding: 40px 0;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: #aaa;
     }
   </style>
@@ -234,7 +284,9 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="../../index.html"><img src="../../images/logo.png" alt="RE/MAX"></a>
+      <a href="../../index.html">
+        <img src="../../images/logo.png" alt="RE/MAX">
+      </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
     <div class="menu-button" id="menuButton">≡</div>
@@ -250,10 +302,10 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Gavilan · Cerritos</div>
-    <h1 class="hero-title">Villa Sol y Luna</h1>
+    <h1 class="hero-title">Casa Sol y Luna</h1>
     <p class="hero-sub">
-      A private Baja retreat set on an 1,800 m² lot with 180° Pacific views,
-      positioned between two iconic surf breaks above Playa Los Cerritos.
+      A private residence set above Playa Los Cerritos, where desert, ocean,
+      and sky meet in quiet balance.
     </p>
   </div>
 </section>
@@ -262,54 +314,58 @@
   <div class="tile">
     <div class="slides">
       <!-- ADD PROPERTY IMAGES HERE -->
-      <img src="img-1.jpg" class="active" alt="Villa Sol y Luna photo 1">
-      <img src="img-2.jpg" alt="Villa Sol y Luna photo 2">
-      <img src="img-3.jpg" alt="Villa Sol y Luna photo 3">
+      <img src="img-1.jpg" class="active" alt="Casa Sol y Luna">
+      <img src="img-2.jpg" alt="Casa Sol y Luna">
+      <img src="img-3.jpg" alt="Casa Sol y Luna">
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="tile">
-    <h2 class="price">$1,300,000 USD</h2>
-    <p class="location">
-      Residential Villa · Gavilan · Cerritos / El Pescadero · Baja California Sur, Mexico
-    </p>
-
-    <div class="stats">
-      <span class="stat-pill">5 Bedrooms</span>
-      <span class="stat-pill">5 Bathrooms</span>
-      <span class="stat-pill">1,801 m² Lot</span>
-      <span class="stat-pill">245.82 m² Construction</span>
-      <span class="stat-pill">Three Independent Casitas</span>
-      <span class="stat-pill">Garage · 1 Stall</span>
-      <span class="stat-pill">Seller Financing Available</span>
-    </div>
-
-    <div class="description">
-      <p>
-        Where the desert meets the sea and the sun meets the moon, Villa Sol y Luna
-        occupies a rare position above Playa Los Cerritos, offering uninterrupted
-        180-degree ocean views and year-round sunsets over the Pacific. The property
-        spans an expansive 1,800 m² lot and is thoughtfully designed as three
-        independent casitas surrounded by native gardens and open terraces.
+    <div class="content-wrap">
+      <h2 class="price">$1,300,000 USD</h2>
+      <p class="location">
+        Residential Home · Gavilan · Cerritos / El Pescadero · Baja California Sur, Mexico
       </p>
 
-      <p>
-        At the heart of the property is an endless pool with adjustable current,
-        complemented by a solar-heated pool and multiple outdoor living areas shaded
-        by palapa roofs. The main casita features open living spaces, ocean-view terraces,
-        and an upper-level art studio positioned to capture the full spectrum of Baja’s
-        evening light.
-      </p>
+      <div class="stats">
+        <span>5 Bedrooms</span>
+        <span>5 Bathrooms</span>
+        <span>1,801 m² Lot</span>
+        <span>245.82 m² Construction</span>
+        <span>Three Independent Casitas</span>
+        <span>Garage · 1 Stall</span>
+        <span class="highlight">Seller Financing Available</span>
+      </div>
 
-      <p>
-        Designed for both independence and comfort, the villa is powered by CFE with a
-        hybrid solar backup system, includes water filtration, spacious garage storage,
-        and modern infrastructure throughout. Located between two renowned surf breaks
-        and minutes from Cerritos Beach, Villa Sol y Luna offers a refined yet authentic
-        Baja lifestyle in one of the region’s most magical settings.
-      </p>
+      <div class="divider"></div>
+
+      <div class="description">
+        <p>
+          Where the desert meets the sea and the sun meets the moon, Casa Sol y Luna
+          occupies a rare hillside position above Playa Los Cerritos, offering
+          uninterrupted 180-degree ocean views and year-round sunsets over the Pacific.
+          The property spans an expansive 1,801 m² lot and is thoughtfully designed as
+          three independent casitas surrounded by native gardens and open terraces.
+        </p>
+
+        <p>
+          At the heart of the home is an endless pool with adjustable current,
+          complemented by a solar-heated pool and multiple outdoor living areas shaded
+          by palapa roofs. The main residence features open living spaces, ocean-view
+          terraces, and an upper-level art studio positioned to capture the full
+          spectrum of Baja’s evening light.
+        </p>
+
+        <p>
+          Designed for both independence and comfort, Casa Sol y Luna is powered by CFE
+          with a hybrid solar backup system, includes water filtration, and modern
+          infrastructure throughout. Located between two renowned surf breaks and just
+          minutes from Cerritos Beach, the property offers a refined yet authentic Baja
+          lifestyle in one of the region’s most compelling settings.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -322,7 +378,10 @@
 <script>
   const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
-  btn.onclick = e => { e.stopPropagation(); document.body.classList.toggle("menu-open"); };
+  btn.onclick = e => {
+    e.stopPropagation();
+    document.body.classList.toggle("menu-open");
+  };
   document.onclick = () => document.body.classList.remove("menu-open");
   panel.onclick = e => e.stopPropagation();
 </script>
