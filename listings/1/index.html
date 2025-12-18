@@ -14,7 +14,7 @@
 
   <meta property="og:title" content="Luxury Listing – Baja California Sur">
   <meta property="og:description" content="Exclusive property represented by RE/MAX Cabo Sanctuary.">
-  <meta property="og:image" content="hero.jpg">
+  <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
   <meta property="og:url" content="">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -41,7 +41,13 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top, #0f172a 0%, #0a0f1f 35%, #05070d 70%, #020409 100%);
+        radial-gradient(
+          circle at top,
+          #0f172a 0%,
+          #0a0f1f 35%,
+          #05070d 70%,
+          #020409 100%
+        );
       color: var(--text-main);
     }
 
@@ -126,7 +132,7 @@
       min-height: 340px;
       display: flex;
       align-items: center;
-      background: url('hero.jpg') center / cover no-repeat;
+      background: url('../../images/sunsetcerritos.jpeg') center / cover no-repeat;
       color: #fff;
     }
 
@@ -134,7 +140,11 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(130deg, rgba(0,14,53,0.65), rgba(0,0,0,0.25));
+      background: linear-gradient(
+        130deg,
+        rgba(0,14,53,0.65),
+        rgba(0,0,0,0.25)
+      );
     }
 
     .hero-inner {
@@ -156,6 +166,7 @@
       font-size: 2.6rem;
       margin: 14px 0;
       font-weight: 600;
+      line-height: 1.1;
     }
 
     .hero-sub {
@@ -217,7 +228,9 @@
       </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
+
     <div class="menu-button" id="menuButton">≡</div>
+
     <div class="menu-panel" id="menuPanel">
       <a href="../../index.html">Home</a>
       <a href="../../listings.html">Listings</a>
@@ -240,7 +253,7 @@
     <h2 class="section-title">Property Details</h2>
     <p class="section-sub">Description · Features · Lifestyle</p>
 
-    <!-- DROP DESCRIPTION / FEATURES / GALLERY HERE -->
+    <!-- INSERT DESCRIPTION, FEATURES, GALLERY, CTA HERE -->
   </div>
 </section>
 
