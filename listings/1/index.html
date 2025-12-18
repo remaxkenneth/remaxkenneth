@@ -214,6 +214,64 @@
       color: rgba(255,255,255,0.75);
     }
 
+    /* DETAILS */
+    .content-wrap { max-width: 860px; }
+
+    .price {
+      font-size: 2.1rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+
+    .price::after {
+      content: "";
+      display: block;
+      width: 44px;
+      height: 2px;
+      background: var(--accent);
+      margin-top: 12px;
+    }
+
+    .location {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+
+    .specs {
+      margin: 40px 0;
+      padding: 26px 0;
+      border-top: 1px solid rgba(0,0,0,0.15);
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 24px;
+    }
+
+    .spec .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.55);
+    }
+
+    .spec .value {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .spec.highlight .value {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .description p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
     footer {
       text-align: center;
       padding: 40px 0;
@@ -268,6 +326,47 @@
         <!-- ADD IMAGES LATER -->
       </div>
       <div class="slide-placeholder">Property Images</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="tile">
+    <div class="content-wrap">
+      <h2 class="price">$1,300,000 USD</h2>
+      <p class="location">
+        Residential Home · Gavilan · Cerritos / El Pescadero · Baja California Sur, Mexico
+      </p>
+
+      <div class="specs">
+        <div class="spec"><span class="label">Bedrooms</span><span class="value">5</span></div>
+        <div class="spec"><span class="label">Bathrooms</span><span class="value">5</span></div>
+        <div class="spec"><span class="label">Lot</span><span class="value">1,801 m²</span></div>
+        <div class="spec"><span class="label">Construction</span><span class="value">245.82 m²</span></div>
+        <div class="spec"><span class="label">Casitas</span><span class="value">3</span></div>
+        <div class="spec"><span class="label">Garage</span><span class="value">1 Stall</span></div>
+        <div class="spec highlight"><span class="label">Terms</span><span class="value">Seller Financing Available</span></div>
+      </div>
+
+      <div class="description">
+        <p>
+          Casa Sol y Luna occupies a rare hillside position above Playa Los Cerritos,
+          where the desert opens toward the Pacific and sunsets move uninterrupted
+          across the horizon.
+        </p>
+
+        <p>
+          Set across an expansive 1,801 m² lot and composed as three independent casitas,
+          the home is centered on outdoor living — endless pool, solar-heated pool,
+          open terraces, and native gardens.
+        </p>
+
+        <p>
+          Powered by CFE with hybrid solar backup and modern infrastructure throughout,
+          Casa Sol y Luna offers an authentic Baja lifestyle just minutes from Cerritos
+          Beach and two renowned surf breaks.
+        </p>
+      </div>
     </div>
   </div>
 </section>
