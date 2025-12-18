@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+  <!-- ================= FAVICONS ================= -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Listings | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+  <!-- ================= SEO / META ================= -->
+  <title>Listing | RE/MAX Cabo Sanctuary</title>
 
-  <!-- OPEN GRAPH / META -->
-  <meta property="og:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
-  <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
-  <meta property="og:url" content="https://remaxkenneth.vercel.app/listings.html">
+  <meta property="og:title" content="Luxury Listing – Baja California Sur">
+  <meta property="og:description" content="Exclusive property represented by RE/MAX Cabo Sanctuary.">
+  <meta property="og:image" content="hero.jpg">
+  <meta property="og:url" content="">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
+  <!-- ================= STYLES ================= -->
   <style>
     :root {
       --remax-blue: #003da5;
@@ -38,13 +41,7 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(
-          circle at top,
-          #0f172a 0%,
-          #0a0f1f 35%,
-          #05070d 70%,
-          #020409 100%
-        );
+        radial-gradient(circle at top, #0f172a 0%, #0a0f1f 35%, #05070d 70%, #020409 100%);
       color: var(--text-main);
     }
 
@@ -88,6 +85,7 @@
     .menu-button {
       font-size: 30px;
       cursor: pointer;
+      color: #000;
     }
 
     .menu-panel {
@@ -128,7 +126,7 @@
       min-height: 340px;
       display: flex;
       align-items: center;
-      background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
+      background: url('hero.jpg') center / cover no-repeat;
       color: #fff;
     }
 
@@ -150,7 +148,6 @@
     .hero-eyebrow {
       letter-spacing: 0.35em;
       font-size: 0.7rem;
-      opacity: 0.9;
       text-transform: uppercase;
       color: #e5e7eb;
     }
@@ -159,7 +156,6 @@
       font-size: 2.6rem;
       margin: 14px 0;
       font-weight: 600;
-      line-height: 1.1;
     }
 
     .hero-sub {
@@ -167,7 +163,7 @@
       color: #e5e7eb;
     }
 
-    /* ================= SECTIONS ================= */
+    /* ================= CONTENT ================= */
 
     .section {
       max-width: 1200px;
@@ -202,49 +198,6 @@
       text-transform: uppercase;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 32px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 26px;
-      overflow: hidden;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 26px 60px rgba(0,0,0,0.14);
-    }
-
-    .card img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-
-    .card-content {
-      padding: 30px 26px;
-      text-align: center;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      color: var(--remax-dark-blue);
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.4;
-    }
-
     footer {
       text-align: center;
       padding: 40px 0;
@@ -259,67 +212,35 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png" alt="RE/MAX">
+      <a href="../../index.html">
+        <img src="../../images/logo.png" alt="RE/MAX">
+      </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
     <div class="menu-button" id="menuButton">≡</div>
     <div class="menu-panel" id="menuPanel">
-      <a href="index.html">Home</a>
-      <a href="listings.html">Listings</a>
-      <a href="events.html">Events</a>
-      <a href="businesscard.html">Contact</a>
+      <a href="../../index.html">Home</a>
+      <a href="../../listings.html">Listings</a>
+      <a href="../../events.html">Events</a>
+      <a href="../../businesscard.html">Contact</a>
     </div>
   </div>
 </header>
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Homes · Condos · Land · Investment</div>
-    <h1 class="hero-title">Featured Listings</h1>
-    <p class="hero-sub">Homes, land, and investments across Baja Sur</p>
+    <div class="hero-eyebrow">Property Listing</div>
+    <h1 class="hero-title">PROPERTY NAME</h1>
+    <p class="hero-sub">Price · Location · Key Details</p>
   </div>
 </section>
 
 <section class="section">
   <div class="tile">
-    <h2 class="section-title">Available Properties</h2>
-    <p class="section-sub">Curated for lifestyle, location, and value</p>
+    <h2 class="section-title">Property Details</h2>
+    <p class="section-sub">Description · Features · Lifestyle</p>
 
-    <div class="grid">
-      <!-- cards unchanged -->
-      <!-- Casa Sol y Luna -->
-      <div class="card">
-        <img src="images/IMG_0795.jpeg">
-        <div class="card-content">
-          <h3>Casa Sol y Luna</h3>
-          <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Gavilon, Mexico</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="images/IMG_0822.png">
-        <div class="card-content">
-          <h3>Casa Vista</h3>
-          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="images/IMG_0797.png">
-        <div class="card-content">
-          <h3>Casa Lienzo C. Molusco</h3>
-          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="images/IMG_0798.jpeg">
-        <div class="card-content">
-          <h3>Central Cerritos Lot</h3>
-          <p>Plot of Land<br>$265,000 USD<br>Cerritos, Mexico</p>
-        </div>
-      </div>
-    </div>
+    <!-- DROP DESCRIPTION / FEATURES / GALLERY HERE -->
   </div>
 </section>
 
