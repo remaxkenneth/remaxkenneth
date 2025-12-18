@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ================= FAVICONS ================= -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ================= SEO / META ================= -->
+  <title>Listing | RE/MAX Cabo Sanctuary</title>
+
+  <meta property="og:title" content="Luxury Listing – Baja California Sur">
+  <meta property="og:description" content="Exclusive property represented by RE/MAX Cabo Sanctuary.">
+  <meta property="og:image" content="hero.jpg">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ================= STYLES ================= -->
+  <style>
+    :root {
+      --remax-blue: #003da5;
+      --remax-red: #e4002b;
+      --remax-dark-blue: #000E35;
+
+      --text-main: #111;
+      --text-muted: #6b7280;
+
+      --glass-bg: rgba(255,255,255,0.82);
+      --glass-border: rgba(255,255,255,0.14);
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #0f172a 0%, #0a0f1f 35%, #05070d 70%, #020409 100%);
+      color: var(--text-main);
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(245,246,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 5%;
+      position: relative;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-left img { height: 32px; }
+
+    .nav-left span {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--remax-dark-blue);
+      text-transform: uppercase;
+    }
+
+    .menu-button {
+      font-size: 30px;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .menu-panel {
+      position: absolute;
+      right: 18px;
+      top: 64px;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(20px);
+      border-radius: 22px;
+      padding: 22px;
+      min-width: 190px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95);
+      transition: 0.25s ease;
+    }
+
+    body.menu-open .menu-panel {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    .menu-panel a {
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ================= HERO ================= */
+
+    #hero {
+      position: relative;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      background: url('hero.jpg') center / cover no-repeat;
+      color: #fff;
+    }
+
+    #hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(130deg, rgba(0,14,53,0.65), rgba(0,0,0,0.25));
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 92%;
+      margin: auto;
+    }
+
+    .hero-eyebrow {
+      letter-spacing: 0.35em;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      margin: 14px 0;
+      font-weight: 600;
+    }
+
+    .hero-sub {
+      max-width: 520px;
+      color: #e5e7eb;
+    }
+
+    /* ================= CONTENT ================= */
+
+    .section {
+      max-width: 1200px;
+      width: 92%;
+      margin: 70px auto;
+    }
+
+    .tile {
+      background: var(--glass-bg);
+      border-radius: 26px;
+      padding: 40px;
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow:
+        0 30px 60px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--remax-dark-blue);
+      text-align: center;
+      margin: 0;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      margin: 10px 0 40px;
+      text-transform: uppercase;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="nav-left">
+      <a href="../../index.html">
+        <img src="../../images/logo.png" alt="RE/MAX">
+      </a>
+      <span>KENNETH GEHLHOFF</span>
+    </div>
+    <div class="menu-button" id="menuButton">≡</div>
+    <div class="menu-panel" id="menuPanel">
+      <a href="../../index.html">Home</a>
+      <a href="../../listings.html">Listings</a>
+      <a href="../../events.html">Events</a>
+      <a href="../../businesscard.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Property Listing</div>
+    <h1 class="hero-title">PROPERTY NAME</h1>
+    <p class="hero-sub">Price · Location · Key Details</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="tile">
+    <h2 class="section-title">Property Details</h2>
+    <p class="section-sub">Description · Features · Lifestyle</p>
+
+    <!-- DROP DESCRIPTION / FEATURES / GALLERY HERE -->
+  </div>
+</section>
+
+<footer>
+  Curated locally. Updated often.<br>
+  © 2025 · RE/MAX Kenneth<br>
+  Each office independently owned and operated
+</footer>
+
+<script>
+(function(){
+  const btn = document.getElementById("menuButton");
+  const panel = document.getElementById("menuPanel");
+
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    document.body.classList.toggle("menu-open");
+  });
+
+  document.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+  });
+
+  panel.addEventListener("click", e => e.stopPropagation());
+})();
+</script>
+
+</body>
+</html>
