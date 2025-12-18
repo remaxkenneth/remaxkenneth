@@ -9,7 +9,7 @@
 
   <title>Casa Sol y Luna | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <!-- OPEN GRAPH -->
+  <!-- OPEN GRAPH / META -->
   <meta property="og:title" content="Casa Sol y Luna – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="5 Bedrooms · 5 Bathrooms · 1,801 m² lot · Gavilan above Cerritos / El Pescadero">
   <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
@@ -18,8 +18,6 @@
 
   <style>
     :root {
-      --remax-dark-blue: #000E35;
-
       --remax-cream: rgba(255,255,255,0.90);
       --remax-cream-muted: rgba(255,255,255,0.65);
 
@@ -52,7 +50,7 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* ===== HEADER (UNCHANGED EXCEPT TEXT COLOR) ===== */
+    /* ===== HEADER ===== */
     header {
       position: sticky;
       top: 0;
@@ -82,7 +80,7 @@
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: #000; /* FIXED */
+      color: #000;
       text-transform: uppercase;
     }
 
@@ -123,12 +121,10 @@
       min-height: 340px;
       display: flex;
       align-items: center;
-      background-color: var(--fallback-hero-bg);
-      background-image: url('../../images/sunsetcerritos.jpeg');
-      background-position: center;
+      background-image: url('/images/sunsetcerritos.jpeg');
       background-size: cover;
+      background-position: center;
       background-repeat: no-repeat;
-      color: #fff;
     }
 
     #hero::before {
@@ -144,6 +140,7 @@
       max-width: 1200px;
       width: 92%;
       margin: auto;
+      color: #fff;
     }
 
     .hero-eyebrow {
@@ -210,7 +207,6 @@
       font-size: 2.2rem;
       margin: 0;
       text-align: center;
-      color: var(--remax-cream);
       font-weight: 500;
     }
 
@@ -274,33 +270,35 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Property Listing</div>
     <h1 class="hero-title">Casa Sol y Luna</h1>
-    <p class="hero-sub">5 Bedrooms · 5 Bathrooms · Gavilan above Cerritos / El Pescadero</p>
+    <p class="hero-sub">
+      5 Bedrooms · 5 Bathrooms · Gavilan above Cerritos / El Pescadero
+    </p>
   </div>
 </section>
 
 <section class="section">
   <div class="tile">
     <div class="slides">
-      <img src="../../images/IMG_8515.JPG" class="active">
-      <img src="../../images/IMG_8514.JPG">
-      <img src="../../images/IMG_8513.JPG">
-      <img src="../../images/IMG_8512.JPG">
-      <img src="../../images/IMG_8511.JPG">
-      <img src="../../images/IMG_8509.JPG">
-      <img src="../../images/IMG_8506.JPG">
-      <img src="../../images/IMG_8501.JPG">
-      <img src="../../images/IMG_8499.JPG">
-      <img src="../../images/IMG_8498.JPG">
-      <img src="../../images/IMG_8497.JPG">
-      <img src="../../images/IMG_8496.JPG">
-      <img src="../../images/IMG_8495.JPG">
-      <img src="../../images/IMG_8493.JPG">
-      <img src="../../images/IMG_8491.JPG">
-      <img src="../../images/IMG_8490.JPG">
-      <img src="../../images/IMG_8485.JPG">
-      <img src="../../images/IMG_8482.JPG">
-      <img src="../../images/IMG_8480.JPG">
-      <img src="../../images/IMG_8479.JPG">
+      <img src="/images/1/IMG_8515.JPG" class="active">
+      <img src="/images/1/IMG_8514.JPG">
+      <img src="/images/1/IMG_8513.JPG">
+      <img src="/images/1/IMG_8512.JPG">
+      <img src="/images/1/IMG_8511.JPG">
+      <img src="/images/1/IMG_8509.JPG">
+      <img src="/images/1/IMG_8506.JPG">
+      <img src="/images/1/IMG_8501.JPG">
+      <img src="/images/1/IMG_8499.JPG">
+      <img src="/images/1/IMG_8498.JPG">
+      <img src="/images/1/IMG_8497.JPG">
+      <img src="/images/1/IMG_8496.JPG">
+      <img src="/images/1/IMG_8495.JPG">
+      <img src="/images/1/IMG_8493.JPG">
+      <img src="/images/1/IMG_8491.JPG">
+      <img src="/images/1/IMG_8490.JPG">
+      <img src="/images/1/IMG_8485.JPG">
+      <img src="/images/1/IMG_8482.JPG">
+      <img src="/images/1/IMG_8480.JPG">
+      <img src="/images/1/IMG_8479.JPG">
     </div>
   </div>
 </section>
@@ -319,9 +317,23 @@
     </div>
 
     <div class="description">
-      <p>Where the desert meets the sea, and the sun meets the moon…</p>
-      <p>Featuring three independent casitas surrounded by native gardens…</p>
-      <p>Located minutes from Cerritos Beach and close to Todos Santos and El Pescadero…</p>
+      <p>
+        Where the desert meets the sea, and the sun meets the moon. Casa Sol y Luna is a unique
+        Baja property sitting on an 1,800 m² lot with open ocean views, located above Playa
+        Los Cerritos between two iconic surf breaks where sunsets paint the sky year-round.
+      </p>
+
+      <p>
+        Featuring three independent casitas surrounded by native gardens, the property includes
+        a pool and multiple outdoor living areas designed to take full advantage of Baja’s
+        climate and natural setting.
+      </p>
+
+      <p>
+        Located minutes from Cerritos Beach and within easy reach of Todos Santos and El
+        Pescadero, Casa Sol y Luna offers privacy, elevation, and a relaxed coastal lifestyle
+        in one of Baja California Sur’s most desirable locations.
+      </p>
     </div>
   </div>
 </section>
