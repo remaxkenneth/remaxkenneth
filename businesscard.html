@@ -68,7 +68,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 14px 5%;
-  position: relative;
 }
 
 .nav-left {
@@ -134,7 +133,7 @@ body.menu-open .menu-panel {
   display: flex;
   align-items: center;
   background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
-  color: #ffffff;
+  color: #fff;
 }
 
 #hero::before {
@@ -181,22 +180,35 @@ body.menu-open .menu-panel {
   margin: 70px auto;
 }
 
-/* headings on dark */
-.section-title,
-.section-sub {
-  color: #ffffff;
+/* ===== GLASS TILE ===== */
+
+.tile {
+  background: var(--glass-bg);
+  border-radius: 26px;
+  padding: 40px;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+  color: var(--text-main);
 }
+
+/* ================= HEADINGS ================= */
 
 .section-title {
   font-size: 2rem;
+  color: var(--remax-dark-blue);
   text-align: center;
+  margin: 0;
 }
 
 .section-sub {
   text-align: center;
   font-size: 0.8rem;
   letter-spacing: 0.22em;
-  margin-bottom: 40px;
+  color: var(--text-muted);
+  margin-top: 10px;
 }
 
 /* ================= CARDS ================= */
@@ -316,12 +328,18 @@ footer {
   </div>
 </section>
 
+<!-- SECTION HEADING TILE -->
 <section class="section">
-  <h2 class="section-title">Our Team</h2>
-  <div class="section-sub">DIRECT · LOCAL · TRUSTED</div>
+  <div class="tile">
+    <h2 class="section-title">Our Team</h2>
+    <p class="section-sub">DIRECT · LOCAL · TRUSTED</p>
+  </div>
+</section>
 
+<section class="section">
   <div class="grid">
 
+    <!-- Kenneth -->
     <div class="card">
       <img src="images/logo.png" class="logo">
       <h3>Kenneth Gehlhoff</h3>
@@ -334,6 +352,7 @@ footer {
       </div>
     </div>
 
+    <!-- Richard -->
     <div class="card">
       <h3>Richard Gomez</h3>
       <div class="role">Construction Specialist</div>
@@ -346,6 +365,7 @@ footer {
       </div>
     </div>
 
+    <!-- David -->
     <div class="card">
       <h3>David Ray</h3>
       <div class="role">Operations · Marketing</div>
