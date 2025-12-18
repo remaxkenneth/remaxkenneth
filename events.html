@@ -20,20 +20,31 @@
 <style>
 :root {
   --remax-blue: #003da5;
+  --remax-red: #e4002b;
   --remax-dark-blue: #000E35;
-  --bg-light: #f5f6f7;
-  --card-bg: #ffffff;
+
   --text-main: #111;
   --text-muted: #6b7280;
-  --glass: rgba(255,255,255,0.75);
+
+  --glass-bg: rgba(255,255,255,0.82);
+  --glass-border: rgba(255,255,255,0.14);
+  --card-bg: #ffffff;
 }
 
 * { box-sizing: border-box; }
+html, body { height: 100%; }
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg-light);
+  background:
+    radial-gradient(
+      circle at top,
+      #0f172a 0%,
+      #0a0f1f 35%,
+      #05070d 70%,
+      #020409 100%
+    );
   color: var(--text-main);
 }
 
@@ -85,7 +96,7 @@ header {
   position: absolute;
   right: 18px;
   top: 64px;
-  background: var(--glass);
+  background: rgba(255,255,255,0.75);
   backdrop-filter: blur(20px);
   border-radius: 22px;
   padding: 22px;
@@ -112,14 +123,7 @@ body.menu-open .menu-panel {
   text-transform: uppercase;
 }
 
-.menu-panel a span {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: #888;
-}
-
-/* ================= HERO (MATCHES INDEX) ================= */
+/* ================= HERO ================= */
 
 #hero {
   position: relative;
@@ -177,10 +181,22 @@ body.menu-open .menu-panel {
   margin: 70px auto;
 }
 
+.tile {
+  background: var(--glass-bg);
+  border-radius: 26px;
+  padding: 40px;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
 .section-title {
   font-size: 2rem;
   color: var(--remax-dark-blue);
   text-align: center;
+  margin: 0;
 }
 
 .section-sub {
@@ -188,7 +204,8 @@ body.menu-open .menu-panel {
   font-size: 0.8rem;
   letter-spacing: 0.22em;
   color: var(--text-muted);
-  margin-bottom: 40px;
+  margin: 10px 0 40px;
+  text-transform: uppercase;
 }
 
 /* ================= CARDS ================= */
@@ -218,7 +235,6 @@ body.menu-open .menu-panel {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  object-position: center 25%;
   display: block;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
@@ -236,8 +252,6 @@ body.menu-open .menu-panel {
 .card p {
   font-size: 0.95rem;
   color: #444;
-  max-width: 90%;
-  margin: 0 auto;
 }
 
 .card-btn {
@@ -257,7 +271,7 @@ footer {
   text-align: center;
   padding: 40px 0;
   font-size: 0.8rem;
-  color: #777;
+  color: #aaa;
 }
 </style>
 </head>
@@ -270,9 +284,7 @@ footer {
       <img src="images/logo.png" alt="RE/MAX">
       <span>KENNETH GEHLHOFF</span>
     </div>
-
     <div class="menu-button" id="menuButton">≡</div>
-
     <div class="menu-panel" id="menuPanel">
       <a href="index.html">Home</a>
       <a href="listings.html">Listings</a>
@@ -293,48 +305,50 @@ footer {
 </section>
 
 <section class="section">
-  <h2 class="section-title">What’s Happening This Week</h2>
-  <div class="section-sub">A look at the moments worth leaving the house for.</div>
+  <div class="tile">
+    <h2 class="section-title">What’s Happening This Week</h2>
+    <div class="section-sub">A look at the moments worth leaving the house for.</div>
 
-  <div class="grid">
-    <a href="https://www.bandsintown.com/c/todos-santos-mexico" target="_blank" class="card-link">
-      <div class="card">
-        <img src="images/IMG_0756.jpeg">
-        <div class="card-content">
-          <h3>Evenings in Baja</h3>
-          <p>Enjoy a night out at concerts and local events.</p>
-          <span class="card-btn">Music Calendar</span>
+    <div class="grid">
+      <a href="https://www.bandsintown.com/c/todos-santos-mexico" target="_blank" class="card-link">
+        <div class="card">
+          <img src="images/IMG_0756.jpeg">
+          <div class="card-content">
+            <h3>Evenings in Baja</h3>
+            <p>Enjoy a night out at concerts and local events.</p>
+            <span class="card-btn">Music Calendar</span>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
 
-    <a href="https://gringogazette.com/event/" target="_blank" class="card-link">
-      <div class="card">
-        <img src="images/IMG_0757.jpeg">
-        <div class="card-content">
-          <h3>No Bad Days</h3>
-          <p>See what everyone is talking about. Don’t forget to mark your calendar.</p>
-          <span class="card-btn">Event Calendar</span>
+      <a href="https://gringogazette.com/event/" target="_blank" class="card-link">
+        <div class="card">
+          <img src="images/IMG_0757.jpeg">
+          <div class="card-content">
+            <h3>No Bad Days</h3>
+            <p>See what everyone is talking about.</p>
+            <span class="card-btn">Event Calendar</span>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
 
-    <a href="https://setuesbcs.gob.mx/eventos-admin/calendario.php" target="_blank" class="card-link">
-      <div class="card">
-        <img src="images/IMG_0758.jpeg">
-        <div class="card-content">
-          <h3>Official Events</h3>
-          <p>State and regional tourism events across Baja California Sur.</p>
-          <span class="card-btn">Official Calendar</span>
+      <a href="https://setuesbcs.gob.mx/eventos-admin/calendario.php" target="_blank" class="card-link">
+        <div class="card">
+          <img src="images/IMG_0758.jpeg">
+          <div class="card-content">
+            <h3>Official Events</h3>
+            <p>State and regional tourism events across BCS.</p>
+            <span class="card-btn">Official Calendar</span>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </section>
 
 <footer>
   Curated locally. Updated often.<br>
-  <span>© 2025 · REMAX Kenneth<br></span>
+  © 2025 · REMAX Kenneth<br>
   Each office independently owned and operated
 </footer>
 
