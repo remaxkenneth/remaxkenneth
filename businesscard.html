@@ -46,7 +46,7 @@ body {
       #05070d 70%,
       #020409 100%
     );
-  color: var(--text-main);
+  color: #ffffff;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -123,6 +123,7 @@ body.menu-open .menu-panel {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: #111;
 }
 
 /* ================= HERO ================= */
@@ -133,7 +134,7 @@ body.menu-open .menu-panel {
   display: flex;
   align-items: center;
   background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
-  color: #fff;
+  color: #ffffff;
 }
 
 #hero::before {
@@ -158,7 +159,7 @@ body.menu-open .menu-panel {
 .hero-eyebrow {
   letter-spacing: 0.35em;
   font-size: 0.7rem;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .hero-title {
@@ -180,9 +181,14 @@ body.menu-open .menu-panel {
   margin: 70px auto;
 }
 
+/* headings on dark */
+.section-title,
+.section-sub {
+  color: #ffffff;
+}
+
 .section-title {
   font-size: 2rem;
-  color: var(--remax-dark-blue);
   text-align: center;
 }
 
@@ -190,7 +196,6 @@ body.menu-open .menu-panel {
   text-align: center;
   font-size: 0.8rem;
   letter-spacing: 0.22em;
-  color: var(--text-muted);
   margin-bottom: 40px;
 }
 
@@ -208,6 +213,7 @@ body.menu-open .menu-panel {
   padding: 36px;
   box-shadow: 0 20px 45px rgba(0,0,0,0.08);
   text-align: center;
+  color: var(--text-main);
 }
 
 .card img.logo {
@@ -244,7 +250,7 @@ body.menu-open .menu-panel {
   text-transform: uppercase;
 }
 
-/* ===== CONTACT ACTIONS (ANDROID-SAFE) ===== */
+/* ================= CONTACT ACTIONS ================= */
 
 .contact-actions {
   margin-top: 22px;
@@ -264,6 +270,7 @@ body.menu-open .menu-panel {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
+  color: #111;
 }
 
 @media (min-width: 640px) {
@@ -288,7 +295,7 @@ footer {
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png" alt="RE/MAX">
+      <img src="images/logo.png">
       <span>KENNETH GEHLHOFF</span>
     </div>
     <div class="menu-button" id="menuButton">≡</div>
@@ -305,9 +312,7 @@ footer {
   <div class="hero-inner">
     <div class="hero-eyebrow">CONTACT · TEAM</div>
     <h1 class="hero-title">Let’s Connect</h1>
-    <p class="hero-sub">
-      Direct access to the people behind your Baja real estate decisions.
-    </p>
+    <p class="hero-sub">Direct access to the people behind your Baja real estate decisions.</p>
   </div>
 </section>
 
@@ -317,7 +322,6 @@ footer {
 
   <div class="grid">
 
-    <!-- Kenneth -->
     <div class="card">
       <img src="images/logo.png" class="logo">
       <h3>Kenneth Gehlhoff</h3>
@@ -330,7 +334,6 @@ footer {
       </div>
     </div>
 
-    <!-- Richard -->
     <div class="card">
       <h3>Richard Gomez</h3>
       <div class="role">Construction Specialist</div>
@@ -343,7 +346,6 @@ footer {
       </div>
     </div>
 
-    <!-- David -->
     <div class="card">
       <h3>David Ray</h3>
       <div class="role">Operations · Marketing</div>
