@@ -21,10 +21,15 @@
       --remax-blue: #003da5;
       --remax-dark-blue: #000E35;
 
-      --text-main: #111;
-      --text-muted: #6b7280;
+      /* RE/MAX creamy whites */
+      --remax-cream: rgba(255,255,255,0.90);
+      --remax-cream-muted: rgba(255,255,255,0.65);
 
-      /* same glass tile, just clearer */
+      /* chips */
+      --remax-chip-bg: rgba(255,255,255,0.20);
+      --remax-chip-border: rgba(255,255,255,0.18);
+
+      /* glass */
       --glass-bg: rgba(255,255,255,0.12);
       --glass-border: rgba(255,255,255,0.18);
 
@@ -46,7 +51,7 @@
           #05070d 70%,
           #020409 100%
         );
-      color: var(--text-main);
+      color: var(--remax-cream);
     }
 
     a { text-decoration: none; color: inherit; }
@@ -209,12 +214,13 @@
       font-size: 2.2rem;
       margin: 0;
       text-align: center;
-      color: #111;
+      color: var(--remax-cream);
+      font-weight: 500;
     }
 
     .location {
       margin: 10px 0 22px;
-      color: #444;
+      color: var(--remax-cream-muted);
       text-align: center;
     }
 
@@ -227,16 +233,18 @@
     }
 
     .stat-pill {
-      background: rgba(255,255,255,0.85);
+      background: var(--remax-chip-bg);
+      border: 1px solid var(--remax-chip-border);
+      color: var(--remax-cream);
       border-radius: 999px;
-      padding: 10px 14px;
-      font-size: 0.85rem;
-      color: #1f2937;
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
     }
 
     .description p {
       line-height: 1.7;
-      color: #333;
+      color: var(--remax-cream-muted);
       margin: 0 0 14px;
     }
 
