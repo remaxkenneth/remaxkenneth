@@ -74,8 +74,11 @@
       gap: 10px;
     }
 
-    .nav-left img { height: 32px; }
+    .nav-left img {
+      height: 32px;
+    }
 
+    /* ✅ ONLY CHANGE IS HERE */
     .nav-left span {
       font-size: 1rem;
       font-weight: 700;
@@ -253,10 +256,14 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="../../index.html"><img src="../../images/logo.png" alt="RE/MAX"></a>
+      <a href="../../index.html">
+        <img src="../../images/logo.png" alt="RE/MAX">
+      </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
+
     <div class="menu-button" id="menuButton">≡</div>
+
     <div class="menu-panel" id="menuPanel">
       <a href="../../index.html">Home</a>
       <a href="../../listings.html">Listings</a>
