@@ -10,28 +10,24 @@
 
   <title>Casa Sol y Luna | Gavilan, Cerritos – RE/MAX Cabo Sanctuary</title>
 
+  <!-- OPEN GRAPH -->
   <meta property="og:title" content="Casa Sol y Luna – Gavilan, Cerritos">
-  <meta property="og:description" content="A private residence above Playa Los Cerritos with uninterrupted Pacific views.">
+  <meta property="og:description" content="5-bedroom property with three casitas on an 1,801 m² lot above Playa Los Cerritos.">
   <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 
   <style>
     :root {
-      --ink: #0b1220;
-      --ink-soft: rgba(11,18,32,0.65);
-      --accent: #e4002b;
+      --ink: #ffffff;
+      --ink-muted: rgba(255,255,255,0.72);
 
-      --glass: rgba(255,255,255,0.65);
-      --glass-border: rgba(255,255,255,0.35);
+      /* same near-black as your other pages */
+      --bg-main: #020409;
 
-      --bg-dark:
-        radial-gradient(
-          circle at top,
-          #0f172a 0%,
-          #0a0f1f 35%,
-          #05070d 70%,
-          #020409 100%
-        );
+      /* real glass */
+      --glass: rgba(255,255,255,0.10);
+      --glass-border: rgba(255,255,255,0.16);
     }
 
     * { box-sizing: border-box; }
@@ -39,18 +35,19 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg-dark);
+      background: var(--bg-main);
       color: var(--ink);
     }
 
     a { text-decoration: none; color: inherit; }
 
-    /* HEADER */
+    /* ===== HEADER (unchanged from rest of site) ===== */
+
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(245,246,247,0.95);
+      background: rgba(245,246,247,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #e5e7eb;
     }
@@ -72,26 +69,26 @@
     .nav-left img { height: 32px; }
 
     .nav-left span {
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.12em;
+      color: #000E35;
       text-transform: uppercase;
-      color: var(--ink);
     }
 
     .menu-button {
-      font-size: 28px;
+      font-size: 30px;
       cursor: pointer;
-      user-select: none;
+      color: #000;
     }
 
     .menu-panel {
       position: absolute;
       right: 18px;
       top: 64px;
-      background: var(--glass);
-      backdrop-filter: blur(18px);
-      border-radius: 20px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(20px);
+      border-radius: 22px;
       padding: 22px;
       min-width: 190px;
       box-shadow: 0 18px 40px rgba(0,0,0,0.18);
@@ -110,33 +107,24 @@
       transform: scale(1);
     }
 
-    .menu-panel a {
-      font-size: 14px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
+    /* ===== HERO (MATCHES REST OF SITE) ===== */
 
-    /* HERO */
     #hero {
       position: relative;
-      min-height: 240px;
+      min-height: 360px;
       display: flex;
       align-items: center;
       background-image: url('../../images/sunsetcerritos.jpeg');
       background-size: cover;
       background-position: center;
-      color: #fff;
+      background-repeat: no-repeat;
     }
 
     #hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        130deg,
-        rgba(0,14,53,0.7),
-        rgba(0,0,0,0.35)
-      );
+      background: rgba(0,0,0,0.55);
     }
 
     .hero-inner {
@@ -148,47 +136,49 @@
     }
 
     .hero-eyebrow {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: #e5e7eb;
+      color: var(--ink-muted);
     }
 
     .hero-title {
-      font-size: 2.3rem;
-      margin-top: 8px;
+      font-size: 2.6rem;
+      margin: 12px 0 0;
       font-weight: 600;
     }
 
     .hero-sub {
-      margin-top: 8px;
-      max-width: 700px;
-      color: #e5e7eb;
+      margin-top: 10px;
+      max-width: 720px;
+      color: var(--ink-muted);
+      line-height: 1.6;
     }
 
-    /* SECTIONS */
+    /* ===== SECTIONS ===== */
+
     .section {
       max-width: 1200px;
       width: 92%;
-      margin: 80px auto;
+      margin: 70px auto;
     }
 
     .tile {
       background: var(--glass);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(26px);
       border-radius: 26px;
       border: 1px solid var(--glass-border);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.45);
-      padding: 52px;
+      padding: 48px;
     }
 
-    /* SLIDESHOW */
-    .slider {
+    /* ===== GALLERY ===== */
+
+    .slides {
       position: relative;
-      height: 480px;
+      height: 520px;
       overflow: hidden;
-      border-radius: 18px;
-      background: rgba(0,0,0,0.25);
+      border-radius: 20px;
+      background: rgba(0,0,0,0.4);
     }
 
     .slides img {
@@ -200,88 +190,61 @@
       display: none;
     }
 
-    .slides img.active { display: block; }
-
-    .slide-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
+    .slides img.active {
+      display: block;
     }
 
-    /* DETAILS */
-    .content-wrap { max-width: 860px; }
+    @media (max-width: 768px) {
+      .slides { height: 320px; }
+      .tile { padding: 28px; }
+    }
+
+    /* ===== CONTENT ===== */
+
+    .content-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+    }
 
     .price {
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
       margin: 0;
-    }
-
-    .price::after {
-      content: "";
-      display: block;
-      width: 44px;
-      height: 2px;
-      background: var(--accent);
-      margin-top: 12px;
     }
 
     .location {
       margin-top: 8px;
-      font-size: 0.9rem;
-      color: var(--ink-soft);
+      color: var(--ink-muted);
     }
 
-    .specs {
-      margin: 40px 0;
-      padding: 26px 0;
-      border-top: 1px solid rgba(0,0,0,0.15);
-      border-bottom: 1px solid rgba(0,0,0,0.15);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 24px;
-    }
-
-    .spec .label {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 32px;
+      margin: 28px 0 34px;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(0,0,0,0.55);
+      color: var(--ink-muted);
     }
 
-    .spec .value {
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    .spec.highlight .value {
-      color: var(--accent);
-      font-weight: 600;
+    .stats span::before {
+      content: "— ";
+      color: rgba(255,255,255,0.4);
     }
 
     .description p {
       font-size: 0.95rem;
-      line-height: 1.85;
+      line-height: 1.9;
       margin-bottom: 22px;
+      color: var(--ink-muted);
     }
 
     footer {
       text-align: center;
       padding: 40px 0;
-      font-size: 0.75rem;
-      color: #aaa;
-    }
-
-    @media (max-width: 768px) {
-      .tile { padding: 36px; }
-      .slider { height: 300px; }
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
     }
   </style>
 </head>
@@ -291,9 +254,7 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="../../index.html">
-        <img src="../../images/logo.png" alt="RE/MAX">
-      </a>
+      <a href="../../index.html"><img src="../../images/logo.png" alt="RE/MAX"></a>
       <span>KENNETH GEHLHOFF</span>
     </div>
 
@@ -313,19 +274,19 @@
     <div class="hero-eyebrow">Gavilan · Cerritos</div>
     <h1 class="hero-title">Casa Sol y Luna</h1>
     <p class="hero-sub">
-      A private residence set above Playa Los Cerritos,
-      where desert, ocean, and sky meet in quiet balance.
+      A private hillside property above Playa Los Cerritos with ocean views,
+      three independent casitas, and a pool — set on an 1,801 m² lot.
     </p>
   </div>
 </section>
 
 <section class="section">
   <div class="tile">
-    <div class="slider">
-      <div class="slides">
-        <!-- ADD IMAGES LATER -->
-      </div>
-      <div class="slide-placeholder">Property Images</div>
+    <div class="slides">
+      <!-- ADD YOUR PHOTOS HERE -->
+      <img src="img-1.jpg" class="active" alt="Casa Sol y Luna photo 1">
+      <img src="img-2.jpg" alt="Casa Sol y Luna photo 2">
+      <img src="img-3.jpg" alt="Casa Sol y Luna photo 3">
     </div>
   </div>
 </section>
@@ -333,66 +294,52 @@
 <section class="section">
   <div class="tile">
     <div class="content-wrap">
+
       <h2 class="price">$1,300,000 USD</h2>
       <p class="location">
         Residential Home · Gavilan · Cerritos / El Pescadero · Baja California Sur, Mexico
       </p>
 
-      <div class="specs">
-        <div class="spec"><span class="label">Bedrooms</span><span class="value">5</span></div>
-        <div class="spec"><span class="label">Bathrooms</span><span class="value">5</span></div>
-        <div class="spec"><span class="label">Lot</span><span class="value">1,801 m²</span></div>
-        <div class="spec"><span class="label">Construction</span><span class="value">245.82 m²</span></div>
-        <div class="spec"><span class="label">Casitas</span><span class="value">3</span></div>
-        <div class="spec"><span class="label">Garage</span><span class="value">1 Stall</span></div>
-        <div class="spec highlight"><span class="label">Terms</span><span class="value">Seller Financing Available</span></div>
+      <div class="stats">
+        <span>5 Bedrooms</span>
+        <span>5 Bathrooms</span>
+        <span>1,801 m² Lot</span>
+        <span>Three Independent Casitas</span>
+        <span>Pool</span>
       </div>
 
       <div class="description">
         <p>
-          Casa Sol y Luna occupies a rare hillside position above Playa Los Cerritos,
-          where the desert opens toward the Pacific and sunsets move uninterrupted
-          across the horizon.
+          Casa Sol y Luna is positioned in the Gavilan hillside above Playa Los Cerritos,
+          offering privacy, elevation, and open Pacific views. The property is arranged
+          as three independent casitas set within native landscaping, creating a layout
+          that works equally well for personal use or hosting guests.
         </p>
 
         <p>
-          Set across an expansive 1,801 m² lot and composed as three independent casitas,
-          the home is centered on outdoor living — endless pool, solar-heated pool,
-          open terraces, and native gardens.
-        </p>
-
-        <p>
-          Powered by CFE with hybrid solar backup and modern infrastructure throughout,
-          Casa Sol y Luna offers an authentic Baja lifestyle just minutes from Cerritos
-          Beach and two renowned surf breaks.
+          Outdoor living is central to the experience, with generous terraces and a pool
+          designed to take advantage of the surrounding landscape and Baja’s year-round
+          climate. Located minutes from Cerritos Beach and within easy reach of Todos Santos
+          and El Pescadero, the home offers a refined yet relaxed coastal lifestyle.
         </p>
       </div>
+
     </div>
   </div>
 </section>
 
 <footer>
-  Curated locally. Updated often.<br>
-  © 2025 · RE/MAX Cabo Sanctuary<br>
-  Each office independently owned and operated
+  © 2025 · RE/MAX Cabo Sanctuary · Each office independently owned and operated
 </footer>
 
 <script>
-(function(){
-  const btn = document.getElementById("menuButton");
-  const panel = document.getElementById("menuPanel");
-
-  btn.addEventListener("click", e => {
-    e.stopPropagation();
-    document.body.classList.toggle("menu-open");
-  });
-
-  document.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
-  });
-
-  panel.addEventListener("click", e => e.stopPropagation());
-})();
+  (function(){
+    const btn = document.getElementById("menuButton");
+    const panel = document.getElementById("menuPanel");
+    btn.onclick = e => { e.stopPropagation(); document.body.classList.toggle("menu-open"); };
+    document.onclick = () => document.body.classList.remove("menu-open");
+    panel.onclick = e => e.stopPropagation();
+  })();
 </script>
 
 </body>
