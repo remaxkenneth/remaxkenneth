@@ -20,15 +20,9 @@
 
 <style>
 :root {
-  --remax-blue: #003da5;
-  --remax-red: #e4002b;
   --remax-dark-blue: #000E35;
-
   --text-main: #111;
   --text-muted: #6b7280;
-
-  --glass-bg: rgba(255,255,255,0.82);
-  --glass-border: rgba(255,255,255,0.14);
   --card-bg: #ffffff;
 }
 
@@ -68,7 +62,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 14px 5%;
-  position: relative;
 }
 
 .nav-left {
@@ -84,7 +77,6 @@ header {
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--remax-dark-blue);
-  text-transform: uppercase;
 }
 
 .menu-button {
@@ -104,7 +96,6 @@ header {
   border-radius: 22px;
   padding: 22px;
   min-width: 190px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -135,7 +126,6 @@ body.menu-open .menu-panel {
   display: flex;
   align-items: center;
   background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
-  color: #fff;
 }
 
 #hero::before {
@@ -152,8 +142,8 @@ body.menu-open .menu-panel {
 .hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
   width: 92%;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -166,7 +156,6 @@ body.menu-open .menu-panel {
 .hero-title {
   font-size: 2.6rem;
   margin: 14px 0;
-  font-weight: 600;
 }
 
 .hero-sub {
@@ -174,11 +163,11 @@ body.menu-open .menu-panel {
   color: #e5e7eb;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SECTION ================= */
 
 .section {
-  max-width: 1200px;
   width: 92%;
+  max-width: 1200px;
   margin: 70px auto;
 }
 
@@ -194,7 +183,6 @@ body.menu-open .menu-panel {
   background: var(--card-bg);
   border-radius: 26px;
   padding: 36px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
   text-align: center;
   color: var(--text-main);
 }
@@ -204,15 +192,21 @@ body.menu-open .menu-panel {
   margin: 0 auto 22px;
 }
 
-/* SHARED BANNER — SAME FOR RICHARD + DAVID */
+/* BASE BANNER (RICHARD) */
 .card img.banner {
   width: 100%;
   max-width: 260px;
-  height: 70px;
-  object-fit: cover;
   margin: 18px auto 10px;
   border-radius: 12px;
 }
+
+/* DAVID ONLY — STRETCH TO MATCH VISUAL HEIGHT */
+.card img.banner.david {
+  min-height: 70px;
+  object-fit: cover;
+}
+
+/* TEXT */
 
 .card h3 {
   margin: 0;
@@ -227,12 +221,12 @@ body.menu-open .menu-panel {
   text-transform: uppercase;
 }
 
-/* ================= CONTACT ACTIONS ================= */
+/* ================= BUTTONS ================= */
 
 .contact-actions {
   margin-top: 22px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
@@ -246,14 +240,7 @@ body.menu-open .menu-panel {
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  white-space: nowrap;
   color: #111;
-}
-
-@media (min-width: 640px) {
-  .contact-actions {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  }
 }
 
 /* ================= FOOTER ================= */
@@ -302,8 +289,8 @@ footer {
       <div class="role">Realtor</div>
       <div class="contact-actions">
         <a href="tel:+526122311639">Call</a>
-        <a href="https://wa.me/526122311639" target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/profile.php?id=61584034062665" target="_blank">Facebook</a>
+        <a href="https://wa.me/526122311639">WhatsApp</a>
+        <a href="https://www.facebook.com/profile.php?id=61584034062665">Facebook</a>
         <a href="mailto:kenny@remaxcaborealestate.com">Email</a>
       </div>
     </div>
@@ -314,8 +301,8 @@ footer {
       <img src="images/bannerr.jpeg" class="banner">
       <div class="contact-actions">
         <a href="tel:+523781497632">Call</a>
-        <a href="https://wa.me/523781497632" target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/richard.g.654694?" target="_blank">Facebook</a>
+        <a href="https://wa.me/523781497632">WhatsApp</a>
+        <a href="https://www.facebook.com/richard.g.654694?">Facebook</a>
         <a href="mailto:ricardogomez160622@gmail.com">Email</a>
       </div>
     </div>
@@ -323,11 +310,11 @@ footer {
     <div class="card">
       <h3>David Ray</h3>
       <div class="role">Operations · Marketing</div>
-      <img src="images/IMG_0830.png" class="banner">
+      <img src="images/IMG_0830.png" class="banner david">
       <div class="contact-actions">
         <a href="tel:+526121315839">Call</a>
-        <a href="https://wa.me/526121315839" target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/profile.php?id=61581876812521" target="_blank">Facebook</a>
+        <a href="https://wa.me/526121315839">WhatsApp</a>
+        <a href="https://www.facebook.com/profile.php?id=61581876812521">Facebook</a>
         <a href="mailto:Bajaheat24x7@gmail.com">Email</a>
       </div>
     </div>
