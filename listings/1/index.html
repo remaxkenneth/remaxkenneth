@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ================= FAVICONS ================= -->
+  <!-- FAVICONS -->
   <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
@@ -9,13 +9,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ================= SEO / META ================= -->
   <title>Listing | RE/MAX Cabo Sanctuary</title>
 
+  <!-- META -->
   <meta property="og:title" content="Luxury Listing – Baja California Sur">
-  <meta property="og:description" content="Exclusive property represented by RE/MAX Cabo Sanctuary.">
+  <meta property="og:description" content="Exclusive Baja Sur property represented by RE/MAX Cabo Sanctuary.">
   <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
-  <meta property="og:url" content="">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -24,16 +23,11 @@
       --remax-blue: #003da5;
       --remax-red: #e4002b;
       --remax-dark-blue: #000E35;
-
-      --text-main: #111;
-      --text-muted: #6b7280;
+      --page-bg: #05070d;
 
       --glass-bg: rgba(255,255,255,0.82);
       --glass-border: rgba(255,255,255,0.14);
-      --card-bg: #ffffff;
-
-      /* Correct "almost black" page base (NOT blue-ish, NOT pure black) */
-      --page-bg: #05070d;
+      --text-muted: #6b7280;
     }
 
     * { box-sizing: border-box; }
@@ -43,7 +37,7 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: var(--page-bg);
-      color: var(--text-main);
+      color: #111;
     }
 
     a { text-decoration: none; color: inherit; }
@@ -64,7 +58,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 14px 5%;
-      position: relative;
     }
 
     .nav-left {
@@ -151,26 +144,19 @@
     }
 
     .hero-eyebrow {
-      letter-spacing: 0.35em;
       font-size: 0.7rem;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
       color: #e5e7eb;
-      opacity: 0.95;
     }
 
     .hero-title {
       font-size: 2.6rem;
       margin: 14px 0;
       font-weight: 600;
-      line-height: 1.1;
     }
 
-    .hero-sub {
-      max-width: 520px;
-      color: #e5e7eb;
-    }
-
-    /* ================= CONTENT ================= */
+    /* ================= LAYOUT ================= */
 
     .section {
       max-width: 1200px;
@@ -181,101 +167,4 @@
     .tile {
       background: var(--glass-bg);
       border-radius: 26px;
-      padding: 40px;
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      box-shadow:
-        0 30px 60px rgba(0,0,0,0.45),
-        inset 0 1px 0 rgba(255,255,255,0.4);
-    }
-
-    .section-title {
-      font-size: 2rem;
-      color: var(--remax-dark-blue);
-      text-align: center;
-      margin: 0;
-    }
-
-    .section-sub {
-      text-align: center;
-      font-size: 0.8rem;
-      letter-spacing: 0.22em;
-      color: var(--text-muted);
-      margin: 10px 0 40px;
-      text-transform: uppercase;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      font-size: 0.8rem;
-      color: #aaa;
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <div class="nav">
-    <div class="nav-left">
-      <a href="../../index.html">
-        <img src="../../images/logo.png" alt="RE/MAX">
-      </a>
-      <span>KENNETH GEHLHOFF</span>
-    </div>
-
-    <div class="menu-button" id="menuButton">≡</div>
-
-    <div class="menu-panel" id="menuPanel">
-      <a href="../../index.html">Home</a>
-      <a href="../../listings.html">Listings</a>
-      <a href="../../events.html">Events</a>
-      <a href="../../businesscard.html">Contact</a>
-    </div>
-  </div>
-</header>
-
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Property Listing</div>
-    <h1 class="hero-title">PROPERTY NAME</h1>
-    <p class="hero-sub">Price · Location · Key Details</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="tile">
-    <h2 class="section-title">Property Details</h2>
-    <p class="section-sub">Description · Features · Lifestyle</p>
-
-    <!-- INSERT DESCRIPTION, FEATURES, GALLERY, CTA HERE -->
-  </div>
-</section>
-
-<footer>
-  Curated locally. Updated often.<br>
-  © 2025 · RE/MAX Kenneth<br>
-  Each office independently owned and operated
-</footer>
-
-<script>
-(function(){
-  const btn = document.getElementById("menuButton");
-  const panel = document.getElementById("menuPanel");
-
-  btn.addEventListener("click", e => {
-    e.stopPropagation();
-    document.body.classList.toggle("menu-open");
-  });
-
-  document.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
-  });
-
-  panel.addEventListener("click", e => e.stopPropagation());
-})();
-</script>
-
-</body>
-</html>
+      padding:
