@@ -19,12 +19,13 @@
 
   <style>
     :root {
-      --ink: #0f172a;
-      --muted: #6b7280;
+      --ink: #020617;
+      --muted: rgba(2,6,23,0.65);
       --accent: #e4002b;
 
-      --glass-bg: rgba(255,255,255,0.12);
-      --glass-border: rgba(255,255,255,0.18);
+      --glass-top: rgba(255,255,255,0.22);
+      --glass-bottom: rgba(255,255,255,0.10);
+      --glass-border: rgba(255,255,255,0.22);
 
       --bg-dark:
         radial-gradient(
@@ -74,7 +75,7 @@
     .nav-left img { height: 32px; }
 
     .nav-left span {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -91,7 +92,7 @@
       position: absolute;
       right: 18px;
       top: 64px;
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.8);
       backdrop-filter: blur(20px);
       border-radius: 22px;
       padding: 22px;
@@ -170,15 +171,20 @@
     }
 
     .tile {
-      background: var(--glass-bg);
-      backdrop-filter: blur(28px) saturate(120%);
-      -webkit-backdrop-filter: blur(28px) saturate(120%);
+      background: linear-gradient(
+        180deg,
+        var(--glass-top),
+        var(--glass-bottom)
+      );
+      backdrop-filter: blur(22px) saturate(120%);
+      -webkit-backdrop-filter: blur(22px) saturate(120%);
       border-radius: 28px;
       border: 1px solid var(--glass-border);
       box-shadow:
         0 30px 80px rgba(0,0,0,0.55),
-        inset 0 1px 0 rgba(255,255,255,0.25);
+        inset 0 1px 0 rgba(255,255,255,0.35);
       padding: 52px;
+      text-shadow: 0 1px 1px rgba(255,255,255,0.08);
     }
 
     /* GALLERY */
@@ -209,11 +215,16 @@
       max-width: 860px;
     }
 
+    .price-block {
+      margin-bottom: 42px;
+    }
+
     .price {
       font-size: 2.2rem;
       font-weight: 500;
       letter-spacing: 0.04em;
       margin: 0;
+      color: var(--ink);
     }
 
     .price::after {
@@ -227,8 +238,8 @@
 
     .location {
       margin-top: 8px;
-      color: var(--muted);
       font-size: 0.9rem;
+      color: var(--muted);
     }
 
     .stats {
@@ -239,7 +250,7 @@
       font-size: 0.8rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #1f2937;
+      color: rgba(2,6,23,0.85);
     }
 
     .stats span::before {
@@ -266,7 +277,7 @@
     .description p {
       font-size: 0.95rem;
       line-height: 1.9;
-      color: #1f2937;
+      color: rgba(2,6,23,0.9);
       margin-bottom: 22px;
     }
 
@@ -304,8 +315,8 @@
     <div class="hero-eyebrow">Gavilan · Cerritos</div>
     <h1 class="hero-title">Casa Sol y Luna</h1>
     <p class="hero-sub">
-      A private residence set above Playa Los Cerritos, where desert, ocean,
-      and sky meet in quiet balance.
+      A private residence set above Playa Los Cerritos,
+      where desert, ocean, and sky meet in quiet balance.
     </p>
   </div>
 </section>
@@ -324,10 +335,12 @@
 <section class="section">
   <div class="tile">
     <div class="content-wrap">
-      <h2 class="price">$1,300,000 USD</h2>
-      <p class="location">
-        Residential Home · Gavilan · Cerritos / El Pescadero · Baja California Sur, Mexico
-      </p>
+      <div class="price-block">
+        <h2 class="price">$1,300,000 USD</h2>
+        <p class="location">
+          Residential Home · Gavilan · Cerritos / El Pescadero · Baja California Sur, Mexico
+        </p>
+      </div>
 
       <div class="stats">
         <span>5 Bedrooms</span>
@@ -343,27 +356,25 @@
 
       <div class="description">
         <p>
-          Where the desert meets the sea and the sun meets the moon, Casa Sol y Luna
-          occupies a rare hillside position above Playa Los Cerritos, offering
-          uninterrupted 180-degree ocean views and year-round sunsets over the Pacific.
-          The property spans an expansive 1,801 m² lot and is thoughtfully designed as
-          three independent casitas surrounded by native gardens and open terraces.
+          Where the desert meets the sea and the sun meets the moon,
+          Casa Sol y Luna occupies a rare hillside position above
+          Playa Los Cerritos, offering uninterrupted 180-degree ocean
+          views and year-round sunsets over the Pacific.
         </p>
 
         <p>
-          At the heart of the home is an endless pool with adjustable current,
-          complemented by a solar-heated pool and multiple outdoor living areas shaded
-          by palapa roofs. The main residence features open living spaces, ocean-view
-          terraces, and an upper-level art studio positioned to capture the full
-          spectrum of Baja’s evening light.
+          The property spans an expansive 1,801 m² lot and is thoughtfully
+          designed as three independent casitas surrounded by native gardens
+          and open terraces. At its heart is an endless pool with adjustable
+          current, complemented by a solar-heated pool and multiple outdoor
+          living areas shaded by palapa roofs.
         </p>
 
         <p>
-          Designed for both independence and comfort, Casa Sol y Luna is powered by CFE
-          with a hybrid solar backup system, includes water filtration, and modern
-          infrastructure throughout. Located between two renowned surf breaks and just
-          minutes from Cerritos Beach, the property offers a refined yet authentic Baja
-          lifestyle in one of the region’s most compelling settings.
+          Powered by CFE with a hybrid solar backup system, and equipped with
+          water filtration and modern infrastructure, Casa Sol y Luna offers
+          independence, comfort, and an authentic Baja lifestyle just minutes
+          from Cerritos Beach and two renowned surf breaks.
         </p>
       </div>
     </div>
