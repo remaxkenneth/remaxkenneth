@@ -26,14 +26,17 @@
   --bg-light:  #f5f6f7;
   --card-bg:   #ffffff;
 
-  --text-main: #111;
-  --text-muted:#6b7280;
+  /* ===== Sol y Luna tile system ===== */
+  --remax-cream: rgba(255,255,255,0.9);
+  --remax-cream-muted: rgba(255,255,255,0.65);
+  --glass-bg: rgba(255,255,255,0.12);
+  --glass-border: rgba(255,255,255,0.18);
+
+  /* page text defaults */
+  --text-main: var(--remax-cream);
+  --text-muted: var(--remax-cream-muted);
 
   --glass: rgba(255,255,255,0.75);
-
-  /* luxe glass system */
-  --glass-bg: rgba(255,255,255,0.82);
-  --glass-border: rgba(255,255,255,0.14);
 }
 
 * { box-sizing: border-box; }
@@ -44,7 +47,6 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 
-  /* luxury near-black background (your version) */
   background:
     radial-gradient(
       circle at top,
@@ -85,21 +87,24 @@ header {
   gap: 10px;
 }
 
-.nav-left img {
-  height: 32px;
-}
+.nav-left img { height: 32px; }
 
+/* toolbar text BLACK (readable on light header) */
 .nav-left span {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--remax-dark-blue);
+  color: #000;
   text-transform: uppercase;
 }
 
+/* hamburger BLACK */
 .menu-button {
   font-size: 30px;
   cursor: pointer;
+  color: #000;
+  user-select: none;
+  line-height: 1;
 }
 
 /* ================= MENU ================= */
@@ -108,7 +113,8 @@ header {
   position: absolute;
   right: 18px;
   top: 64px;
-  background: var(--glass);
+
+  background: rgba(255,255,255,0.80);
   backdrop-filter: blur(20px);
   border-radius: 22px;
   padding: 22px;
@@ -117,10 +123,13 @@ header {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   opacity: 0;
   pointer-events: none;
   transform: scale(0.95);
   transition: 0.25s ease;
+
+  color: #000;
 }
 
 body.menu-open .menu-panel {
@@ -133,14 +142,14 @@ body.menu-open .menu-panel {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-main);
+  color: #000;
 }
 
 .menu-panel a span {
   display: block;
   font-size: 11px;
   letter-spacing: 0.18em;
-  color: #888;
+  color: #666;
 }
 
 /* ================= HERO ================= */
@@ -197,25 +206,22 @@ body.menu-open .menu-panel {
   margin: 70px auto;
 }
 
-/* luxe glass tile */
+/* Sol y Luna glass tile style */
 .tile {
   background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 26px;
   padding: 40px;
   backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
-/* make linked tiles feel clickable */
+/* linked tiles clickable */
 a.tile { display:block; cursor:pointer; }
 
 .section-title {
   text-align: center;
   font-size: 2rem;
-  color: var(--remax-dark-blue);
+  color: var(--text-main);
   margin: 0 0 10px 0;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -236,7 +242,8 @@ a.tile { display:block; cursor:pointer; }
   display: inline-block;
   padding: 12px 22px;
   border-radius: 999px;
-  background: #eaecef;
+  background: rgba(255,255,255,0.85);
+  color: #111;
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -257,6 +264,7 @@ a.tile { display:block; cursor:pointer; }
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
+  background: rgba(0,0,0,0.25);
 }
 
 .video-wrapper iframe {
@@ -277,9 +285,7 @@ a.tile { display:block; cursor:pointer; }
 }
 
 @media (min-width: 900px) {
-  .featured-grid {
-    grid-template-columns: 3fr 2fr;
-  }
+  .featured-grid { grid-template-columns: 3fr 2fr; }
 }
 
 .featured-main img {
@@ -297,12 +303,14 @@ a.tile { display:block; cursor:pointer; }
   gap: 32px;
 }
 
+/* base card */
 .card {
   background: var(--card-bg);
   border-radius: 26px;
   overflow: hidden;
   box-shadow: 0 20px 45px rgba(0,0,0,0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #111;
 }
 
 .card:hover {
@@ -359,10 +367,19 @@ a.tile { display:block; cursor:pointer; }
   width: 260px;
   height: 260px;
   object-fit: cover;
-  border-radius: 14px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
   max-width: 100%;
   margin: 0 auto;
+  display: block;
+
+  /* ✅ GLASS FRAME (visible) */
+  padding: 10px;                          /* makes the frame actually show */
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 18px;
+
+  box-shadow:
+    0 22px 60px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 @media (min-width: 900px) {
@@ -383,6 +400,39 @@ footer {
   padding: 40px 0;
   font-size: 0.8rem;
   color: #aaa;
+}
+
+/* =========================================
+   FIX: "tiles inside tiles" (cards + buttons)
+   ========================================= */
+.tile .card{
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: none;
+  color: var(--text-main);
+}
+
+.tile .card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.tile .card img{
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.tile .card h3{ color: var(--text-main); }
+.tile .card p{ color: var(--text-muted); }
+
+.tile .btn{
+  background: rgba(255,255,255,0.20);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--text-main);
+}
+
+.tile .btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.28);
 }
 </style>
 </head>
@@ -429,17 +479,16 @@ footer {
       </div>
 
       <div>
-        <h3 style="margin-top:0;">Casa Sol y Luna · Gavilon</h3>
+        <h3 style="margin-top:0; color: var(--text-main);">Casa Sol y Luna · Gavilon</h3>
 
         <div style="color:var(--text-muted); font-weight:700; letter-spacing:0.08em; margin:10px 0 14px; text-transform:uppercase;">
           $1,300,000 USD
         </div>
 
-        <p style="color:#444; line-height:1.55;">
+        <p style="color:var(--text-muted); line-height:1.55;">
           Where the desert meets the sea. Casa Sol y Luna sits on an 1,800 m2 lot
           with 180° views, casitas, endless pool, and an upstairs sunset studio.
         </p>
-
       </div>
     </div>
   </a>
@@ -503,7 +552,7 @@ footer {
 
       <div>
         <h2 class="section-title" style="text-align:inherit; margin-top:0;">Kenneth Gehlhoff</h2>
-        <p style="color:#444; line-height:1.55; margin-top:10px;">
+        <p style="color:var(--text-muted); line-height:1.55; margin-top:10px;">
           With years of experience in the Todos Santos & Cerritos corridor,
           Kenneth helps clients navigate Baja real estate with clarity,
           confidence, and trusted local expertise.
