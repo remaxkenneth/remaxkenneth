@@ -4,12 +4,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Casa Sol y Luna | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <!-- OPEN GRAPH / META -->
+  <!-- META -->
   <meta property="og:title" content="Casa Sol y Luna – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="5 Bedrooms · 5 Bathrooms · 1,801 m² lot · Gavilan above Cerritos / El Pescadero">
   <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
@@ -18,21 +19,15 @@
 
   <style>
     :root {
-      --remax-cream: rgba(255,255,255,0.90);
+      --remax-cream: rgba(255,255,255,0.9);
       --remax-cream-muted: rgba(255,255,255,0.65);
-
-      --remax-chip-bg: rgba(255,255,255,0.20);
-      --remax-chip-border: rgba(255,255,255,0.18);
-
       --glass-bg: rgba(255,255,255,0.12);
       --glass-border: rgba(255,255,255,0.18);
-
-      --fallback-hero-bg: #0a0f1f;
-      --slide-bg: rgba(0,0,0,0.35);
+      --chip-bg: rgba(255,255,255,0.2);
+      --chip-border: rgba(255,255,255,0.18);
     }
 
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
 
     body {
       margin: 0;
@@ -65,7 +60,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 14px 5%;
-      position: relative;
     }
 
     .nav-left {
@@ -74,11 +68,9 @@
       gap: 10px;
     }
 
-    .nav-left img {
-      height: 32px;
-    }
+    .nav-left img { height: 32px; }
 
-    /* ✅ ONLY CHANGE IS HERE */
+    /* TOOLBAR TEXT — BLACK */
     .nav-left span {
       font-size: 1rem;
       font-weight: 700;
@@ -87,47 +79,13 @@
       text-transform: uppercase;
     }
 
-    .menu-button {
-      font-size: 30px;
-      cursor: pointer;
-      color: #000;
-    }
-
-    .menu-panel {
-      position: absolute;
-      right: 18px;
-      top: 64px;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(20px);
-      border-radius: 22px;
-      padding: 22px;
-      min-width: 190px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.95);
-      transition: 0.25s ease;
-    }
-
-    body.menu-open .menu-panel {
-      opacity: 1;
-      pointer-events: auto;
-      transform: scale(1);
-    }
-
     /* ===== HERO ===== */
     #hero {
       position: relative;
       min-height: 340px;
+      background: url('/images/sunsetcerritos.jpeg') center / cover no-repeat;
       display: flex;
       align-items: center;
-      background-image: url('/images/sunsetcerritos.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
     }
 
     #hero::before {
@@ -141,82 +99,85 @@
       position: relative;
       z-index: 2;
       max-width: 1200px;
-      width: 92%;
       margin: auto;
+      padding: 0 4%;
       color: #fff;
     }
 
-    .hero-eyebrow {
-      letter-spacing: 0.35em;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: #e5e7eb;
-    }
-
-    .hero-title {
+    .hero-inner h1 {
       font-size: 2.6rem;
-      margin: 14px 0 0;
-      font-weight: 600;
+      margin: 0;
     }
 
-    .hero-sub {
-      max-width: 620px;
+    .hero-inner p {
+      margin-top: 10px;
       color: #e5e7eb;
-      margin: 12px 0 0;
     }
 
     /* ===== SECTIONS ===== */
     .section {
       max-width: 1200px;
-      width: 92%;
       margin: 70px auto;
+      padding: 0 4%;
     }
 
     .tile {
       background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
       border-radius: 26px;
       padding: 40px;
       backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
     }
 
-    /* ===== SLIDES ===== */
-    .slides {
+    /* ===== SLIDER ===== */
+    .slider {
       position: relative;
       height: 520px;
-      background: var(--slide-bg);
+      border-radius: 18px;
       overflow: hidden;
+      background: rgba(0,0,0,0.35);
     }
 
-    .slides img {
-      position: absolute;
-      inset: 0;
+    .slider img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: none;
-    }
-
-    .slides img.active {
       display: block;
     }
 
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      border: none;
+      font-size: 28px;
+      padding: 10px 14px;
+      cursor: pointer;
+      border-radius: 14px;
+      z-index: 5;
+    }
+
+    .arrow.left { left: 14px; }
+    .arrow.right { right: 14px; }
+
     @media (max-width: 768px) {
-      .slides { height: 320px; }
+      .slider { height: 320px; }
     }
 
     /* ===== DETAILS ===== */
     .price {
       font-size: 2.2rem;
-      margin: 0;
       text-align: center;
+      margin: 0;
       font-weight: 500;
     }
 
     .location {
+      text-align: center;
       margin: 10px 0 22px;
       color: var(--remax-cream-muted);
-      text-align: center;
     }
 
     .stats {
@@ -228,8 +189,8 @@
     }
 
     .stat-pill {
-      background: var(--remax-chip-bg);
-      border: 1px solid var(--remax-chip-border);
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
       color: var(--remax-cream);
       border-radius: 999px;
       padding: 8px 14px;
@@ -242,6 +203,7 @@
       margin: 0 0 14px;
     }
 
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 40px 0;
@@ -256,56 +218,25 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="../../index.html">
-        <img src="../../images/logo.png" alt="RE/MAX">
-      </a>
+      <a href="../../index.html"><img src="../../images/logo.png" alt="RE/MAX"></a>
       <span>KENNETH GEHLHOFF</span>
-    </div>
-
-    <div class="menu-button" id="menuButton">≡</div>
-
-    <div class="menu-panel" id="menuPanel">
-      <a href="../../index.html">Home</a>
-      <a href="../../listings.html">Listings</a>
-      <a href="../../events.html">Events</a>
-      <a href="../../businesscard.html">Contact</a>
     </div>
   </div>
 </header>
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Property Listing</div>
-    <h1 class="hero-title">Casa Sol y Luna</h1>
-    <p class="hero-sub">
-      5 Bedrooms · 5 Bathrooms · Gavilan above Cerritos / El Pescadero
-    </p>
+    <h1>Casa Sol y Luna</h1>
+    <p>5 Bedrooms · 5 Bathrooms · Gavilan above Cerritos / El Pescadero</p>
   </div>
 </section>
 
 <section class="section">
   <div class="tile">
-    <div class="slides">
-      <img src="/images/1/IMG_8515.JPG" class="active">
-      <img src="/images/1/IMG_8514.JPG">
-      <img src="/images/1/IMG_8513.JPG">
-      <img src="/images/1/IMG_8512.JPG">
-      <img src="/images/1/IMG_8511.JPG">
-      <img src="/images/1/IMG_8509.JPG">
-      <img src="/images/1/IMG_8506.JPG">
-      <img src="/images/1/IMG_8501.JPG">
-      <img src="/images/1/IMG_8499.JPG">
-      <img src="/images/1/IMG_8498.JPG">
-      <img src="/images/1/IMG_8497.JPG">
-      <img src="/images/1/IMG_8496.JPG">
-      <img src="/images/1/IMG_8495.JPG">
-      <img src="/images/1/IMG_8493.JPG">
-      <img src="/images/1/IMG_8491.JPG">
-      <img src="/images/1/IMG_8490.JPG">
-      <img src="/images/1/IMG_8485.JPG">
-      <img src="/images/1/IMG_8482.JPG">
-      <img src="/images/1/IMG_8480.JPG">
-      <img src="/images/1/IMG_8479.JPG">
+    <div class="slider">
+      <button class="arrow left" id="prev">&#10094;</button>
+      <img id="slideImage" alt="Casa Sol y Luna">
+      <button class="arrow right" id="next">&#10095;</button>
     </div>
   </div>
 </section>
@@ -326,20 +257,17 @@
     <div class="description">
       <p>
         Where the desert meets the sea, and the sun meets the moon. Casa Sol y Luna is a unique
-        Baja property sitting on an 1,800 m² lot with open ocean views, located above Playa
-        Los Cerritos between two iconic surf breaks where sunsets paint the sky year-round.
+        Baja property sitting on an 1,800 m² lot above Playa Los Cerritos between two iconic surf
+        breaks where sunsets paint the sky year-round.
       </p>
-
       <p>
         Featuring three independent casitas surrounded by native gardens, the property includes
         a pool and multiple outdoor living areas designed to take full advantage of Baja’s
         climate and natural setting.
       </p>
-
       <p>
-        Located minutes from Cerritos Beach and within easy reach of Todos Santos and El
-        Pescadero, Casa Sol y Luna offers privacy, elevation, and a relaxed coastal lifestyle
-        in one of Baja California Sur’s most desirable locations.
+        Located minutes from Cerritos Beach and close to Todos Santos and El Pescadero, Casa Sol
+        y Luna offers privacy, elevation, and a relaxed coastal lifestyle.
       </p>
     </div>
   </div>
@@ -352,13 +280,63 @@
 </footer>
 
 <script>
-(function(){
-  const btn = document.getElementById("menuButton");
-  const panel = document.getElementById("menuPanel");
-  btn.onclick = e => { e.stopPropagation(); document.body.classList.toggle("menu-open"); };
-  document.onclick = () => document.body.classList.remove("menu-open");
-  panel.onclick = e => e.stopPropagation();
-})();
+  const images = [
+    "/images/1/IMG_8515.JPG",
+    "/images/1/IMG_8514.JPG",
+    "/images/1/IMG_8513.JPG",
+    "/images/1/IMG_8512.JPG",
+    "/images/1/IMG_8511.JPG",
+    "/images/1/IMG_8509.JPG",
+    "/images/1/IMG_8506.JPG",
+    "/images/1/IMG_8501.JPG",
+    "/images/1/IMG_8499.JPG",
+    "/images/1/IMG_8498.JPG",
+    "/images/1/IMG_8497.JPG",
+    "/images/1/IMG_8496.JPG",
+    "/images/1/IMG_8495.JPG",
+    "/images/1/IMG_8493.JPG",
+    "/images/1/IMG_8491.JPG",
+    "/images/1/IMG_8490.JPG",
+    "/images/1/IMG_8485.JPG",
+    "/images/1/IMG_8482.JPG",
+    "/images/1/IMG_8480.JPG",
+    "/images/1/IMG_8479.JPG"
+  ];
+
+  let index = 0;
+  const img = document.getElementById("slideImage");
+
+  function show(i) {
+    img.src = images[i];
+  }
+
+  document.getElementById("next").onclick = () => {
+    index = (index + 1) % images.length;
+    show(index);
+  };
+
+  document.getElementById("prev").onclick = () => {
+    index = (index - 1 + images.length) % images.length;
+    show(index);
+  };
+
+  // Swipe
+  let startX = 0;
+  img.addEventListener("touchstart", e => startX = e.touches[0].clientX, { passive: true });
+  img.addEventListener("touchend", e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50) document.getElementById("next").click();
+    if (diff < -50) document.getElementById("prev").click();
+  });
+
+  // Keyboard
+  document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") document.getElementById("next").click();
+    if (e.key === "ArrowLeft") document.getElementById("prev").click();
+  });
+
+  // Load first image only
+  show(index);
 </script>
 
 </body>
