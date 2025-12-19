@@ -24,12 +24,14 @@
   --remax-red: #e4002b;
   --remax-dark-blue: #000E35;
 
-  --text-main: #111;
-  --text-muted: #6b7280;
+  /* sexy glass system */
+  --remax-cream: rgba(255,255,255,0.92);
+  --remax-cream-muted: rgba(255,255,255,0.68);
+  --glass-bg: rgba(255,255,255,0.12);
+  --glass-border: rgba(255,255,255,0.18);
 
-  --glass-bg: rgba(255,255,255,0.82);
-  --glass-border: rgba(255,255,255,0.14);
-  --card-bg: #ffffff;
+  --text-main: var(--remax-cream);
+  --text-muted: var(--remax-cream-muted);
 }
 
 * { box-sizing: border-box; }
@@ -46,7 +48,7 @@ body {
       #05070d 70%,
       #020409 100%
     );
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 a { text-decoration: none; color: inherit; }
@@ -79,18 +81,22 @@ header {
 
 .nav-left img { height: 32px; }
 
+/* toolbar name BLACK */
 .nav-left span {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--remax-dark-blue);
+  color: #000;
   text-transform: uppercase;
 }
 
+/* hamburger BLACK */
 .menu-button {
   font-size: 30px;
   cursor: pointer;
-  color: #111; /* BLACK HAMBURGER */
+  color: #000;
+  user-select: none;
+  line-height: 1;
 }
 
 /* ================= MENU ================= */
@@ -99,7 +105,8 @@ header {
   position: absolute;
   right: 18px;
   top: 64px;
-  background: rgba(255,255,255,0.75);
+
+  background: rgba(255,255,255,0.80);
   backdrop-filter: blur(20px);
   border-radius: 22px;
   padding: 22px;
@@ -108,10 +115,13 @@ header {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   opacity: 0;
   pointer-events: none;
   transform: scale(0.95);
   transition: 0.25s ease;
+
+  color: #000;
 }
 
 body.menu-open .menu-panel {
@@ -124,7 +134,7 @@ body.menu-open .menu-panel {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #111;
+  color: #000;
 }
 
 /* ================= HERO ================= */
@@ -161,6 +171,8 @@ body.menu-open .menu-panel {
   letter-spacing: 0.35em;
   font-size: 0.7rem;
   opacity: 0.9;
+  text-transform: uppercase;
+  color: #e5e7eb;
 }
 
 .hero-title {
@@ -170,7 +182,7 @@ body.menu-open .menu-panel {
 }
 
 .hero-sub {
-  max-width: 420px;
+  max-width: 520px;
   color: #e5e7eb;
 }
 
@@ -180,61 +192,61 @@ body.menu-open .menu-panel {
   max-width: 1200px;
   width: 92%;
   margin: 70px auto;
-  text-align: center;
 }
 
 /* ================= GLASS TILE ================= */
 
 .tile {
   background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 26px;
   padding: 40px;
   backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.4);
-  color: var(--text-main);
-}
-
-/* COMPACT HEADING TILE */
-.tile-heading {
-  display: inline-block;
-  padding: 26px 48px;
-  margin: 0 auto;
 }
 
 /* ================= HEADINGS ================= */
 
 .section-title {
   font-size: 2rem;
-  color: var(--remax-dark-blue);
-  margin: 0;
+  color: var(--text-main);
+  text-align: center;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .section-sub {
+  text-align: center;
   font-size: 0.8rem;
   letter-spacing: 0.22em;
   color: var(--text-muted);
-  margin-top: 10px;
+  margin: 0 0 34px 0;
+  text-transform: uppercase;
 }
 
-/* ================= CARDS ================= */
+/* ================= CONTACT CARDS ================= */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap: 32px;
-  text-align: left;
 }
 
 .card {
-  background: var(--card-bg);
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 26px;
   padding: 36px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  box-shadow: none;
   text-align: center;
   color: var(--text-main);
+  backdrop-filter: blur(20px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
 }
 
 .card img.logo {
@@ -260,7 +272,7 @@ body.menu-open .menu-panel {
 
 .card h3 {
   margin: 0;
-  color: var(--remax-dark-blue);
+  color: var(--text-main);
 }
 
 .card .role {
@@ -286,12 +298,19 @@ body.menu-open .menu-panel {
   justify-content: center;
   height: 42px;
   border-radius: 999px;
-  background: #eaecef;
+  background: rgba(255,255,255,0.20);
+  border: 1px solid rgba(255,255,255,0.18);
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
-  color: #111;
+  color: var(--text-main);
+  transition: 0.2s ease;
+}
+
+.contact-actions a:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.28);
 }
 
 @media (min-width: 640px) {
@@ -316,7 +335,7 @@ footer {
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png">
+      <img src="images/logo.png" alt="RE/MAX">
       <span>KENNETH GEHLHOFF</span>
     </div>
     <div class="menu-button" id="menuButton">≡</div>
@@ -337,46 +356,50 @@ footer {
   </div>
 </section>
 
-
 <section class="section">
-  <div class="grid">
+  <div class="tile">
+    <h2 class="section-title">Team Contacts</h2>
+    <p class="section-sub">Call · WhatsApp · Facebook · Email</p>
 
-    <div class="card">
-      <img src="images/logo.png" class="logo">
-      <h3>Kenneth Gehlhoff</h3>
-      <div class="role">Realtor</div>
-      <div class="contact-actions">
-        <a href="tel:+526122311639">Call</a>
-        <a href="https://wa.me/526122311639" target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/profile.php?id=61584034062665" target="_blank">Facebook</a>
-        <a href="mailto:kenny@remaxcaborealestate.com">Email</a>
+    <div class="grid">
+
+      <div class="card">
+        <img src="images/logo.png" class="logo" alt="RE/MAX">
+        <h3>Kenneth Gehlhoff</h3>
+        <div class="role">Realtor</div>
+        <div class="contact-actions">
+          <a href="tel:+526122311639">Call</a>
+          <a href="https://wa.me/526122311639" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.facebook.com/profile.php?id=61584034062665" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:kenny@remaxcaborealestate.com">Email</a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <h3>Richard Gomez</h3>
-      <div class="role">Construction Specialist</div>
-      <img src="images/bannerr.jpeg" class="banner">
-      <div class="contact-actions">
-        <a href="tel:+523781497632">Call</a>
-        <a href="https://wa.me/523781497632" target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/richard.g.654694?" target="_blank">Facebook</a>
-        <a href="mailto:ricardogomez160622@gmail.com">Email</a>
+      <div class="card">
+        <h3>Richard Gomez</h3>
+        <div class="role">Construction Specialist</div>
+        <img src="images/bannerr.jpeg" class="banner" alt="Richard banner">
+        <div class="contact-actions">
+          <a href="tel:+523781497632">Call</a>
+          <a href="https://wa.me/523781497632" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.facebook.com/richard.g.654694?" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:ricardogomez160622@gmail.com">Email</a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <h3>David Ray</h3>
-      <div class="role">Operations · Marketing</div>
-      <img src="images/IMG_0830.jpeg" class="banner-david">
-      <div class="contact-actions">
-        <a href="tel:+526121315839">Call</a>
-        <a href="https://wa.me/526121315839" target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/profile.php?id=61581876812521" target="_blank">Facebook</a>
-        <a href="mailto:Bajaheat24x7@gmail.com">Email</a>
+      <div class="card">
+        <h3>David Ray</h3>
+        <div class="role">Operations · Marketing</div>
+        <img src="images/IMG_0830.jpeg" class="banner-david" alt="David banner">
+        <div class="contact-actions">
+          <a href="tel:+526121315839">Call</a>
+          <a href="https://wa.me/526121315839" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.facebook.com/profile.php?id=61581876812521" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:Bajaheat24x7@gmail.com">Email</a>
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
 
