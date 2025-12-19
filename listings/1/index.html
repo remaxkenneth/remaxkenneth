@@ -21,11 +21,12 @@
       --remax-cream-muted: rgba(255,255,255,0.65);
       --glass-bg: rgba(255,255,255,0.12);
       --glass-border: rgba(255,255,255,0.18);
-      --chip-bg: rgba(255,255,255,0.2);
+      --chip-bg: rgba(255,255,255,0.20);
       --chip-border: rgba(255,255,255,0.18);
     }
 
     * { box-sizing: border-box; }
+    html, body { height: 100%; }
 
     body {
       margin: 0;
@@ -43,7 +44,7 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER / TOOLBAR ===== */
     header {
       position: sticky;
       top: 0;
@@ -69,7 +70,7 @@
 
     .nav-left img { height: 32px; }
 
-    /* 🔒 TOOLBAR TEXT — BLACK, FINAL */
+    /* Toolbar name text = BLACK */
     .nav-left span {
       font-size: 1rem;
       font-weight: 700;
@@ -78,18 +79,20 @@
       text-transform: uppercase;
     }
 
+    /* Hamburger = BLACK */
     .menu-button {
       font-size: 30px;
       cursor: pointer;
       color: #000;
       user-select: none;
+      line-height: 1;
     }
 
     .menu-panel {
       position: absolute;
       right: 18px;
       top: 64px;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.80);
       backdrop-filter: blur(20px);
       border-radius: 22px;
       padding: 22px;
@@ -102,12 +105,23 @@
       pointer-events: none;
       transform: scale(0.95);
       transition: 0.25s ease;
+
+      /* ✅ FORCE MENU TEXT BLACK (this is what you were missing) */
+      color: #000;
     }
 
     body.menu-open .menu-panel {
       opacity: 1;
       pointer-events: auto;
       transform: scale(1);
+    }
+
+    /* ✅ FORCE MENU LINKS BLACK */
+    .menu-panel a {
+      color: #000;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     /* ===== HERO ===== */
@@ -146,6 +160,7 @@
       font-size: 2.6rem;
       margin: 14px 0 0;
       font-weight: 600;
+      line-height: 1.1;
     }
 
     .hero-sub {
@@ -169,7 +184,7 @@
       backdrop-filter: blur(20px);
     }
 
-    /* ===== SLIDER ===== */
+    /* ===== SLIDER (one image at a time) ===== */
     .slider {
       position: relative;
       height: 520px;
@@ -196,45 +211,79 @@
       padding: 10px 14px;
       cursor: pointer;
       border-radius: 14px;
-      z-index: 5;
+      z-index: 6;
     }
 
     .arrow.left { left: 14px; }
     .arrow.right { right: 14px; }
 
-    /* ===== SPINNER ===== */
+    /* ===== LOADING OVERLAY ===== */
     .loader {
       position: absolute;
       inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0,0,0,0.35);
-      z-index: 4;
+      background: rgba(0,0,0,0.30);
+      z-index: 5;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.18s ease;
     }
 
-    .loader.active {
-      opacity: 1;
-    }
+    .loader.active { opacity: 1; }
 
     .spinner {
       width: 48px;
       height: 48px;
-      border: 4px solid rgba(255,255,255,0.3);
+      border: 4px solid rgba(255,255,255,0.32);
       border-top-color: #fff;
       border-radius: 50%;
-      animation: spin 1s linear infinite;
+      animation: spin 0.9s linear infinite;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     @media (max-width: 768px) {
       .slider { height: 320px; }
+    }
+
+    /* ===== DETAILS ===== */
+    .price {
+      font-size: 2.2rem;
+      text-align: center;
+      margin: 0;
+      font-weight: 500;
+      color: var(--remax-cream);
+    }
+
+    .location {
+      text-align: center;
+      margin: 10px 0 22px;
+      color: var(--remax-cream-muted);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .stat-pill {
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      color: var(--remax-cream);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.8rem;
+    }
+
+    .description p {
+      line-height: 1.7;
+      color: var(--remax-cream-muted);
+      margin: 0 0 14px;
     }
 
     /* ===== FOOTER ===== */
@@ -255,7 +304,9 @@
       <a href="../../index.html"><img src="../../images/logo.png" alt="RE/MAX"></a>
       <span>KENNETH GEHLHOFF</span>
     </div>
+
     <div class="menu-button" id="menuButton">≡</div>
+
     <div class="menu-panel" id="menuPanel">
       <a href="../../index.html">Home</a>
       <a href="../../listings.html">Listings</a>
@@ -275,13 +326,47 @@
   </div>
 </section>
 
+<!-- SLIDER -->
 <section class="section">
   <div class="tile">
     <div class="slider">
       <div class="loader" id="loader"><div class="spinner"></div></div>
-      <button class="arrow left" id="prev">&#10094;</button>
+      <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
       <img id="slideImage" alt="Casa Sol y Luna">
-      <button class="arrow right" id="next">&#10095;</button>
+      <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS (RESTORED) -->
+<section class="section">
+  <div class="tile">
+    <h2 class="price">$1,300,000 USD</h2>
+    <p class="location">Residential Home · Baja California Sur, Mexico</p>
+
+    <div class="stats">
+      <span class="stat-pill">5 Bedrooms</span>
+      <span class="stat-pill">5 Bathrooms</span>
+      <span class="stat-pill">1,801 m² Lot</span>
+      <span class="stat-pill">Three Independent Casitas</span>
+      <span class="stat-pill">Pool</span>
+    </div>
+
+    <div class="description">
+      <p>
+        Where the desert meets the sea, and the sun meets the moon. Casa Sol y Luna is a unique
+        Baja property sitting on an 1,800 m² lot above Playa Los Cerritos between two iconic surf
+        breaks where sunsets paint the sky year-round.
+      </p>
+      <p>
+        Featuring three independent casitas surrounded by native gardens, the property includes
+        a pool and multiple outdoor living areas designed to take full advantage of Baja’s
+        climate and natural setting.
+      </p>
+      <p>
+        Located minutes from Cerritos Beach and close to Todos Santos and El Pescadero, Casa Sol
+        y Luna offers privacy, elevation, and a relaxed coastal lifestyle.
+      </p>
     </div>
   </div>
 </section>
@@ -296,11 +381,19 @@
   /* MENU */
   const menuBtn = document.getElementById("menuButton");
   const menuPanel = document.getElementById("menuPanel");
-  menuBtn.onclick = e => { e.stopPropagation(); document.body.classList.toggle("menu-open"); };
-  document.onclick = () => document.body.classList.remove("menu-open");
-  menuPanel.onclick = e => e.stopPropagation();
 
-  /* SLIDER */
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.body.classList.toggle("menu-open");
+  });
+
+  document.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+  });
+
+  menuPanel.addEventListener("click", (e) => e.stopPropagation());
+
+  /* SLIDER (loads one image at a time + spinner) */
   const images = [
     "/images/1/IMG_8515.JPG",
     "/images/1/IMG_8514.JPG",
@@ -330,37 +423,40 @@
 
   function show(i) {
     loader.classList.add("active");
+
     const temp = new Image();
     temp.onload = () => {
       img.src = temp.src;
       loader.classList.remove("active");
     };
+    temp.onerror = () => {
+      loader.classList.remove("active");
+    };
     temp.src = images[i];
   }
 
-  document.getElementById("next").onclick = () => {
-    index = (index + 1) % images.length;
-    show(index);
-  };
+  const next = () => { index = (index + 1) % images.length; show(index); };
+  const prev = () => { index = (index - 1 + images.length) % images.length; show(index); };
 
-  document.getElementById("prev").onclick = () => {
-    index = (index - 1 + images.length) % images.length;
-    show(index);
-  };
+  document.getElementById("next").addEventListener("click", next);
+  document.getElementById("prev").addEventListener("click", prev);
 
+  /* Swipe */
   let startX = 0;
-  img.addEventListener("touchstart", e => startX = e.touches[0].clientX, { passive: true });
-  img.addEventListener("touchend", e => {
+  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  img.addEventListener("touchend", (e) => {
     const diff = startX - e.changedTouches[0].clientX;
-    if (diff > 50) document.getElementById("next").click();
-    if (diff < -50) document.getElementById("prev").click();
+    if (diff > 50) next();
+    if (diff < -50) prev();
   });
 
-  document.addEventListener("keydown", e => {
-    if (e.key === "ArrowRight") document.getElementById("next").click();
-    if (e.key === "ArrowLeft") document.getElementById("prev").click();
+  /* Keyboard */
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
   });
 
+  /* First image */
   show(index);
 </script>
 
