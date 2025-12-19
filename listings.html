@@ -23,12 +23,14 @@
       --remax-red: #e4002b;
       --remax-dark-blue: #000E35;
 
-      --text-main: #111;
-      --text-muted: #6b7280;
+      /* sexy glass system */
+      --remax-cream: rgba(255,255,255,0.92);
+      --remax-cream-muted: rgba(255,255,255,0.68);
+      --glass-bg: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.18);
 
-      --glass-bg: rgba(255,255,255,0.82);
-      --glass-border: rgba(255,255,255,0.14);
-      --card-bg: #ffffff;
+      --text-main: var(--remax-cream);
+      --text-muted: var(--remax-cream-muted);
     }
 
     * { box-sizing: border-box; }
@@ -49,6 +51,7 @@
     }
 
     a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
     /* ================= HEADER ================= */
 
@@ -77,24 +80,30 @@
 
     .nav-left img { height: 32px; }
 
+    /* toolbar text BLACK */
     .nav-left span {
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: var(--remax-dark-blue);
+      color: #000;
       text-transform: uppercase;
     }
 
+    /* hamburger BLACK */
     .menu-button {
       font-size: 30px;
       cursor: pointer;
+      color: #000;
+      user-select: none;
+      line-height: 1;
     }
 
     .menu-panel {
       position: absolute;
       right: 18px;
       top: 64px;
-      background: rgba(255,255,255,0.75);
+
+      background: rgba(255,255,255,0.80);
       backdrop-filter: blur(20px);
       border-radius: 22px;
       padding: 22px;
@@ -103,10 +112,13 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+
       opacity: 0;
       pointer-events: none;
       transform: scale(0.95);
       transition: 0.25s ease;
+
+      color: #000;
     }
 
     body.menu-open .menu-panel {
@@ -119,6 +131,7 @@
       font-size: 14px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      color: #000;
     }
 
     /* ================= HERO ================= */
@@ -177,20 +190,19 @@
 
     .tile {
       background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
       border-radius: 26px;
       padding: 40px;
       backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      box-shadow:
-        0 30px 60px rgba(0,0,0,0.45),
-        inset 0 1px 0 rgba(255,255,255,0.4);
     }
 
     .section-title {
       font-size: 2rem;
-      color: var(--remax-dark-blue);
+      color: var(--text-main);
       text-align: center;
       margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
 
     .section-sub {
@@ -208,17 +220,21 @@
       gap: 32px;
     }
 
+    /* ================= CARDS (sexy inside tile) ================= */
+
     .card {
-      background: var(--card-bg);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 26px;
       overflow: hidden;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+      box-shadow: none;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: block;
     }
 
     .card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 26px 60px rgba(0,0,0,0.14);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
     .card img {
@@ -226,7 +242,7 @@
       height: 240px;
       object-fit: cover;
       display: block;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
     }
 
     .card-content {
@@ -236,13 +252,14 @@
 
     .card h3 {
       margin: 0 0 10px;
-      color: var(--remax-dark-blue);
+      color: var(--text-main);
     }
 
     .card p {
       font-size: 0.95rem;
-      color: #444;
+      color: var(--text-muted);
       line-height: 1.4;
+      margin: 0;
     }
 
     footer {
@@ -286,39 +303,41 @@
     <p class="section-sub">Curated for lifestyle, location, and value</p>
 
     <div class="grid">
-      <!-- cards unchanged -->
-      <!-- Casa Sol y Luna -->
-      <div class="card">
-        <img src="images/IMG_0795.jpeg">
+      <!-- Listing 1: Casa Sol y Luna -->
+      <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
+        <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
         <div class="card-content">
           <h3>Casa Sol y Luna</h3>
           <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Gavilon, Mexico</p>
         </div>
-      </div>
+      </a>
 
-      <div class="card">
-        <img src="images/IMG_0822.png">
+      <!-- Listing 2: Casa Vista -->
+      <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
+        <img src="images/IMG_0822.png" alt="Casa Vista">
         <div class="card-content">
           <h3>Casa Vista</h3>
           <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
         </div>
-      </div>
+      </a>
 
-      <div class="card">
-        <img src="images/IMG_0797.png">
+      <!-- Listing 3: Casa Lienzo C. Molusco -->
+      <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
+        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
         <div class="card-content">
           <h3>Casa Lienzo C. Molusco</h3>
           <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
         </div>
-      </div>
+      </a>
 
-      <div class="card">
-        <img src="images/IMG_0798.jpeg">
+      <!-- Listing 4: Central Cerritos Lot -->
+      <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
+        <img src="images/IMG_0798.jpeg" alt="Central Cerritos Lot">
         <div class="card-content">
           <h3>Central Cerritos Lot</h3>
           <p>Plot of Land<br>$265,000 USD<br>Cerritos, Mexico</p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
