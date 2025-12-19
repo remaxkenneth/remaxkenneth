@@ -106,7 +106,7 @@
       transform: scale(0.95);
       transition: 0.25s ease;
 
-      /* ✅ FORCE MENU TEXT BLACK (this is what you were missing) */
+      /* force menu text black */
       color: #000;
     }
 
@@ -116,7 +116,6 @@
       transform: scale(1);
     }
 
-    /* ✅ FORCE MENU LINKS BLACK */
     .menu-panel a {
       color: #000;
       font-size: 14px;
@@ -182,6 +181,11 @@
       border-radius: 26px;
       padding: 40px;
       backdrop-filter: blur(20px);
+    }
+
+    /* ✅ DETAILS TILE: better breathing room up top */
+    .tile.details {
+      padding-top: 56px;
     }
 
     /* ===== SLIDER (one image at a time) ===== */
@@ -268,7 +272,9 @@
       justify-content: center;
       gap: 18px;
       flex-wrap: wrap;
-      margin-bottom: 24px;
+
+      /* ✅ gives pills their own moment */
+      margin: 28px 0 34px;
     }
 
     .stat-pill {
@@ -284,6 +290,11 @@
       line-height: 1.7;
       color: var(--remax-cream-muted);
       margin: 0 0 14px;
+    }
+
+    /* ✅ make the first paragraph a “lead” */
+    .description p:first-child {
+      color: var(--remax-cream);
     }
 
     /* ===== FOOTER ===== */
@@ -338,9 +349,9 @@
   </div>
 </section>
 
-<!-- DETAILS (RESTORED) -->
+<!-- DETAILS -->
 <section class="section">
-  <div class="tile">
+  <div class="tile details">
     <h2 class="price">$1,300,000 USD</h2>
     <p class="location">Residential Home · Baja California Sur, Mexico</p>
 
@@ -355,7 +366,7 @@
     <div class="description">
       <p>
         Where the desert meets the sea, and the sun meets the moon. Casa Sol y Luna is a unique
-        Baja property sitting on an 1,800 m² lot above Playa Los Cerritos between two iconic surf
+        Baja property sitting on a 1,800 m² lot above Playa Los Cerritos between two iconic surf
         breaks where sunsets paint the sky year-round.
       </p>
       <p>
