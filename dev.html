@@ -1,274 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Listings | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+<title>Events | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <!-- OPEN GRAPH / META -->
-  <meta property="og:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
-  <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
-  <meta property="og:url" content="https://remaxkenneth.vercel.app/listings.html">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
+<!-- OPEN GRAPH / META -->
+<meta property="og:title" content="Baja Events & Community – RE/MAX Cabo Sanctuary">
+<meta property="og:description" content="Live music, markets, and community events in Cerritos and Todos Santos. Experience Baja beyond the listings.">
+<meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
+<meta property="og:url" content="https://remaxkenneth.vercel.app/events.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 
-  <style>
-    :root {
-      --remax-blue: #003da5;
-      --remax-red: #e4002b;
-      --remax-dark-blue: #000E35;
+<style>
+:root {
+  --remax-blue: #003da5;
+  --remax-red: #e4002b;
+  --remax-dark-blue: #000E35;
 
-      /* sexy glass system */
-      --remax-cream: rgba(255,255,255,0.92);
-      --remax-cream-muted: rgba(255,255,255,0.68);
-      --glass-bg: rgba(255,255,255,0.12);
-      --glass-border: rgba(255,255,255,0.18);
+  /* sexy glass system */
+  --remax-cream: rgba(255,255,255,0.92);
+  --remax-cream-muted: rgba(255,255,255,0.68);
+  --glass-bg: rgba(255,255,255,0.12);
+  --glass-border: rgba(255,255,255,0.18);
 
-      --text-main: var(--remax-cream);
-      --text-muted: var(--remax-cream-muted);
-    }
+  --text-main: var(--remax-cream);
+  --text-muted: var(--remax-cream-muted);
+}
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(
-          circle at top,
-          #0f172a 0%,
-          #0a0f1f 35%,
-          #05070d 70%,
-          #020409 100%
-        );
-      color: var(--text-main);
-    }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(
+      circle at top,
+      #0f172a 0%,
+      #0a0f1f 35%,
+      #05070d 70%,
+      #020409 100%
+    );
+  color: var(--text-main);
+}
 
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
 
-    /* ================= HEADER ================= */
+/* ================= HEADER ================= */
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(245,246,247,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #e5e7eb;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245,246,247,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e5e7eb;
+}
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 5%;
-      position: relative;
-    }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 5%;
+  position: relative;
+}
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-    .nav-left img { height: 32px; }
+.nav-left img { height: 32px; }
 
-    /* toolbar text BLACK */
-    .nav-left span {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #000;
-      text-transform: uppercase;
-    }
+/* toolbar text BLACK */
+.nav-left span {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #000;
+  text-transform: uppercase;
+}
 
-    /* hamburger BLACK */
-    .menu-button {
-      font-size: 30px;
-      cursor: pointer;
-      color: #000;
-      user-select: none;
-      line-height: 1;
-    }
+/* hamburger BLACK */
+.menu-button {
+  font-size: 30px;
+  cursor: pointer;
+  color: #000;
+  user-select: none;
+  line-height: 1;
+}
 
-    .menu-panel {
-      position: absolute;
-      right: 18px;
-      top: 64px;
+/* ================= MENU ================= */
 
-      background: rgba(255,255,255,0.80);
-      backdrop-filter: blur(20px);
-      border-radius: 22px;
-      padding: 22px;
-      min-width: 190px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+.menu-panel {
+  position: absolute;
+  right: 18px;
+  top: 64px;
 
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.95);
-      transition: 0.25s ease;
+  background: rgba(255,255,255,0.80);
+  backdrop-filter: blur(20px);
+  border-radius: 22px;
+  padding: 22px;
+  min-width: 190px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
-      color: #000;
-    }
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: 0.25s ease;
 
-    body.menu-open .menu-panel {
-      opacity: 1;
-      pointer-events: auto;
-      transform: scale(1);
-    }
+  color: #000;
+}
 
-    .menu-panel a {
-      font-size: 14px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #000;
-    }
+body.menu-open .menu-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
 
-    /* ================= HERO ================= */
+.menu-panel a {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000;
+}
 
-    #hero {
-      position: relative;
-      min-height: 340px;
-      display: flex;
-      align-items: center;
-      background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
-      color: #fff;
-    }
+/* ================= HERO ================= */
 
-    #hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(130deg, rgba(0,14,53,0.65), rgba(0,0,0,0.25));
-    }
+#hero {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
+  color: #fff;
+}
 
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      width: 92%;
-      margin: auto;
-    }
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    130deg,
+    rgba(0,14,53,0.65),
+    rgba(0,0,0,0.25)
+  );
+}
 
-    .hero-eyebrow {
-      letter-spacing: 0.35em;
-      font-size: 0.7rem;
-      opacity: 0.9;
-      text-transform: uppercase;
-      color: #e5e7eb;
-    }
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 92%;
+  margin: auto;
+}
 
-    .hero-title {
-      font-size: 2.6rem;
-      margin: 14px 0;
-      font-weight: 600;
-      line-height: 1.1;
-    }
+.hero-eyebrow {
+  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  color: #e5e7eb;
+}
 
-    .hero-sub {
-      max-width: 520px;
-      color: #e5e7eb;
-    }
+.hero-title {
+  font-size: 2.6rem;
+  margin: 14px 0;
+  font-weight: 600;
+  line-height: 1.1;
+}
 
-    /* ================= SECTIONS ================= */
+.hero-sub {
+  max-width: 520px;
+  color: #e5e7eb;
+}
 
-    .section {
-      max-width: 1200px;
-      width: 92%;
-      margin: 70px auto;
-    }
+/* ================= SECTIONS ================= */
 
-    .tile {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 26px;
-      padding: 40px;
-      backdrop-filter: blur(20px);
-    }
+.section {
+  max-width: 1200px;
+  width: 92%;
+  margin: 70px auto;
+}
 
-    .section-title {
-      font-size: 2rem;
-      color: var(--text-main);
-      text-align: center;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
+.tile {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 26px;
+  padding: 40px;
+  backdrop-filter: blur(20px);
+}
 
-    .section-sub {
-      text-align: center;
-      font-size: 0.8rem;
-      letter-spacing: 0.22em;
-      color: var(--text-muted);
-      margin: 10px 0 40px;
-      text-transform: uppercase;
-    }
+.section-title {
+  font-size: 2rem;
+  color: var(--text-main);
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 32px;
-    }
+.section-sub {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+  margin: 10px 0 40px;
+  text-transform: uppercase;
+}
 
-    /* ================= CARDS (sexy inside tile) ================= */
+/* ================= CARDS ================= */
 
-    .card {
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 26px;
-      overflow: hidden;
-      box-shadow: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      display: block;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 32px;
+}
 
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-    }
+/* make card-links behave like cards */
+.card-link { display: block; }
 
-    .card img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
-    }
+.card {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    .card-content {
-      padding: 30px 26px;
-      text-align: center;
-    }
+.card-link:hover .card {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
 
-    .card h3 {
-      margin: 0 0 10px;
-      color: var(--text-main);
-    }
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
 
-    .card p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-      margin: 0;
-    }
+.card-content {
+  padding: 30px 26px;
+  text-align: center;
+}
 
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      font-size: 0.8rem;
-      color: #aaa;
-    }
-  </style>
+.card h3 {
+  margin: 0 0 10px;
+  color: var(--text-main);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* sexy glass button */
+.card-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.20);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--text-main);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: 0.2s ease;
+}
+
+.card-link:hover .card-btn {
+  background: rgba(255,255,255,0.28);
+  transform: translateY(-1px);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+</style>
 </head>
 
 <body>
@@ -291,51 +321,50 @@
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Homes · Condos · Land · Investment</div>
-    <h1 class="hero-title">Featured Listings</h1>
-    <p class="hero-sub">Homes, land, and investments across Baja Sur</p>
+    <div class="hero-eyebrow">Community · Events · Local News</div>
+    <h1 class="hero-title">The Rhythm of Baja Sur</h1>
+    <p class="hero-sub">
+      Surf at first light. Markets before noon. Music after sunset.
+    </p>
   </div>
 </section>
 
 <section class="section">
   <div class="tile">
-    <h2 class="section-title">Available Properties</h2>
-    <p class="section-sub">Curated for lifestyle, location, and value</p>
+    <h2 class="section-title">What’s Happening This Week</h2>
+    <div class="section-sub">A look at the moments worth leaving the house for.</div>
 
     <div class="grid">
-      <!-- Listing 1: Casa Sol y Luna -->
-      <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
-        <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
-        <div class="card-content">
-          <h3>Casa Sol y Luna</h3>
-          <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Gavilon, Mexico</p>
+      <a href="https://www.bandsintown.com/c/todos-santos-mexico" target="_blank" rel="noopener" class="card-link">
+        <div class="card">
+          <img src="images/IMG_0756.jpeg" alt="Evenings in Baja">
+          <div class="card-content">
+            <h3>Evenings in Baja</h3>
+            <p>Enjoy a night out at concerts and local events.</p>
+            <span class="card-btn">Music Calendar</span>
+          </div>
         </div>
       </a>
 
-      <!-- Listing 2: Casa Vista -->
-      <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
-        <img src="images/IMG_0822.png" alt="Casa Vista">
-        <div class="card-content">
-          <h3>Casa Vista</h3>
-          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
+      <a href="https://gringogazette.com/event/" target="_blank" rel="noopener" class="card-link">
+        <div class="card">
+          <img src="images/IMG_0757.jpeg" alt="No Bad Days">
+          <div class="card-content">
+            <h3>No Bad Days</h3>
+            <p>See what everyone is talking about.</p>
+            <span class="card-btn">Event Calendar</span>
+          </div>
         </div>
       </a>
 
-      <!-- Listing 3: Casa Lienzo C. Molusco -->
-      <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
-        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
-        <div class="card-content">
-          <h3>Casa Lienzo C. Molusco</h3>
-          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
-        </div>
-      </a>
-
-      <!-- Listing 4: Central Cerritos Lot -->
-      <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
-        <img src="images/IMG_0798.jpeg" alt="Central Cerritos Lot">
-        <div class="card-content">
-          <h3>Central Cerritos Lot</h3>
-          <p>Plot of Land<br>$265,000 USD<br>Cerritos, Mexico</p>
+      <a href="https://setuesbcs.gob.mx/eventos-admin/calendario.php" target="_blank" rel="noopener" class="card-link">
+        <div class="card">
+          <img src="images/IMG_0758.jpeg" alt="Official Events">
+          <div class="card-content">
+            <h3>Official Events</h3>
+            <p>State and regional tourism events across BCS.</p>
+            <span class="card-btn">Official Calendar</span>
+          </div>
         </div>
       </a>
     </div>
@@ -344,7 +373,7 @@
 
 <footer>
   Curated locally. Updated often.<br>
-  © 2025 · RE/MAX Kenneth<br>
+  © 2025 · REMAX Kenneth<br>
   Each office independently owned and operated
 </footer>
 
