@@ -10,9 +10,8 @@
   <title>Casa Vista | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
   <meta property="og:title" content="Casa Vista – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="5 Bedrooms · 4 Bathrooms · Cerritos / El Pescadero · Solar + Storm Shutters">
+  <meta property="og:description" content="5 Bedrooms · 4 Bathrooms · Pacific (Cerritos) · Solar Power · Ocean & Mountain Views">
   <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
-  <meta property="og:url" content="https://remaxkenneth.vercel.app/listings/2/index.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -106,7 +105,7 @@
       pointer-events: none;
       transform: scale(0.95);
       transition: 0.25s ease;
-      color: #000; /* force menu text black */
+      color: #000;
     }
 
     body.menu-open .menu-panel {
@@ -163,7 +162,7 @@
 
     .hero-sub {
       margin-top: 12px;
-      max-width: 620px;
+      max-width: 720px;
       color: #e5e7eb;
     }
 
@@ -182,10 +181,11 @@
       backdrop-filter: blur(20px);
     }
 
-    /* DETAILS TILE: better breathing room up top */
-    .tile.details { padding-top: 56px; }
+    .tile.details {
+      padding-top: 56px;
+    }
 
-    /* ===== SLIDER (one image at a time) ===== */
+    /* ===== SLIDER ===== */
     .slider {
       position: relative;
       height: 520px;
@@ -287,7 +287,9 @@
       margin: 0 0 14px;
     }
 
-    .description p:first-child { color: var(--remax-cream); }
+    .description p:first-child {
+      color: var(--remax-cream);
+    }
 
     /* ===== FOOTER ===== */
     footer {
@@ -324,7 +326,7 @@
     <div class="hero-eyebrow">Property Listing</div>
     <h1 class="hero-title">Casa Vista</h1>
     <p class="hero-sub">
-      5 Bedrooms · 4 Bathrooms · Cerritos / El Pescadero
+      5 Bedrooms · 4 Bathrooms · Pacific (Cerritos) · Solar Power · Ocean & Mountain Views
     </p>
   </div>
 </section>
@@ -345,28 +347,27 @@
 <section class="section">
   <div class="tile details">
     <h2 class="price">$749,000 USD</h2>
-    <p class="location">Residential Home · Baja California Sur, Mexico</p>
+    <p class="location">Residential Home · Pacific (Cerritos) · Baja California Sur, Mexico</p>
 
     <div class="stats">
       <span class="stat-pill">5 Bedrooms</span>
       <span class="stat-pill">4 Bathrooms</span>
       <span class="stat-pill">Solar Power</span>
       <span class="stat-pill">Storm Shutters</span>
-      <span class="stat-pill">Ocean + Mountain Views</span>
+      <span class="stat-pill">Ocean View</span>
+      <span class="stat-pill">Mountain View</span>
+      <span class="stat-pill">Pool + Fire Pit</span>
     </div>
 
     <div class="description">
       <p>
-        Minutes from Cerritos Beach, Casa Vista is built for privacy, comfort, and the kind of Baja sunsets
-        that make people “accidentally” stay an extra year.
+        Only 3 minutes from Cerritos beach escape to this private 5-bedroom villa. Set behind a 7-ft security wall with storm shutters and solar power.
       </p>
       <p>
-        The property is secured and set up for peace of mind, with solar power and storm shutters. Inside,
-        it’s designed for real living: open flow, big views, and space for family, friends, or rental income.
+        The property offers peace of mind and eco-friendly comfort. The main house features two bedrooms and a garage, while the attached guest casitas includes their own bedrooms, bathrooms, and kitchens—perfect for privacy within your group. Thoughtfully designed with modern finishes. Open concept living with stunning views.
       </p>
       <p>
-        The layout includes a main home plus guest casitas (each with their own living essentials), so you can
-        host without living on top of each other—because we’re not animals.
+        Main Home: 2 spacious bedrooms 2 full bathrooms 1 full kitchen Guest Casita 1 1 Bedroom 1 Bathroom 1 kitchen Guest Casita 2 2 Bedrooms 1 Bathroom 1 kitchen Enjoy ocean and mountain views from the pool or gather around the firepit under Baja's starry skie
       </p>
     </div>
   </div>
@@ -396,14 +397,20 @@
 
   /* SLIDER (loads one image at a time + spinner) */
   const images = [
-    /* ✅ Known existing image so this page works immediately */
-    "/images/IMG_0822.png",
-
-    /* 🔁 Replace these with your real Casa Vista photos once you drop them in /images/2/ */
-    "/images/2/IMG_0001.JPG",
-    "/images/2/IMG_0002.JPG",
-    "/images/2/IMG_0003.JPG",
-    "/images/2/IMG_0004.JPG"
+    "/images/2/IMG_7683.jpg",
+    "/images/2/IMG_7820.JPG",
+    "/images/2/IMG_7821.JPG",
+    "/images/2/IMG_7825.JPG",
+    "/images/2/IMG_7827.JPG",
+    "/images/2/IMG_7828.JPG",
+    "/images/2/IMG_7829.JPG",
+    "/images/2/IMG_7830.JPG",
+    "/images/2/IMG_7831.JPG",
+    "/images/2/IMG_7832.JPG",
+    "/images/2/IMG_7833.JPG",
+    "/images/2/IMG_7835.JPG",
+    "/images/2/IMG_7838.JPG",
+    "/images/2/IMG_7839.JPG"
   ];
 
   let index = 0;
@@ -420,7 +427,6 @@
     };
     temp.onerror = () => {
       loader.classList.remove("active");
-      // If an image is missing, just keep the last good image instead of going blank.
     };
     temp.src = images[i];
   }
