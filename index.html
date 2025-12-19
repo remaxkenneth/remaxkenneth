@@ -209,6 +209,9 @@ body.menu-open .menu-panel {
     inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
+/* make linked tiles feel clickable */
+a.tile { display:block; cursor:pointer; }
+
 .section-title {
   text-align: center;
   font-size: 2rem;
@@ -416,7 +419,7 @@ footer {
 
 <!-- 1) FEATURED PROPERTY (Sol y Luna ONLY HERE) -->
 <section class="section" id="featured">
-  <div class="tile">
+  <a class="tile" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
     <h2 class="section-title">Featured Property</h2>
     <p class="section-sub">Hand-Selected</p>
 
@@ -439,7 +442,7 @@ footer {
 
       </div>
     </div>
-  </div>
+  </a>
 </section>
 
 <!-- 2) MAGIC OF BAJA -->
