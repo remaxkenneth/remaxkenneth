@@ -26,13 +26,13 @@
   --bg-light:  #f5f6f7;
   --card-bg:   #ffffff;
 
-  /* ✅ Sol y Luna tile system */
+  /* ===== Sol y Luna tile system ===== */
   --remax-cream: rgba(255,255,255,0.9);
   --remax-cream-muted: rgba(255,255,255,0.65);
   --glass-bg: rgba(255,255,255,0.12);
   --glass-border: rgba(255,255,255,0.18);
 
-  /* map existing names to the Sol y Luna feel */
+  /* page text defaults */
   --text-main: var(--remax-cream);
   --text-muted: var(--remax-cream-muted);
 
@@ -56,7 +56,6 @@ body {
       #020409 100%
     );
 
-  /* ✅ Sol y Luna: light text on dark background */
   color: var(--text-main);
 }
 
@@ -88,11 +87,9 @@ header {
   gap: 10px;
 }
 
-.nav-left img {
-  height: 32px;
-}
+.nav-left img { height: 32px; }
 
-/* ✅ keep toolbar text BLACK like Sol y Luna */
+/* toolbar text BLACK (readable on light header) */
 .nav-left span {
   font-size: 1rem;
   font-weight: 700;
@@ -101,7 +98,7 @@ header {
   text-transform: uppercase;
 }
 
-/* ✅ hamburger BLACK like Sol y Luna */
+/* hamburger BLACK */
 .menu-button {
   font-size: 30px;
   cursor: pointer;
@@ -117,10 +114,8 @@ header {
   right: 18px;
   top: 64px;
 
-  /* ✅ match Sol y Luna menu panel */
   background: rgba(255,255,255,0.80);
   backdrop-filter: blur(20px);
-
   border-radius: 22px;
   padding: 22px;
   min-width: 190px;
@@ -134,7 +129,6 @@ header {
   transform: scale(0.95);
   transition: 0.25s ease;
 
-  /* force menu text black */
   color: #000;
 }
 
@@ -212,7 +206,7 @@ body.menu-open .menu-panel {
   margin: 70px auto;
 }
 
-/* ✅ COPY Sol y Luna tile style */
+/* Sol y Luna glass tile style */
 .tile {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -221,7 +215,7 @@ body.menu-open .menu-panel {
   backdrop-filter: blur(20px);
 }
 
-/* make linked tiles feel clickable */
+/* linked tiles clickable */
 a.tile { display:block; cursor:pointer; }
 
 .section-title {
@@ -291,9 +285,7 @@ a.tile { display:block; cursor:pointer; }
 }
 
 @media (min-width: 900px) {
-  .featured-grid {
-    grid-template-columns: 3fr 2fr;
-  }
+  .featured-grid { grid-template-columns: 3fr 2fr; }
 }
 
 .featured-main img {
@@ -311,7 +303,7 @@ a.tile { display:block; cursor:pointer; }
   gap: 32px;
 }
 
-/* cards stay white (they look good) */
+/* base card (kept for other pages if needed) */
 .card {
   background: var(--card-bg);
   border-radius: 26px;
@@ -379,6 +371,13 @@ a.tile { display:block; cursor:pointer; }
   box-shadow: 0 18px 40px rgba(0,0,0,0.16);
   max-width: 100%;
   margin: 0 auto;
+
+  /* ✅ integrated: glass frame so it matches the tiles */
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 22px 60px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.10);
 }
 
 @media (min-width: 900px) {
@@ -399,6 +398,40 @@ footer {
   padding: 40px 0;
   font-size: 0.8rem;
   color: #aaa;
+}
+
+/* =========================================
+   FIX: "tiles inside tiles" (cards + buttons)
+   Make inner elements match the Sol y Luna glass vibe
+   ========================================= */
+.tile .card{
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: none;
+  color: var(--text-main);
+}
+
+.tile .card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.tile .card img{
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.tile .card h3{ color: var(--text-main); }
+.tile .card p{ color: var(--text-muted); }
+
+.tile .btn{
+  background: rgba(255,255,255,0.20);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--text-main);
+}
+
+.tile .btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.28);
 }
 </style>
 </head>
@@ -455,7 +488,6 @@ footer {
           Where the desert meets the sea. Casa Sol y Luna sits on an 1,800 m2 lot
           with 180° views, casitas, endless pool, and an upstairs sunset studio.
         </p>
-
       </div>
     </div>
   </a>
