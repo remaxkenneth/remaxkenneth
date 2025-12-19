@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ================= FAVICONS ================= -->
   <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ================= SEO / META ================= -->
-  <title>Listing | RE/MAX Cabo Sanctuary</title>
+  <title>Central Cerritos Lot | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta property="og:title" content="Luxury Listing – Baja California Sur">
-  <meta property="og:description" content="Exclusive property represented by RE/MAX Cabo Sanctuary.">
-  <meta property="og:image" content="hero.jpg">
-  <meta property="og:url" content="">
+  <meta property="og:title" content="Central Cerritos Lot – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="2,000 m² · Ocean View · Cul-de-Sac · Flat · Central Cerritos">
+  <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- ================= STYLES ================= -->
   <style>
     :root {
-      --remax-blue: #003da5;
-      --remax-red: #e4002b;
-      --remax-dark-blue: #000E35;
-
-      --text-main: #111;
-      --text-muted: #6b7280;
-
-      --glass-bg: rgba(255,255,255,0.82);
-      --glass-border: rgba(255,255,255,0.14);
-      --card-bg: #ffffff;
+      --remax-cream: rgba(255,255,255,0.9);
+      --remax-cream-muted: rgba(255,255,255,0.65);
+      --glass-bg: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.18);
+      --chip-bg: rgba(255,255,255,0.20);
+      --chip-border: rgba(255,255,255,0.18);
     }
 
     * { box-sizing: border-box; }
@@ -41,14 +32,19 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top, #0f172a 0%, #0a0f1f 35%, #05070d 70%, #020409 100%);
-      color: var(--text-main);
+        radial-gradient(
+          circle at top,
+          #0f172a 0%,
+          #0a0f1f 35%,
+          #05070d 70%,
+          #020409 100%
+        );
+      color: var(--remax-cream);
     }
 
     a { text-decoration: none; color: inherit; }
 
-    /* ================= HEADER ================= */
-
+    /* ===== HEADER / TOOLBAR ===== */
     header {
       position: sticky;
       top: 0;
@@ -74,25 +70,29 @@
 
     .nav-left img { height: 32px; }
 
+    /* Toolbar name text = BLACK */
     .nav-left span {
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: var(--remax-dark-blue);
+      color: #000;
       text-transform: uppercase;
     }
 
+    /* Hamburger = BLACK */
     .menu-button {
       font-size: 30px;
       cursor: pointer;
       color: #000;
+      user-select: none;
+      line-height: 1;
     }
 
     .menu-panel {
       position: absolute;
       right: 18px;
       top: 64px;
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.80);
       backdrop-filter: blur(20px);
       border-radius: 22px;
       padding: 22px;
@@ -105,6 +105,9 @@
       pointer-events: none;
       transform: scale(0.95);
       transition: 0.25s ease;
+
+      /* force menu text black */
+      color: #000;
     }
 
     body.menu-open .menu-panel {
@@ -114,27 +117,26 @@
     }
 
     .menu-panel a {
+      color: #000;
       font-size: 14px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    /* ================= HERO ================= */
-
+    /* ===== HERO ===== */
     #hero {
       position: relative;
       min-height: 340px;
       display: flex;
       align-items: center;
-      background: url('hero.jpg') center / cover no-repeat;
-      color: #fff;
+      background: url('/images/sunsetcerritos.jpeg') center/cover no-repeat;
     }
 
     #hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(130deg, rgba(0,14,53,0.65), rgba(0,0,0,0.25));
+      background: rgba(0,0,0,0.55);
     }
 
     .hero-inner {
@@ -143,28 +145,30 @@
       max-width: 1200px;
       width: 92%;
       margin: auto;
+      color: #fff;
     }
 
     .hero-eyebrow {
-      letter-spacing: 0.35em;
       font-size: 0.7rem;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
       color: #e5e7eb;
     }
 
     .hero-title {
       font-size: 2.6rem;
-      margin: 14px 0;
+      margin: 14px 0 0;
       font-weight: 600;
+      line-height: 1.1;
     }
 
     .hero-sub {
-      max-width: 520px;
+      margin-top: 12px;
+      max-width: 720px;
       color: #e5e7eb;
     }
 
-    /* ================= CONTENT ================= */
-
+    /* ===== SECTIONS ===== */
     .section {
       max-width: 1200px;
       width: 92%;
@@ -173,31 +177,127 @@
 
     .tile {
       background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
       border-radius: 26px;
       padding: 40px;
       backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      box-shadow:
-        0 30px 60px rgba(0,0,0,0.45),
-        inset 0 1px 0 rgba(255,255,255,0.4);
     }
 
-    .section-title {
-      font-size: 2rem;
-      color: var(--remax-dark-blue);
+    /* ✅ DETAILS TILE: better breathing room up top */
+    .tile.details {
+      padding-top: 56px;
+    }
+
+    /* ===== SLIDER (one image at a time) ===== */
+    .slider {
+      position: relative;
+      height: 520px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      border: none;
+      font-size: 28px;
+      padding: 10px 14px;
+      cursor: pointer;
+      border-radius: 14px;
+      z-index: 6;
+    }
+
+    .arrow.left { left: 14px; }
+    .arrow.right { right: 14px; }
+
+    /* ===== LOADING OVERLAY ===== */
+    .loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.30);
+      z-index: 5;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+    }
+
+    .loader.active { opacity: 1; }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(255,255,255,0.32);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 768px) {
+      .slider { height: 320px; }
+    }
+
+    /* ===== DETAILS ===== */
+    .price {
+      font-size: 2.2rem;
       text-align: center;
       margin: 0;
+      font-weight: 500;
+      color: var(--remax-cream);
     }
 
-    .section-sub {
+    .location {
       text-align: center;
-      font-size: 0.8rem;
-      letter-spacing: 0.22em;
-      color: var(--text-muted);
-      margin: 10px 0 40px;
-      text-transform: uppercase;
+      margin: 10px 0 22px;
+      color: var(--remax-cream-muted);
     }
 
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+
+      /* ✅ gives pills their own moment */
+      margin: 28px 0 34px;
+    }
+
+    .stat-pill {
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      color: var(--remax-cream);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.8rem;
+    }
+
+    .description p {
+      line-height: 1.7;
+      color: var(--remax-cream-muted);
+      margin: 0 0 14px;
+    }
+
+    /* ✅ make the first paragraph a “lead” */
+    .description p:first-child {
+      color: var(--remax-cream);
+    }
+
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 40px 0;
@@ -212,12 +312,12 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="../../index.html">
-        <img src="../../images/logo.png" alt="RE/MAX">
-      </a>
+      <a href="../../index.html"><img src="../../images/logo.png" alt="RE/MAX"></a>
       <span>KENNETH GEHLHOFF</span>
     </div>
+
     <div class="menu-button" id="menuButton">≡</div>
+
     <div class="menu-panel" id="menuPanel">
       <a href="../../index.html">Home</a>
       <a href="../../listings.html">Listings</a>
@@ -230,17 +330,60 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Property Listing</div>
-    <h1 class="hero-title">PROPERTY NAME</h1>
-    <p class="hero-sub">Price · Location · Key Details</p>
+    <h1 class="hero-title">Central Cerritos Lot</h1>
+    <p class="hero-sub">
+      2,000 m² · Ocean View · Mountain View · Peaceful Cul-de-Sac · Central Cerritos
+    </p>
   </div>
 </section>
 
+<!-- SLIDER -->
 <section class="section">
   <div class="tile">
-    <h2 class="section-title">Property Details</h2>
-    <p class="section-sub">Description · Features · Lifestyle</p>
+    <div class="slider">
+      <div class="loader" id="loader"><div class="spinner"></div></div>
+      <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
+      <img id="slideImage" alt="Central Cerritos Lot">
+      <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
+    </div>
+  </div>
+</section>
 
-    <!-- DROP DESCRIPTION / FEATURES / GALLERY HERE -->
+<!-- DETAILS -->
+<section class="section">
+  <div class="tile details">
+    <h2 class="price">$265,000 USD</h2>
+    <p class="location">Residential / Commercial Lot · Baja California Sur, Mexico</p>
+
+    <div class="stats">
+      <span class="stat-pill">2,000 m² Lot</span>
+      <span class="stat-pill">Ocean View</span>
+      <span class="stat-pill">Cul-de-Sac</span>
+      <span class="stat-pill">Flat Topography</span>
+      <span class="stat-pill">CFE Power</span>
+    </div>
+
+    <div class="description">
+      <p>
+        A rare opportunity to build your dream home or investment property on an exceptional 2,000 m² lot
+        in the heart of Central Cerritos. Tucked into a peaceful cul-de-sac, this spacious parcel delivers
+        privacy, tranquility, and convenience.
+      </p>
+      <p>
+        Just steps from world-famous Cerritos Beach, you’ll have quick access to Baja’s premier surf
+        destinations—ideal for beginners and experienced surfers alike. With ocean and mountain views,
+        the setting is pure Cerritos: laid-back, beautiful, and walkable.
+      </p>
+      <p>
+        The lot is flat and positioned to capture the coastal breezes—perfect for a full-time residence,
+        a vacation getaway, or a rental income property. Infrastructure notes: electricity via CFE, water
+        is trucked, and sewage is septic.
+      </p>
+      <p>
+        Potential use includes residential or commercial lot development. Short walk to the beach and
+        community.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -251,11 +394,11 @@
 </footer>
 
 <script>
-(function(){
-  const btn = document.getElementById("menuButton");
-  const panel = document.getElementById("menuPanel");
+  /* MENU */
+  const menuBtn = document.getElementById("menuButton");
+  const menuPanel = document.getElementById("menuPanel");
 
-  btn.addEventListener("click", e => {
+  menuBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     document.body.classList.toggle("menu-open");
   });
@@ -264,8 +407,55 @@
     document.body.classList.remove("menu-open");
   });
 
-  panel.addEventListener("click", e => e.stopPropagation());
-})();
+  menuPanel.addEventListener("click", (e) => e.stopPropagation());
+
+  /* SLIDER (loads one image at a time + spinner) */
+  const images = [
+    /* Placeholder for now — replace with /images/4/... later */
+    "/images/IMG_0798.jpeg"
+  ];
+
+  let index = 0;
+  const img = document.getElementById("slideImage");
+  const loader = document.getElementById("loader");
+
+  function show(i) {
+    loader.classList.add("active");
+
+    const temp = new Image();
+    temp.onload = () => {
+      img.src = temp.src;
+      loader.classList.remove("active");
+    };
+    temp.onerror = () => {
+      loader.classList.remove("active");
+    };
+    temp.src = images[i];
+  }
+
+  const next = () => { index = (index + 1) % images.length; show(index); };
+  const prev = () => { index = (index - 1 + images.length) % images.length; show(index); };
+
+  document.getElementById("next").addEventListener("click", next);
+  document.getElementById("prev").addEventListener("click", prev);
+
+  /* Swipe */
+  let startX = 0;
+  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  img.addEventListener("touchend", (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50) next();
+    if (diff < -50) prev();
+  });
+
+  /* Keyboard */
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+
+  /* First image */
+  show(index);
 </script>
 
 </body>
