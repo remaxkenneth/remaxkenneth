@@ -12,10 +12,11 @@
   <!-- OPEN GRAPH / META -->
   <meta property="og:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
-  <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
-  <meta property="og:url" content="https://remaxkenneth.vercel.app/listings.html">
+  <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <meta property="og:url" content="https://remaxkenneth.com/listings.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://remaxkenneth.com/listings.html">
 
   <style>
     :root {
@@ -23,7 +24,7 @@
       --remax-red: #e4002b;
       --remax-dark-blue: #000E35;
 
-      /* sexy glass system */
+      /* glass system */
       --remax-cream: rgba(255,255,255,0.92);
       --remax-cream-muted: rgba(255,255,255,0.68);
       --glass-bg: rgba(255,255,255,0.12);
@@ -220,7 +221,7 @@
       gap: 32px;
     }
 
-    /* ================= CARDS (sexy inside tile) ================= */
+    /* ================= CARDS ================= */
 
     .card {
       background: rgba(255,255,255,0.10);
@@ -305,7 +306,7 @@
     <div class="grid">
       <!-- Listing 1: Casa Sol y Luna -->
       <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
-        <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna">
+        <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Sol y Luna</h3>
           <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Gavilon, Mexico</p>
@@ -314,7 +315,7 @@
 
       <!-- Listing 2: Casa Vista -->
       <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
-        <img src="images/IMG_0822.png" alt="Casa Vista">
+        <img src="images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Vista</h3>
           <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
@@ -323,7 +324,7 @@
 
       <!-- Listing 3: Casa Lienzo C. Molusco -->
       <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
-        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
+        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Lienzo C. Molusco</h3>
           <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
@@ -332,10 +333,24 @@
 
       <!-- Listing 4: Central Cerritos Lot -->
       <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
-        <img src="images/IMG_0798.jpeg" alt="Central Cerritos Lot">
+        <img src="images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Central Cerritos Lot</h3>
           <p>Plot of Land<br>$265,000 USD<br>Cerritos, Mexico</p>
+        </div>
+      </a>
+
+      <!-- Listing 5: Casa Costa (uses Blob image, links to listing page) -->
+      <a class="card" href="listings/5/index.html" aria-label="Open Casa Costa listing">
+        <img
+          src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg"
+          alt="Casa Costa"
+          loading="lazy"
+          decoding="async"
+        >
+        <div class="card-content">
+          <h3>Casa Costa</h3>
+          <p>House<br>$649,000 USD<br>2 Bedrooms · 2 Bathrooms<br>Cerritos, Mexico</p>
         </div>
       </a>
     </div>
