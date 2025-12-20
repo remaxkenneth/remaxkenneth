@@ -7,13 +7,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Central Cerritos Lot | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+  <title>Casa Costa | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta property="og:title" content="Central Cerritos Lot – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="2,000 m² · Ocean View · Cul-de-Sac · Flat · Central Cerritos">
-  <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
+  <!-- OPEN GRAPH / META -->
+  <meta property="og:title" content="Casa Costa – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="$649,000 USD · 2 Bed · 2 Bath · 1,441.84 SF · Cerritos, Baja California Sur">
+  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- DOMAIN -->
+  <meta property="og:url" content="https://remaxkenneth.com/listings/5/">
+  <link rel="canonical" href="https://remaxkenneth.com/listings/5/">
 
   <style>
     :root {
@@ -105,8 +110,6 @@
       pointer-events: none;
       transform: scale(0.95);
       transition: 0.25s ease;
-
-      /* force menu text black */
       color: #000;
     }
 
@@ -129,7 +132,7 @@
       min-height: 340px;
       display: flex;
       align-items: center;
-      background: url('/images/sunsetcerritos.jpeg') center/cover no-repeat;
+      background: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg') center/cover no-repeat;
     }
 
     #hero::before {
@@ -183,12 +186,9 @@
       backdrop-filter: blur(20px);
     }
 
-    /* ✅ DETAILS TILE: better breathing room up top */
-    .tile.details {
-      padding-top: 56px;
-    }
+    .tile.details { padding-top: 56px; }
 
-    /* ===== SLIDER (one image at a time) ===== */
+    /* ===== SLIDER ===== */
     .slider {
       position: relative;
       height: 520px;
@@ -272,8 +272,6 @@
       justify-content: center;
       gap: 18px;
       flex-wrap: wrap;
-
-      /* ✅ gives pills their own moment */
       margin: 28px 0 34px;
     }
 
@@ -292,12 +290,8 @@
       margin: 0 0 14px;
     }
 
-    /* ✅ make the first paragraph a “lead” */
-    .description p:first-child {
-      color: var(--remax-cream);
-    }
+    .description p:first-child { color: var(--remax-cream); }
 
-    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 40px 0;
@@ -330,9 +324,9 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Property Listing</div>
-    <h1 class="hero-title">Central Cerritos Lot</h1>
+    <h1 class="hero-title">Casa Costa</h1>
     <p class="hero-sub">
-      2,000 m² · Ocean View · Mountain View · Peaceful Cul-de-Sac · Central Cerritos
+      2 Bed · 2 Bath · 1,441.84 SF · Cerritos, Baja California Sur
     </p>
   </div>
 </section>
@@ -343,7 +337,7 @@
     <div class="slider">
       <div class="loader" id="loader"><div class="spinner"></div></div>
       <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
-      <img id="slideImage" alt="Central Cerritos Lot">
+      <img id="slideImage" alt="Casa Costa">
       <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
     </div>
   </div>
@@ -352,36 +346,24 @@
 <!-- DETAILS -->
 <section class="section">
   <div class="tile details">
-    <h2 class="price">$265,000 USD</h2>
-    <p class="location">Residential / Commercial Lot · Baja California Sur, Mexico</p>
+    <h2 class="price">$649,000 USD</h2>
+    <p class="location">House · Cerritos (Pacific) · Baja California Sur, Mexico</p>
 
     <div class="stats">
-      <span class="stat-pill">2,000 m² Lot</span>
+      <span class="stat-pill">2 Bed</span>
+      <span class="stat-pill">2 Bath</span>
+      <span class="stat-pill">1,441.84 SF</span>
       <span class="stat-pill">Ocean View</span>
-      <span class="stat-pill">Cul-de-Sac</span>
-      <span class="stat-pill">Flat Topography</span>
-      <span class="stat-pill">CFE Power</span>
+      <span class="stat-pill">Built 2023</span>
     </div>
 
     <div class="description">
       <p>
-        A rare opportunity to build your dream home or investment property on an exceptional 2,000 m² lot
-        in the heart of Central Cerritos. Tucked into a peaceful cul-de-sac, this spacious parcel delivers
-        privacy, tranquility, and convenience.
+        Modern Cerritos home just steps from the Pacific and South Cerritos Beach. Open layout, big ocean-facing terraces,
+        and a clean, airy feel — built for sunset people, not spreadsheet people.
       </p>
       <p>
-        Just steps from world-famous Cerritos Beach, you’ll have quick access to Baja’s premier surf
-        destinations—ideal for beginners and experienced surfers alike. With ocean and mountain views,
-        the setting is pure Cerritos: laid-back, beautiful, and walkable.
-      </p>
-      <p>
-        The lot is flat and positioned to capture the coastal breezes—perfect for a full-time residence,
-        a vacation getaway, or a rental income property. Infrastructure notes: electricity via CFE, water
-        is trucked, and sewage is septic.
-      </p>
-      <p>
-        Potential use includes residential or commercial lot development. Short walk to the beach and
-        community.
+        Scroll the gallery above — it loads one image at a time with a spinner, so it stays fast instead of choking on mobile.
       </p>
     </div>
   </div>
@@ -409,10 +391,13 @@
 
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
-  /* SLIDER (loads one image at a time + spinner) */
+  /* SLIDER (auto-build from your blob files) */
+  const BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/";
+
+  // hero first, then 2.jpeg -> 17.jpeg (because that's what you uploaded)
   const images = [
-    /* Placeholder for now — replace with /images/4/... later */
-    "/images/IMG_0798.jpeg"
+    BASE + "hero.jpeg",
+    ...Array.from({ length: 16 }, (_, i) => BASE + (i + 2) + ".jpeg")
   ];
 
   let index = 0;
@@ -454,7 +439,6 @@
     if (e.key === "ArrowLeft") prev();
   });
 
-  /* First image */
   show(index);
 </script>
 
