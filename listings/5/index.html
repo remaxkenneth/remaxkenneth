@@ -9,14 +9,11 @@
 
   <title>Casa Costa | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <!-- OPEN GRAPH / META (match the rest of your site) -->
   <meta property="og:title" content="Casa Costa – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="$649,000 USD · 2 Bed · 2 Bath · Cerritos, Mexico">
+  <meta property="og:description" content="2 Bedrooms · 2 Bathrooms · 2,007 m² lot · Steps to South Cerritos Beach">
   <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-
-  <!-- DOMAIN -->
   <meta property="og:url" content="https://remaxkenneth.com/listings/5/">
   <link rel="canonical" href="https://remaxkenneth.com/listings/5/">
 
@@ -126,7 +123,7 @@
       text-transform: uppercase;
     }
 
-    /* ===== HERO (site-wide sunset image) ===== */
+    /* ===== HERO ===== */
     #hero {
       position: relative;
       min-height: 340px;
@@ -167,7 +164,7 @@
 
     .hero-sub {
       margin-top: 12px;
-      max-width: 720px;
+      max-width: 620px;
       color: #e5e7eb;
     }
 
@@ -325,7 +322,9 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Property Listing</div>
     <h1 class="hero-title">Casa Costa</h1>
-    <p class="hero-sub">2 Bed · 2 Bath · Cerritos, Mexico</p>
+    <p class="hero-sub">
+      2 Bedrooms · 2 Bathrooms · Cerritos / South Cerritos Beach
+    </p>
   </div>
 </section>
 
@@ -345,30 +344,30 @@
 <section class="section">
   <div class="tile details">
     <h2 class="price">$649,000 USD</h2>
-    <p class="location">House · South Cerritos / Pacific · Baja California Sur, Mexico</p>
+    <p class="location">Residential Home · Baja California Sur, Mexico</p>
 
-    <!-- 5 GOOD pills -->
     <div class="stats">
       <span class="stat-pill">2 Bedrooms</span>
       <span class="stat-pill">2 Bathrooms</span>
-      <span class="stat-pill">1,442 SF</span>
-      <span class="stat-pill">Infinity Pool</span>
-      <span class="stat-pill">Ocean View Terraces</span>
+      <span class="stat-pill">2,007 m² Lot</span>
+      <span class="stat-pill">Infinity-Edge Saltwater Pool</span>
+      <span class="stat-pill">Ocean-View Terraces</span>
     </div>
 
     <div class="description">
       <p>
-        Casa Costa is a newer 2 bed / 2 bath home in Cerritos, steps from the Pacific and South Cerritos Beach.
-        Bright, open layout with red brick accents and large sliding doors that open to two ocean-facing terraces.
+        Introducing Casa Costa — a newer 2 bed, 2 bath home on a 2,007 m² lot, just steps from the Pacific Ocean
+        and South Cerritos Beach. Bright, open, and airy, with red brick accents and large sliding doors that open
+        to two terraces facing the ocean views.
       </p>
       <p>
-        Highlights include a sparkling saltwater pool with an infinity edge, a modern kitchen with gas range,
-        double sinks, and a pantry for extra storage. Main-floor laundry includes washer and dryer.
+        The home features a sparkling saltwater swimming pool with an infinity edge, plus a modern kitchen with a gas range,
+        double sinks, and a pantry built for real storage. Main-floor laundry includes a washer and dryer.
       </p>
       <p>
-        The layout is built for real life: a spacious main-floor bedroom with direct terrace access and a full ensuite bath,
+        The layout is dialed in: a generous main-floor bedroom with sliding patio doors to the covered terrace and a full ensuite bath,
         plus an upstairs master suite with a private exterior entrance, an expansive covered terrace with ocean views,
-        a big walk-in closet, and a luxurious ensuite.
+        a large walk-in closet, and a luxurious ensuite bath.
       </p>
     </div>
   </div>
@@ -396,12 +395,11 @@
 
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
-  /* SLIDER (supports both /5/ and /videos/5/ paths, because your UI shows videos > 5/) */
+  /* SLIDER (loads one image at a time + spinner) */
   const BASE_A = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/";
   const BASE_B = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/5/";
 
-  // Files you actually uploaded (per your screenshots)
-  // hero + 2..17
+  // what you uploaded: hero.jpeg + 2.jpeg ... 17.jpeg
   const files = ["hero.jpeg", ...Array.from({ length: 16 }, (_, i) => (i + 2) + ".jpeg")];
 
   let index = 0;
@@ -413,7 +411,6 @@
       const t = new Image();
       t.onload = () => resolve(t.src);
       t.onerror = () => {
-        // try fallback
         const t2 = new Image();
         t2.onload = () => resolve(t2.src);
         t2.onerror = () => reject(new Error("Both paths failed"));
@@ -426,7 +423,6 @@
   async function show(i) {
     loader.classList.add("active");
     const file = files[i];
-
     try {
       const finalSrc = await tryLoad(BASE_A + file, BASE_B + file);
       img.src = finalSrc;
