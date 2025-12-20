@@ -1,1 +1,462 @@
-gitkeep
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Central Cerritos Lot | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+
+  <meta property="og:title" content="Central Cerritos Lot – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="2,000 m² · Ocean View · Cul-de-Sac · Flat · Central Cerritos">
+  <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    :root {
+      --remax-cream: rgba(255,255,255,0.9);
+      --remax-cream-muted: rgba(255,255,255,0.65);
+      --glass-bg: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.18);
+      --chip-bg: rgba(255,255,255,0.20);
+      --chip-border: rgba(255,255,255,0.18);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(
+          circle at top,
+          #0f172a 0%,
+          #0a0f1f 35%,
+          #05070d 70%,
+          #020409 100%
+        );
+      color: var(--remax-cream);
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== HEADER / TOOLBAR ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(245,246,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 5%;
+      position: relative;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-left img { height: 32px; }
+
+    /* Toolbar name text = BLACK */
+    .nav-left span {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    /* Hamburger = BLACK */
+    .menu-button {
+      font-size: 30px;
+      cursor: pointer;
+      color: #000;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .menu-panel {
+      position: absolute;
+      right: 18px;
+      top: 64px;
+      background: rgba(255,255,255,0.80);
+      backdrop-filter: blur(20px);
+      border-radius: 22px;
+      padding: 22px;
+      min-width: 190px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95);
+      transition: 0.25s ease;
+
+      /* force menu text black */
+      color: #000;
+    }
+
+    body.menu-open .menu-panel {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    .menu-panel a {
+      color: #000;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      background: url('/images/sunsetcerritos.jpeg') center/cover no-repeat;
+    }
+
+    #hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 92%;
+      margin: auto;
+      color: #fff;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      margin: 14px 0 0;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .hero-sub {
+      margin-top: 12px;
+      max-width: 720px;
+      color: #e5e7eb;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      max-width: 1200px;
+      width: 92%;
+      margin: 70px auto;
+    }
+
+    .tile {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 26px;
+      padding: 40px;
+      backdrop-filter: blur(20px);
+    }
+
+    /* ✅ DETAILS TILE: better breathing room up top */
+    .tile.details {
+      padding-top: 56px;
+    }
+
+    /* ===== SLIDER (one image at a time) ===== */
+    .slider {
+      position: relative;
+      height: 520px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      border: none;
+      font-size: 28px;
+      padding: 10px 14px;
+      cursor: pointer;
+      border-radius: 14px;
+      z-index: 6;
+    }
+
+    .arrow.left { left: 14px; }
+    .arrow.right { right: 14px; }
+
+    /* ===== LOADING OVERLAY ===== */
+    .loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.30);
+      z-index: 5;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+    }
+
+    .loader.active { opacity: 1; }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(255,255,255,0.32);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 768px) {
+      .slider { height: 320px; }
+    }
+
+    /* ===== DETAILS ===== */
+    .price {
+      font-size: 2.2rem;
+      text-align: center;
+      margin: 0;
+      font-weight: 500;
+      color: var(--remax-cream);
+    }
+
+    .location {
+      text-align: center;
+      margin: 10px 0 22px;
+      color: var(--remax-cream-muted);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+
+      /* ✅ gives pills their own moment */
+      margin: 28px 0 34px;
+    }
+
+    .stat-pill {
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      color: var(--remax-cream);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.8rem;
+    }
+
+    .description p {
+      line-height: 1.7;
+      color: var(--remax-cream-muted);
+      margin: 0 0 14px;
+    }
+
+    /* ✅ make the first paragraph a “lead” */
+    .description p:first-child {
+      color: var(--remax-cream);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="nav-left">
+      <a href="../../index.html"><img src="../../images/logo.png" alt="RE/MAX"></a>
+      <span>KENNETH GEHLHOFF</span>
+    </div>
+
+    <div class="menu-button" id="menuButton">≡</div>
+
+    <div class="menu-panel" id="menuPanel">
+      <a href="../../index.html">Home</a>
+      <a href="../../listings.html">Listings</a>
+      <a href="../../events.html">Events</a>
+      <a href="../../businesscard.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Property Listing</div>
+    <h1 class="hero-title">Central Cerritos Lot</h1>
+    <p class="hero-sub">
+      2,000 m² · Ocean View · Mountain View · Peaceful Cul-de-Sac · Central Cerritos
+    </p>
+  </div>
+</section>
+
+<!-- SLIDER -->
+<section class="section">
+  <div class="tile">
+    <div class="slider">
+      <div class="loader" id="loader"><div class="spinner"></div></div>
+      <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
+      <img id="slideImage" alt="Central Cerritos Lot">
+      <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="section">
+  <div class="tile details">
+    <h2 class="price">$265,000 USD</h2>
+    <p class="location">Residential / Commercial Lot · Baja California Sur, Mexico</p>
+
+    <div class="stats">
+      <span class="stat-pill">2,000 m² Lot</span>
+      <span class="stat-pill">Ocean View</span>
+      <span class="stat-pill">Cul-de-Sac</span>
+      <span class="stat-pill">Flat Topography</span>
+      <span class="stat-pill">CFE Power</span>
+    </div>
+
+    <div class="description">
+      <p>
+        A rare opportunity to build your dream home or investment property on an exceptional 2,000 m² lot
+        in the heart of Central Cerritos. Tucked into a peaceful cul-de-sac, this spacious parcel delivers
+        privacy, tranquility, and convenience.
+      </p>
+      <p>
+        Just steps from world-famous Cerritos Beach, you’ll have quick access to Baja’s premier surf
+        destinations—ideal for beginners and experienced surfers alike. With ocean and mountain views,
+        the setting is pure Cerritos: laid-back, beautiful, and walkable.
+      </p>
+      <p>
+        The lot is flat and positioned to capture the coastal breezes—perfect for a full-time residence,
+        a vacation getaway, or a rental income property. Infrastructure notes: electricity via CFE, water
+        is trucked, and sewage is septic.
+      </p>
+      <p>
+        Potential use includes residential or commercial lot development. Short walk to the beach and
+        community.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Curated locally. Updated often.<br>
+  © 2025 · RE/MAX Kenneth<br>
+  Each office independently owned and operated
+</footer>
+
+<script>
+  /* MENU */
+  const menuBtn = document.getElementById("menuButton");
+  const menuPanel = document.getElementById("menuPanel");
+
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.body.classList.toggle("menu-open");
+  });
+
+  document.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+  });
+
+  menuPanel.addEventListener("click", (e) => e.stopPropagation());
+
+  /* SLIDER (loads one image at a time + spinner) */
+  const images = [
+    /* Placeholder for now — replace with /images/4/... later */
+    "/images/IMG_0798.jpeg"
+  ];
+
+  let index = 0;
+  const img = document.getElementById("slideImage");
+  const loader = document.getElementById("loader");
+
+  function show(i) {
+    loader.classList.add("active");
+
+    const temp = new Image();
+    temp.onload = () => {
+      img.src = temp.src;
+      loader.classList.remove("active");
+    };
+    temp.onerror = () => {
+      loader.classList.remove("active");
+    };
+    temp.src = images[i];
+  }
+
+  const next = () => { index = (index + 1) % images.length; show(index); };
+  const prev = () => { index = (index - 1 + images.length) % images.length; show(index); };
+
+  document.getElementById("next").addEventListener("click", next);
+  document.getElementById("prev").addEventListener("click", prev);
+
+  /* Swipe */
+  let startX = 0;
+  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  img.addEventListener("touchend", (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50) next();
+    if (diff < -50) prev();
+  });
+
+  /* Keyboard */
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+
+  /* First image */
+  show(index);
+</script>
+
+</body>
+</html>
