@@ -9,14 +9,11 @@
 
   <title>Casa Costa | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <!-- OPEN GRAPH / META -->
   <meta property="og:title" content="Casa Costa – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="$649,000 USD · 2 Bed · 2 Bath · Cerritos, Mexico">
+  <meta property="og:description" content="2 Bedrooms · 2 Bathrooms · 2,007 m² lot · Steps to South Cerritos Beach">
   <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-
-  <!-- DOMAIN -->
   <meta property="og:url" content="https://remaxkenneth.com/listings/5/">
   <link rel="canonical" href="https://remaxkenneth.com/listings/5/">
 
@@ -75,6 +72,7 @@
 
     .nav-left img { height: 32px; }
 
+    /* Toolbar name text = BLACK */
     .nav-left span {
       font-size: 1rem;
       font-weight: 700;
@@ -83,6 +81,7 @@
       text-transform: uppercase;
     }
 
+    /* Hamburger = BLACK */
     .menu-button {
       font-size: 30px;
       cursor: pointer;
@@ -124,7 +123,7 @@
       text-transform: uppercase;
     }
 
-    /* ===== HERO (site sunset image) ===== */
+    /* ===== HERO ===== */
     #hero {
       position: relative;
       min-height: 340px;
@@ -165,7 +164,7 @@
 
     .hero-sub {
       margin-top: 12px;
-      max-width: 720px;
+      max-width: 620px;
       color: #e5e7eb;
     }
 
@@ -323,7 +322,9 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Property Listing</div>
     <h1 class="hero-title">Casa Costa</h1>
-    <p class="hero-sub">2 Bed · 2 Bath · Cerritos, Mexico</p>
+    <p class="hero-sub">
+      2 Bedrooms · 2 Bathrooms · Cerritos / South Cerritos Beach
+    </p>
   </div>
 </section>
 
@@ -343,29 +344,30 @@
 <section class="section">
   <div class="tile details">
     <h2 class="price">$649,000 USD</h2>
-    <p class="location">House · Cerritos, Mexico</p>
+    <p class="location">Residential Home · Baja California Sur, Mexico</p>
 
     <div class="stats">
       <span class="stat-pill">2 Bedrooms</span>
       <span class="stat-pill">2 Bathrooms</span>
-      <span class="stat-pill">Infinity-Edge Pool</span>
+      <span class="stat-pill">2,007 m² Lot</span>
+      <span class="stat-pill">Infinity-Edge Saltwater Pool</span>
       <span class="stat-pill">Ocean-View Terraces</span>
-      <span class="stat-pill">Walk to South Cerritos Beach</span>
     </div>
 
     <div class="description">
       <p>
-        Casa Costa is a newer 2-bedroom, 2-bath home just steps from the Pacific Ocean and South Cerritos Beach.
-        Bright, open interiors with red brick accents and large sliding doors open to two ocean-facing terraces.
+        Introducing Casa Costa — a newer 2 bed, 2 bath home on a 2,007 m² lot, just steps from the Pacific Ocean
+        and South Cerritos Beach. Bright, open, and airy, with red brick accents and large sliding doors that open
+        to two terraces facing the ocean views.
       </p>
       <p>
-        The home features a sparkling saltwater pool with an infinity edge, plus a modern kitchen with a gas range,
-        double sinks, and a pantry for serious storage. Main-floor laundry includes a washer and dryer.
+        The home features a sparkling saltwater swimming pool with an infinity edge, plus a modern kitchen with a gas range,
+        double sinks, and a pantry built for real storage. Main-floor laundry includes a washer and dryer.
       </p>
       <p>
-        The layout is dialed: a spacious main-floor bedroom with terrace access and a full ensuite bath, plus an upstairs
-        master suite with a private exterior entrance, a large covered terrace with ocean views, a big walk-in closet,
-        and a luxurious ensuite bath.
+        The layout is dialed in: a generous main-floor bedroom with sliding patio doors to the covered terrace and a full ensuite bath,
+        plus an upstairs master suite with a private exterior entrance, an expansive covered terrace with ocean views,
+        a large walk-in closet, and a luxurious ensuite bath.
       </p>
     </div>
   </div>
@@ -393,10 +395,11 @@
 
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
-  /* SLIDER: supports /5/ or /videos/5/ */
+  /* SLIDER (loads one image at a time + spinner) */
   const BASE_A = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/";
   const BASE_B = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/5/";
 
+  // what you uploaded: hero.jpeg + 2.jpeg ... 17.jpeg
   const files = ["hero.jpeg", ...Array.from({ length: 16 }, (_, i) => (i + 2) + ".jpeg")];
 
   let index = 0;
