@@ -332,7 +332,7 @@ a.tile { display:block; cursor:pointer; }
 }
 
 .card {
-  display: block; /* ✅ makes <a class="card"> act like a real card */
+  display: block;
   background: var(--card-bg);
   border-radius: 26px;
   overflow: hidden;
@@ -353,6 +353,21 @@ a.tile { display:block; cursor:pointer; }
   object-position: center center;
   display: block;
   border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* ✅ placeholder media block for cards with no images */
+.card-media {
+  width: 100%;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 
 .card-content {
@@ -391,7 +406,6 @@ a.tile { display:block; cursor:pointer; }
   }
 }
 
-/* glass frame container */
 .agent-photo {
   width: fit-content;
   padding: 16px;
@@ -409,7 +423,6 @@ a.tile { display:block; cursor:pointer; }
   .agent-photo { margin: 0; }
 }
 
-/* ✅ circular mask so we can zoom-crop away the white matte */
 .agent-avatar {
   width: 260px;
   height: 260px;
@@ -425,12 +438,8 @@ a.tile { display:block; cursor:pointer; }
   height: 100%;
   display: block;
   object-fit: cover;
-
-  /* 🔥 dial: zoom in to kill the white ring */
   transform: scale(1.28);
   transform-origin: center;
-
-  /* optional micro-adjust; tweak if needed */
   object-position: 50% 55%;
 }
 
@@ -481,6 +490,13 @@ footer {
 .tile .btn:hover{
   transform: translateY(-1px);
   background: rgba(255,255,255,0.28);
+}
+
+/* ✅ make placeholder media match tile style too */
+.tile .card-media{
+  background: rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.75);
 }
 </style>
 </head>
@@ -561,7 +577,6 @@ footer {
     <p class="section-sub">Curated for lifestyle, location, and value</p>
 
     <div class="grid">
-      <!-- ✅ linked -->
       <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
         <img src="images/IMG_0822.png" alt="Casa Vista">
         <div class="card-content">
@@ -570,7 +585,6 @@ footer {
         </div>
       </a>
 
-      <!-- ✅ linked -->
       <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
         <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
         <div class="card-content">
@@ -582,6 +596,38 @@ footer {
 
     <div style="text-align:center; margin-top:30px;">
       <a href="listings.html" class="btn">View All Listings</a>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ NEW: UNLISTED PROPERTIES (right under Featured Listings) -->
+<section class="section" id="unlisted-properties">
+  <div class="tile">
+    <h2 class="section-title">Unlisted Properties</h2>
+    <p class="section-sub">Not All Clients Want Their Properties Listed</p>
+
+    <div class="grid">
+      <a class="card" href="businesscard.html" aria-label="Inquire about unlisted Rancho Nuevo land parcel">
+        <div class="card-media">Photo Coming Soon</div>
+        <div class="card-content">
+          <h3>Rancho Nuevo View Parcel</h3>
+          <p>
+            Rare land opportunity near Rancho Nuevo — 1+ hectare with ocean + mountain views.<br>
+            <strong style="color: var(--text-main);">Offered at $150,000 USD.</strong>
+          </p>
+        </div>
+      </a>
+
+      <a class="card" href="businesscard.html" aria-label="Inquire about second unlisted Rancho Nuevo land parcel">
+        <div class="card-media">Photo Coming Soon</div>
+        <div class="card-content">
+          <h3>Rancho Nuevo View Parcel II</h3>
+          <p>
+            Rare land opportunity near Rancho Nuevo — 1+ hectare with ocean + mountain views.<br>
+            <strong style="color: var(--text-main);">Offered at $150,000 USD.</strong>
+          </p>
+        </div>
+      </a>
     </div>
   </div>
 </section>
