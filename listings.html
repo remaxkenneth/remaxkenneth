@@ -6,7 +6,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Listings | RE/MAX Cabo Sanctuary – Kenneth Gehlhoff</title>
+  <title>Properties for Sale | RE/MAX Cabo Sanctuary – Kenneth Gehlhoff | Baja California Sur</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+
+  <meta name="description" content="Browse luxury oceanview homes, beachfront land, and investment properties for sale in Todos Santos, El Pescadero, and Cerritos, Baja California Sur. Listed by Kenneth Gehlhoff – RE/MAX Cabo Sanctuary.">
+  <meta name="keywords" content="homes for sale Todos Santos, Cerritos real estate listings, El Pescadero property for sale, Baja California Sur MLS, luxury beach homes Mexico, oceanview real estate Baja, land for sale Cerritos, Pescadero Resort for sale, Casa Sol y Luna, RE/MAX Cabo Sanctuary listings, Kenneth Gehlhoff properties">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://remaxkenneth.com/listings.html">
+  <meta name="author" content="Kenneth Gehlhoff">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Geo / Local SEO -->
+  <meta name="geo.region" content="MX-BCS">
+  <meta name="geo.placename" content="Todos Santos, Baja California Sur, Mexico">
+  <meta name="geo.position" content="23.4430;-110.2233">
+  <meta name="ICBM" content="23.4430, -110.2233">
+
+  <!-- Open Graph – Facebook, WhatsApp, iMessage, LinkedIn -->
+  <meta property="og:site_name" content="Kenneth Gehlhoff | RE/MAX Cabo Sanctuary">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://remaxkenneth.com/listings.html">
+  <meta property="og:title" content="Properties for Sale | RE/MAX Cabo Sanctuary – Baja California Sur">
+  <meta property="og:description" content="Oceanview homes, beachfront land, and investment properties in Todos Santos, El Pescadero, and Cerritos. Browse all current listings from Kenneth Gehlhoff.">
+  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg">
+  <meta property="og:image:secure_url" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pescadero Resort – luxury beachside property in El Pescadero, Baja California Sur">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@remaxkenneth">
+  <meta name="twitter:title" content="Properties for Sale | RE/MAX Cabo Sanctuary – Baja California Sur">
+  <meta name="twitter:description" content="Oceanview homes, beachfront land, and investment properties in Todos Santos, El Pescadero, and Cerritos.">
+  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg">
+  <meta name="twitter:image:alt" content="Pescadero Resort – luxury beachside property, El Pescadero, Baja">
+
+  <!-- JSON-LD – Property listing collection -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Current Property Listings – RE/MAX Cabo Sanctuary",
+    "description": "Luxury oceanview homes, beachfront land, and investment properties for sale in Todos Santos, El Pescadero, and Cerritos, Baja California Sur, Mexico.",
+    "url": "https://remaxkenneth.com/listings.html",
+    "image": "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg",
+    "author": {
+      "@type": "RealEstateAgent",
+      "name": "Kenneth Gehlhoff",
+      "affiliation": "RE/MAX Cabo Sanctuary",
+      "url": "https://remaxkenneth.com/"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://remaxkenneth.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Properties", "item": "https://remaxkenneth.com/listings.html" }
+      ]
+    }
+  }
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -350,8 +414,9 @@
     .hero {
       position: relative;
       width: 100%;
-      height: 100vh;
-      min-height: 600px;
+      height: 100vh;  /* fallback */
+      height: 100svh; /* small viewport height — avoids iOS browser chrome bleed */
+      min-height: 560px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -739,6 +804,107 @@
       color: #555;
     }
 
+    /* ─────────────────────────────────────────
+       RESPONSIVE / MEDIA QUERIES
+    ───────────────────────────────────────── */
+
+    /* Tablet – tighten padding, keep 2-col grid */
+    @media (max-width: 1024px) {
+      .hero-title        { font-size: 54px; }
+      .featured-title    { font-size: 30px; }
+      .featured-text     { padding: 48px 32px; }
+      .listings-section  { padding: 80px 40px; }
+      .listings-grid     { gap: 36px 36px; }
+      .card-img-wrap     { height: 280px; }
+    }
+
+    /* ── PORTRAIT orientation (phone/tablet held upright) ── */
+    @media (orientation: portrait) and (max-width: 768px) {
+      /* Hero */
+      .hero               { height: 85vh; min-height: 480px; }
+      .hero-content       { padding: 0 20px; max-width: 100%; }
+      .hero-title         { font-size: 42px; margin-bottom: 20px; }
+      .hero-pretitle      { font-size: 10px; letter-spacing: 0.15em; }
+      .hero-body          { font-size: 11px; margin-top: 18px; letter-spacing: 0.07em; }
+
+      /* Featured – stack vertically */
+      .featured           { flex-direction: column; min-height: unset; }
+      .featured-image     { width: 100%; height: 280px; flex-shrink: 0; }
+      .featured-text      { width: 100%; padding: 40px 24px; }
+      .featured-title     { font-size: 26px; }
+      .featured-price     { font-size: 24px; }
+      .featured-desc      { font-size: 13px; max-width: 100%; }
+
+      /* Listings section – 1 column */
+      .listings-section   { padding: 60px 16px; }
+      .listings-header    { margin-bottom: 40px; }
+      .listings-title     { font-size: 28px; letter-spacing: 1px; }
+      .listings-grid      { grid-template-columns: 1fr; gap: 28px; }
+      .card-img-wrap      { height: 260px; }
+      .card-body          { padding: 22px 18px 20px; }
+      .card-name          { font-size: 19px; }
+    }
+
+    /* ── PORTRAIT – small phones (≤ 480px) ── */
+    @media (orientation: portrait) and (max-width: 480px) {
+      .hero-title         { font-size: 32px; }
+      .featured-image     { height: 220px; }
+      .listings-section   { padding: 48px 12px; }
+      .card-img-wrap      { height: 220px; }
+      .listings-title     { font-size: 24px; }
+    }
+
+    /* ── PORTRAIT – very small phones (≤ 360px) ── */
+    @media (orientation: portrait) and (max-width: 360px) {
+      .hero-title         { font-size: 26px; }
+      .hero-content       { padding: 0 14px; }
+      .listings-section   { padding: 40px 10px; }
+      .card-img-wrap      { height: 190px; }
+      .card-name          { font-size: 17px; }
+    }
+
+    /* ── LANDSCAPE orientation – phones (short viewport) ── */
+    @media (orientation: landscape) and (max-height: 600px) {
+      /* Hero: shorter since screen height is limited */
+      .hero               { height: 100vh; min-height: 360px; }
+      .hero-title         { font-size: 46px; margin-bottom: 14px; }
+      .hero-pretitle      { font-size: 10px; letter-spacing: 0.14em; margin-bottom: 14px; }
+      .hero-body          { margin-top: 14px; font-size: 10px; line-height: 1.6; }
+      .hero-content       { padding: 0 24px; }
+
+      /* Featured – keep side-by-side but compress */
+      .featured           { min-height: 360px; }
+      .featured-text      { padding: 32px 28px; }
+      .featured-title     { font-size: 24px; }
+      .featured-price     { font-size: 22px; margin-bottom: 16px; }
+      .featured-desc      { font-size: 13px; margin-bottom: 20px; }
+
+      /* Listings – 2 col but tighter */
+      .listings-section   { padding: 52px 24px; }
+      .listings-grid      { grid-template-columns: 1fr 1fr; gap: 24px 24px; }
+      .card-img-wrap      { height: 200px; }
+      .listings-title     { font-size: 30px; }
+    }
+
+    /* ── LANDSCAPE – tablet landscape (wider, still shortish) ── */
+    @media (orientation: landscape) and (min-width: 768px) and (max-width: 1024px) {
+      .hero-title         { font-size: 56px; }
+      .listings-section   { padding: 72px 48px; }
+      .listings-grid      { grid-template-columns: 1fr 1fr; gap: 36px 40px; }
+      .card-img-wrap      { height: 240px; }
+      .featured-title     { font-size: 28px; }
+    }
+
+    /* ── General mobile fallback (no orientation support) ── */
+    @media (max-width: 640px) {
+      .featured           { flex-direction: column; min-height: unset; }
+      .featured-image     { width: 100%; height: 260px; }
+      .featured-text      { width: 100%; padding: 40px 20px; }
+      .listings-section   { padding: 56px 16px; }
+      .listings-grid      { grid-template-columns: 1fr; gap: 28px; }
+      .card-img-wrap      { height: 240px; }
+    }
+
   </style>
 </head>
 
@@ -883,13 +1049,13 @@
           <div class="card-overlay">
             <a href="listings/2/index.html" class="card-overlay-btn">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge sale-pending">Sale Pending</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Casa Vista</h3>
           <p class="card-address">El Pescadero, Cerritos – Baja California Sur</p>
           <p class="card-specs">5 BD &nbsp;|&nbsp; 4 BA</p>
-          <p class="card-price">$650,000</p>
+          <p class="card-price pending">Sale Pending</p>
         </div>
       </div>
 

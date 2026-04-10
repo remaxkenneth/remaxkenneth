@@ -482,6 +482,8 @@ footer{
   .card{border-radius:22px;}
   .card-content{padding:26px 18px;}
   #hero{background-position:50% 60%;}
+  .hero-title{font-size:1.9rem;}
+  .price{font-size:1.6rem;}
 }
 
 /* ── SLIDER ── */
