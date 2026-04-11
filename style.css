@@ -334,6 +334,7 @@ footer{
   background: #000;
   color: #fff;
   padding: 80px 80px 42px;
+  text-align: left;
 }
 .footer-grid {
   display: flex;
