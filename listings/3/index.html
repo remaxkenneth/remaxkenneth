@@ -246,16 +246,17 @@
 
     /* PHONE spacing match */
   </style>
+<link rel="stylesheet" href="/css/i18n.css">
 </head>
 
 <body>
 
 <div class="nav-drawer" id="navDrawer">
   <button class="nav-drawer-close" id="drawerClose">&#10005;</button>
-  <a href="../../index.html" onclick="closeDrawer()">Home</a>
-  <a href="../../listings.html" onclick="closeDrawer()">Properties</a>
-  <a href="../../index.html#about" onclick="closeDrawer()">About</a>
-  <a href="../../businesscard.html" onclick="closeDrawer()">Contact</a>
+  <a href="../../index.html" onclick="closeDrawer()" data-i18n="nav.home">Home</a>
+  <a href="../../listings.html" onclick="closeDrawer()" data-i18n="nav.properties">Properties</a>
+  <a href="../../index.html#about" onclick="closeDrawer()" data-i18n="nav.about">About</a>
+  <a href="../../businesscard.html" onclick="closeDrawer()" data-i18n="nav.contact">Contact</a>
 </div>
 
 <nav class="site-nav" id="navbar">
@@ -264,12 +265,13 @@
     <div class="nav-brand-sub">RE/MAX Cabo Sanctuary</div>
   </a>
   <ul class="nav-menu">
-    <li><a href="../../index.html" class="nav-menu-link">Home</a></li>
-    <li><a href="../../listings.html" class="nav-menu-link">Properties</a></li>
-    <li><a href="../../index.html#about" class="nav-menu-link">About</a></li>
+    <li><a href="../../index.html" class="nav-menu-link" data-i18n="nav.home">Home</a></li>
+    <li><a href="../../listings.html" class="nav-menu-link" data-i18n="nav.properties">Properties</a></li>
+    <li><a href="../../index.html#about" class="nav-menu-link" data-i18n="nav.about">About</a></li>
   </ul>
   <div class="nav-end">
-    <a href="../../businesscard.html" class="nav-cta-btn">Contact Us</a>
+    <a href="../../businesscard.html" class="nav-cta-btn" data-i18n="nav.contact_us">Contact Us</a>
+      <button class="lang-btn" id="langBtn" onclick="toggleLang()">ES</button>
     <span class="nav-hamburger" id="hamburger">&#9776;</span>
   </div>
 </nav>
@@ -295,8 +297,8 @@
 
 <section class="section">
   <div class="tile details">
-    <h2 class="price">SALE PENDING</h2>
-    <p class="location">Residential Home · Baja California Sur, Mexico</p>
+    <h2 class="price" data-i18n="listing.sale_pending">SALE PENDING</h2>
+    <p class="location" data-i18n="listing.loc.home">Residential Home · Baja California Sur, Mexico</p>
 
     <div class="stats">
       <span class="stat-pill">3 Bedrooms</span>
@@ -306,7 +308,7 @@
       <span class="stat-pill">Ocean + Mountain Views</span>
     </div>
 
-    <div class="description">
+    <div class="description" data-i18n="listing.casa_molusco.desc">
       <p>
         Spacious 3-Bedroom Unfurnished Home in Quiet Neighborhood. Welcome to your new home!
         This beautifully 3-bedroom, 2-bathroom house offers generous space, natural light,
@@ -332,32 +334,32 @@
     <div class="footer-col-left">
       <div class="f-brand-name">Kenneth Gehlhoff</div>
       <div class="f-brand-sub">RE/MAX Cabo Sanctuary</div>
-      <p class="f-body">
+      <p class="f-body" data-i18n="footer.tagline">
         Curated locally. Updated often.<br />
         Homes &middot; Land &middot; Investment<br /><br />
         Specializing in luxury coastal properties across El Pescadero,
         Cerritos, Todos Santos, and the greater Los Cabos area of
         Baja California Sur, Mexico.
       </p>
-      <div class="f-nl-label">Stay Updated</div>
+      <div class="f-nl-label" data-i18n="footer.stay_updated">Stay Updated</div>
       <form class="f-nl-form" onsubmit="return false;">
-        <input type="email" class="f-nl-input" placeholder="Your email address" />
-        <button class="f-nl-btn" type="submit">Subscribe</button>
+        <input type="email" class="f-nl-input" placeholder="Your email address" data-i18n-placeholder="email_placeholder" />
+        <button class="f-nl-btn" type="submit" data-i18n="subscribe">Subscribe</button>
       </form>
     </div>
     <div class="footer-col-right">
       <div class="f-col">
-        <h4>Navigate</h4>
+        <h4 data-i18n="footer.navigate">Navigate</h4>
         <ul>
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../listings.html">Properties</a></li>
-          <li><a href="../../index.html#events">Events</a></li>
-          <li><a href="../../index.html#about">About</a></li>
-          <li><a href="../../businesscard.html">Contact</a></li>
+          <li><a href="../../index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="../../listings.html" data-i18n="nav.properties">Properties</a></li>
+          <li><a href="../../index.html#events" data-i18n="footer.events">Events</a></li>
+          <li><a href="../../index.html#about" data-i18n="nav.about">About</a></li>
+          <li><a href="../../businesscard.html" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </div>
       <div class="f-col">
-        <h4>Contact</h4>
+        <h4 data-i18n="footer.contact">Contact</h4>
         <p>Kenneth Gehlhoff</p>
         <p>RE/MAX Cabo Sanctuary</p>
         <p style="margin-top:12px;"><a href="tel:+526121278834">+52 612 127 8834</a></p>
@@ -377,7 +379,7 @@
     </div>
   </div>
   <div class="f-bottom">
-    <p class="f-copy">&copy; 2026 Kenneth Gehlhoff | <a href="../../index.html">RE/MAX Cabo Sanctuary</a>. Each office independently owned and operated.</p>
+    <p class="f-copy" data-i18n="footer.copyright">&copy; 2026 Kenneth Gehlhoff | <a href="../../index.html">RE/MAX Cabo Sanctuary</a>. Each office independently owned and operated.</p>
     <p class="f-remax">RE/MAX Cabo Sanctuary &middot; Baja California Sur, Mexico</p>
   </div>
 </footer>
@@ -495,5 +497,6 @@
   show(index, 1);
 </script>
 
+<script src="/js/i18n.js"></script>
 </body>
 </html>

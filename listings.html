@@ -906,6 +906,7 @@
     }
 
   </style>
+<link rel="stylesheet" href="/css/i18n.css">
 </head>
 
 <body>
@@ -913,10 +914,10 @@
   <!-- MOBILE DRAWER -->
   <div class="nav-drawer" id="navDrawer">
     <button class="nav-drawer-close" id="drawerClose">&#10005;</button>
-    <a href="index.html" onclick="closeDrawer()">Home</a>
-    <a href="listings.html" onclick="closeDrawer()">Properties</a>
-    <a href="index.html#about" onclick="closeDrawer()">About</a>
-    <a href="businesscard.html" onclick="closeDrawer()">Contact</a>
+    <a href="index.html" onclick="closeDrawer()" data-i18n="nav.home">Home</a>
+    <a href="listings.html" onclick="closeDrawer()" data-i18n="nav.properties">Properties</a>
+    <a href="index.html#about" onclick="closeDrawer()" data-i18n="nav.about">About</a>
+    <a href="businesscard.html" onclick="closeDrawer()" data-i18n="nav.contact">Contact</a>
   </div>
 
   <!-- NAVIGATION -->
@@ -926,12 +927,13 @@
       <div class="nav-brand-sub">RE/MAX Cabo Sanctuary</div>
     </a>
     <ul class="nav-menu">
-      <li><a href="index.html" class="nav-menu-link">Home</a></li>
-      <li><a href="listings.html" class="nav-menu-link active">Properties</a></li>
-      <li><a href="index.html#about" class="nav-menu-link">About</a></li>
+      <li><a href="index.html" class="nav-menu-link" data-i18n="nav.home">Home</a></li>
+      <li><a href="listings.html" class="nav-menu-link active" data-i18n="nav.properties">Properties</a></li>
+      <li><a href="index.html#about" class="nav-menu-link" data-i18n="nav.about">About</a></li>
     </ul>
     <div class="nav-end">
-      <a href="businesscard.html" class="nav-cta-btn">Contact Us</a>
+      <a href="businesscard.html" class="nav-cta-btn" data-i18n="nav.contact_us">Contact Us</a>
+      <button class="lang-btn" id="langBtn" onclick="toggleLang()">ES</button>
       <span class="nav-hamburger" id="hamburger">&#9776;</span>
     </div>
   </nav>
@@ -940,10 +942,10 @@
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <p class="hero-pretitle">Browse our current listings or contact us to schedule a private showing</p>
-      <h1 class="hero-title">Current Listings</h1>
-      <p class="hero-subtitle">Curated for lifestyle, location, and value</p>
-      <p class="hero-body">
+      <p class="hero-pretitle" data-i18n="listings.hero.pretitle">Browse our current listings or contact us to schedule a private showing</p>
+      <h1 class="hero-title" data-i18n="listings.hero.title">Current Listings</h1>
+      <p class="hero-subtitle" data-i18n="listings.hero.subtitle">Curated for lifestyle, location, and value</p>
+      <p class="hero-body" data-i18n="listings.hero.body">
         RE/MAX Cabo Sanctuary represents discerning buyers and sellers across El Pescadero,
         Todos Santos, and the greater Los Cabos region — specializing in oceanview homes,
         coastal land, and investment properties along Baja California Sur's Pacific coast.
@@ -958,12 +960,12 @@
         alt="Pescadero Resort – El Pescadero" />
     </div>
     <div class="featured-text">
-      <p class="featured-eyebrow">Featured Property</p>
+      <p class="featured-eyebrow" data-i18n="listings.featured.eyebrow">Featured Property</p>
       <h2 class="featured-title">Pescadero Resort</h2>
       <p class="featured-location">El Pescadero, Baja California Sur</p>
       <p class="featured-specs">5 BD &nbsp;&middot;&nbsp; 5 BA</p>
       <p class="featured-price">$1,650,000</p>
-      <p class="featured-desc">
+      <p class="featured-desc" data-i18n="listings.featured.desc">
         A stunning beachside resort compound set in the heart of El Pescadero.
         This exceptional five-bedroom, five-bathroom property offers sweeping
         Pacific Ocean views, generous indoor-outdoor living spaces, and
@@ -971,7 +973,7 @@
         or high-performing investment in one of Baja's most coveted coastal
         communities.
       </p>
-      <a href="listings/cw/1/index.html" class="btn-outline-dark">View Property</a>
+      <a href="listings/cw/1/index.html" class="btn-outline-dark" data-i18n="listings.view_property">View Property</a>
     </div>
   </section>
 
@@ -979,7 +981,7 @@
   <section class="listings-section">
     <div class="listings-header">
       <p class="listings-eyebrow">RE/MAX Cabo Sanctuary &nbsp;&middot;&nbsp; Kenneth Gehlhoff</p>
-      <h2 class="listings-title">All Properties</h2>
+      <h2 class="listings-title" data-i18n="listings.all.title">All Properties</h2>
     </div>
 
     <div class="listings-grid">
@@ -987,7 +989,7 @@
       <!-- HOMES divider -->
       <div class="grid-divider">
         <div class="grid-divider-line"></div>
-        <span class="grid-divider-label">Homes</span>
+        <span class="grid-divider-label" data-i18n="listings.divider.homes">Homes</span>
         <div class="grid-divider-line"></div>
       </div>
 
@@ -996,9 +998,9 @@
         <div class="card-img-wrap">
           <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg" alt="Pescadero Resort" />
           <div class="card-overlay">
-            <a href="listings/cw/1/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/cw/1/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge" data-i18n="listings.for_sale">For Sale</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Pescadero Resort</h3>
@@ -1013,9 +1015,9 @@
         <div class="card-img-wrap">
           <img src="https://remaxkenneth.com/images/IMG_0795.jpeg" alt="Casa Sol y Luna" />
           <div class="card-overlay">
-            <a href="listings/1/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/1/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge" data-i18n="listings.for_sale">For Sale</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Casa Sol y Luna</h3>
@@ -1030,9 +1032,9 @@
         <div class="card-img-wrap">
           <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/IMG_1363.jpeg" alt="Casa Pacific Dream" />
           <div class="card-overlay">
-            <a href="listings/6/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/6/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge" data-i18n="listings.for_sale">For Sale</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Casa Pacific Dream</h3>
@@ -1047,15 +1049,15 @@
         <div class="card-img-wrap">
           <img src="https://remaxkenneth.com/images/IMG_0822.png" alt="Casa Vista" />
           <div class="card-overlay">
-            <a href="listings/2/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/2/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge sale-pending">Sale Pending</span>
+          <span class="card-badge sale-pending" data-i18n="listings.sale_pending">Sale Pending</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Casa Vista</h3>
           <p class="card-address">El Pescadero, Cerritos – Baja California Sur</p>
           <p class="card-specs">5 BD &nbsp;|&nbsp; 4 BA</p>
-          <p class="card-price pending">Sale Pending</p>
+          <p class="card-price pending" data-i18n="listings.sale_pending">Sale Pending</p>
         </div>
       </div>
 
@@ -1064,9 +1066,9 @@
         <div class="card-img-wrap">
           <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg" alt="Casa Costa" />
           <div class="card-overlay">
-            <a href="listings/5/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/5/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge" data-i18n="listings.for_sale">For Sale</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Casa Costa</h3>
@@ -1081,15 +1083,15 @@
         <div class="card-img-wrap">
           <img src="https://remaxkenneth.com/images/IMG_0797.png" alt="Casa L.C. Molusco" />
           <div class="card-overlay">
-            <a href="listings/3/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/3/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge sale-pending">Sale Pending</span>
+          <span class="card-badge sale-pending" data-i18n="listings.sale_pending">Sale Pending</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Casa L.C. Molusco</h3>
           <p class="card-address">Todos Santos, Las Tunas – Baja California Sur</p>
           <p class="card-specs">3 BD &nbsp;|&nbsp; 2 BA</p>
-          <p class="card-price pending">Sale Pending</p>
+          <p class="card-price pending" data-i18n="listings.sale_pending">Sale Pending</p>
         </div>
       </div>
 
@@ -1099,9 +1101,9 @@
           <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg"
             alt="Luna Villa" />
           <div class="card-overlay">
-            <a href="listings/luna/villa/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/luna/villa/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge" data-i18n="listings.for_sale">For Sale</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Luna Villa</h3>
@@ -1117,9 +1119,9 @@
           <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/IMG_1623.png"
             alt="New Villa" />
           <div class="card-overlay">
-            <a href="listings/luna/newvilla/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/luna/newvilla/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge" data-i18n="listings.for_sale">For Sale</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">New Villa</h3>
@@ -1132,7 +1134,7 @@
       <!-- LAND divider -->
       <div class="grid-divider">
         <div class="grid-divider-line"></div>
-        <span class="grid-divider-label">Land</span>
+        <span class="grid-divider-label" data-i18n="listings.divider.land">Land</span>
         <div class="grid-divider-line"></div>
       </div>
 
@@ -1142,9 +1144,9 @@
           <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/8/Drone-Still_2026-02-19-21h54m21s967.jpeg"
             alt="Gavilán Heights" />
           <div class="card-overlay">
-            <a href="listings/8/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/8/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge" data-i18n="listings.for_sale">For Sale</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Gavilán Heights</h3>
@@ -1159,9 +1161,9 @@
         <div class="card-img-wrap">
           <img src="https://remaxkenneth.com/images/IMG_0798.jpeg" alt="Central Cerritos Lot" />
           <div class="card-overlay">
-            <a href="listings/4/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/4/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge" data-i18n="listings.for_sale">For Sale</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Central Cerritos Lot</h3>
@@ -1177,9 +1179,9 @@
           <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/0/Drone-Still_2026-02-19-21h15m37s316.jpeg"
             alt="Tierra Nirvana" />
           <div class="card-overlay">
-            <a href="listings/0/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/0/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge" data-i18n="listings.for_sale">For Sale</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Tierra Nirvana</h3>
@@ -1195,9 +1197,9 @@
           <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/7/Drone-Still_2026-02-19-22h12m41s382.jpeg"
             alt="Ocean & Summit Reserve" />
           <div class="card-overlay">
-            <a href="listings/7/index.html" class="card-overlay-btn">View Property</a>
+            <a href="listings/7/index.html" class="card-overlay-btn" data-i18n="listings.view_property">View Property</a>
           </div>
-          <span class="card-badge">For Sale</span>
+          <span class="card-badge" data-i18n="listings.for_sale">For Sale</span>
         </div>
         <div class="card-body">
           <h3 class="card-name">Ocean &amp; Summit Reserve</h3>
@@ -1216,33 +1218,33 @@
       <div class="footer-col-left">
         <div class="f-brand-name">Kenneth Gehlhoff</div>
         <div class="f-brand-sub">RE/MAX Cabo Sanctuary</div>
-        <p class="f-body">
+        <p class="f-body" data-i18n="footer.tagline">
           Curated locally. Updated often.<br />
           Homes &middot; Land &middot; Investment<br /><br />
           Specializing in luxury coastal properties across El Pescadero,
           Cerritos, Todos Santos, and the greater Los Cabos area of
           Baja California Sur, Mexico.
         </p>
-        <div class="f-nl-label">Stay Updated</div>
+        <div class="f-nl-label" data-i18n="footer.stay_updated">Stay Updated</div>
         <form class="f-nl-form" onsubmit="return false;">
-          <input type="email" class="f-nl-input" placeholder="Your email address" />
-          <button class="f-nl-btn" type="submit">Subscribe</button>
+          <input type="email" class="f-nl-input" placeholder="Your email address" data-i18n-placeholder="email_placeholder" />
+          <button class="f-nl-btn" type="submit" data-i18n="subscribe">Subscribe</button>
         </form>
       </div>
 
       <div class="footer-col-right">
         <div class="f-col">
-          <h4>Navigate</h4>
+          <h4 data-i18n="footer.navigate">Navigate</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="listings.html">Properties</a></li>
-            <li><a href="index.html#events">Events</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="businesscard.html">Contact</a></li>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="listings.html" data-i18n="nav.properties">Properties</a></li>
+            <li><a href="index.html#events" data-i18n="footer.events">Events</a></li>
+            <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
+            <li><a href="businesscard.html" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
         <div class="f-col">
-          <h4>Contact</h4>
+          <h4 data-i18n="footer.contact">Contact</h4>
           <p>Kenneth Gehlhoff</p>
           <p>RE/MAX Cabo Sanctuary</p>
           <p style="margin-top:12px;"><a href="tel:+526121278834">+52 612 127 8834</a></p>
@@ -1263,7 +1265,7 @@
     </div>
 
     <div class="f-bottom">
-      <p class="f-copy">&copy; 2026 Kenneth Gehlhoff | <a href="#">RE/MAX Cabo Sanctuary</a>. Each office independently owned and operated.</p>
+      <p class="f-copy" data-i18n="footer.copyright">&copy; 2026 Kenneth Gehlhoff | <a href="#">RE/MAX Cabo Sanctuary</a>. Each office independently owned and operated.</p>
       <p class="f-remax">RE/MAX Cabo Sanctuary &middot; Baja California Sur, Mexico</p>
     </div>
   </footer>
@@ -1309,6 +1311,7 @@
     })();
   </script>
 
+<script src="/js/i18n.js"></script>
 </body>
 
 </html>

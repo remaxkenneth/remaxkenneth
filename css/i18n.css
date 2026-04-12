@@ -1,0 +1,75 @@
+/* ── LANGUAGE TOGGLE BUTTON ── */
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  background: #000;
+  border: 1px solid #000;
+  border-radius: 100px;
+  padding: 9px 15px 9px 11px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Globe icon via CSS mask */
+.lang-btn::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  background: #fff;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.lang-btn:hover {
+  opacity: 0.78;
+}
+
+/* ── Scrolled nav (dark background) ── */
+.site-nav.scrolled .lang-btn,
+#navbar.scrolled .lang-btn {
+  color: #fff;
+  background: transparent;
+  border-color: rgba(255,255,255,0.45);
+}
+
+.site-nav.scrolled .lang-btn::before,
+#navbar.scrolled .lang-btn::before {
+  background: #fff;
+}
+
+.site-nav.scrolled .lang-btn:hover,
+#navbar.scrolled .lang-btn:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  opacity: 1;
+}
+
+.site-nav.scrolled .lang-btn:hover::before,
+#navbar.scrolled .lang-btn:hover::before {
+  background: #000;
+}
+
+@media (max-width: 768px) {
+  .lang-btn {
+    font-size: 9px;
+    padding: 8px 12px 8px 10px;
+    gap: 5px;
+  }
+  .lang-btn::before {
+    width: 11px;
+    height: 11px;
+  }
+}
