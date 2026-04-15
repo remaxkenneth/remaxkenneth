@@ -45,6 +45,15 @@ const LANG = {
     'index.carousel.land':         'Land',
     'index.carousel.view_listing': 'View Listing',
 
+    'index.carousel.sol_luna.d1':  'Gavilan &nbsp;&middot;&nbsp; 1,800 m&sup2; &nbsp;&middot;&nbsp; 180&deg; Views',
+    'index.carousel.sol_luna.d2':  'Casitas &nbsp;&middot;&nbsp; Endless Pool &nbsp;&middot;&nbsp; Sunset Studio',
+    'index.carousel.pacific.d2':   '1,500 m&sup2; &nbsp;&middot;&nbsp; Ocean &amp; Mountain Views',
+    'index.carousel.costa.d2':     'Steps to South Cerritos Beach',
+    'index.carousel.heights.d2':   'Elevated &nbsp;&middot;&nbsp; Pacific Ocean Views',
+    'index.carousel.nirvana.d2':   'Private Homesite',
+
+    'index.listing.sol_luna.details': '1,800 m&sup2; &nbsp;&middot;&nbsp; 180&deg; Ocean Views &nbsp;&middot;&nbsp; Endless Pool &nbsp;&middot;&nbsp; Casitas',
+
     'index.gallery.cerritos.sub':     'Beachfront Lifestyle',
     'index.gallery.todos_santos.sub': 'Luxury Villas',
     'index.gallery.pescadero.sub':    'Private Estates',
@@ -248,6 +257,15 @@ const LANG = {
     'index.carousel.featured':     'Destacado',
     'index.carousel.land':         'Terreno',
     'index.carousel.view_listing': 'Ver Propiedad',
+
+    'index.carousel.sol_luna.d1':  'Gavilan &nbsp;&middot;&nbsp; 1,800 m&sup2; &nbsp;&middot;&nbsp; Vistas 180&deg;',
+    'index.carousel.sol_luna.d2':  'Casitas &nbsp;&middot;&nbsp; Alberca sin Fin &nbsp;&middot;&nbsp; Estudio al Atardecer',
+    'index.carousel.pacific.d2':   '1,500 m&sup2; &nbsp;&middot;&nbsp; Vistas al Oc\u00e9ano y la Sierra',
+    'index.carousel.costa.d2':     'A pasos de Playa South Cerritos',
+    'index.carousel.heights.d2':   'Elevado &nbsp;&middot;&nbsp; Vistas al Oc\u00e9ano Pac\u00edfico',
+    'index.carousel.nirvana.d2':   'Lote Privado',
+
+    'index.listing.sol_luna.details': '1,800 m&sup2; &nbsp;&middot;&nbsp; Vistas al Oc\u00e9ano 180&deg; &nbsp;&middot;&nbsp; Alberca sin Fin &nbsp;&middot;&nbsp; Casitas',
 
     'index.gallery.cerritos.sub':     'Vida en la Playa',
     'index.gallery.todos_santos.sub': 'Villas de Lujo',
