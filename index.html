@@ -1929,8 +1929,8 @@
     <div class="area-overlay"></div>
     <div class="area-content">
       <p class="area-pretitle">Baja California Sur, Mexico</p>
-      <h2 class="area-title">We're Living The Dream &mdash;<br>Come Join Us</h2>
-      <p class="area-body">The Todos Santos and Cerritos corridor is one of the most beautiful and sought-after stretches of coastline in Mexico. Discover your perfect piece of paradise with a trusted local guide.</p>
+      <h2 class="area-title" data-i18n="index.area.title">We're Living The Dream &mdash;<br>Come Join Us</h2>
+      <p class="area-body" data-i18n="index.area.body">The Todos Santos and Cerritos corridor is one of the most beautiful and sought-after stretches of coastline in Mexico. Discover your perfect piece of paradise with a trusted local guide.</p>
       <div class="area-locations">
         <span class="area-location">Cerritos</span>
         <span class="area-location">Todos Santos</span>
@@ -1998,20 +1998,24 @@
 
       <div class="contact-form">
         <h3 data-i18n="index.contact.news">Local News</h3>
-        <ul class="gg-feed" id="ggFeed"><li style="color:#999;">Loading...</li></ul>
+        <ul class="gg-feed" id="ggFeed"><li style="color:#999;" data-i18n="news.loading">Loading...</li></ul>
       </div>
       <script>
         fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.gringogazette.com%2Ffeed")
           .then(r => r.json())
           .then(data => {
             const list = document.getElementById('ggFeed');
-            if (!data.items || !data.items.length) { list.innerHTML = '<li style="color:#999;">No articles found.</li>'; return; }
+            const t = (window.LANG && window.LANG[localStorage.getItem('lang')||'en']) || {};
+            if (!data.items || !data.items.length) { list.innerHTML = '<li style="color:#999;">' + (t['news.no_articles']||'No articles found.') + '</li>'; return; }
             list.innerHTML = data.items.slice(0, 6).map(item => {
               const date = new Date(item.pubDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
               return `<li class="gg-item"><a href="${item.link}" target="_blank" rel="noopener">${item.title}</a><span class="gg-date">${date}</span></li>`;
             }).join('');
           })
-          .catch(() => { document.getElementById('ggFeed').innerHTML = '<li style="color:#999;">Unable to load feed.</li>'; });
+          .catch(() => {
+            const t = (window.LANG && window.LANG[localStorage.getItem('lang')||'en']) || {};
+            document.getElementById('ggFeed').innerHTML = '<li style="color:#999;">' + (t['news.error']||'Unable to load feed.') + '</li>';
+          });
       </script>
     </div>
   </section>

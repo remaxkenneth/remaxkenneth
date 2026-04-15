@@ -198,6 +198,16 @@ const LANG = {
     'pill.primary_suite_down':       'Primary Suite Downstairs',
     'pill.roof_garden':              'Roof Garden',
     'pill.gentle_slope':             'Gentle Slope',
+
+    // ── CARD ABBREVIATIONS & LABELS ─────────────────────────────
+    'abbr.bd':    'BD',
+    'abbr.ba':    'BA',
+    'card.land':  'Land',
+
+    // ── NEWS FEED ────────────────────────────────────────────────
+    'news.loading':     'Loading...',
+    'news.no_articles': 'No articles found.',
+    'news.error':       'Unable to load feed.',
   },
 
 
@@ -392,6 +402,16 @@ const LANG = {
     'pill.primary_suite_down':       'Suite Principal en Planta Baja',
     'pill.roof_garden':              'Jard\u00edn en Azotea',
     'pill.gentle_slope':             'Pendiente Suave',
+
+    // ── CARD ABBREVIATIONS & LABELS ─────────────────────────────
+    'abbr.bd':    'Rec',
+    'abbr.ba':    'Ba\u00f1',
+    'card.land':  'Terreno',
+
+    // ── NEWS FEED ────────────────────────────────────────────────
+    'news.loading':     'Cargando...',
+    'news.no_articles': 'No se encontraron art\u00edculos.',
+    'news.error':       'No se pudo cargar el feed.',
   }
 };
 
