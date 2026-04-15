@@ -42,7 +42,7 @@ const LANG = {
     'index.search.book':       'Book an Appointment',
     'index.search.coming_soon':'Feature Coming Soon',
 
-    'index.carousel.featured':     'Featured',
+    'index.carousel.featured':     'Home',
     'index.carousel.land':         'Land',
     'index.carousel.view_listing': 'View Listing',
 
@@ -256,7 +256,7 @@ const LANG = {
     'index.search.book':       'Reservar una Cita',
     'index.search.coming_soon':'Función Próximamente',
 
-    'index.carousel.featured':     'Destacado',
+    'index.carousel.featured':     'Casa',
     'index.carousel.land':         'Terreno',
     'index.carousel.view_listing': 'Ver Propiedad',
 
