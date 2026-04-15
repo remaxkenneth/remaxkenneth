@@ -141,40 +141,53 @@
       align-items: center;
       justify-content: center;
       opacity: 1;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
     }
-    #splash-screen.active {
-      display: flex;
-    }
-    #splash-screen.fade-out {
-      opacity: 0;
+    #splash-screen.active { display: flex; }
+    #splash-screen.fade-out { opacity: 0; pointer-events: none; }
+    #splash-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
     }
     #splash-logo {
-      width: 260px;
-      max-width: 60vw;
+      position: relative;
+      z-index: 2;
+      width: 280px;
+      max-width: 58vw;
       opacity: 0;
-      transform: scale(0.88);
-      transition: opacity 0.35s ease, transform 0.35s ease;
+      transform: scale(0.82) translateY(10px);
+      transition: opacity 0.55s cubic-bezier(0.2,0,0.1,1), transform 0.55s cubic-bezier(0.2,0,0.1,1);
     }
     #splash-logo.appear {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1) translateY(0);
     }
-    #splash-logo.electric {
-      animation: electric-pulse 1.5s ease forwards;
+    #splash-scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,0.18) 3px,
+        rgba(0,0,0,0.18) 4px
+      );
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
-    @keyframes electric-pulse {
-      0%   { filter: drop-shadow(0 0 0px #fff); }
-      10%  { filter: drop-shadow(0 0 18px #7df9ff) drop-shadow(0 0 40px #00aaff) brightness(1.4); }
-      20%  { filter: drop-shadow(0 0 4px #fff) brightness(1.0); }
-      35%  { filter: drop-shadow(0 0 28px #7df9ff) drop-shadow(0 0 60px #0066ff) brightness(1.6); }
-      45%  { filter: drop-shadow(0 0 6px #fff) brightness(1.05); }
-      58%  { filter: drop-shadow(0 0 22px #7df9ff) drop-shadow(0 0 50px #00aaff) brightness(1.5); }
-      70%  { filter: drop-shadow(0 0 8px #aef) brightness(1.1); }
-      82%  { filter: drop-shadow(0 0 30px #7df9ff) drop-shadow(0 0 65px #0055ff) brightness(1.7); }
-      92%  { filter: drop-shadow(0 0 10px #7df9ff) brightness(1.15); }
-      100% { filter: drop-shadow(0 0 20px #7df9ff) drop-shadow(0 0 40px #00aaff); }
+    #splash-scanlines.active { opacity: 1; }
+    #splash-flash {
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 4;
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1667,11 +1680,10 @@
 
   <!-- SPLASH SCREEN -->
   <div id="splash-screen">
+    <canvas id="splash-canvas"></canvas>
     <img id="splash-logo" src="/images/Unknown-1.png" alt="RE/MAX Kenneth">
-    <audio id="splash-sound" preload="auto">
-      <source src="/zap.m4a" type="audio/mp4">
-      <source src="/zap.aiff" type="audio/aiff">
-    </audio>
+    <div id="splash-scanlines"></div>
+    <div id="splash-flash"></div>
   </div>
 
   <!-- MOBILE DRAWER -->
@@ -2222,40 +2234,166 @@
 <script>
   // Splash screen — once per day
   (function() {
-    var splash = document.getElementById('splash-screen');
-    var logo   = document.getElementById('splash-logo');
-    var sound  = document.getElementById('splash-sound');
-    if (!splash) return;
+    var splash    = document.getElementById('splash-screen');
+    var logo      = document.getElementById('splash-logo');
+    var canvas    = document.getElementById('splash-canvas');
+    var scanlines = document.getElementById('splash-scanlines');
+    var flash     = document.getElementById('splash-flash');
+    if (!splash || !canvas) return;
 
     var today = new Date().toDateString();
     if (localStorage.getItem('splashDate') === today) return;
 
-    // Show splash
+    var ctx = canvas.getContext('2d');
+    var rafId;
+
+    function resizeCanvas() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    // Recursive midpoint-displacement lightning path
+    function bolt(x1, y1, x2, y2, roughness, depth) {
+      if (depth === 0) {
+        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+        return;
+      }
+      var mx = (x1 + x2) / 2 + (Math.random() - 0.5) * roughness;
+      var my = (y1 + y2) / 2 + (Math.random() - 0.5) * roughness;
+      bolt(x1, y1, mx, my, roughness * 0.55, depth - 1);
+      bolt(mx, my, x2, y2, roughness * 0.55, depth - 1);
+    }
+
+    function playSound() {
+      try {
+        var ac = new (window.AudioContext || window.webkitAudioContext)();
+        fetch('/zap.m4a')
+          .then(function(r) { return r.arrayBuffer(); })
+          .then(function(buf) { return ac.decodeAudioData(buf); })
+          .then(function(decoded) {
+            var src = ac.createBufferSource();
+            var gain = ac.createGain();
+            gain.gain.value = 0.75;
+            src.buffer = decoded;
+            src.connect(gain); gain.connect(ac.destination);
+            src.start(0);
+          }).catch(function(){});
+      } catch(e) {}
+    }
+
+    // Main electric animation loop
+    var electricStart = null;
+    var ELECTRIC_DURATION = 1400;
+    var soundFired = false;
+
+    function electricLoop(ts) {
+      if (!electricStart) electricStart = ts;
+      var elapsed  = ts - electricStart;
+      var progress = Math.min(elapsed / ELECTRIC_DURATION, 1);
+
+      // Sine envelope — builds, peaks at 55%, decays
+      var intensity = Math.sin(progress * Math.PI);
+      // Add random flicker on top
+      var flicker = 0.75 + Math.random() * 0.25;
+      var eff = intensity * flicker;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (progress < 1) {
+        // Logo center
+        var r  = logo.getBoundingClientRect();
+        var cx = r.left + r.width  / 2;
+        var cy = r.top  + r.height / 2;
+
+        // Number of arcs scales with intensity
+        var numArcs = Math.round(4 + eff * 7);
+
+        for (var i = 0; i < numArcs; i++) {
+          var angle  = Math.random() * Math.PI * 2;
+          var length = (60 + Math.random() * 180) * (0.4 + eff * 0.6);
+          var tx = cx + Math.cos(angle) * length;
+          var ty = cy + Math.sin(angle) * length;
+
+          // Outer glow pass
+          ctx.save();
+          ctx.shadowColor = '#00d4ff';
+          ctx.shadowBlur  = 18 + eff * 22;
+          ctx.strokeStyle = 'rgba(120, 230, 255, ' + (0.25 + eff * 0.35) + ')';
+          ctx.lineWidth   = 1.5 + eff * 1.5;
+          bolt(cx, cy, tx, ty, 55 + eff * 35, 4);
+          ctx.restore();
+
+          // Bright core pass
+          ctx.save();
+          ctx.shadowColor = '#ffffff';
+          ctx.shadowBlur  = 6;
+          ctx.strokeStyle = 'rgba(220, 245, 255, ' + (0.5 + eff * 0.5) + ')';
+          ctx.lineWidth   = 0.5;
+          bolt(cx, cy, tx, ty, 55 + eff * 35, 4);
+          ctx.restore();
+        }
+
+        // Logo glow via filter
+        var glow = eff * 32;
+        logo.style.filter = 'drop-shadow(0 0 ' + (glow * 0.5) + 'px #fff) '
+          + 'drop-shadow(0 0 ' + glow + 'px #00d4ff) '
+          + 'drop-shadow(0 0 ' + (glow * 2) + 'px #0055ff) '
+          + 'brightness(' + (1 + eff * 0.55) + ')';
+
+        // White flash at peak (~35–45%)
+        if (progress > 0.32 && progress < 0.52) {
+          var fp = (progress - 0.32) / 0.1;
+          flash.style.opacity = Math.min(fp, 1 - (progress - 0.42) / 0.1) * 0.35;
+        } else {
+          flash.style.opacity = 0;
+        }
+
+        // Play sound once at start
+        if (!soundFired && progress > 0.02) {
+          soundFired = true;
+          playSound();
+        }
+
+        rafId = requestAnimationFrame(electricLoop);
+
+      } else {
+        // Clean up
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        logo.style.filter = '';
+        flash.style.opacity = 0;
+      }
+    }
+
+    // — SEQUENCE —
+    resizeCanvas();
     splash.classList.add('active');
     document.body.style.overflow = 'hidden';
 
-    // Step 1 — logo appears (50ms delay lets the flex layout render first)
-    setTimeout(function() {
-      logo.classList.add('appear');
-    }, 50);
+    // Logo fades in
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        logo.classList.add('appear');
+      });
+    });
 
-    // Step 2 — electric pulse starts after logo is fully in (400ms)
+    // Electric starts after logo is in + scanlines appear
     setTimeout(function() {
-      logo.classList.add('electric');
-      if (sound) { sound.volume = 0.85; sound.play().catch(function(){}); }
-    }, 400);
+      scanlines.classList.add('active');
+      requestAnimationFrame(electricLoop);
+    }, 580);
 
-    // Step 3 — fade out overlay at 1.9s
+    // Fade out the whole overlay
     setTimeout(function() {
+      if (rafId) cancelAnimationFrame(rafId);
       splash.classList.add('fade-out');
-    }, 1900);
+    }, 1980);
 
-    // Step 4 — remove and unlock scroll at 2.5s
+    // Remove
     setTimeout(function() {
       splash.classList.remove('active');
       document.body.style.overflow = '';
       localStorage.setItem('splashDate', today);
-    }, 2500);
+    }, 2700);
   })();
 
   // Search dropdown
