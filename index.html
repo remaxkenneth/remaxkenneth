@@ -131,27 +131,6 @@
   </script>
 
   <style>
-    /* SPLASH SCREEN */
-    #splash-screen {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      background: #000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      opacity: 1;
-      transition: opacity 0.8s ease;
-    }
-    #splash-screen.active { display: flex; }
-    #splash-screen.fade-out { opacity: 0; pointer-events: none; }
-    #splash-logo {
-      width: 260px;
-      max-width: 60vw;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-    #splash-logo.appear { opacity: 1; }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -1641,11 +1620,6 @@
 </head>
 <body>
 
-  <!-- SPLASH SCREEN -->
-  <div id="splash-screen">
-    <img id="splash-logo" src="/images/Unknown-1.png" alt="RE/MAX Kenneth">
-  </div>
-
   <!-- MOBILE DRAWER -->
   <div class="nav-drawer" id="navDrawer">
     <button class="nav-drawer-close" id="drawerClose">&#10005;</button>
@@ -2192,65 +2166,6 @@
 <script src="/js/i18n.js"></script>
 
 <script>
-  // Splash screen — once per day
-  (function() {
-    var splash = document.getElementById('splash-screen');
-    var logo   = document.getElementById('splash-logo');
-    if (!splash || !logo) return;
-
-    var today = new Date().toDateString();
-    if (localStorage.getItem('splashDate') === today) return;
-
-    // Show splash immediately
-    splash.classList.add('active');
-    document.body.style.overflow = 'hidden';
-
-    function run() {
-      // Fade logo in
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          logo.classList.add('appear');
-        });
-      });
-
-      // Try sound
-      try {
-        var ac = new (window.AudioContext || window.webkitAudioContext)();
-        fetch('/zap.m4a')
-          .then(function(r) { return r.arrayBuffer(); })
-          .then(function(buf) { return ac.decodeAudioData(buf); })
-          .then(function(decoded) {
-            var gain = ac.createGain();
-            gain.gain.value = 0.8;
-            var src = ac.createBufferSource();
-            src.buffer = decoded;
-            src.connect(gain);
-            gain.connect(ac.destination);
-            src.start(0);
-          }).catch(function() {});
-      } catch(e) {}
-
-      // Fade out overlay at 1.8s
-      setTimeout(function() {
-        splash.classList.add('fade-out');
-      }, 1800);
-
-      // Remove at 2.6s
-      setTimeout(function() {
-        splash.classList.remove('active');
-        document.body.style.overflow = '';
-        localStorage.setItem('splashDate', today);
-      }, 2600);
-    }
-
-    // Wait for image to load before starting timer
-    if (logo.complete) {
-      run();
-    } else {
-      logo.onload = run;
-      logo.onerror = run; // show splash even if image fails
-    }
-  })();
 
   // Search dropdown
   (function() {
