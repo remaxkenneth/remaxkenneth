@@ -1838,11 +1838,11 @@
         <div class="stat-label" data-i18n="stats.years_estate">Years in Real Estate</div>
       </div>
       <div>
-        <div class="stat-value" data-count="2" data-prefix="$" data-suffix="M+">$0M+</div>
+        <div class="stat-value" data-count="20" data-type="money">$100K+</div>
         <div class="stat-label" data-i18n="stats.closed_2025">Closed in 2025</div>
       </div>
       <div>
-        <div class="stat-value" data-count="1" data-prefix="$" data-suffix="M+">$0M+</div>
+        <div class="stat-value" data-count="10" data-type="money">$100K+</div>
         <div class="stat-label" data-i18n="index.stats.pending_year">Pending This Year</div>
       </div>
     </div>
@@ -2190,26 +2190,35 @@
     const statEls = document.querySelectorAll('.stat-value[data-count]');
     if (!statEls.length) return;
 
+    function formatMoney(step) {
+      var k = step * 100;
+      if (k < 1000) return '$' + k + 'K+';
+      var m = k / 1000;
+      return '$' + (m % 1 === 0 ? m : m.toFixed(1)) + 'M+';
+    }
+
     function animateCount(el) {
-      const target = parseInt(el.dataset.count, 10);
-      const prefix = el.dataset.prefix || '';
-      const suffix = el.dataset.suffix || '';
-      const duration = 1800;
-      const start = performance.now();
+      var target = parseInt(el.dataset.count, 10);
+      var isMoney = el.dataset.type === 'money';
+      var prefix = el.dataset.prefix || '';
+      var suffix = el.dataset.suffix || '';
+      var duration = 1800;
+      var start = performance.now();
 
       function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
 
       function step(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const value = Math.round(easeOutQuart(progress) * target);
-        el.textContent = prefix + value + suffix;
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var value = Math.round(easeOutQuart(progress) * target);
+        if (value < 1) value = 1;
+        el.textContent = isMoney ? formatMoney(value) : prefix + value + suffix;
         if (progress < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
     }
 
-    const observer = new IntersectionObserver(function(entries) {
+    var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           animateCount(entry.target);
