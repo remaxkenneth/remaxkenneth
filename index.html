@@ -399,6 +399,24 @@
       background: transparent;
     }
     .search-input::placeholder { color: #aaa; }
+    .search-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-top: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      padding: 16px 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 0.04em;
+      display: none;
+      z-index: 900;
+    }
+    .search-input-wrap { position: relative; }
     .search-contact-btn {
       height: 100%;
       padding: 0 40px;
@@ -1655,7 +1673,8 @@
   <form class="search-bar" action="listings.html" method="get" onsubmit="if(this.search.value.trim()){return true;}return false;">
     <div class="search-input-wrap">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input class="search-input" type="text" name="search" placeholder="Search by Address or Area" data-i18n-placeholder="index.search.placeholder" />
+      <input class="search-input" type="text" name="search" placeholder="Search by Address or Area" data-i18n-placeholder="index.search.placeholder" autocomplete="off" id="searchInput" />
+      <div class="search-dropdown" id="searchDropdown" data-i18n="index.search.coming_soon">Feature Coming Soon</div>
     </div>
     <a href="businesscard.html" class="search-contact-btn" data-i18n="index.search.book">Book an Appointment</a>
   </form>
@@ -1811,19 +1830,19 @@
     <div class="stats-overlay"></div>
     <div class="stats-grid">
       <div>
-        <div class="stat-value">18</div>
+        <div class="stat-value" data-count="18" data-suffix="">0</div>
         <div class="stat-label" data-i18n="stats.years_baja">Years in Baja</div>
       </div>
       <div>
-        <div class="stat-value">15</div>
+        <div class="stat-value" data-count="15" data-suffix="">0</div>
         <div class="stat-label" data-i18n="stats.years_estate">Years in Real Estate</div>
       </div>
       <div>
-        <div class="stat-value">$2M+</div>
+        <div class="stat-value" data-count="2" data-prefix="$" data-suffix="M+">$0M+</div>
         <div class="stat-label" data-i18n="stats.closed_2025">Closed in 2025</div>
       </div>
       <div>
-        <div class="stat-value">$1M+</div>
+        <div class="stat-value" data-count="1" data-prefix="$" data-suffix="M+">$0M+</div>
         <div class="stat-label" data-i18n="index.stats.pending_year">Pending This Year</div>
       </div>
     </div>
@@ -1854,7 +1873,7 @@
       </a>
 
       <!-- Pescadero Resort -->
-      <a href="listings.html" class="listing-card">
+      <a href="listings/cw/1/index.html" class="listing-card">
         <div class="listing-card-bg" style="background-image: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg')"></div>
         <div class="listing-card-overlay"></div>
         <div class="listing-card-content">
@@ -1870,7 +1889,7 @@
       </a>
 
       <!-- Casa Pacific Dream -->
-      <a href="listings.html" class="listing-card">
+      <a href="listings/6/index.html" class="listing-card">
         <div class="listing-card-bg" style="background-image: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/IMG_1363.jpeg')"></div>
         <div class="listing-card-overlay"></div>
         <div class="listing-card-content">
@@ -1880,38 +1899,6 @@
           <p class="listing-card-desc" data-i18n="index.listing.pacific_dream.desc">Ocean-view living in the desirable Gavilan enclave, just minutes from Cerritos Beach.</p>
           <div style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; flex-wrap:wrap; gap:16px;">
             <span style="font-family:'Tenor Sans',serif; font-size:24px; color:#fff;">$990,000 USD</span>
-            <span class="listing-card-btn" data-i18n="index.listing.view">View Listing</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Casa Vista -->
-      <a href="listings/2/index.html" class="listing-card">
-        <div class="listing-card-bg" style="background-image: url('https://remaxkenneth.com/images/IMG_0822.png')"></div>
-        <div class="listing-card-overlay"></div>
-        <div class="listing-card-content">
-          <div class="listing-card-label">Cerritos, Baja California Sur</div>
-          <h3 class="listing-card-title">Casa Vista</h3>
-          <p class="listing-card-details">5 <span data-i18n="pill.bedrooms">Bedrooms</span> &nbsp;&middot;&nbsp; 4 <span data-i18n="pill.bathrooms">Bathrooms</span></p>
-          <p class="listing-card-desc" data-i18n="index.listing.casa_vista.desc">Stunning views and generous living space in the heart of Cerritos.</p>
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; flex-wrap:wrap; gap:16px;">
-            <span style="font-family:'Tenor Sans',serif; font-size:24px; color:#fff;" data-i18n="index.listing.sale_pending">Sale Pending</span>
-            <span class="listing-card-btn" data-i18n="index.listing.view">View Listing</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Luna Villa -->
-      <a href="listings.html" class="listing-card">
-        <div class="listing-card-bg" style="background-image: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg')"></div>
-        <div class="listing-card-overlay"></div>
-        <div class="listing-card-content">
-          <div class="listing-card-label">El Pescadero, El Centro</div>
-          <h3 class="listing-card-title">Luna Villa</h3>
-          <p class="listing-card-details">3 <span data-i18n="pill.bedrooms">Bedrooms</span> &nbsp;&middot;&nbsp; 2 <span data-i18n="pill.bathrooms">Bathrooms</span></p>
-          <p class="listing-card-desc" data-i18n="index.listing.luna_villa.desc">A charming villa in El Centro, perfectly positioned for the Pescadero lifestyle.</p>
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; flex-wrap:wrap; gap:16px;">
-            <span style="font-family:'Tenor Sans',serif; font-size:24px; color:#fff;">$399,000 USD</span>
             <span class="listing-card-btn" data-i18n="index.listing.view">View Listing</span>
           </div>
         </div>
@@ -2180,5 +2167,59 @@
   </script>
 
 <script src="/js/i18n.js"></script>
+
+<script>
+  // Search dropdown
+  (function() {
+    const input = document.getElementById('searchInput');
+    const dropdown = document.getElementById('searchDropdown');
+    if (!input || !dropdown) return;
+
+    input.addEventListener('focus', function() {
+      dropdown.style.display = 'block';
+    });
+    document.addEventListener('click', function(e) {
+      if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  })();
+
+  // Stats count-up animation
+  (function() {
+    const statEls = document.querySelectorAll('.stat-value[data-count]');
+    if (!statEls.length) return;
+
+    function animateCount(el) {
+      const target = parseInt(el.dataset.count, 10);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const start = performance.now();
+
+      function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.round(easeOutQuart(progress) * target);
+        el.textContent = prefix + value + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    statEls.forEach(function(el) { observer.observe(el); });
+  })();
+</script>
 </body>
 </html>

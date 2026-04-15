@@ -40,6 +40,7 @@ const LANG = {
     'index.hero.view_props':   'View Properties',
     'index.search.placeholder':'Search by Address or Area',
     'index.search.book':       'Book an Appointment',
+    'index.search.coming_soon':'Feature Coming Soon',
 
     'index.carousel.featured':     'Featured',
     'index.carousel.land':         'Land',
@@ -253,6 +254,7 @@ const LANG = {
     'index.hero.view_props':   'Ver Propiedades',
     'index.search.placeholder':'Buscar por Direcci\u00f3n o Zona',
     'index.search.book':       'Reservar una Cita',
+    'index.search.coming_soon':'Función Próximamente',
 
     'index.carousel.featured':     'Destacado',
     'index.carousel.land':         'Terreno',
