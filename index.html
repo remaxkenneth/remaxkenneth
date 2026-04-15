@@ -137,10 +137,14 @@
       inset: 0;
       z-index: 99999;
       background: #000;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
+      opacity: 1;
       transition: opacity 0.6s ease;
+    }
+    #splash-screen.active {
+      display: flex;
     }
     #splash-screen.fade-out {
       opacity: 0;
@@ -150,14 +154,15 @@
       width: 260px;
       max-width: 60vw;
       opacity: 0;
-      animation: splash-appear 0.35s ease forwards;
+      transform: scale(0.88);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    #splash-logo.appear {
+      opacity: 1;
+      transform: scale(1);
     }
     #splash-logo.electric {
-      animation: splash-appear 0.35s ease forwards, electric-pulse 1.5s ease 0.35s forwards;
-    }
-    @keyframes splash-appear {
-      from { opacity: 0; transform: scale(0.88); }
-      to   { opacity: 1; transform: scale(1); }
+      animation: electric-pulse 1.5s ease forwards;
     }
     @keyframes electric-pulse {
       0%   { filter: drop-shadow(0 0 0px #fff); }
@@ -2223,30 +2228,33 @@
     if (!splash) return;
 
     var today = new Date().toDateString();
-    if (localStorage.getItem('splashShown') === today) {
-      splash.style.display = 'none';
-      return;
-    }
+    if (localStorage.getItem('splashDate') === today) return;
 
+    // Show splash
+    splash.classList.add('active');
     document.body.style.overflow = 'hidden';
 
-    // Play sound immediately
-    if (sound) { sound.volume = 0.8; sound.play().catch(function(){}); }
+    // Step 1 — logo appears (50ms delay lets the flex layout render first)
+    setTimeout(function() {
+      logo.classList.add('appear');
+    }, 50);
 
-    // Start electric pulse after logo appears (0.35s)
+    // Step 2 — electric pulse starts after logo is fully in (400ms)
     setTimeout(function() {
       logo.classList.add('electric');
-    }, 10);
+      if (sound) { sound.volume = 0.85; sound.play().catch(function(){}); }
+    }, 400);
 
-    // Fade out at 1.9s, remove at 2.5s
+    // Step 3 — fade out overlay at 1.9s
     setTimeout(function() {
       splash.classList.add('fade-out');
     }, 1900);
 
+    // Step 4 — remove and unlock scroll at 2.5s
     setTimeout(function() {
-      splash.style.display = 'none';
+      splash.classList.remove('active');
       document.body.style.overflow = '';
-      localStorage.setItem('splashShown', today);
+      localStorage.setItem('splashDate', today);
     }, 2500);
   })();
 
